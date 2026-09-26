@@ -1,0 +1,19 @@
+metrica,valor,unidade,fonte_csv,calculo
+consumo_medio_residencial_1997,18.4,m3/economia/mes,data/processed/consumo_residencial_por_economia_1997_2021.csv,consumo residencial anual / economias residenciais / 12
+consumo_medio_residencial_2021,11.6,m3/economia/mes,data/processed/consumo_residencial_por_economia_1997_2021.csv,consumo residencial anual / economias residenciais / 12
+variacao_consumo_medio_1997_2021,-36.9,%,data/processed/consumo_residencial_por_economia_1997_2021.csv,(2021/1997 - 1) * 100
+economias_residenciais_1997,87183,economias,data/clean/economias_agua_por_categoria_1997_2022.csv,valor da fonte
+economias_residenciais_2021,177429,economias,data/clean/economias_agua_por_categoria_1997_2022.csv,valor da fonte
+variacao_economias_residenciais_1997_2021,103.5,%,data/clean/economias_agua_por_categoria_1997_2022.csv,(2021/1997 - 1) * 100
+producao_agua_2022,70719256,m3/ano,data/clean/pmsb_producao_agua_por_eta_2022.csv,total PMSB
+producao_agua_2022_bilhoes_litros,70.7,bilhoes_litros,data/clean/pmsb_producao_agua_por_eta_2022.csv,m3 * 1000 / 1e9
+perdas_distribuicao_2022,53.93,%,data/clean/pmsb_indices_perdas_2010_2022.csv,valor SNIS/PMSB
+media_nacional_perdas_2022,37.78,%,PMSB 2026 p.158,valor citado no PMSB
+rede_agua_1990,1053.08,km,data/clean/extensao_rede_agua_esgoto_1976_2022.csv,metros / 1000
+rede_agua_2022_aprox,1727,km,PMSB 2026 p.43,valor aproximado informado no plano
+eta_i_vazao_media,467.2,L/s,data/clean/pmsb_vazao_capacidade_etas_2022.csv,valor PMSB
+eta_i_capacidade,500,L/s,data/clean/pmsb_vazao_capacidade_etas_2022.csv,valor PMSB
+eta_ii_vazao_media,306.1,L/s,data/clean/pmsb_vazao_capacidade_etas_2022.csv,valor PMSB
+eta_ii_capacidade,350,L/s,data/clean/pmsb_vazao_capacidade_etas_2022.csv,valor PMSB
+eta_iii_vazao_media,1468.7,L/s,data/clean/pmsb_vazao_capacidade_etas_2022.csv,valor PMSB
+eta_iii_capacidade,1500,L/s,data/clean/pmsb_vazao_capacidade_etas_2022.csv,valor PMSB
