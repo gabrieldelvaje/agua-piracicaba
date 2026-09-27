@@ -110,13 +110,13 @@ a{color:inherit}
 @media(max-width:600px){
   .home-layout{width:calc(100vw - 32px)}
   .home-project{gap:22px}
-  .home-kicker{font-size:10px}
-  .home-project h1{font-size:11vw;line-height:1.04;letter-spacing:-.055em}
+  .home-kicker{font-size:10.5px}
+  .home-project h1{font-size:12.2vw;line-height:1.03;letter-spacing:-.055em}
   .home-project .title-line{white-space:nowrap;margin-top:.12em}
-  .home-lead{font-size:15px;line-height:1.42}
-  .home-support{font-size:12px;line-height:1.5}
-  .home-episode{padding:18px;min-height:180px}
+  .home-lead{font-size:16px;line-height:1.42}
+  .home-support{font-size:12.5px;line-height:1.5}
+  .home-episode{padding:18px;min-height:185px}
   .home-episode-meta{font-size:10px}
-  .home-episode h2{font-size:24px;line-height:1.02;padding:14px 0}
-  .home-episode p{font-size:11px;line-height:1.4;padding-right:0}
+  .home-episode h2{font-size:25px;line-height:1.03;padding:14px 0}
+  .home-episode p{font-size:11.5px;line-height:1.4;padding-right:0}
 }
