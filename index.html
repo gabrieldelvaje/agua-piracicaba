@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site/css/series.css?v=20260927-1950" />
+  <link rel="stylesheet" href="assets/site/css/series.css?v=20260927-1958" />
 <style>
 :root{--blue:#0736fe;--ink:#fff}
 *{box-sizing:border-box}
@@ -49,6 +49,24 @@ body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidde
   .home-episodes{grid-template-columns:1fr}.home-episode{min-height:190px}
   .home-project h1{font-size:17vw}.home-description p{font-size:17px}.home-episode h2{font-size:29px}
 }
+
+.home-project{align-self:center;display:grid;grid-template-rows:auto auto auto;gap:32px;padding:0}
+.home-project h1{margin:0;max-width:none;font-size:clamp(58px,6.15vw,108px);line-height:.88;letter-spacing:-.07em;font-weight:700}
+.home-project h1 span{display:block}
+.home-project .title-line{white-space:nowrap}
+.home-lead{margin:0;max-width:570px;font-size:clamp(19px,1.55vw,23px);line-height:1.38;color:rgba(255,255,255,.94);font-weight:500}
+.home-support{margin:0;max-width:500px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.62);font-weight:400}
+@media(max-width:900px){
+  .home-project{gap:28px}
+  .home-project h1{font-size:clamp(54px,13vw,88px)}
+  .home-project .title-line{white-space:normal}
+}
+@media(max-width:600px){
+  .home-project{gap:24px}
+  .home-project h1{font-size:16vw}
+  .home-lead{font-size:17px}
+}
+
 </style>
 </head>
 <body class="series-home">
@@ -59,15 +77,14 @@ body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidde
     <div class="home-cover-overlay" aria-hidden="true"></div>
     <div class="home-layout">
       <section class="home-project" aria-labelledby="project-title">
-        <div>
-          <p class="home-kicker">Série documental + dados</p>
-          <h1 id="project-title">Águas do<br>Rio Piracicaba</h1>
-        </div>
+        <h1 id="project-title">
+          <span>Águas do</span>
+          <span class="title-line">Rio Piracicaba</span>
+        </h1>
 
-        <div class="home-description">
-          <p>Quatro histórias para entender de onde vem a água, como o sistema mudou e por que o Rio Piracicaba continua atravessando a vida da cidade.</p>
-          <p>Dados públicos, documentos históricos e fontes oficiais organizados para registrar a realidade de cada período.</p>
-        </div>
+        <p class="home-lead">Quatro histórias para entender de onde vem a água, como o sistema mudou e por que o Rio Piracicaba continua atravessando a vida da cidade.</p>
+
+        <p class="home-support">Dados públicos, documentos históricos e fontes oficiais organizados para registrar a realidade de cada período.</p>
       </section>
 
       <nav class="home-episodes" aria-label="Episódios da série">
