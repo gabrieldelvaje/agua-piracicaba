@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site/css/series.css?v=20260927-1936" />
+  <link rel="stylesheet" href="assets/site/css/series.css?v=20260927-1940" />
 <style>
 :root{--blue:#0736fe;--ink:#fff}
 *{box-sizing:border-box}
@@ -23,8 +23,8 @@ body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidde
 .home-header{position:absolute;top:0;left:0;right:0;height:72px;padding:0 max(28px,calc((100vw - 1320px)/2));display:flex;align-items:center;justify-content:space-between;z-index:4;border-bottom:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.8)}
 .home-header a{font-size:14px;font-weight:700;text-decoration:none;color:#fff}
 .home-header span{font-size:13px}
-.home-layout{width:min(1320px,calc(100vw - 56px));min-height:100vh;margin:0 auto;padding:118px 0 58px;display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:clamp(48px,7vw,110px);align-items:center}
-.home-project{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;padding:30px 0 18px}
+.home-layout{width:min(1320px,calc(100vw - 56px));min-height:100vh;margin:0 auto;padding:42px 0;display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:clamp(48px,7vw,110px);align-items:center}
+.home-project{align-self:center;display:flex;flex-direction:column;justify-content:center;gap:54px;padding:0}
 .home-kicker{margin:0 0 24px;text-transform:uppercase;letter-spacing:.15em;font-size:12px;font-weight:700;color:#cfd7ff}
 .home-project h1{margin:0;max-width:680px;font-size:clamp(64px,8.6vw,132px);line-height:.84;letter-spacing:-.075em}
 .home-description{max-width:570px;border-top:1px solid rgba(255,255,255,.34);padding-top:22px}
@@ -40,12 +40,12 @@ body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidde
 .home-episode-arrow{position:absolute;right:20px;bottom:18px;font-size:24px}
 @media(max-width:900px){
   .home-header{padding:0 20px}.home-header span{display:none}
-  .home-layout{width:calc(100vw - 32px);padding:98px 0 28px;grid-template-columns:1fr;gap:34px;align-items:start}
+  .home-layout{width:calc(100vw - 32px);padding:38px 0;grid-template-columns:1fr;gap:34px;align-items:center}
   .home-project{gap:34px;padding:16px 0 0}.home-project h1{font-size:clamp(58px,16vw,94px)}
   .home-description{max-width:680px}.home-episodes{grid-template-columns:1fr 1fr;gap:8px}.home-episode{min-height:225px}
 }
 @media(max-width:600px){
-  .home-cover{min-height:auto}.home-layout{min-height:auto;padding-bottom:24px}
+  .home-cover{min-height:auto}.home-layout{min-height:auto;padding:32px 0}
   .home-episodes{grid-template-columns:1fr}.home-episode{min-height:190px}
   .home-project h1{font-size:17vw}.home-description p{font-size:17px}.home-episode h2{font-size:29px}
 }
