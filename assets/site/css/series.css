@@ -89,3 +89,21 @@ a{color:inherit}
   .home-episode h2{font-size:29px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+
+.home-project{align-self:center;display:grid;grid-template-rows:auto auto auto;gap:32px;padding:0}
+.home-project h1{margin:0;max-width:none;font-size:clamp(58px,6.15vw,108px);line-height:.88;letter-spacing:-.07em;font-weight:700}
+.home-project h1 span{display:block}
+.home-project .title-line{white-space:nowrap}
+.home-lead{margin:0;max-width:570px;font-size:clamp(19px,1.55vw,23px);line-height:1.38;color:rgba(255,255,255,.94);font-weight:500}
+.home-support{margin:0;max-width:500px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.62);font-weight:400}
+@media(max-width:900px){
+  .home-project{gap:28px}
+  .home-project h1{font-size:clamp(54px,13vw,88px)}
+  .home-project .title-line{white-space:normal}
+}
+@media(max-width:600px){
+  .home-project{gap:24px}
+  .home-project h1{font-size:16vw}
+  .home-lead{font-size:17px}
+}
