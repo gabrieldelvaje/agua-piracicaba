@@ -22,8 +22,8 @@ a{color:inherit}
 .home-header{position:absolute;top:0;left:0;right:0;height:72px;padding:0 max(28px,calc((100vw - 1320px)/2));display:flex;align-items:center;justify-content:space-between;z-index:4;border-bottom:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8)}
 .home-header a{font-size:14px;font-weight:700;text-decoration:none;color:#fff}
 .home-header span{font-size:13px}
-.home-layout{width:min(1320px,calc(100vw - 56px));min-height:100vh;margin:0 auto;padding:118px 0 58px;display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:clamp(48px,7vw,110px);align-items:center}
-.home-project{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;padding:30px 0 18px}
+.home-layout{width:min(1320px,calc(100vw - 56px));min-height:100vh;margin:0 auto;padding:42px 0;display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:clamp(48px,7vw,110px);align-items:center}
+.home-project{align-self:center;display:flex;flex-direction:column;justify-content:center;gap:54px;padding:0}
 .home-kicker{text-transform:uppercase;letter-spacing:.15em;font-size:12px;font-weight:700;color:#cfd7ff;margin:0 0 24px}
 .home-project h1{font-size:clamp(64px,8.6vw,132px);line-height:.84;letter-spacing:-.075em;margin:0;max-width:680px}
 .home-description{max-width:570px;border-top:1px solid rgba(255,255,255,.32);padding-top:22px}
@@ -67,8 +67,8 @@ a{color:inherit}
   :root{--shell:calc(100vw - 28px)}
   .home-header{padding:0 20px}
   .home-header span{display:none}
-  .home-layout{width:calc(100vw - 32px);padding:98px 0 28px;grid-template-columns:1fr;gap:34px;align-items:start}
-  .home-project{min-height:auto;gap:34px;padding:16px 0 0}
+  .home-layout{width:calc(100vw - 32px);padding:38px 0;grid-template-columns:1fr;gap:34px;align-items:center}
+  .home-project{min-height:auto;gap:34px;padding:0}
   .home-project h1{font-size:clamp(58px,16vw,94px)}
   .home-description{max-width:680px}
   .home-episodes{grid-template-columns:1fr 1fr;gap:8px}
@@ -81,7 +81,7 @@ a{color:inherit}
 @media(max-width:600px){
   .home-cover{min-height:auto}
   .home-cover-photo img{min-height:100%;object-position:center center}
-  .home-layout{min-height:auto;padding-bottom:24px}
+  .home-layout{min-height:auto;padding:32px 0}
   .home-episodes{grid-template-columns:1fr}
   .home-episode{min-height:190px}
   .home-project h1{font-size:17vw}
