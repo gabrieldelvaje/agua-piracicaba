@@ -91,7 +91,7 @@ a{color:inherit}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
 
-.home-project{align-self:center;display:grid;grid-template-rows:auto auto auto;gap:32px;padding:0}
+.home-project{align-self:center;display:grid;grid-template-rows:auto auto auto auto;gap:32px;padding:0}
 .home-project h1{margin:0;max-width:none;font-size:clamp(58px,6.15vw,108px);line-height:1;letter-spacing:-.07em;font-weight:700}
 .home-project h1 span{display:block}
 .home-project .title-line{white-space:nowrap;margin-top:.10em}
