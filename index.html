@@ -9,7 +9,47 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site/css/series.css" />
+  <link rel="stylesheet" href="assets/site/css/series.css?v=20260927-1936" />
+<style>
+:root{--blue:#0736fe;--ink:#fff}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,Helvetica,Arial,sans-serif}
+body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidden}
+.home-cover{position:relative;min-height:100vh;overflow:hidden;isolation:isolate}
+.home-cover-photo{position:absolute;inset:0;z-index:-3}
+.home-cover-photo img{display:block;width:100%;height:100%;min-height:100vh;object-fit:cover;object-position:center center}
+.home-cover-overlay{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.58) 46%,rgba(0,0,0,.66) 100%)}
+.home-cover:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.05) 42%,rgba(0,0,0,.35));pointer-events:none}
+.home-header{position:absolute;top:0;left:0;right:0;height:72px;padding:0 max(28px,calc((100vw - 1320px)/2));display:flex;align-items:center;justify-content:space-between;z-index:4;border-bottom:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.8)}
+.home-header a{font-size:14px;font-weight:700;text-decoration:none;color:#fff}
+.home-header span{font-size:13px}
+.home-layout{width:min(1320px,calc(100vw - 56px));min-height:100vh;margin:0 auto;padding:118px 0 58px;display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:clamp(48px,7vw,110px);align-items:center}
+.home-project{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;padding:30px 0 18px}
+.home-kicker{margin:0 0 24px;text-transform:uppercase;letter-spacing:.15em;font-size:12px;font-weight:700;color:#cfd7ff}
+.home-project h1{margin:0;max-width:680px;font-size:clamp(64px,8.6vw,132px);line-height:.84;letter-spacing:-.075em}
+.home-description{max-width:570px;border-top:1px solid rgba(255,255,255,.34);padding-top:22px}
+.home-description p{margin:0 0 14px;font-size:clamp(17px,1.4vw,21px);line-height:1.42;color:rgba(255,255,255,.93)}
+.home-description p:last-child{max-width:500px;font-size:14px;color:rgba(255,255,255,.64)}
+.home-episodes{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-self:center}
+.home-episode{position:relative;min-height:260px;padding:22px;display:flex;flex-direction:column;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.32);background:rgba(0,0,0,.2);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);transition:background .22s ease,border-color .22s ease,transform .22s ease}
+.home-episode:hover{background:rgba(7,54,254,.88);border-color:rgba(255,255,255,.58);transform:translateY(-3px)}
+.home-episode-meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.74)}
+.episode-state{font-size:9px;border:1px solid rgba(255,255,255,.42);border-radius:999px;padding:4px 7px}
+.home-episode h2{margin:auto 0 12px;max-width:470px;font-size:clamp(25px,2.15vw,36px);line-height:.98;letter-spacing:-.05em}
+.home-episode p{margin:0;padding-right:28px;font-size:12px;line-height:1.42;color:rgba(255,255,255,.7)}
+.home-episode-arrow{position:absolute;right:20px;bottom:18px;font-size:24px}
+@media(max-width:900px){
+  .home-header{padding:0 20px}.home-header span{display:none}
+  .home-layout{width:calc(100vw - 32px);padding:98px 0 28px;grid-template-columns:1fr;gap:34px;align-items:start}
+  .home-project{gap:34px;padding:16px 0 0}.home-project h1{font-size:clamp(58px,16vw,94px)}
+  .home-description{max-width:680px}.home-episodes{grid-template-columns:1fr 1fr;gap:8px}.home-episode{min-height:225px}
+}
+@media(max-width:600px){
+  .home-cover{min-height:auto}.home-layout{min-height:auto;padding-bottom:24px}
+  .home-episodes{grid-template-columns:1fr}.home-episode{min-height:190px}
+  .home-project h1{font-size:17vw}.home-description p{font-size:17px}.home-episode h2{font-size:29px}
+}
+</style>
 </head>
 <body class="series-home">
   <main class="home-cover">
