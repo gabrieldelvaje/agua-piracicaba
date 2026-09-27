@@ -35,7 +35,6 @@ a{color:inherit}
 .home-episode-meta{display:flex;justify-content:flex-start;align-items:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .home-episode h2{align-self:center;margin:0;padding:18px 0;max-width:470px;font-size:clamp(25px,2.15vw,36px);line-height:.98;letter-spacing:-.05em}
 .home-episode p{margin:0;padding-right:28px;font-size:12px;line-height:1.42;color:rgba(255,255,255,.68)}
-.home-episode-arrow{position:absolute;right:20px;bottom:18px;font-size:24px}
 
 /* Episode shells */
 .episode-page{min-height:100vh}
