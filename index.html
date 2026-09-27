@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site/css/series.css?v=20260927-2018" />
+  <link rel="stylesheet" href="assets/site/css/series.css?v=20260927-2026" />
 <style>
 :root{--blue:#0736fe;--ink:#fff}
 *{box-sizing:border-box}
@@ -32,10 +32,10 @@ body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidde
 .home-description p{margin:0;font-size:clamp(19px,1.55vw,23px);line-height:1.38;color:rgba(255,255,255,.94);font-weight:500}
 .home-description p:last-child{max-width:500px;margin-top:14px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.62);font-weight:400}
 .home-episodes{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-self:center}
-.home-episode{position:relative;min-height:260px;padding:22px;display:flex;flex-direction:column;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.32);background:rgba(0,0,0,.2);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);transition:background .22s ease,border-color .22s ease,transform .22s ease}
+.home-episode{position:relative;min-height:260px;padding:22px;display:grid;grid-template-rows:auto 1fr auto;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.32);background:rgba(0,0,0,.2);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);transition:background .22s ease,border-color .22s ease,transform .22s ease}
 .home-episode:hover{background:rgba(7,54,254,.88);border-color:rgba(255,255,255,.58);transform:translateY(-3px)}
 .home-episode-meta{display:flex;justify-content:flex-start;align-items:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.74)}
-.home-episode h2{margin:auto 0 12px;max-width:470px;font-size:clamp(25px,2.15vw,36px);line-height:.98;letter-spacing:-.05em}
+.home-episode h2{align-self:center;margin:0;padding:18px 0;max-width:470px;font-size:clamp(25px,2.15vw,36px);line-height:.98;letter-spacing:-.05em}
 .home-episode p{margin:0;padding-right:28px;font-size:12px;line-height:1.42;color:rgba(255,255,255,.7)}
 .home-episode-arrow{position:absolute;right:20px;bottom:18px;font-size:24px}
 @media(max-width:900px){
