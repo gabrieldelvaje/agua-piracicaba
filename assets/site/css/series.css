@@ -13,33 +13,30 @@ a{color:inherit}
 .kicker{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:700;color:var(--blue);margin:0 0 22px}
 
 /* Home */
-.home-hero{position:relative;min-height:78vh;overflow:hidden;display:flex;align-items:flex-end;color:#fff;margin-bottom:46px;background:#1c1c1c}
-.home-hero-photo{position:absolute;inset:0;z-index:0}
-.home-hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%;transform:scale(1.01)}
-.home-hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.2) 36%,rgba(0,0,0,.52) 100%)}
-.home-hero-content{position:relative;z-index:3;padding:105px 0 218px}
-.home-hero-content .kicker{color:#dbe1ff}
-.home-hero-content h1{font-size:clamp(64px,10vw,138px);line-height:.84;letter-spacing:-.075em;margin:0;max-width:1100px;text-shadow:0 2px 22px rgba(0,0,0,.14)}
-.home-hero .series-hero-copy{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.5)}
-.home-hero .series-hero-copy p{font-size:20px;line-height:1.45;margin:0;max-width:650px}
-.home-hero .series-hero-copy p:last-child{color:rgba(255,255,255,.72);font-size:14px}
-.home-river{position:absolute;left:0;right:0;bottom:-1px;height:190px;z-index:2;pointer-events:none}
-.home-river svg{display:block;width:100%;height:100%}
-.river-back{fill:rgba(7,54,254,.72)}
-.river-front{fill:var(--blue)}
-
-.episode-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-bottom:110px}
-.episode-card{min-height:380px;padding:28px;display:flex;flex-direction:column;text-decoration:none;border:1px solid var(--line);background:#e9e9e5;transition:transform .25s ease,background .25s ease,color .25s ease}
-.episode-card:hover{transform:translateY(-4px);background:var(--dark);color:#fff}
-.episode-card:nth-child(1){background:var(--blue);color:#fff;border-color:var(--blue)}
-.episode-card:nth-child(1):hover{background:#0027ca}
-.episode-card .number{font-size:13px;font-weight:700;letter-spacing:.1em}
-.episode-card .status{margin-left:auto;font-size:11px;text-transform:uppercase;letter-spacing:.1em;border:1px solid currentColor;border-radius:999px;padding:5px 8px;opacity:.68}
-.episode-top{display:flex;align-items:center}
-.episode-card h2{font-size:clamp(36px,5vw,67px);line-height:.95;letter-spacing:-.055em;margin:auto 0 20px;max-width:520px}
-.episode-card p{margin:0;max-width:520px;line-height:1.45;color:inherit;opacity:.72}
-.episode-arrow{display:flex;justify-content:flex-end;font-size:35px;margin-top:26px}
-.series-footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:12px}
+.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidden}
+.home-cover{position:relative;min-height:100vh;overflow:hidden;isolation:isolate}
+.home-cover-photo{position:absolute;inset:0;z-index:-3}
+.home-cover-photo img{display:block;width:100%;height:100%;min-height:100vh;object-fit:cover;object-position:center center}
+.home-cover-overlay{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.58) 44%,rgba(0,0,0,.62) 100%)}
+.home-cover::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,.05) 42%,rgba(0,0,0,.32) 100%);pointer-events:none}
+.home-header{position:absolute;top:0;left:0;right:0;height:72px;padding:0 max(28px,calc((100vw - 1320px)/2));display:flex;align-items:center;justify-content:space-between;z-index:4;border-bottom:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8)}
+.home-header a{font-size:14px;font-weight:700;text-decoration:none;color:#fff}
+.home-header span{font-size:13px}
+.home-layout{width:min(1320px,calc(100vw - 56px));min-height:100vh;margin:0 auto;padding:118px 0 58px;display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:clamp(48px,7vw,110px);align-items:center}
+.home-project{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;padding:30px 0 18px}
+.home-kicker{text-transform:uppercase;letter-spacing:.15em;font-size:12px;font-weight:700;color:#cfd7ff;margin:0 0 24px}
+.home-project h1{font-size:clamp(64px,8.6vw,132px);line-height:.84;letter-spacing:-.075em;margin:0;max-width:680px}
+.home-description{max-width:570px;border-top:1px solid rgba(255,255,255,.32);padding-top:22px}
+.home-description p{margin:0 0 14px;font-size:clamp(17px,1.4vw,21px);line-height:1.42;color:rgba(255,255,255,.92)}
+.home-description p:last-child{font-size:14px;color:rgba(255,255,255,.62);max-width:500px}
+.home-episodes{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-self:center}
+.home-episode{position:relative;min-height:260px;padding:22px;display:flex;flex-direction:column;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.18);backdrop-filter:blur(8px);transition:background .22s ease,border-color .22s ease,transform .22s ease}
+.home-episode:hover{background:rgba(7,54,254,.86);border-color:rgba(255,255,255,.58);transform:translateY(-3px)}
+.home-episode-meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.episode-state{font-size:9px;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:4px 7px}
+.home-episode h2{font-size:clamp(25px,2.15vw,36px);line-height:.98;letter-spacing:-.05em;margin:auto 0 12px;max-width:470px}
+.home-episode p{margin:0;padding-right:28px;font-size:12px;line-height:1.42;color:rgba(255,255,255,.68)}
+.home-episode-arrow{position:absolute;right:20px;bottom:18px;font-size:24px}
 
 /* Episode shells */
 .episode-page{min-height:100vh}
@@ -65,20 +62,30 @@ a{color:inherit}
 .next-episode strong{font-size:30px;letter-spacing:-.04em}
 .next-episode b{font-size:42px;font-weight:400}
 
-@media(max-width:760px){
+
+@media(max-width:900px){
   :root{--shell:calc(100vw - 28px)}
-  .series-header .series-meta{display:none}
-  .home-hero{min-height:76vh;margin-bottom:28px}
-  .home-hero-content{padding:78px 0 150px}
-  .home-hero-content h1{font-size:18vw}
-  .home-hero .series-hero-copy,.episode-grid,.episode-placeholder .box{grid-template-columns:1fr}
-  .home-hero .series-hero-copy{gap:16px;margin-top:34px}
-  .home-hero .series-hero-copy p{font-size:17px}
-  .home-river{height:118px}
-  .episode-grid{gap:10px}
-  .episode-card{min-height:310px}
+  .home-header{padding:0 20px}
+  .home-header span{display:none}
+  .home-layout{width:calc(100vw - 32px);padding:98px 0 28px;grid-template-columns:1fr;gap:34px;align-items:start}
+  .home-project{min-height:auto;gap:34px;padding:16px 0 0}
+  .home-project h1{font-size:clamp(58px,16vw,94px)}
+  .home-description{max-width:680px}
+  .home-episodes{grid-template-columns:1fr 1fr;gap:8px}
+  .home-episode{min-height:225px}
   .outline-grid{grid-template-columns:1fr}
   .episode-cover{padding:70px 0 60px}
   .episode-cover h1{font-size:15vw}
   .series-footer{flex-direction:column;gap:7px}
 }
+@media(max-width:600px){
+  .home-cover{min-height:auto}
+  .home-cover-photo img{min-height:100%;object-position:center center}
+  .home-layout{min-height:auto;padding-bottom:24px}
+  .home-episodes{grid-template-columns:1fr}
+  .home-episode{min-height:190px}
+  .home-project h1{font-size:17vw}
+  .home-description p{font-size:17px}
+  .home-episode h2{font-size:29px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
