@@ -32,8 +32,7 @@ a{color:inherit}
 .home-episodes{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-self:center}
 .home-episode{position:relative;min-height:260px;padding:22px;display:flex;flex-direction:column;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.18);backdrop-filter:blur(8px);transition:background .22s ease,border-color .22s ease,transform .22s ease}
 .home-episode:hover{background:rgba(7,54,254,.86);border-color:rgba(255,255,255,.58);transform:translateY(-3px)}
-.home-episode-meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)}
-.episode-state{font-size:9px;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:4px 7px}
+.home-episode-meta{display:flex;justify-content:flex-start;align-items:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .home-episode h2{font-size:clamp(25px,2.15vw,36px);line-height:.98;letter-spacing:-.05em;margin:auto 0 12px;max-width:470px}
 .home-episode p{margin:0;padding-right:28px;font-size:12px;line-height:1.42;color:rgba(255,255,255,.68)}
 .home-episode-arrow{position:absolute;right:20px;bottom:18px;font-size:24px}
