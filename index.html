@@ -2,237 +2,65 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Uma história interativa sobre consumo, perdas e infraestrutura do abastecimento de água em Piracicaba." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Águas do Rio Piracicaba — uma série de histórias em dados sobre abastecimento, rios e infraestrutura." />
   <meta name="theme-color" content="#f3f3f1" />
-  <title>Água em Piracicaba — uma história em dados</title>
+  <title>Águas do Rio Piracicaba</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="series.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#top">Água em Piracicaba</a>
-    <nav aria-label="Navegação principal">
-      <a href="#historia">História</a>
-      <a href="#dados">Dados</a>
-      <a href="#infraestrutura">Infraestrutura</a>
-      <a href="#fontes">Fontes</a>
-    </nav>
-    <button class="coverage-button" type="button" data-open-coverage>Cobertura dos dados</button>
+  <header class="series-header series-shell">
+    <a class="series-name" href="index.html">Águas do Rio Piracicaba</a>
+    <span class="series-meta">Uma série em 4 episódios · Piracicaba Data Stories</span>
   </header>
 
-  <main id="top">
-    <section class="hero section-shell">
-      <p class="eyebrow">Piracicaba Data Stories · água</p>
-      <h1>Tá faltando água<br />aí na sua casa?</h1>
-      <p class="hero-copy">A resposta não começa e termina no rio. Este projeto acompanha o caminho da água — da captação até a torneira — para entender consumo, crescimento urbano, perdas e a infraestrutura que sustenta o abastecimento.</p>
-      <div class="hero-meta">
-        <span>Leitura interativa · ~7 min</span>
-        <span>Última revisão editorial: 27 set. 2026</span>
-      </div>
-      <a class="scroll-cue" href="#caminho"><span>Entenda o caminho da água</span><b aria-hidden="true">↓</b></a>
-    </section>
-
-    <section class="process-section" id="caminho" aria-labelledby="caminho-title">
-      <div class="section-shell">
-        <p class="eyebrow">O sistema</p>
-        <h2 id="caminho-title">Entre o rio e a sua casa existe uma cidade inteira.</h2>
-        <div class="process-line" aria-label="Etapas do abastecimento de água">
-          <div class="process-step active"><span>01</span><strong>Mananciais</strong><small>Piracicaba + Corumbataí</small></div>
-          <div class="process-arrow">→</div>
-          <div class="process-step"><span>02</span><strong>Captação</strong><small>Água bruta</small></div>
-          <div class="process-arrow">→</div>
-          <div class="process-step"><span>03</span><strong>Tratamento</strong><small>ETAs</small></div>
-          <div class="process-arrow">→</div>
-          <div class="process-step"><span>04</span><strong>Reservação</strong><small>Equilíbrio do sistema</small></div>
-          <div class="process-arrow">→</div>
-          <div class="process-step"><span>05</span><strong>Rede</strong><small>~1,7 mil km</small></div>
-          <div class="process-arrow">→</div>
-          <div class="process-step"><span>06</span><strong>Sua casa</strong><small>Consumo</small></div>
-        </div>
-        <p class="source-note">Hoje, Piracicaba utiliza os rios Piracicaba e Corumbataí como mananciais. O Corumbataí responde pela maior parte do abastecimento. <a href="https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/" target="_blank" rel="noreferrer">Fonte oficial ↗</a></p>
+  <main class="series-shell">
+    <section class="series-hero">
+      <p class="kicker">Série documental + dados</p>
+      <h1>Águas do<br>Rio Piracicaba</h1>
+      <div class="series-hero-copy">
+        <p>Quatro histórias para entender de onde vem a água, como o sistema mudou e por que o Rio Piracicaba continua atravessando a vida da cidade.</p>
+        <p>Os episódios combinam dados públicos, documentos históricos e fontes oficiais. Cada página registra o período coberto pelos dados para preservar o contexto da análise.</p>
       </div>
     </section>
 
-    <section class="history-section section-shell" id="historia">
-      <div class="history-copy">
-        <p class="eyebrow">1887 → 2026</p>
-        <h2>A água também conta a história de Piracicaba.</h2>
-        <p>Em 1887, onde hoje funciona o Museu da Água, começou a operar a primeira estação de captação e bombeamento da cidade. Naquele momento, o desafio era levar água até uma Piracicaba muito menor.</p>
-        <p>Mais de um século depois, o desafio mudou de escala: são mais unidades atendidas, uma rede muito maior e uma infraestrutura que precisa ser ampliada, setorizada e modernizada.</p>
-        <a class="text-link" href="https://piracicaba.sp.gov.br/noticias/museu-da-agua-completara-7-anos/" target="_blank" rel="noreferrer">História do Museu da Água ↗</a>
-      </div>
-      <div class="timeline" aria-label="Linha do tempo resumida">
-        <article><time>1887</time><p>Primeira estação de captação e bombeamento.</p></article>
-        <article><time>1980s</time><p>O sistema passa a depender também do Rio Corumbataí.</p></article>
-        <article><time>2022</time><p><strong>70,7 bilhões de litros</strong> produzidos no ano, segundo o PMSB.</p></article>
-        <article><time>2026</time><p>Ampliação da ETA Capim Fino para até <strong>2.000 L/s</strong> e entrega de novas adutoras.</p></article>
-      </div>
-    </section>
+    <section class="episode-grid" aria-label="Episódios">
+      <a class="episode-card" href="episodio-1.html">
+        <div class="episode-top"><span class="number">EPISÓDIO 01</span><span class="status">disponível</span></div>
+        <h2>Por que está faltando água em Piracicaba?</h2>
+        <p>Consumo, perdas, crescimento da rede e o desafio de fazer a água chegar até a torneira.</p>
+        <span class="episode-arrow" aria-hidden="true">↗</span>
+      </a>
 
-    <section class="question-section" id="dados">
-      <div class="section-shell question-shell">
-        <p class="eyebrow">Primeira hipótese</p>
-        <h2>Talvez esteja faltando água porque cada casa está consumindo cada vez mais?</h2>
-        <div class="question-actions" data-quiz>
-          <button type="button" data-answer="sim">Sim, parece provável</button>
-          <button type="button" data-answer="nao">Não, quero ver os dados</button>
-        </div>
-        <div class="quiz-result" data-quiz-result hidden>
-          <p class="result-kicker">Os dados históricos apontam para o contrário.</p>
-          <div class="big-comparison">
-            <div><span>1997</span><strong id="consumption-start">18,4</strong><small>m³ / economia / mês</small></div>
-            <div class="comparison-arrow">→</div>
-            <div><span>2021</span><strong id="consumption-end">11,6</strong><small>m³ / economia / mês</small></div>
-          </div>
-          <p class="result-summary"><strong id="consumption-change">−36,9%</strong> no consumo médio residencial por economia.</p>
-          <div class="chart-card">
-            <div class="chart-heading"><span>Consumo médio residencial</span><small>1997–2021 · m³/economia/mês</small></div>
-            <svg class="line-chart" id="consumption-chart" viewBox="0 0 900 320" role="img" aria-label="Evolução do consumo médio residencial por economia"></svg>
-          </div>
-          <p class="source-note">Calculado a partir das séries oficiais de consumo residencial e economias atendidas. <a href="data/processed/consumo_residencial_por_economia_1997_2021.csv">Abrir CSV ↗</a></p>
-        </div>
-      </div>
-    </section>
+      <a class="episode-card" href="episodio-2.html">
+        <div class="episode-top"><span class="number">EPISÓDIO 02</span><span class="status">em construção</span></div>
+        <h2>O desvio que mudou o Rio Piracicaba</h2>
+        <p>Sistema Cantareira, industrialização, vazão, poluição e a história do enterro simbólico do rio.</p>
+        <span class="episode-arrow" aria-hidden="true">↗</span>
+      </a>
 
-    <section class="growth-section section-shell">
-      <p class="eyebrow">A virada</p>
-      <h2>Cada unidade consome menos. Mas Piracicaba atende muito mais unidades.</h2>
-      <div class="growth-numbers">
-        <article><span>Economias residenciais</span><strong id="economies-growth">+103,5%</strong><small><b id="economies-start">87.183</b> em 1997 → <b id="economies-end">177.429</b> em 2021</small></article>
-        <article><span>Extensão da rede</span><strong id="network-growth">+49,7%</strong><small><b id="network-start">1.154 km</b> em 1997 → <b id="network-end">1.727 km</b> em 2021</small></article>
-      </div>
-      <div class="chart-card index-card">
-        <div class="chart-heading">
-          <div><span>Crescimento comparado</span><small>Índice 1997 = 100</small></div>
-          <div class="legend"><span><i class="dot homes"></i>Economias</span><span><i class="dot network"></i>Rede</span></div>
-        </div>
-        <svg class="line-chart" id="growth-chart" viewBox="0 0 900 360" role="img" aria-label="Comparação entre crescimento das economias residenciais e da extensão da rede"></svg>
-      </div>
-      <p class="editorial-note">O gráfico não diz que a rede “não cresceu”. Ela cresceu. O que ele mostra é que, no mesmo intervalo, a quantidade de economias residenciais cresceu muito mais rapidamente que a extensão total da rede.</p>
-    </section>
+      <a class="episode-card" href="episodio-3.html">
+        <div class="episode-top"><span class="number">EPISÓDIO 03</span><span class="status">em construção</span></div>
+        <h2>Por que Piracicaba foi buscar água no Corumbataí?</h2>
+        <p>Como um segundo rio se tornou o principal manancial de abastecimento da cidade.</p>
+        <span class="episode-arrow" aria-hidden="true">↗</span>
+      </a>
 
-    <section class="production-section">
-      <div class="section-shell">
-        <p class="eyebrow">Produzir não é entregar</p>
-        <div class="production-grid">
-          <div class="production-main"><strong>70,7</strong><span>bilhões de litros</span><p>produzidos em 2022, segundo o Plano Municipal de Saneamento.</p></div>
-          <div class="eta-list" id="eta-list" aria-label="Produção de água por estação de tratamento"></div>
-        </div>
-        <p class="source-note">Fonte: PMSB 2026 · produção de água tratada em 2022. <a href="data/clean/pmsb_producao_agua_por_eta_2022.csv">Abrir CSV ↗</a></p>
-      </div>
-    </section>
-
-    <section class="loss-section section-shell">
-      <p class="eyebrow">O maior gargalo nos números</p>
-      <h2>Em 2022, o índice de perdas na distribuição foi de <span id="loss-rate-title">53,93%</span>.</h2>
-      <div class="loss-compare">
-        <article class="loss-pira"><span>Piracicaba</span><strong id="loss-pira">53,93%</strong><div class="bar"><i id="loss-pira-bar"></i></div></article>
-        <article><span>Média nacional citada no PMSB</span><strong>37,78%</strong><div class="bar"><i style="width:37.78%"></i></div></article>
-      </div>
-
-      <div class="loss-lab">
-        <div>
-          <p class="eyebrow">Experimente</p>
-          <h3>Se o sistema movimentasse <strong><span id="tons-value">7</span> toneladas</strong> de água...</h3>
-          <input id="tons-slider" type="range" min="1" max="20" value="7" step="1" aria-label="Quantidade de toneladas de água" />
-          <p class="loss-caption">Com o índice de 2022, a equivalência matemática seria:</p>
-        </div>
-        <div class="water-balance">
-          <div class="water-total"><span>Total</span><strong id="water-total">7,0 t</strong></div>
-          <div class="water-loss"><span>Associado às perdas</span><strong id="water-loss">3,8 t</strong></div>
-          <div class="water-remaining"><span>Restante equivalente</span><strong id="water-remaining">3,2 t</strong></div>
-        </div>
-      </div>
-      <details class="method-note"><summary>“Perda” quer dizer que toda essa água vazou?</summary><p>Não. O indicador inclui perdas reais — como vazamentos — e perdas aparentes/comerciais, como problemas de medição. A analogia acima serve para visualizar a proporção do indicador, não para afirmar que 53,93% da água literalmente escorre pelo chão.</p></details>
-      <p class="source-note">Fonte: SNIS reproduzido no PMSB 2026. <a href="data/clean/pmsb_indices_perdas_2010_2022.csv">Abrir série 2010–2022 ↗</a></p>
-    </section>
-
-    <section class="infrastructure-section" id="infraestrutura">
-      <div class="section-shell infra-shell">
-        <div class="infra-intro">
-          <p class="eyebrow">O que existe debaixo da rua</p>
-          <h2>O plano prevê substituir uma extensão equivalente a aproximadamente metade da rede de referência.</h2>
-          <p>O PMSB planeja a troca de cerca de <strong>869 km</strong> de redes de distribuição até 2055, priorizando materiais obsoletos ou historicamente problemáticos.</p>
-        </div>
-        <div class="network-meter" aria-label="Comparação entre extensão da rede e extensão prevista para substituição">
-          <div class="meter-labels"><span>Rede de referência ~1.727 km</span><strong>869 km previstos</strong></div>
-          <div class="meter-track"><i></i></div>
-          <div class="meter-percent"><strong>≈ 50,3%</strong><span>da extensão de referência</span></div>
-        </div>
-        <a class="text-link" href="https://piracicaba.sp.gov.br/wp-content/uploads/2026/03/suplementar1-cap1e2.pdf" target="_blank" rel="noreferrer">Abrir o PMSB ↗</a>
-      </div>
-    </section>
-
-    <section class="events-section section-shell">
-      <p class="eyebrow">O problema aparece na prática</p>
-      <h2>Nem toda interrupção tem a mesma causa.</h2>
-      <div class="event-grid">
-        <article><time>16 set. 2026</time><h3>Chuva intensa</h3><p>O Semae reduziu temporariamente a captação no Rio Piracicaba por aumento de turbidez após chuvas fortes.</p><a href="https://osweb.semaepiracicaba.sp.gov.br/?id=MTUyNzI%3D&p=bm90aWNpYV9jb21wbGV0YQ%3D%3D" target="_blank" rel="noreferrer">Fonte ↗</a></article>
-        <article><time>18 set. 2026</time><h3>Rompimento</h3><p>Reparo emergencial em adutora no Jaraguá afetou temporariamente o abastecimento de cinco bairros.</p><a href="https://www.semaepiracicaba.sp.gov.br/?ft=a&p=bm90aWNpYXM%3D" target="_blank" rel="noreferrer">Fonte ↗</a></article>
-        <article><time>24 set. 2026</time><h3>Oxidação e vazamentos</h3><p>Trecho de 25 m de uma adutora de 500 mm precisou ser substituído por apresentar oxidação avançada e vazamentos.</p><a href="https://www.semaepiracicaba.sp.gov.br/?id=MTUyODM%3D&p=bm90aWNpYV9jb21wbGV0YQ%3D%3D" target="_blank" rel="noreferrer">Fonte ↗</a></article>
-      </div>
-    </section>
-
-    <section class="investment-section section-shell">
-      <div class="investment-callout">
-        <p class="eyebrow">Um ponto importante</p>
-        <h2>Isso não significa que nada esteja sendo feito.</h2>
-        <p>Em 2026, a ETA Capim Fino foi ampliada de 1.500 para até 2.000 L/s e novas adutoras foram entregues. Há também obras de substituição de redes e setorização. A história que os dados contam não é “ausência de investimento”, e sim a existência de um passivo e de gargalos que exigem modernização em grande escala.</p>
-        <a class="text-link" href="https://piracicaba.sp.gov.br/noticias/prefeitura-e-semae-entregam-obras-que-reforcam-o-abastecimento-de-agua-para-340-mil-moradores/" target="_blank" rel="noreferrer">Ver obras entregues em agosto de 2026 ↗</a>
-      </div>
-    </section>
-
-    <section class="conclusion-section">
-      <div class="section-shell conclusion-shell">
-        <p class="eyebrow">Em resumo</p>
-        <h2>O desafio de Piracicaba não está apenas em captar água.<br />Está também em fazê-la chegar.</h2>
-        <div class="summary-grid">
-          <article><strong>−36,9%</strong><span>consumo médio por economia<br />1997–2021</span></article>
-          <article><strong>+103,5%</strong><span>economias residenciais<br />1997–2021</span></article>
-          <article><strong>53,93%</strong><span>perdas na distribuição<br />2022</span></article>
-          <article><strong>869 km</strong><span>previstos para substituição<br />até 2055</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="sources-section section-shell" id="fontes">
-      <p class="eyebrow">Transparência</p>
-      <h2>Os dados têm data. E as conclusões também.</h2>
-      <p class="sources-intro">Este site não pretende mostrar um painel em tempo real. Ele documenta a realidade coberta pelas fontes disponíveis e deixa explícito o período de cada indicador.</p>
-      <div class="coverage-grid">
-        <article><span>Consumo residencial</span><strong>1997–2021</strong><small>2022 parcial não usado na comparação</small></article>
-        <article><span>Economias residenciais</span><strong>1997–2021</strong><small>2022 parcial na base histórica</small></article>
-        <article><span>Extensão da rede</span><strong>até 2021*</strong><small>*2022 histórico parcial; PMSB usa ~1.727 km</small></article>
-        <article><span>Perdas</span><strong>2010–2022</strong><small>SNIS/PMSB; 2023 possui valores conflitantes no documento</small></article>
-        <article><span>Produção por ETA</span><strong>2022</strong><small>PMSB 2026</small></article>
-        <article><span>Obras e ocorrências</span><strong>até set. 2026</strong><small>comunicados oficiais datados</small></article>
-      </div>
-      <div class="source-links">
-        <a href="https://github.com/gabrieldelvaje/agua-piracicaba" target="_blank" rel="noreferrer">Repositório e metodologia ↗</a>
-        <a href="docs/sources.md">Fontes do projeto ↗</a>
-        <a href="docs/methodology.md">Metodologia ↗</a>
-        <a href="docs/validation.md">Validação e limitações ↗</a>
-        <a href="https://piracicaba.sp.gov.br/servicos/plano-municipal-de-saneamento-basico-pmsb/" target="_blank" rel="noreferrer">PMSB oficial ↗</a>
-      </div>
+      <a class="episode-card" href="episodio-4.html">
+        <div class="episode-top"><span class="number">EPISÓDIO 04</span><span class="status">em construção</span></div>
+        <h2>O que acontece nas margens do Piracicaba?</h2>
+        <p>Mata ciliar, enchentes, ocupação ribeirinha, revitalização e os planos para o entorno do rio.</p>
+        <span class="episode-arrow" aria-hidden="true">↗</span>
+      </a>
     </section>
   </main>
 
-  <footer class="site-footer section-shell">
+  <footer class="series-footer series-shell">
     <span>Gabriel Delvaje · Piracicaba Data Stories</span>
     <span>Dados públicos · análise reproduzível</span>
   </footer>
-
-  <dialog class="coverage-dialog" id="coverage-dialog" aria-labelledby="coverage-title">
-    <button class="dialog-close" type="button" data-close-coverage aria-label="Fechar">×</button>
-    <p class="eyebrow">Como ler este site</p>
-    <h2 id="coverage-title">Uma fotografia do período, não um “tempo real”.</h2>
-    <p>Cada indicador mostra explicitamente o período coberto. Dados históricos e PMSB são preservados como retrato daquele momento; ocorrências recentes aparecem sempre com data. Quando uma série estruturada for atualizada no repositório, os gráficos que leem os CSVs passam a refletir a nova base.</p>
-    <p>Última revisão editorial desta versão: <strong>27 de setembro de 2026</strong>.</p>
-  </dialog>
-
-  <script src="script.js"></script>
 </body>
 </html>
