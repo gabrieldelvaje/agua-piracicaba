@@ -9,25 +9,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="series.css" />
+  <link rel="stylesheet" href="assets/site/css/series.css" />
 </head>
-<body>
+<body class="series-home">
   <header class="series-header series-shell">
     <a class="series-name" href="index.html">Águas do Rio Piracicaba</a>
     <span class="series-meta">Uma série em 4 episódios · Piracicaba Data Stories</span>
   </header>
 
-  <main class="series-shell">
-    <section class="series-hero">
-      <p class="kicker">Série documental + dados</p>
-      <h1>Águas do<br>Rio Piracicaba</h1>
-      <div class="series-hero-copy">
-        <p>Quatro histórias para entender de onde vem a água, como o sistema mudou e por que o Rio Piracicaba continua atravessando a vida da cidade.</p>
-        <p>Os episódios combinam dados públicos, documentos históricos e fontes oficiais. Cada página registra o período coberto pelos dados para preservar o contexto da análise.</p>
+  <main>
+    <section class="home-hero">
+      <div class="home-hero-photo" aria-hidden="true">
+        <img src="assets/site/home/engenho-rio-piracicaba.jpeg" alt="" />
+      </div>
+      <div class="home-hero-shade" aria-hidden="true"></div>
+
+      <div class="home-hero-content series-shell">
+        <p class="kicker">Série documental + dados</p>
+        <h1>Águas do<br>Rio Piracicaba</h1>
+        <div class="series-hero-copy">
+          <p>Quatro histórias para entender de onde vem a água, como o sistema mudou e por que o Rio Piracicaba continua atravessando a vida da cidade.</p>
+          <p>Os episódios combinam dados públicos, documentos históricos e fontes oficiais. Cada página registra o período coberto pelos dados para preservar o contexto da análise.</p>
+        </div>
+      </div>
+
+      <div class="home-river" aria-hidden="true">
+        <svg viewBox="0 0 1440 230" preserveAspectRatio="none">
+          <path class="river-back" d="M0,92 C170,148 315,58 468,76 C638,96 714,177 905,151 C1080,127 1234,47 1440,87 L1440,230 L0,230 Z"></path>
+          <path class="river-front" d="M0,132 C186,181 347,105 513,116 C708,129 808,198 1007,168 C1178,142 1314,91 1440,111 L1440,230 L0,230 Z"></path>
+        </svg>
       </div>
     </section>
 
-    <section class="episode-grid" aria-label="Episódios">
+    <section class="episode-grid series-shell" aria-label="Episódios">
       <a class="episode-card" href="episodio-1.html">
         <div class="episode-top"><span class="number">EPISÓDIO 01</span><span class="status">disponível</span></div>
         <h2>Por que está faltando água em Piracicaba?</h2>
