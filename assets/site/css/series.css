@@ -25,7 +25,7 @@ a{color:inherit}
 .home-layout{width:min(1320px,calc(100vw - 56px));min-height:100vh;margin:0 auto;padding:42px 0;display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:clamp(48px,7vw,110px);align-items:center}
 .home-project{align-self:center;display:flex;flex-direction:column;justify-content:center;gap:38px;padding:0}
 .home-kicker{margin:0;text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:700;color:#cfd7ff}
-.home-project h1{margin:0;max-width:680px;font-size:clamp(64px,8.6vw,132px);line-height:.84;letter-spacing:-.075em;font-weight:700}
+.home-project h1{margin:0;max-width:680px;font-size:clamp(64px,8.6vw,132px);line-height:.96;letter-spacing:-.075em;font-weight:700}
 .home-description{max-width:570px;padding-top:0}
 .home-description p{margin:0;font-size:clamp(19px,1.55vw,23px);line-height:1.38;color:rgba(255,255,255,.94);font-weight:500}
 .home-description p:last-child{font-size:14px;color:rgba(255,255,255,.62);max-width:500px}
@@ -92,7 +92,7 @@ a{color:inherit}
 
 
 .home-project{align-self:center;display:grid;grid-template-rows:auto auto auto;gap:32px;padding:0}
-.home-project h1{margin:0;max-width:none;font-size:clamp(58px,6.15vw,108px);line-height:.88;letter-spacing:-.07em;font-weight:700}
+.home-project h1{margin:0;max-width:none;font-size:clamp(58px,6.15vw,108px);line-height:.96;letter-spacing:-.07em;font-weight:700}
 .home-project h1 span{display:block}
 .home-project .title-line{white-space:nowrap}
 .home-lead{margin:0;max-width:570px;font-size:clamp(19px,1.55vw,23px);line-height:1.38;color:rgba(255,255,255,.94);font-weight:500}
