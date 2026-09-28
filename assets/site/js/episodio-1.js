@@ -47,3 +47,50 @@ const slider=document.querySelector('#tons-slider'); function updateWater(){cons
 const dialog=document.querySelector('#coverage-dialog'); document.querySelector('[data-open-coverage]')?.addEventListener('click',()=>dialog.showModal()); document.querySelector('[data-close-coverage]')?.addEventListener('click',()=>dialog.close()); dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
 initData();
+
+// episode-one-scroll-cue
+(() => {
+  const cue = document.querySelector('.scroll-cue[href="#caminho"]');
+  const target = document.querySelector('#caminho');
+  if (!cue || !target) return;
+
+  const easeInOutCubic = t =>
+    t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+
+  cue.addEventListener('click', event => {
+    event.preventDefault();
+
+    const root = document.documentElement;
+    const body = document.body;
+    const previousRootBehavior = root.style.scrollBehavior;
+    const previousBodyBehavior = body.style.scrollBehavior;
+
+    root.style.scrollBehavior = 'auto';
+    body.style.scrollBehavior = 'auto';
+
+    const header = document.querySelector('.site-header');
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+    const distance = end - start;
+    const duration = 950;
+    let startedAt = null;
+
+    const step = now => {
+      if (startedAt === null) startedAt = now;
+      const progress = Math.min((now - startedAt) / duration, 1);
+      window.scrollTo(0, start + distance * easeInOutCubic(progress));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        window.scrollTo(0, end);
+        root.style.scrollBehavior = previousRootBehavior;
+        body.style.scrollBehavior = previousBodyBehavior;
+        history.replaceState(null, '', '#caminho');
+      }
+    };
+
+    requestAnimationFrame(step);
+  });
+})();
