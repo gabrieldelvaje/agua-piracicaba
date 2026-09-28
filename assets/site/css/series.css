@@ -255,3 +255,46 @@ a{color:inherit}
   }
   .explore-series{font-size:11px;margin-top:4px}
 }
+
+
+/* Fit desktop episode grid within one viewport */
+@media(min-width:901px){
+  .episodes-section{
+    min-height:100svh;
+    padding:30px 0;
+    display:flex;
+    align-items:stretch;
+  }
+  .episodes-shell{
+    min-height:calc(100svh - 60px);
+    display:grid;
+    grid-template-rows:auto minmax(0,1fr);
+    gap:22px;
+  }
+  .episodes-heading{
+    margin-bottom:0;
+    align-items:end;
+  }
+  .episodes-heading h2{
+    font-size:clamp(52px,4.4vw,68px);
+  }
+  .home-episodes{
+    min-height:0;
+    height:100%;
+    grid-template-rows:repeat(2,minmax(0,1fr));
+    gap:10px 12px;
+  }
+  .home-episode{
+    min-height:0;
+    height:100%;
+    padding:20px 24px;
+  }
+  .home-episode h3{
+    font-size:clamp(27px,2.2vw,38px);
+    padding:14px 0;
+  }
+  .home-episode p{
+    font-size:12px;
+    line-height:1.4;
+  }
+}
