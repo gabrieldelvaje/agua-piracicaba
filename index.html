@@ -10,101 +10,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site/css/series.css?v=20260928-1925" />
-<style>
-:root{--blue:#0736fe;--ink:#fff}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Inter,Helvetica,Arial,sans-serif}
-body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidden}
-.home-cover{position:relative;min-height:100vh;overflow:hidden;isolation:isolate}
-.home-cover-photo{position:absolute;inset:0;z-index:-3}
-.home-cover-photo img{display:block;width:100%;height:100%;min-height:100vh;object-fit:cover;object-position:center center}
-.home-cover-overlay{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.58) 46%,rgba(0,0,0,.66) 100%)}
-.home-cover:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.05) 42%,rgba(0,0,0,.35));pointer-events:none}
-.home-header{position:absolute;top:0;left:0;right:0;height:72px;padding:0 max(28px,calc((100vw - 1320px)/2));display:flex;align-items:center;justify-content:space-between;z-index:4;border-bottom:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.8)}
-.home-header a{font-size:14px;font-weight:700;text-decoration:none;color:#fff}
-.home-header span{font-size:13px}
-.home-layout{width:min(1320px,calc(100vw - 56px));min-height:100vh;margin:0 auto;padding:42px 0;display:grid;grid-template-columns:minmax(0,.92fr) minmax(520px,1.08fr);gap:clamp(48px,7vw,110px);align-items:center}
-.home-project{align-self:center;display:flex;flex-direction:column;justify-content:center;gap:38px;padding:0}
-.home-kicker{margin:0;text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:700;color:#cfd7ff}
-.home-project h1{margin:0;max-width:680px;font-size:clamp(64px,8.6vw,132px);line-height:1;letter-spacing:-.075em;font-weight:700}
-.home-description{max-width:570px;padding-top:0}
-.home-description p{margin:0;font-size:clamp(19px,1.55vw,23px);line-height:1.38;color:rgba(255,255,255,.94);font-weight:500}
-.home-description p:last-child{max-width:500px;margin-top:14px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.62);font-weight:400}
-.home-episodes{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-self:center}
-.home-episode{position:relative;min-height:260px;padding:22px;display:grid;grid-template-rows:auto 1fr auto;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.32);background:rgba(0,0,0,.2);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);transition:background .22s ease,border-color .22s ease,transform .22s ease}
-.home-episode:hover{background:rgba(7,54,254,.88);border-color:rgba(255,255,255,.58);transform:translateY(-3px)}
-.home-episode-meta{display:flex;justify-content:flex-start;align-items:center;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.74)}
-.home-episode h2{align-self:center;margin:0;padding:18px 0;max-width:470px;font-size:clamp(25px,2.15vw,36px);line-height:.98;letter-spacing:-.05em}
-.home-episode p{margin:0;padding-right:28px;font-size:12px;line-height:1.42;color:rgba(255,255,255,.7)}
-@media(max-width:900px){
-  .home-header{padding:0 20px}.home-header span{display:none}
-  .home-layout{width:calc(100vw - 32px);padding:38px 0;grid-template-columns:1fr;gap:34px;align-items:center}
-  .home-project{gap:34px;padding:16px 0 0}.home-project h1{font-size:clamp(58px,16vw,94px)}
-  .home-description{max-width:680px}.home-episodes{grid-template-columns:1fr 1fr;gap:8px}.home-episode{min-height:225px}
-}
-@media(max-width:600px){
-  .home-cover{min-height:auto}.home-layout{min-height:auto;padding:32px 0}
-  .home-episodes{grid-template-columns:1fr}.home-episode{min-height:190px}
-  .home-project h1{font-size:17vw}.home-description p{font-size:17px}.home-episode h2{font-size:29px}
-}
-
-.home-project{align-self:center;display:grid;grid-template-rows:auto auto auto auto;gap:32px;padding:0}
-.home-project h1{margin:0;max-width:none;font-size:clamp(58px,6.15vw,108px);line-height:1;letter-spacing:-.07em;font-weight:700}
-.home-project h1 span{display:block}
-.home-project .title-line{white-space:nowrap;margin-top:.10em}
-.home-lead{margin:0;max-width:570px;font-size:clamp(19px,1.55vw,23px);line-height:1.38;color:rgba(255,255,255,.94);font-weight:500}
-.home-support{margin:0;max-width:500px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.62);font-weight:400}
-@media(max-width:900px){
-  .home-project{gap:28px}
-  .home-project h1{font-size:clamp(54px,13vw,88px)}
-  .home-project .title-line{white-space:nowrap;margin-top:.10em}
-}
-@media(max-width:600px){
-  .home-project{gap:24px}
-  .home-project h1{font-size:16vw}
-  .home-lead{font-size:17px}
-}
-
-
-@media(max-width:600px){
-  .home-layout{width:calc(100vw - 32px)}
-  .home-project{gap:22px}
-  .home-kicker{font-size:10.5px}
-  .home-project h1{font-size:12.2vw;line-height:1.03;letter-spacing:-.055em}
-  .home-project .title-line{white-space:nowrap;margin-top:.12em}
-  .home-lead{font-size:16px;line-height:1.42}
-  .home-support{font-size:12.5px;line-height:1.5}
-  .home-episode{padding:18px;min-height:185px}
-  .home-episode-meta{font-size:10px}
-  .home-episode h2{font-size:25px;line-height:1.03;padding:14px 0}
-  .home-episode p{font-size:11.5px;line-height:1.4;padding-right:0}
-}
-
-
-/* Home sem imagem de fundo + imagens editoriais nos cards */
-.home-cover{background:#151515}
-.home-cover-photo,.home-cover-overlay{display:none}
-.home-cover:after{display:none}
-.home-episode{overflow:hidden;isolation:isolate}
-.home-episode-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .35s ease}
-.home-episode.has-image{background:#111}
-.home-episode.has-image:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.32) 42%,rgba(0,0,0,.78) 100%);pointer-events:none}
-.home-episode.has-image:hover{background:#111;border-color:rgba(255,255,255,.58)}
-.home-episode.has-image:hover .home-episode-image{transform:scale(1.025)}
-.home-episode.has-image .home-episode-meta,
-.home-episode.has-image h2,
-.home-episode.has-image p{position:relative;z-index:1}
-@media(max-width:600px){
-  .home-episode-image{object-position:center center}
-}
-
-</style>
+  <link rel="stylesheet" href="assets/site/css/series.css?v=20260928-1932" />
 </head>
 <body class="series-home">
-  <main class="home-cover">
-    <div class="home-layout">
-      <section class="home-project" aria-labelledby="project-title">
+  <main>
+    <section class="home-hero" aria-labelledby="project-title">
+      <img class="home-hero-image" src="assets/site/home/hero-rio-piracicaba.jpg" alt="" />
+      <div class="home-hero-overlay" aria-hidden="true"></div>
+
+      <div class="home-hero-content">
         <p class="home-kicker">Série documental + dados</p>
 
         <h1 id="project-title">
@@ -115,44 +29,45 @@ body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidde
         <p class="home-lead">Quatro histórias para entender de onde vem a água, como o sistema mudou e por que o Rio Piracicaba continua atravessando a vida da cidade.</p>
 
         <p class="home-support">Dados públicos, documentos históricos e fontes oficiais organizados para registrar a realidade de cada período.</p>
-      </section>
+      </div>
+    </section>
 
-      <nav class="home-episodes" aria-label="Episódios da série">
-        <a class="home-episode has-image" href="episodio-1.html">
-          <img class="home-episode-image" src="assets/site/cards/episodio-1-abandonado.jpg" alt="" />
-          <div class="home-episode-meta">
-            <span>Episódio 1</span>
-          </div>
-          <h2>Por que está faltando água em Piracicaba?</h2>
-          <p>Consumo, perdas, crescimento da rede e o desafio de fazer a água chegar até a torneira.</p>
-        </a>
+    <section class="episodes-section" id="episodios" aria-labelledby="episodes-title">
+      <div class="episodes-shell">
+        <div class="episodes-heading">
+          <p class="episodes-kicker">Série em quatro partes</p>
+          <h2 id="episodes-title">Episódios</h2>
+        </div>
 
-        <a class="home-episode has-image" href="episodio-2.html">
-          <img class="home-episode-image" src="assets/site/cards/episodio-2-caixao.jpg" alt="" />
-          <div class="home-episode-meta">
-            <span>Episódio 2</span>
-          </div>
-          <h2>O desvio que mudou o Rio Piracicaba</h2>
-          <p>Sistema Cantareira, vazão, poluição e o enterro simbólico do rio.</p>
-        </a>
+        <nav class="home-episodes" aria-label="Episódios da série">
+          <a class="home-episode has-image" href="episodio-1.html">
+            <img class="home-episode-image" src="assets/site/cards/episodio-1-abandonado.jpg" alt="" />
+            <div class="home-episode-meta"><span>Episódio 1</span></div>
+            <h3>Por que está faltando água em Piracicaba?</h3>
+            <p>Consumo, perdas, crescimento da rede e o desafio de fazer a água chegar até a torneira.</p>
+          </a>
 
-        <a class="home-episode" href="episodio-3.html">
-          <div class="home-episode-meta">
-            <span>Episódio 3</span>
-          </div>
-          <h2>Por que Piracicaba foi buscar água no Corumbataí?</h2>
-          <p>Como um segundo rio se tornou o principal manancial de abastecimento da cidade.</p>
-        </a>
+          <a class="home-episode has-image" href="episodio-2.html">
+            <img class="home-episode-image" src="assets/site/cards/episodio-2-caixao.jpg" alt="" />
+            <div class="home-episode-meta"><span>Episódio 2</span></div>
+            <h3>O desvio que mudou o Rio Piracicaba</h3>
+            <p>Sistema Cantareira, vazão, poluição e o enterro simbólico do rio.</p>
+          </a>
 
-        <a class="home-episode" href="episodio-4.html">
-          <div class="home-episode-meta">
-            <span>Episódio 4</span>
-          </div>
-          <h2>O que acontece nas margens do Piracicaba?</h2>
-          <p>Mata ciliar, enchentes, ocupação ribeirinha, revitalização e o futuro do entorno do rio.</p>
-        </a>
-      </nav>
-    </div>
+          <a class="home-episode" href="episodio-3.html">
+            <div class="home-episode-meta"><span>Episódio 3</span></div>
+            <h3>Por que Piracicaba foi buscar água no Corumbataí?</h3>
+            <p>Como um segundo rio se tornou o principal manancial de abastecimento da cidade.</p>
+          </a>
+
+          <a class="home-episode" href="episodio-4.html">
+            <div class="home-episode-meta"><span>Episódio 4</span></div>
+            <h3>O que acontece nas margens do Piracicaba?</h3>
+            <p>Mata ciliar, enchentes, ocupação ribeirinha, revitalização e o futuro do entorno do rio.</p>
+          </a>
+        </nav>
+      </div>
+    </section>
   </main>
 </body>
 </html>
