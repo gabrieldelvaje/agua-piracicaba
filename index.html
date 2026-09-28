@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site/css/series.css?v=20260927-2050" />
+  <link rel="stylesheet" href="assets/site/css/series.css?v=20260928-1925" />
 <style>
 :root{--blue:#0736fe;--ink:#fff}
 *{box-sizing:border-box}
@@ -81,14 +81,28 @@ body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidde
   .home-episode p{font-size:11.5px;line-height:1.4;padding-right:0}
 }
 
+
+/* Home sem imagem de fundo + imagens editoriais nos cards */
+.home-cover{background:#151515}
+.home-cover-photo,.home-cover-overlay{display:none}
+.home-cover:after{display:none}
+.home-episode{overflow:hidden;isolation:isolate}
+.home-episode-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .35s ease}
+.home-episode.has-image{background:#111}
+.home-episode.has-image:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.32) 42%,rgba(0,0,0,.78) 100%);pointer-events:none}
+.home-episode.has-image:hover{background:#111;border-color:rgba(255,255,255,.58)}
+.home-episode.has-image:hover .home-episode-image{transform:scale(1.025)}
+.home-episode.has-image .home-episode-meta,
+.home-episode.has-image h2,
+.home-episode.has-image p{position:relative;z-index:1}
+@media(max-width:600px){
+  .home-episode-image{object-position:center center}
+}
+
 </style>
 </head>
 <body class="series-home">
   <main class="home-cover">
-    <div class="home-cover-photo" aria-hidden="true">
-      <img src="assets/site/home/engenho-rio-piracicaba.jpeg" alt="" />
-    </div>
-    <div class="home-cover-overlay" aria-hidden="true"></div>
     <div class="home-layout">
       <section class="home-project" aria-labelledby="project-title">
         <p class="home-kicker">Série documental + dados</p>
@@ -104,7 +118,8 @@ body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidde
       </section>
 
       <nav class="home-episodes" aria-label="Episódios da série">
-        <a class="home-episode" href="episodio-1.html">
+        <a class="home-episode has-image" href="episodio-1.html">
+          <img class="home-episode-image" src="assets/site/cards/episodio-1-abandonado.jpg" alt="" />
           <div class="home-episode-meta">
             <span>Episódio 1</span>
           </div>
@@ -112,7 +127,8 @@ body.series-home{min-height:100vh;background:#151515;color:#fff;overflow-x:hidde
           <p>Consumo, perdas, crescimento da rede e o desafio de fazer a água chegar até a torneira.</p>
         </a>
 
-        <a class="home-episode" href="episodio-2.html">
+        <a class="home-episode has-image" href="episodio-2.html">
+          <img class="home-episode-image" src="assets/site/cards/episodio-2-caixao.jpg" alt="" />
           <div class="home-episode-meta">
             <span>Episódio 2</span>
           </div>
