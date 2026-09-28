@@ -226,19 +226,19 @@ a{color:inherit}
   align-items:center;
   gap:10px;
   margin-top:8px;
-  color:#fff;
+  color:#0736FE;
   text-decoration:none;
   font-size:12px;
   font-weight:600;
   letter-spacing:.12em;
   text-transform:uppercase;
-  border-bottom:1px solid rgba(255,255,255,.55);
+  border-bottom:1px solid #0736FE;
   padding-bottom:6px;
   transition:opacity .2s ease,border-color .2s ease;
 }
 .explore-series:hover{
-  opacity:.72;
-  border-color:#fff;
+  opacity:.78;
+  border-color:#0736FE;
 }
 .explore-series span{
   font-size:16px;
