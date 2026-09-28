@@ -1,61 +1,100 @@
 (() => {
-  const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const DURATION = 500;
+  const DURATION = 720;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let navigating = false;
 
-  function samePrimaryButton(event) {
-    return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+  function primaryClick(event){
+    return event.button === 0 &&
+      !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
   }
 
-  function navigateWithTransition(url, exitClass, enterDirection) {
-    if (REDUCED) {
+  function finishHomePosition(){
+    if (!document.body.classList.contains("series-home")) return;
+    if (window.location.hash !== "#episodios") return;
+
+    const target = document.getElementById("episodios");
+    if (!target) {
+      document.documentElement.classList.remove("transition-target-home");
+      return;
+    }
+
+    history.scrollRestoration = "manual";
+    window.scrollTo(0, target.offsetTop);
+
+    requestAnimationFrame(() => {
+      window.scrollTo(0, target.offsetTop);
+      document.documentElement.classList.remove("transition-target-home");
+    });
+  }
+
+  function transitionTo(url, direction){
+    if (navigating) return;
+    navigating = true;
+
+    if (reduced) {
       window.location.href = url;
       return;
     }
 
-    try {
-      sessionStorage.setItem("adr-page-enter", enterDirection);
-    } catch (_) {}
+    const frame = document.createElement("iframe");
+    frame.className = "page-transition-frame " + (direction === "down" ? "from-bottom" : "from-top");
+    frame.setAttribute("aria-hidden","true");
+    frame.tabIndex = -1;
+    frame.src = url;
+    document.body.appendChild(frame);
 
-    document.body.classList.add(exitClass);
-    window.setTimeout(() => {
-      window.location.href = url;
-    }, DURATION);
+    const currentClass = direction === "down" ? "transition-current-up" : "transition-current-down";
+
+    const start = () => {
+      requestAnimationFrame(() => {
+        document.body.classList.add(currentClass);
+        frame.classList.add("is-ready");
+      });
+
+      window.setTimeout(() => {
+        window.location.href = url;
+      }, DURATION + 70);
+    };
+
+    let started = false;
+    const startOnce = () => {
+      if (started) return;
+      started = true;
+      start();
+    };
+
+    frame.addEventListener("load", startOnce, {once:true});
+    window.setTimeout(startOnce, 350);
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const enterDirection = document.documentElement.dataset.pageEnter;
+    finishHomePosition();
 
-    if (document.body.classList.contains("series-home") && enterDirection === "from-top") {
-      const episodes = document.querySelector("#episodios");
-      if (episodes) {
-        window.scrollTo(0, episodes.offsetTop);
-      }
-    }
-
-    document.querySelectorAll(".home-episode[href^='episodio-']").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        if (!samePrimaryButton(event)) return;
+    document.querySelectorAll(".home-episode[href^='episodio-']").forEach(link => {
+      link.addEventListener("click", event => {
+        if (!primaryClick(event)) return;
         event.preventDefault();
-        navigateWithTransition(link.href, "page-exit-up", "from-bottom");
+        transitionTo(link.href, "down");
       });
     });
 
-    document.querySelectorAll("a[href^='index.html']").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        if (!samePrimaryButton(event)) return;
-        if (document.body.classList.contains("series-home")) return;
-
+    document.querySelectorAll(".next-episode[href^='episodio-']").forEach(link => {
+      link.addEventListener("click", event => {
+        if (!primaryClick(event)) return;
         event.preventDefault();
+        transitionTo(link.href, "down");
+      });
+    });
+
+    document.querySelectorAll("a[href*='index.html']").forEach(link => {
+      if (document.body.classList.contains("series-home")) return;
+
+      link.addEventListener("click", event => {
+        if (!primaryClick(event)) return;
+        event.preventDefault();
+
         const homeUrl = new URL("index.html#episodios", window.location.href).href;
-        navigateWithTransition(homeUrl, "page-exit-down", "from-top");
-      });
-    });
-
-    document.querySelectorAll(".next-episode[href^='episodio-']").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        if (!samePrimaryButton(event)) return;
-        event.preventDefault();
-        navigateWithTransition(link.href, "page-exit-up", "from-bottom");
+        transitionTo(homeUrl, "up");
       });
     });
   });

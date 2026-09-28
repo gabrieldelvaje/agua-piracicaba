@@ -29,12 +29,14 @@
 .explore-series span{color:#fff!important;font-size:16px;line-height:1}
 .explore-series:hover{opacity:.9;transform:translateY(-1px)}
 </style>
-  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260928-2045" />
+  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260928-2120" />
+
 <script>
 try{
   history.scrollRestoration="manual";
-  const d=sessionStorage.getItem("adr-page-enter");
-  if(d){document.documentElement.dataset.pageEnter=d;sessionStorage.removeItem("adr-page-enter");}
+  if(document.location.hash==="#episodios"){
+    document.documentElement.classList.add("transition-target-home");
+  }
 }catch(e){}
 </script>
 </head>
@@ -98,6 +100,6 @@ try{
     </section>
   </main>
   <script src="assets/site/js/home.js" defer></script>
-  <script src="assets/site/js/page-transition.js?v=20260928-2045"></script>
+  <script src="assets/site/js/page-transition.js?v=20260928-2120"></script>
 </body>
 </html>
