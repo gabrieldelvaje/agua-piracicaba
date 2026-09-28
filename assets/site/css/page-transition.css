@@ -27,9 +27,14 @@ body.route-enter-back{
 }
 @keyframes route-enter-back{
   from{
-    transform:translate3d(0,-100vh,0);
+    transform:translate3d(0,100vh,0);
     opacity:.98;
   }
+  to{
+    transform:translate3d(0,0,0);
+    opacity:1;
+  }
+}
   to{
     transform:translate3d(0,0,0);
     opacity:1;
