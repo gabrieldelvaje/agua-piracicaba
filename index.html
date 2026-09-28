@@ -29,6 +29,14 @@
 .explore-series span{color:#fff!important;font-size:16px;line-height:1}
 .explore-series:hover{opacity:.9;transform:translateY(-1px)}
 </style>
+  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260928-2045" />
+<script>
+try{
+  history.scrollRestoration="manual";
+  const d=sessionStorage.getItem("adr-page-enter");
+  if(d){document.documentElement.dataset.pageEnter=d;sessionStorage.removeItem("adr-page-enter");}
+}catch(e){}
+</script>
 </head>
 <body class="series-home">
   <main>
@@ -90,5 +98,6 @@
     </section>
   </main>
   <script src="assets/site/js/home.js" defer></script>
+  <script src="assets/site/js/page-transition.js?v=20260928-2045"></script>
 </body>
 </html>

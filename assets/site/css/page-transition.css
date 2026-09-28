@@ -1,0 +1,37 @@
+/* Cross-page vertical transition */
+html{background:#f3f3f1}
+html[data-page-enter="from-bottom"] body{
+  animation:page-enter-from-bottom .58s cubic-bezier(.22,.8,.24,1) both;
+}
+html[data-page-enter="from-top"] body{
+  animation:page-enter-from-top .58s cubic-bezier(.22,.8,.24,1) both;
+}
+body.page-exit-up{
+  pointer-events:none;
+  animation:page-exit-up .5s cubic-bezier(.76,0,.78,.2) both;
+}
+body.page-exit-down{
+  pointer-events:none;
+  animation:page-exit-down .5s cubic-bezier(.76,0,.78,.2) both;
+}
+@keyframes page-enter-from-bottom{
+  from{transform:translate3d(0,100vh,0)}
+  to{transform:translate3d(0,0,0)}
+}
+@keyframes page-enter-from-top{
+  from{transform:translate3d(0,-100vh,0)}
+  to{transform:translate3d(0,0,0)}
+}
+@keyframes page-exit-up{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(0,-100vh,0)}
+}
+@keyframes page-exit-down{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(0,100vh,0)}
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-page-enter] body,
+  body.page-exit-up,
+  body.page-exit-down{animation:none!important}
+}
