@@ -563,3 +563,53 @@
     font-size:22px;
   }
 }
+
+/* Pipeline infographic — portfolio palette */
+.pipe-section{
+  background:#231F20;
+  color:#fff;
+}
+.pipe-shell > h2{
+  color:#fff;
+}
+.pipe-svg path,
+.pipe-svg line{
+  stroke:#0736FE!important;
+}
+.pipe-meter-circle{
+  border-color:#0736FE;
+  background:#231F20;
+  box-shadow:0 0 0 4px #0736FE inset;
+}
+.pipe-meter-screen{
+  border-color:#0736FE;
+  color:#fff;
+}
+.pipe-meter-bars{
+  background:#0736FE;
+  box-shadow:0 -11px 0 #0736FE;
+}
+.pipe-meter-dot{
+  border-color:#0736FE;
+}
+.pipe-label span{
+  color:#8EA2FF;
+}
+.pipe-label h3{
+  color:#fff;
+}
+.pipe-label p{
+  color:rgba(255,255,255,.68);
+}
+.pipe-section .source-note{
+  color:rgba(255,255,255,.62);
+}
+.pipe-section .source-note a{
+  color:#fff;
+}
+@media(max-width:900px){
+  .pipe-label{
+    border-color:#0736FE;
+    background:rgba(7,54,254,.08);
+  }
+}
