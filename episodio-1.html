@@ -6,7 +6,7 @@
   <meta name="description" content="Uma história interativa sobre consumo, perdas e infraestrutura do abastecimento de água em Piracicaba." />
   <meta name="theme-color" content="#f3f3f1" />
   <title>Episódio 1 — Por que está faltando água em Piracicaba?</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260928-2340" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260928-2355" />
 
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260928-2322" />
 <script>
@@ -34,54 +34,96 @@ try{
       <p class="hero-copy">A resposta não começa e termina no rio. Este episódio acompanha o caminho da água (da captação até a torneira) para entender consumo, crescimento urbano, perdas e a infraestrutura que sustenta o abastecimento.</p>      <a class="scroll-cue" href="#caminho"><span>Entenda o caminho da água</span><b aria-hidden="true">↓</b></a>
     </section>
 
-    <section class="process-section" id="caminho" aria-labelledby="caminho-title">
-      <div class="section-shell process-shell">
-        <div class="process-heading">
-          <p class="eyebrow">O sistema</p>
-          <h2 id="caminho-title">Entre o rio e a sua casa existe uma cidade inteira.</h2>
-        </div>
+    <section class="pipe-section" id="caminho" aria-labelledby="caminho-title">
+      <div class="section-shell pipe-shell">
+        <h2 id="caminho-title">Entre o rio e a sua casa existe uma cidade inteira.</h2>
 
-        <div class="pipe-diagram" aria-label="Caminho da água dos mananciais até a casa">
-          <div class="pipe-track" aria-hidden="true"></div>
+        <div class="pipe-board" aria-label="Caminho da água dos mananciais até a casa">
+          <svg class="pipe-svg" viewBox="0 0 1200 560" aria-hidden="true">
+            <path d="M70 40 V160
+                     C70 190 95 210 125 210
+                     H240
+                     C270 210 295 190 295 160
+                     V145
+                     H560
+                     V125
+                     H810
+                     V145
+                     H1040
+                     C1070 145 1095 170 1095 200
+                     V245
+                     H1135"
+                  fill="none" stroke="#111111" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
 
-          <article class="process-step">
+            <path d="M80 520 V385
+                     C80 355 105 330 135 330
+                     H340
+                     C370 330 395 350 395 380
+                     V392
+                     H640
+                     C670 392 695 367 695 337
+                     V330
+                     H1025
+                     C1055 330 1080 355 1080 385
+                     V520"
+                  fill="none" stroke="#111111" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <line x1="295" y1="145" x2="295" y2="85" stroke="#111111" stroke-width="18" stroke-linecap="round"/>
+            <line x1="560" y1="125" x2="560" y2="95" stroke="#111111" stroke-width="18" stroke-linecap="round"/>
+            <line x1="810" y1="145" x2="810" y2="95" stroke="#111111" stroke-width="18" stroke-linecap="round"/>
+          </svg>
+
+          <div class="pipe-meter" aria-hidden="true">
+            <div class="pipe-meter-circle">
+              <div class="pipe-meter-screen">00087158</div>
+              <div class="pipe-meter-bars"></div>
+              <div class="pipe-meter-dot meter-a"></div>
+              <div class="pipe-meter-dot meter-b"></div>
+            </div>
+          </div>
+
+          <article class="pipe-label label-1">
             <span>01</span>
-            <strong>Mananciais</strong>
-            <small>Piracicaba + Corumbataí</small>
+            <h3>Mananciais</h3>
+            <p>Piracicaba + Corumbataí</p>
           </article>
 
-          <article class="process-step">
+          <article class="pipe-label label-2">
             <span>02</span>
-            <strong>Captação</strong>
-            <small>Água bruta</small>
+            <h3>Captação</h3>
+            <p>Água bruta</p>
           </article>
 
-          <article class="process-step">
+          <article class="pipe-label label-3">
             <span>03</span>
-            <strong>Tratamento</strong>
-            <small>ETAs</small>
+            <h3>Tratamento</h3>
+            <p>ETAs</p>
           </article>
 
-          <article class="process-step">
+          <article class="pipe-label label-4">
             <span>04</span>
-            <strong>Reservação</strong>
-            <small>Equilíbrio do sistema</small>
+            <h3>Reservação</h3>
+            <p>Equilíbrio do sistema</p>
           </article>
 
-          <article class="process-step">
+          <article class="pipe-label label-5">
             <span>05</span>
-            <strong>Rede</strong>
-            <small>~1,7 mil km</small>
+            <h3>Rede</h3>
+            <p>~1,7 mil km</p>
           </article>
 
-          <article class="process-step">
+          <article class="pipe-label label-6">
             <span>06</span>
-            <strong>Sua casa</strong>
-            <small>Consumo</small>
+            <h3>Sua casa</h3>
+            <p>Consumo</p>
           </article>
         </div>
 
-        <p class="source-note">Hoje, Piracicaba utiliza os rios Piracicaba e Corumbataí como mananciais. O Corumbataí responde pela maior parte do abastecimento. <a href="https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/" target="_blank" rel="noreferrer">Fonte oficial ↗</a></p>
+        <p class="source-note">
+          Hoje, Piracicaba utiliza os rios Piracicaba e Corumbataí como mananciais.
+          O Corumbataí responde pela maior parte do abastecimento.
+          <a href="https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/" target="_blank" rel="noreferrer">Fonte oficial ↗</a>
+        </p>
       </div>
     </section>
 

@@ -400,3 +400,166 @@
     max-width:none;
   }
 }
+
+/* Episódio 1 — infográfico inspirado em tubulação */
+#caminho{
+  scroll-margin-top:68px;
+}
+.pipe-section{
+  min-height:calc(100svh - 68px);
+  display:flex;
+  align-items:center;
+  padding:34px 0 38px;
+  background:#F3C516;
+  color:#111;
+  overflow:hidden;
+}
+.pipe-shell{
+  width:var(--shell);
+  margin:0 auto;
+}
+.pipe-shell > h2{
+  margin:0 0 22px;
+  max-width:960px;
+  font-size:clamp(42px,4.8vw,72px);
+  line-height:.96;
+  letter-spacing:-.05em;
+  color:#111;
+}
+.pipe-board{
+  position:relative;
+  width:100%;
+  min-height:520px;
+}
+.pipe-svg{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.pipe-meter{
+  position:absolute;
+  left:17%;
+  top:54%;
+  transform:translate(-50%,-50%);
+}
+.pipe-meter-circle{
+  width:138px;
+  height:138px;
+  border-radius:50%;
+  border:10px solid #111;
+  background:#F3C516;
+  position:relative;
+  box-shadow:0 0 0 4px #111 inset;
+}
+.pipe-meter-screen{
+  position:absolute;
+  top:28px;
+  left:24px;
+  right:24px;
+  height:26px;
+  border:3px solid #111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+.pipe-meter-bars{
+  position:absolute;
+  left:48px;
+  bottom:28px;
+  width:42px;
+  height:8px;
+  background:#111;
+  box-shadow:0 -11px 0 #111;
+}
+.pipe-meter-dot{
+  position:absolute;
+  border-radius:50%;
+  border:4px solid #111;
+}
+.meter-a{
+  width:20px;
+  height:20px;
+  left:24px;
+  bottom:26px;
+}
+.meter-b{
+  width:28px;
+  height:28px;
+  right:22px;
+  bottom:22px;
+}
+.pipe-label{
+  position:absolute;
+  max-width:175px;
+}
+.pipe-label span{
+  display:block;
+  margin-bottom:7px;
+  color:rgba(17,17,17,.58);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+.pipe-label h3{
+  margin:0 0 5px;
+  font-size:26px;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+.pipe-label p{
+  margin:0;
+  color:rgba(17,17,17,.78);
+  font-size:13px;
+  line-height:1.35;
+}
+.label-1{left:2%;top:195px}
+.label-2{left:26%;top:86px}
+.label-3{left:48%;top:64px}
+.label-4{left:61%;top:360px}
+.label-5{left:80%;top:340px}
+.label-6{right:0;top:455px}
+.pipe-section .source-note{
+  margin:10px 0 0;
+  max-width:980px;
+  color:rgba(17,17,17,.72);
+}
+.pipe-section .source-note a{
+  color:#111;
+}
+@media(max-width:900px){
+  #caminho{scroll-margin-top:58px}
+  .pipe-section{
+    min-height:calc(100svh - 58px);
+    padding:30px 0 36px;
+  }
+  .pipe-shell{
+    width:calc(100vw - 32px);
+  }
+  .pipe-shell > h2{
+    margin-bottom:24px;
+    font-size:clamp(34px,9vw,54px);
+  }
+  .pipe-board{
+    min-height:auto;
+    display:grid;
+    gap:12px;
+  }
+  .pipe-svg,
+  .pipe-meter{
+    display:none;
+  }
+  .pipe-label{
+    position:static;
+    max-width:none;
+    padding:16px 18px;
+    border:2px solid #111;
+    border-radius:18px;
+    background:rgba(255,255,255,.16);
+  }
+  .pipe-label h3{
+    font-size:22px;
+  }
+}
