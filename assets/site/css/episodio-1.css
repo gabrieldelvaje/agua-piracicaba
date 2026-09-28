@@ -5,3 +5,32 @@
 @media(max-width:850px){.site-header nav{display:none}.coverage-button{font-size:12px}.hero{min-height:85vh}.hero h1{font-size:clamp(58px,18vw,96px)}.hero-meta{flex-direction:column;gap:5px}.history-section,.production-grid,.infra-shell,.loss-lab{grid-template-columns:1fr;gap:45px}.growth-numbers,.loss-compare{grid-template-columns:1fr}.event-grid{grid-template-columns:1fr}.summary-grid{grid-template-columns:1fr 1fr}.coverage-grid{grid-template-columns:1fr 1fr}.big-comparison{gap:10px}.big-comparison strong{font-size:16vw}.comparison-arrow{font-size:28px}.process-section,.production-section,.infrastructure-section,.conclusion-section,.question-section{padding:80px 0}.history-section,.growth-section,.loss-section,.events-section,.sources-section{padding:90px 0}.site-footer{flex-direction:column;gap:8px}}
 @media(max-width:520px){:root{--shell:calc(100vw - 28px)}.site-header{padding-inline:14px}.brand{font-size:14px}.coverage-button{padding:8px 10px}.hero h1{font-size:17vw}.hero-copy{font-size:19px}.question-actions{flex-direction:column}.big-comparison{grid-template-columns:1fr}.comparison-arrow{transform:rotate(90deg);width:max-content;margin:auto}.summary-grid,.coverage-grid{grid-template-columns:1fr}.chart-card{padding:15px}.growth-numbers article{padding:20px}.loss-lab{padding:25px}.investment-callout{padding:28px}.site-footer{padding-bottom:35px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+/* Episódio 1 — hero com Museu da Água antigo */
+.hero{
+  position:relative;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding-left:max(20px,calc((100vw - 1180px)/2));
+  padding-right:max(20px,calc((100vw - 1180px)/2));
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.52) 52%,rgba(0,0,0,.30) 100%),
+    url("../episodes/episodio-1-museu-da-agua-antigo.jpg") center center/cover no-repeat;
+}
+.hero .eyebrow{color:#9fb0ff}
+.hero-copy{color:rgba(255,255,255,.95)}
+.hero-meta{color:rgba(255,255,255,.72)}
+.hero .scroll-cue{
+  color:#fff;
+  border-bottom-color:rgba(255,255,255,.78);
+}
+@media(max-width:850px){
+  .hero{
+    padding-left:14px;
+    padding-right:14px;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%),
+      url("../episodes/episodio-1-museu-da-agua-antigo.jpg") center center/cover no-repeat;
+  }
+}
