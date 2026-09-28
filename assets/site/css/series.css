@@ -348,3 +348,12 @@ a{color:inherit}
   justify-content:flex-start;
   text-align:left;
 }
+
+/* Remove episode card borders */
+.home-episode,
+.home-episode.has-image,
+.home-episode:hover,
+.home-episode.has-image:hover{
+  border:none!important;
+  outline:none!important;
+}
