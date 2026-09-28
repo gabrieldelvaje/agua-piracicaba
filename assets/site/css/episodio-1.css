@@ -106,3 +106,72 @@
   }
   .hero h1{font-size:13vw}
 }
+
+/* Episódio 1 — tipografia alinhada à home */
+.hero{
+  height:calc(100svh - 61px);
+  min-height:calc(100svh - 61px);
+  max-height:calc(100svh - 61px);
+  padding-top:48px;
+  padding-bottom:34px;
+  justify-content:center;
+}
+.hero h1{
+  max-width:900px;
+  margin:0 0 30px;
+  font-size:clamp(68px,7.4vw,118px);
+  line-height:1;
+  letter-spacing:-.05em;
+}
+.hero-copy{
+  max-width:620px;
+  margin:0;
+  font-size:clamp(20px,1.7vw,25px);
+  line-height:1.42;
+  letter-spacing:-.015em;
+}
+.hero .scroll-cue{
+  margin-top:28px;
+  padding:12px 18px;
+  font-size:12px;
+  line-height:1;
+  letter-spacing:.10em;
+}
+@media(max-width:850px){
+  .hero{
+    height:calc(100svh - 59px);
+    min-height:calc(100svh - 59px);
+    max-height:none;
+    padding-top:34px;
+    padding-bottom:28px;
+  }
+  .hero h1{
+    max-width:760px;
+    margin-bottom:24px;
+    font-size:clamp(54px,13vw,88px);
+    line-height:1.02;
+    letter-spacing:-.045em;
+  }
+  .hero-copy{
+    max-width:650px;
+    font-size:17px;
+    line-height:1.42;
+  }
+  .hero .scroll-cue{
+    margin-top:24px;
+  }
+}
+@media(max-width:520px){
+  .hero{
+    min-height:calc(100svh - 57px);
+    height:auto;
+  }
+  .hero h1{
+    font-size:12.6vw;
+    line-height:1.04;
+    letter-spacing:-.04em;
+  }
+  .hero-copy{
+    font-size:16px;
+  }
+}
