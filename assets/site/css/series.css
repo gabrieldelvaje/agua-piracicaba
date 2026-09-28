@@ -197,3 +197,59 @@ a{color:inherit}
   .home-episode h3{font-size:26px;line-height:1.03;padding:16px 0}
   .home-episode p{font-size:11.5px;line-height:1.42}
 }
+
+
+/* Hero fixo: a seção de episódios sobe sobre a imagem */
+.home-hero{position:relative;z-index:0;isolation:auto}
+.home-hero-image{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100svh;
+  object-fit:cover;
+  object-position:center center;
+  z-index:0;
+  pointer-events:none;
+}
+.home-hero-overlay{
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.54) 48%,rgba(0,0,0,.27) 100%);
+}
+.home-hero-content{position:relative;z-index:2}
+.episodes-section{position:relative;z-index:3;background:#151515}
+.explore-series{
+  width:max-content;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:8px;
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  border-bottom:1px solid rgba(255,255,255,.55);
+  padding-bottom:6px;
+  transition:opacity .2s ease,border-color .2s ease;
+}
+.explore-series:hover{
+  opacity:.72;
+  border-color:#fff;
+}
+.explore-series span{
+  font-size:16px;
+  line-height:1;
+}
+#episodios{scroll-margin-top:0}
+
+@media(max-width:600px){
+  .home-hero-image{height:100svh;object-position:center center}
+  .home-hero-overlay{
+    background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.62) 58%,rgba(0,0,0,.76) 100%);
+  }
+  .explore-series{font-size:11px;margin-top:4px}
+}
