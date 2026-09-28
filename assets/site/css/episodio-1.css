@@ -34,3 +34,75 @@
       url("../episodes/episodio-1-museu-da-agua-antigo.jpg") center center/cover no-repeat;
   }
 }
+
+/* Episódio 1 — hero em uma tela */
+.hero{
+  height:calc(100svh - 61px);
+  min-height:calc(100svh - 61px);
+  max-height:calc(100svh - 61px);
+  padding-top:clamp(44px,7vh,80px);
+  padding-bottom:34px;
+  justify-content:center;
+}
+.hero h1{
+  max-width:1050px;
+  margin-bottom:28px;
+  font-size:clamp(58px,8.4vw,128px);
+  line-height:.88;
+}
+.hero-copy{
+  max-width:760px;
+  margin-bottom:0;
+}
+.hero-meta{
+  margin-top:18px;
+}
+.hero .scroll-cue{
+  width:max-content;
+  margin-top:26px;
+  padding:12px 18px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  justify-content:flex-start;
+  border:0;
+  border-radius:999px;
+  background:#0736FE;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-decoration:none;
+  transition:transform .2s ease,opacity .2s ease;
+}
+.hero .scroll-cue:hover{
+  opacity:.9;
+  transform:translateY(-1px);
+}
+.hero .scroll-cue b{
+  font-size:16px;
+  line-height:1;
+}
+@media(max-width:850px){
+  .hero{
+    height:calc(100svh - 59px);
+    min-height:calc(100svh - 59px);
+    max-height:none;
+    padding-top:36px;
+    padding-bottom:28px;
+  }
+  .hero h1{
+    font-size:clamp(48px,13vw,82px);
+    margin-bottom:24px;
+  }
+  .hero-copy{font-size:18px}
+  .hero-meta{margin-top:16px}
+  .hero .scroll-cue{margin-top:22px}
+}
+@media(max-width:520px){
+  .hero{
+    min-height:calc(100svh - 57px);
+    height:auto;
+  }
+  .hero h1{font-size:13vw}
+}
