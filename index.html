@@ -30,6 +30,13 @@
 .explore-series:hover{opacity:.9;transform:translateY(-1px)}
 </style>
 
+  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260928-2205" />
+<script>
+try{
+  const d=sessionStorage.getItem("adr-nav-direction");
+  if(d) document.documentElement.dataset.navDirection=d;
+}catch(e){}
+</script>
 </head>
 <body class="series-home">
   <main>
@@ -91,5 +98,6 @@
     </section>
   </main>
   <script src="assets/site/js/home.js" defer></script>
+  <script src="assets/site/js/page-transition.js?v=20260928-2205"></script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: 720ms;
+  animation-timing-function: cubic-bezier(.22,.78,.22,1);
+}
+
+html[data-nav-direction="forward"]::view-transition-old(root) {
+  animation-name: adr-old-up;
+}
+
+html[data-nav-direction="forward"]::view-transition-new(root) {
+  animation-name: adr-new-up;
+}
+
+html[data-nav-direction="back"]::view-transition-old(root) {
+  animation-name: adr-old-down;
+}
+
+html[data-nav-direction="back"]::view-transition-new(root) {
+  animation-name: adr-new-down;
+}
+
+@keyframes adr-old-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+
+@keyframes adr-new-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes adr-old-down {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+@keyframes adr-new-down {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms !important;
+  }
+}

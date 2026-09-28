@@ -8,10 +8,17 @@
   <title>Episódio 1 — Por que está faltando água em Piracicaba?</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260928-2140" />
 
+  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260928-2205" />
+<script>
+try{
+  const d=sessionStorage.getItem("adr-nav-direction");
+  if(d) document.documentElement.dataset.navDirection=d;
+}catch(e){}
+</script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html">← Águas do Rio Piracicaba</a>
+    <a class="brand" href="index.html#episodios">← Águas do Rio Piracicaba</a>
     <nav aria-label="Navegação principal">
       <a href="#historia">História</a>
       <a href="#dados">Dados</a>
@@ -232,5 +239,6 @@
   </dialog>
 
   <script src="assets/site/js/episodio-1.js"></script>
+  <script src="assets/site/js/page-transition.js?v=20260928-2205"></script>
 </body>
 </html>
