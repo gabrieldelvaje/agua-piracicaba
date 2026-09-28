@@ -3,7 +3,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Helvetica,Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Helvetica,Arial,sans-serif}
 a{color:inherit}
 .series-shell{width:var(--shell);margin:0 auto}
 .series-header{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(243,243,241,.92);backdrop-filter:blur(18px);z-index:10}
@@ -341,4 +341,10 @@ a{color:inherit}
 }
 .home-episode.has-image p{
   color:rgba(255,255,255,.76);
+}
+
+/* Episode heading alignment */
+.episodes-heading{
+  justify-content:flex-start;
+  text-align:left;
 }
