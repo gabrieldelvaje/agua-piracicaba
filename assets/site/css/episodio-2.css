@@ -1045,3 +1045,268 @@ body.episode-2{
 .protest-copy .protest-death-line{
   display:none!important;
 }
+
+
+/* Episode 2 — horizontal timeline like Episode 1 */
+.ep2-timeline-carousel{
+  position:relative;
+  margin-top:34px;
+}
+
+.ep2-timeline-viewport{
+  width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+  overscroll-behavior-inline:contain;
+  scroll-behavior:smooth;
+}
+
+.ep2-timeline-viewport::-webkit-scrollbar{
+  display:none;
+}
+
+.ep2-timeline{
+  position:relative;
+  display:flex;
+  width:max-content;
+  min-width:100%;
+  height:540px;
+}
+
+.ep2-timeline-item{
+  position:relative;
+  flex:0 0 clamp(310px,29vw,350px);
+  height:540px;
+  padding:0 14px;
+}
+
+.ep2-timeline-item + .ep2-timeline-item{
+  margin-left:-64px;
+}
+
+.ep2-timeline-item::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:270px;
+  height:2px;
+  background:rgba(255,255,255,.82);
+  z-index:1;
+}
+
+.ep2-timeline-item::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:270px;
+  width:14px;
+  height:14px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:#0736FE;
+  box-shadow:0 0 0 6px var(--ep2-dark);
+  z-index:3;
+}
+
+.ep2-timeline-content{
+  position:absolute;
+  left:50%;
+  width:calc(100% - 28px);
+  max-width:286px;
+  padding:18px 18px 20px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.14);
+  background:#231F20;
+  transform:translateX(-50%);
+}
+
+.ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+  bottom:296px;
+}
+
+.ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+  top:296px;
+}
+
+.ep2-timeline-entry time{
+  display:block;
+  margin:0 0 16px;
+  color:#8EA1FF;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.ep2-timeline-entry h3{
+  margin:0 0 10px;
+  color:#fff;
+  font-size:24px;
+  line-height:1.02;
+  letter-spacing:-.04em;
+}
+
+.ep2-timeline-entry p{
+  margin:0;
+  color:rgba(255,255,255,.64);
+  font-size:13px;
+  line-height:1.48;
+}
+
+/* Área pronta para receber as imagens históricas depois. */
+.ep2-timeline-media{
+  width:100%;
+  margin:0 0 12px;
+  overflow:hidden;
+  border-radius:10px;
+  background:#353132;
+}
+
+.ep2-timeline-media img{
+  display:block;
+  width:100%;
+  height:120px;
+  object-fit:cover;
+}
+
+.ep2-timeline-nav{
+  position:absolute;
+  top:270px;
+  z-index:8;
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  transform:translateY(-50%);
+  -webkit-tap-highlight-color:transparent;
+}
+
+.ep2-timeline-nav::before{
+  content:"";
+  display:block;
+  width:36px;
+  height:36px;
+  background:#0736FE;
+  -webkit-mask:url("../icons/angle-small-right.svg") center/contain no-repeat;
+  mask:url("../icons/angle-small-right.svg") center/contain no-repeat;
+  transition:transform .16s ease;
+}
+
+.ep2-timeline-nav-prev{
+  left:-12px;
+}
+
+.ep2-timeline-nav-prev::before{
+  transform:rotate(180deg);
+}
+
+.ep2-timeline-nav-next{
+  right:-12px;
+}
+
+.ep2-timeline-nav:hover::before,
+.ep2-timeline-nav:focus-visible::before{
+  transform:scale(1.08);
+}
+
+.ep2-timeline-nav-prev:hover::before,
+.ep2-timeline-nav-prev:focus-visible::before{
+  transform:rotate(180deg) scale(1.08);
+}
+
+.ep2-timeline-nav[hidden]{
+  display:none!important;
+}
+
+/* Interrompe o fio antes das pontas das setas, como no Episódio 1. */
+.ep2-timeline-carousel::before,
+.ep2-timeline-carousel::after{
+  content:"";
+  position:absolute;
+  top:270px;
+  z-index:7;
+  width:30px;
+  height:10px;
+  background:var(--ep2-dark);
+  transform:translateY(-50%);
+  pointer-events:none;
+}
+
+.ep2-timeline-carousel::before{
+  left:0;
+}
+
+.ep2-timeline-carousel::after{
+  right:0;
+}
+
+.ep2-timeline-viewport.is-sliding{
+  cursor:grabbing;
+}
+
+@media(max-width:900px){
+  .ep2-timeline{
+    height:510px;
+  }
+
+  .ep2-timeline-item{
+    flex-basis:min(78vw,320px);
+    height:510px;
+    padding:0 10px;
+  }
+
+  .ep2-timeline-item + .ep2-timeline-item{
+    margin-left:-54px;
+  }
+
+  .ep2-timeline-item::after,
+  .ep2-timeline-item::before,
+  .ep2-timeline-nav,
+  .ep2-timeline-carousel::before,
+  .ep2-timeline-carousel::after{
+    top:255px;
+  }
+
+  .ep2-timeline-content{
+    width:calc(100% - 20px);
+    max-width:260px;
+    padding:16px;
+  }
+
+  .ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+    bottom:281px;
+  }
+
+  .ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+    top:281px;
+  }
+
+  .ep2-timeline-nav{
+    width:44px;
+    height:44px;
+  }
+
+  .ep2-timeline-nav::before{
+    width:34px;
+    height:34px;
+  }
+
+  .ep2-timeline-nav-prev{
+    left:-10px;
+  }
+
+  .ep2-timeline-nav-next{
+    right:-10px;
+  }
+
+  .ep2-timeline-carousel::before,
+  .ep2-timeline-carousel::after{
+    width:26px;
+  }
+}
