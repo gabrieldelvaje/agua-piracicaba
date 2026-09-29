@@ -400,3 +400,130 @@
     max-width:none;
   }
 }
+
+/* Episódio 1 — cano reto flat, inspirado em tubulação */
+.process-heading .eyebrow{display:none!important}
+.process-heading h2{
+  margin:0;
+  max-width:1080px;
+  font-size:clamp(48px,5.2vw,78px);
+  line-height:.98;
+  letter-spacing:-.05em;
+}
+.pipe-diagram{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  align-items:center;
+  gap:20px;
+  width:100%;
+  min-height:300px;
+  padding:84px 0 92px;
+}
+.pipe-track{
+  position:absolute;
+  left:3%;
+  right:3%;
+  top:50%;
+  height:22px;
+  transform:translateY(-50%);
+  border-radius:0;
+  background:#0736FE;
+  box-shadow:none!important;
+}
+.pipe-track::before,
+.pipe-track::after{
+  display:none!important;
+}
+.pipe-joint{
+  position:absolute;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:18px;
+  height:64px;
+  border-radius:999px;
+  background:#0736FE;
+  box-shadow:0 0 0 5px #231F20;
+  z-index:2;
+}
+.joint-1{left:19.2%}
+.joint-2{left:38.6%}
+.joint-3{left:58%}
+.joint-4{left:77.4%}
+.process-step,
+.process-step:nth-of-type(even){
+  position:relative;
+  z-index:3;
+  min-width:0;
+}
+.process-step{
+  padding-bottom:104px;
+}
+.process-step:nth-of-type(even){
+  padding-top:104px;
+  padding-bottom:0;
+}
+.process-step::before,
+.process-step::after{
+  display:none!important;
+}
+.process-step span,
+.process-step strong,
+.process-step small{
+  display:block;
+}
+.process-step span{
+  margin-bottom:8px;
+  color:#8EA2FF;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+.process-step strong{
+  margin:0 0 7px;
+  color:#fff;
+  font-size:18px;
+  line-height:1.15;
+}
+.process-step small{
+  max-width:150px;
+  color:rgba(255,255,255,.68);
+  font-size:13px;
+  line-height:1.35;
+}
+.process-section .source-note{
+  margin-top:0;
+  color:rgba(255,255,255,.58);
+}
+.process-section .source-note a{
+  color:#fff;
+}
+@media(max-width:850px){
+  .process-heading h2{
+    font-size:clamp(40px,10vw,62px);
+  }
+  .pipe-diagram{
+    display:block;
+    min-height:auto;
+    padding:10px 0 10px 56px;
+  }
+  .pipe-track{
+    left:18px;
+    right:auto;
+    top:18px;
+    bottom:18px;
+    width:16px;
+    height:auto;
+    transform:none;
+    border-radius:0;
+  }
+  .pipe-joint{display:none}
+  .process-step,
+  .process-step:nth-of-type(even){
+    min-height:78px;
+    padding:8px 0 18px;
+  }
+  .process-step small{
+    max-width:none;
+  }
+}
