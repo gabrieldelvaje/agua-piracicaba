@@ -345,6 +345,166 @@ body.episode-2{
   line-height:1.5;
 }
 
+
+
+/* Fish mortality */
+.ep2-fishkills{
+  padding:110px 0;
+  background:#141414;
+  color:#fff;
+}
+.ep2-fishkills .eyebrow{color:#9AADFF}
+.ep2-fishkills .section-copy{
+  color:rgba(255,255,255,.68);
+}
+.fishkills-intro{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:70px;
+  align-items:start;
+}
+.oxygen-chain{
+  margin-top:54px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;
+  gap:14px;
+  align-items:center;
+}
+.oxygen-chain article{
+  min-height:170px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.18);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:rgba(255,255,255,.02);
+}
+.oxygen-chain article span{
+  color:#9AADFF;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+}
+.oxygen-chain article strong{
+  display:block;
+  margin-top:26px;
+  font-size:25px;
+  line-height:1.02;
+  letter-spacing:-.035em;
+}
+.oxygen-chain article small{
+  display:block;
+  margin-top:9px;
+  color:rgba(255,255,255,.56);
+  font-size:12px;
+  line-height:1.4;
+}
+.oxygen-chain > b{
+  color:#9AADFF;
+  font-size:30px;
+  font-weight:400;
+}
+.fishkill-quote{
+  margin-top:70px;
+  padding:36px;
+  border-radius:26px;
+  background:#F3F3F1;
+  color:#231F20;
+}
+.fishkill-quote > span{
+  color:#0736FE;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.fishkill-quote blockquote{
+  margin:24px 0 18px;
+  max-width:980px;
+  font-size:clamp(36px,5vw,72px);
+  line-height:.98;
+  letter-spacing:-.055em;
+  font-weight:700;
+}
+.fishkill-quote p{
+  margin:0;
+  max-width:820px;
+  color:#686565;
+  font-size:16px;
+  line-height:1.58;
+}
+.fishkill-quote a{
+  display:inline-flex;
+  margin-top:18px;
+  color:#0736FE;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+}
+.fishkill-events{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.fishkill-events article{
+  min-height:270px;
+  padding:26px;
+  border:1px solid rgba(255,255,255,.18);
+  display:flex;
+  flex-direction:column;
+}
+.fishkill-events time{
+  color:#9AADFF;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+}
+.fishkill-events h3{
+  margin:34px 0 12px;
+  max-width:520px;
+  font-size:clamp(28px,3.3vw,44px);
+  line-height:1;
+  letter-spacing:-.045em;
+}
+.fishkill-events p{
+  margin:0;
+  color:rgba(255,255,255,.60);
+  font-size:13px;
+  line-height:1.5;
+}
+.fishkill-events a{
+  margin-top:auto;
+  padding-top:24px;
+  color:#AFC0FF;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+}
+.fishkill-event-highlight{
+  background:#0736FE;
+  border-color:#0736FE!important;
+}
+.fishkill-event-highlight time,
+.fishkill-event-highlight a{color:#fff}
+.fishkill-event-highlight p{color:rgba(255,255,255,.78)}
+.fishkill-rigor{
+  margin-top:28px;
+  padding:22px 24px;
+  border-left:3px solid #9AADFF;
+  background:rgba(255,255,255,.06);
+}
+.fishkill-rigor strong{
+  display:block;
+  margin-bottom:8px;
+}
+.fishkill-rigor p{
+  margin:0;
+  max-width:980px;
+  color:rgba(255,255,255,.66);
+  line-height:1.58;
+}
+
 /* Data */
 .ep2-data{padding:110px 0}
 .data-grid{
@@ -556,8 +716,8 @@ body.episode-2{
   .episode-2 .ep2-shell{width:calc(100vw - 28px)}
   .episode-page.episode-2 .episode-cover:after{right:14px;bottom:20px}
   .ep2-opening,.ep2-cantareira,.ep2-data,.ep2-legacy{padding:78px 0}
-  .ep2-chronology,.ep2-dilution,.ep2-newspapers,.ep2-bridge,.ep2-sources{padding:78px 0}
-  .protest-grid,.chronology-head,.cantareira-intro,.dilution-grid,.legacy-grid,.bridge-grid{
+  .ep2-chronology,.ep2-dilution,.ep2-fishkills,.ep2-newspapers,.ep2-bridge,.ep2-sources{padding:78px 0}
+  .protest-grid,.chronology-head,.cantareira-intro,.dilution-grid,.fishkills-intro,.legacy-grid,.bridge-grid{
     grid-template-columns:1fr;
     gap:34px;
   }
@@ -574,6 +734,9 @@ body.episode-2{
     line-height:1;
   }
   .cantareira-stats,.data-grid{grid-template-columns:1fr}
+  .oxygen-chain{grid-template-columns:1fr}
+  .oxygen-chain > b{transform:rotate(90deg);justify-self:center;line-height:1}
+  .fishkill-events{grid-template-columns:1fr}
   .pollution-list{grid-template-columns:1fr 1fr}
   .headline-grid{grid-template-columns:1fr}
   .source-list a,.source-list .source-static{grid-template-columns:1fr auto;gap:8px 16px}
@@ -589,6 +752,9 @@ body.episode-2{
   .pollution-list{grid-template-columns:1fr}
   .newspaper-quote{font-size:12.5vw}
   .headline-card{min-height:200px}
+  .fishkill-quote{padding:22px}
+  .fishkill-quote blockquote{font-size:10.8vw}
+  .fishkill-events article{min-height:230px}
   .decree-card strong{font-size:48px}
   .bridge-grid h2{font-size:13vw}
 }
