@@ -1639,3 +1639,70 @@
     padding:30px 18px 30px 96px!important;
   }
 }
+
+
+/* Episódio 1 — setas da timeline como pontas da própria linha */
+.timeline-nav{
+  position:absolute!important;
+  top:278px!important;
+  z-index:8!important;
+  width:18px!important;
+  height:18px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  font-size:0!important;
+  line-height:0!important;
+  cursor:pointer!important;
+}
+
+.timeline-nav::before{
+  content:""!important;
+  display:block!important;
+  width:11px!important;
+  height:11px!important;
+  border-top:2px solid #231F20!important;
+  border-right:2px solid #231F20!important;
+  box-sizing:border-box!important;
+}
+
+.timeline-nav-prev{
+  left:0!important;
+  right:auto!important;
+  transform:translate(-35%,-50%)!important;
+}
+
+.timeline-nav-prev::before{
+  transform:rotate(-135deg)!important;
+  transform-origin:center!important;
+}
+
+.timeline-nav-next{
+  right:0!important;
+  left:auto!important;
+  transform:translate(35%,-50%)!important;
+}
+
+.timeline-nav-next::before{
+  transform:rotate(45deg)!important;
+  transform-origin:center!important;
+}
+
+.timeline-nav[hidden]{
+  display:none!important;
+}
+
+@media(max-width:850px){
+  .timeline-nav{
+    top:278px!important;
+    width:17px!important;
+    height:17px!important;
+  }
+
+  .timeline-nav::before{
+    width:10px!important;
+    height:10px!important;
+  }
+}
