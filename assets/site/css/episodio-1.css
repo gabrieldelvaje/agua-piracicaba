@@ -1772,3 +1772,100 @@
     border-right-width:3px!important;
   }
 }
+
+
+/* Episódio 1 — navegação da timeline usando o SVG enviado */
+.timeline-nav{
+  top:278px!important;
+  width:46px!important;
+  height:46px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  font-size:0!important;
+  line-height:0!important;
+  cursor:pointer!important;
+  -webkit-tap-highlight-color:transparent!important;
+  transform:translateY(-50%)!important;
+}
+
+.timeline-nav::before{
+  content:""!important;
+  display:block!important;
+  width:28px!important;
+  height:28px!important;
+  border:0!important;
+  background:#0736FE!important;
+  -webkit-mask:url("../icons/angle-small-right.svg") center/contain no-repeat!important;
+  mask:url("../icons/angle-small-right.svg") center/contain no-repeat!important;
+  transform:none!important;
+}
+
+.timeline-nav-prev{
+  left:-10px!important;
+  right:auto!important;
+  transform:translateY(-50%)!important;
+}
+
+.timeline-nav-prev::before{
+  transform:rotate(180deg)!important;
+}
+
+.timeline-nav-next{
+  right:-10px!important;
+  left:auto!important;
+  transform:translateY(-50%)!important;
+}
+
+.timeline-nav:hover,
+.timeline-nav:focus-visible{
+  background:transparent!important;
+  box-shadow:none!important;
+}
+
+.timeline-nav:hover::before,
+.timeline-nav:focus-visible::before{
+  transform:scale(1.08)!important;
+}
+
+.timeline-nav-prev:hover::before,
+.timeline-nav-prev:focus-visible::before{
+  transform:rotate(180deg) scale(1.08)!important;
+}
+
+.timeline-nav:active{
+  transform:translateY(-50%)!important;
+}
+
+.timeline-nav:active::before{
+  transform:scale(.92)!important;
+}
+
+.timeline-nav-prev:active::before{
+  transform:rotate(180deg) scale(.92)!important;
+}
+
+@media(max-width:850px){
+  .timeline-nav{
+    top:278px!important;
+    width:48px!important;
+    height:48px!important;
+  }
+
+  .timeline-nav::before{
+    width:30px!important;
+    height:30px!important;
+  }
+
+  .timeline-nav-prev{
+    left:-12px!important;
+  }
+
+  .timeline-nav-next{
+    right:-12px!important;
+  }
+}
