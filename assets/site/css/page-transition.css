@@ -143,7 +143,7 @@ body.route-transition-lock{
   width:34px;
   height:34px;
   border:3px solid rgba(255,255,255,.34);
-  border-top-color:#fff;
+  border-top-color:#0736FE;
   border-radius:50%;
   animation:route-loading-spin 720ms linear infinite!important;
   will-change:transform;
