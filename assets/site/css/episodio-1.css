@@ -755,3 +755,11 @@
     padding-bottom:0;
   }
 }
+
+/* Episódio 1 — equilíbrio vertical das etapas inferiores */
+@media(min-width:851px){
+  .process-step:nth-of-type(even){
+    padding-top:164px;
+    padding-bottom:0;
+  }
+}
