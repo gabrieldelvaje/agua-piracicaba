@@ -6,7 +6,7 @@
   <meta name="description" content="Uma história interativa sobre consumo, perdas e infraestrutura do abastecimento de água em Piracicaba." />
   <meta name="theme-color" content="#f3f3f1" />
   <title>Episódio 1 — Por que está faltando água em Piracicaba?</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260929-0058" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260929-0108" />
 
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260928-2322" />
 <script>
@@ -41,53 +41,49 @@ try{
         </div>
 
         <div class="pipe-diagram" aria-label="Caminho da água dos mananciais até a casa">
-          <svg class="pipe-flow-svg" viewBox="0 0 1600 360" preserveAspectRatio="none" aria-hidden="true">
-            <path class="pipe-flow-path"
-              d="M -120 40
-                 H 70
-                 C 145 40 190 85 190 160
-                 C 190 175 205 180 230 180
-                 H 1370
-                 C 1395 180 1410 195 1410 220
-                 C 1410 295 1455 340 1530 340
-                 H 1720" />
-          </svg>
+          <div class="pipe-track" aria-hidden="true"></div>
+          <span class="pipe-joint joint-1" aria-hidden="true"></span>
+          <span class="pipe-joint joint-2" aria-hidden="true"></span>
+          <span class="pipe-joint joint-3" aria-hidden="true"></span>
+          <span class="pipe-joint joint-4" aria-hidden="true"></span>
+          <span class="pipe-joint joint-5" aria-hidden="true"></span>
+          <span class="pipe-joint joint-6" aria-hidden="true"></span>
 
-          <div class="pipe-joints" aria-hidden="true">
-            <span class="pipe-joint"></span>
-            <span class="pipe-joint"></span>
-            <span class="pipe-joint"></span>
-            <span class="pipe-joint"></span>
-            <span class="pipe-joint"></span>
-            <span class="pipe-joint"></span>
-          </div>
+          <article class="process-step">
+            <span>01</span>
+            <strong>Mananciais</strong>
+            <small>Piracicaba + Corumbataí</small>
+          </article>
 
-          <div class="pipe-stage-grid">
-            <article class="process-step">
-              <strong><span class="step-num">01</span> Mananciais</strong>
-              <small>Piracicaba + Corumbataí</small>
-            </article>
-            <article class="process-step">
-              <strong><span class="step-num">02</span> Captação</strong>
-              <small>Água bruta</small>
-            </article>
-            <article class="process-step">
-              <strong><span class="step-num">03</span> Tratamento</strong>
-              <small>ETAs</small>
-            </article>
-            <article class="process-step">
-              <strong><span class="step-num">04</span> Reservação</strong>
-              <small>Equilíbrio do sistema</small>
-            </article>
-            <article class="process-step">
-              <strong><span class="step-num">05</span> Rede</strong>
-              <small>~1,7 mil km</small>
-            </article>
-            <article class="process-step">
-              <strong><span class="step-num">06</span> Sua casa</strong>
-              <small>Consumo</small>
-            </article>
-          </div>
+          <article class="process-step">
+            <span>02</span>
+            <strong>Captação</strong>
+            <small>Água bruta</small>
+          </article>
+
+          <article class="process-step">
+            <span>03</span>
+            <strong>Tratamento</strong>
+            <small>ETAs</small>
+          </article>
+
+          <article class="process-step">
+            <span>04</span>
+            <strong>Reservação</strong>
+            <small>Equilíbrio do sistema</small>
+          </article>
+
+          <article class="process-step">
+            <span>05</span>
+            <strong>Rede</strong>
+            <small>~1,7 mil km</small>
+          </article>
+
+          <article class="process-step">
+            <span>06</span>
+            <strong>Sua casa</strong>
+            <small>Consumo</small>
+          </article>
         </div>
 
         <p class="source-note">Hoje, Piracicaba utiliza os rios Piracicaba e Corumbataí como mananciais. O Corumbataí responde pela maior parte do abastecimento. <a href="https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/" target="_blank" rel="noreferrer">Fonte oficial ↗</a></p>
