@@ -527,3 +527,149 @@
     max-width:none;
   }
 }
+
+/* Episódio 1 — cano mais grosso e etapas alinhadas às junções */
+.pipe-diagram{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  align-items:center;
+  gap:0;
+  width:100%;
+  min-height:320px;
+  padding:90px 0 110px;
+}
+.pipe-track{
+  position:absolute;
+  left:3%;
+  right:3%;
+  top:50%;
+  height:42px;
+  transform:translateY(-50%);
+  border-radius:0;
+  background:#0736FE;
+  box-shadow:none!important;
+}
+.pipe-track::before,
+.pipe-track::after{
+  display:none!important;
+}
+.pipe-joint{
+  position:absolute;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:30px;
+  height:88px;
+  border-radius:999px;
+  background:#0736FE;
+  box-shadow:0 0 0 8px #231F20;
+  z-index:2;
+}
+.joint-1{left:20%}
+.joint-2{left:40%}
+.joint-3{left:60%}
+.joint-4{left:80%}
+
+.process-step,
+.process-step:nth-of-type(even){
+  position:relative;
+  z-index:3;
+  min-width:0;
+  width:max-content;
+  max-width:180px;
+}
+.process-step{
+  padding-bottom:118px;
+}
+.process-step:nth-of-type(even){
+  padding-top:118px;
+  padding-bottom:0;
+}
+.process-step::before,
+.process-step::after{
+  display:none!important;
+}
+.process-step:nth-of-type(1){
+  grid-column:1;
+  justify-self:start;
+  text-align:left;
+}
+.process-step:nth-of-type(2){
+  grid-column:2;
+  justify-self:center;
+  text-align:center;
+}
+.process-step:nth-of-type(3){
+  grid-column:3;
+  justify-self:center;
+  text-align:center;
+}
+.process-step:nth-of-type(4){
+  grid-column:4;
+  justify-self:center;
+  text-align:center;
+}
+.process-step:nth-of-type(5){
+  grid-column:5;
+  justify-self:center;
+  text-align:center;
+}
+.process-step:nth-of-type(6){
+  grid-column:6;
+  justify-self:end;
+  text-align:right;
+}
+.process-step span,
+.process-step strong,
+.process-step small{
+  display:block;
+}
+.process-step span{
+  margin-bottom:8px;
+  color:#8EA2FF;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+.process-step strong{
+  margin:0 0 7px;
+  color:#fff;
+  font-size:18px;
+  line-height:1.15;
+}
+.process-step small{
+  max-width:180px;
+  color:rgba(255,255,255,.68);
+  font-size:13px;
+  line-height:1.35;
+}
+@media(max-width:850px){
+  .pipe-diagram{
+    display:block;
+    min-height:auto;
+    padding:10px 0 10px 64px;
+  }
+  .pipe-track{
+    left:20px;
+    right:auto;
+    top:18px;
+    bottom:18px;
+    width:26px;
+    height:auto;
+    transform:none;
+  }
+  .pipe-joint{
+    display:none;
+  }
+  .process-step,
+  .process-step:nth-of-type(even){
+    min-height:78px;
+    width:auto;
+    max-width:none;
+    padding:8px 0 18px;
+    text-align:left;
+  }
+  .process-step small{
+    max-width:none;
+  }
+}
