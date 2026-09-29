@@ -1653,3 +1653,67 @@
     width:calc(100% - 20px);
   }
 }
+
+/* Episódio 1 — corrige corte da metade inferior da timeline */
+.timeline-viewport{
+  padding-bottom:8px;
+}
+
+.timeline .timeline-item{
+  min-height:560px;
+  grid-template-rows:250px 60px 250px;
+}
+
+/* linha permanece exatamente no centro */
+.timeline .timeline-item::after,
+.timeline .timeline-item::before{
+  top:50%;
+}
+
+/* conteúdo superior */
+.timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-media{
+  top:18px;
+}
+.timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-entry{
+  top:136px;
+}
+
+/* conteúdo inferior: foto primeiro, texto logo abaixo, sem clipping */
+.timeline .timeline-item:nth-child(even) .timeline-media{
+  top:310px;
+}
+.timeline .timeline-item:nth-child(even) .timeline-entry{
+  top:428px;
+}
+
+/* fechamento textual também cabe por inteiro */
+.timeline .timeline-current .timeline-entry{
+  top:326px;
+}
+
+@media(max-width:850px){
+  .timeline .timeline-item{
+    min-height:590px;
+    grid-template-rows:265px 60px 265px;
+  }
+
+  .timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-media{
+    top:22px;
+  }
+
+  .timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-entry{
+    top:134px;
+  }
+
+  .timeline .timeline-item:nth-child(even) .timeline-media{
+    top:325px;
+  }
+
+  .timeline .timeline-item:nth-child(even) .timeline-entry{
+    top:437px;
+  }
+
+  .timeline .timeline-current .timeline-entry{
+    top:350px;
+  }
+}
