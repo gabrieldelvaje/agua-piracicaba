@@ -767,3 +767,36 @@ a{color:inherit}
     background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%);
   }
 }
+
+
+/* 2026-09-29 — correções do hero fixo e cabeçalhos */
+.episode-page.episode-2 .episode-cover,
+.episode-page.episode-3 .episode-cover,
+.episode-page.episode-4 .episode-cover{
+  background:transparent!important;
+}
+
+/* O cabeçalho precisa ficar acima da imagem/overlay fixos do hero. */
+.episode-page .episode-nav{
+  position:sticky;
+  top:0;
+  z-index:40;
+  width:100%;
+  margin:0;
+  padding:0 max(20px,calc((100vw - 1220px)/2));
+  background:rgba(243,243,241,.92);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+/* As seções seguintes são as superfícies que sobem e cobrem o hero. */
+.episode-page .episode-outline{
+  position:relative;
+  z-index:3;
+  background:var(--dark);
+}
+@media(max-width:900px){
+  .episode-page .episode-nav{
+    padding-inline:14px;
+  }
+}
