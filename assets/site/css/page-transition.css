@@ -59,11 +59,9 @@ body.route-transition-lock{
 }
 
 
-/* Mobile Home paint guard:
-   returning from an episode is revealed only after #episodios is positioned;
-   a normal load/reload is revealed only after scroll is reset to the cover. */
+/* Mobile Home normal-load guard. Return visibility is protected inline in index.html
+   so Safari cannot paint the hero before the external stylesheet arrives. */
 @media(max-width:850px){
-  html.mobile-home-return body.series-home,
   html.mobile-home-reset body.series-home{
     visibility:hidden;
   }

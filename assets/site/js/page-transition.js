@@ -4,7 +4,6 @@
 
   const body=document.body;
   const root=document.documentElement;
-  const MOBILE_HOME_KEY="adr-mobile-home-return";
   const isMobile=() => window.matchMedia("(max-width:850px)").matches;
   let running=false;
 
@@ -76,16 +75,14 @@
       navigated=true;
       if(loadFallback) clearTimeout(loadFallback);
 
-      if(direction==="back" && isMobile()){
-        try{sessionStorage.setItem(MOBILE_HOME_KEY,"1")}catch(_){}
-      }else if(isMobile()){
-        try{sessionStorage.removeItem(MOBILE_HOME_KEY)}catch(_){}
-      }
+      let finalHref=destination.href;
 
-      const finalHref =
-        direction==="back" && isMobile()
-          ? destination.href.split("#")[0]
-          : destination.href;
+      if(direction==="back" && isMobile()){
+        const clean=new URL(destination.href);
+        clean.hash="";
+        clean.searchParams.set("adrReturn","episodes");
+        finalHref=clean.href;
+      }
 
       window.location.href=finalHref;
     };
@@ -121,13 +118,13 @@
 
     /* If a browser delays iframe load unusually long, fall back to normal navigation. */
     loadFallback=setTimeout(() => {
+      let finalHref=destination.href;
       if(direction==="back" && isMobile()){
-        try{sessionStorage.setItem(MOBILE_HOME_KEY,"1")}catch(_){}
+        const clean=new URL(destination.href);
+        clean.hash="";
+        clean.searchParams.set("adrReturn","episodes");
+        finalHref=clean.href;
       }
-      const finalHref =
-        direction==="back" && isMobile()
-          ? destination.href.split("#")[0]
-          : destination.href;
       window.location.href=finalHref;
     },5000);
   };
@@ -135,10 +132,8 @@
   const settleMobileHome = () => {
     if(!body.classList.contains("series-home") || !isMobile()) return;
 
-    let returning=false;
-    try{
-      returning=sessionStorage.getItem(MOBILE_HOME_KEY)==="1";
-    }catch(_){}
+    const params=new URLSearchParams(location.search);
+    const returning=params.get("adrReturn")==="episodes";
 
     if("scrollRestoration" in history){
       history.scrollRestoration="manual";
@@ -154,7 +149,10 @@
         window.scrollTo({top,left:0,behavior:"auto"});
       });
 
-      try{sessionStorage.removeItem(MOBILE_HOME_KEY)}catch(_){}
+      const cleanUrl=new URL(location.href);
+      cleanUrl.searchParams.delete("adrReturn");
+      cleanUrl.hash="";
+      history.replaceState(null,"",cleanUrl.pathname + (cleanUrl.search || ""));
     }else{
       if(location.hash){
         history.replaceState(null,"",location.pathname+location.search);
@@ -163,6 +161,12 @@
     }
 
     requestAnimationFrame(() => {
+      if(returning){
+        const target=document.getElementById("episodios");
+        const top=target ? target.offsetTop : 0;
+        window.scrollTo({top,left:0,behavior:"auto"});
+      }
+
       requestAnimationFrame(() => {
         root.classList.remove("mobile-home-return","mobile-home-reset");
       });
