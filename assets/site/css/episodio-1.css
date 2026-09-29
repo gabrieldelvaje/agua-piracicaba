@@ -781,3 +781,88 @@
     overflow:visible;
   }
 }
+
+/* Episódio 1 — fluxo vertical no mobile */
+@media(max-width:850px){
+  .pipe-diagram{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    width:100%;
+    min-height:auto;
+    padding:26px 0 26px 82px;
+    overflow:visible;
+  }
+
+  /* cano principal vertical */
+  .pipe-track{
+    position:absolute;
+    left:28px;
+    top:0;
+    bottom:0;
+    width:30px;
+    height:auto!important;
+    right:auto;
+    transform:none;
+    border-radius:0;
+    background:#0736FE;
+    z-index:1;
+  }
+
+  /* as junções desktop não entram no mobile */
+  .pipe-joint{
+    display:none!important;
+  }
+
+  /* cada etapa ocupa a mesma faixa visual do fluxo */
+  .process-step,
+  .process-step:nth-of-type(even){
+    position:relative;
+    z-index:2;
+    display:block;
+    min-height:102px;
+    width:auto;
+    max-width:none;
+    margin:0;
+    padding:24px 0 24px 0!important;
+    text-align:left;
+  }
+
+  /* a própria junção de cada etapa */
+  .process-step::before{
+    content:""!important;
+    display:block!important;
+    position:absolute;
+    left:-69px;
+    top:50%;
+    width:58px;
+    height:18px;
+    transform:translateY(-50%);
+    border-radius:999px;
+    background:#0736FE;
+    box-shadow:0 0 0 5px #231F20;
+    z-index:3;
+  }
+
+  .process-step::after{
+    content:none!important;
+    display:none!important;
+  }
+
+  .process-step strong{
+    display:flex;
+    align-items:baseline;
+    justify-content:flex-start;
+    gap:8px;
+    margin:0 0 7px;
+    text-align:left;
+  }
+
+  .process-step small{
+    display:block;
+    max-width:none;
+    margin:0;
+    text-align:left;
+  }
+}
