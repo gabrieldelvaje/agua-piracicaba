@@ -703,3 +703,67 @@ a{color:inherit}
     background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%);
   }
 }
+
+
+/* Episódios 2–4 — mesmo efeito de rolagem da home.
+   O hero permanece como plano fixo enquanto a próxima seção sobe sobre ele. */
+.episode-page.episode-2 .episode-cover,
+.episode-page.episode-3 .episode-cover,
+.episode-page.episode-4 .episode-cover{
+  position:relative;
+  z-index:0;
+  isolation:auto;
+  background:#151515!important;
+}
+.episode-page.episode-2 .episode-cover-image,
+.episode-page.episode-3 .episode-cover-image,
+.episode-page.episode-4 .episode-cover-image{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100svh;
+  object-fit:cover;
+  object-position:center center;
+  z-index:0;
+  pointer-events:none;
+}
+.episode-page.episode-2 .episode-cover::before,
+.episode-page.episode-3 .episode-cover::before,
+.episode-page.episode-4 .episode-cover::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.52) 52%,rgba(0,0,0,.30) 100%);
+}
+.episode-page.episode-2 .episode-cover > :not(.episode-cover-image),
+.episode-page.episode-3 .episode-cover > :not(.episode-cover-image),
+.episode-page.episode-4 .episode-cover > :not(.episode-cover-image){
+  position:relative;
+  z-index:2;
+}
+.episode-page main > section:not(.episode-cover){
+  position:relative;
+  z-index:3;
+}
+.episode-page .episode-placeholder{
+  background:var(--bg);
+  box-shadow:0 0 0 100vmax var(--bg);
+  clip-path:inset(0 -100vmax);
+}
+.episode-page main > .series-shell:not(.episode-cover),
+.episode-page .series-footer{
+  position:relative;
+  z-index:3;
+  background:var(--bg);
+  box-shadow:0 0 0 100vmax var(--bg);
+  clip-path:inset(0 -100vmax);
+}
+@media(max-width:900px){
+  .episode-page.episode-2 .episode-cover::before,
+  .episode-page.episode-3 .episode-cover::before,
+  .episode-page.episode-4 .episode-cover::before{
+    background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%);
+  }
+}
