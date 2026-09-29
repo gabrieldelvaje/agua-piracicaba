@@ -1067,49 +1067,6 @@
   position:relative;
 }
 
-.timeline-controls{
-  width:100%;
-  margin-bottom:14px;
-}
-
-.timeline-slider{
-  --timeline-progress:0%;
-  display:block;
-  width:100%;
-  height:28px;
-  margin:0;
-  padding:0;
-  appearance:none;
-  -webkit-appearance:none;
-  background:transparent;
-  cursor:grab;
-  touch-action:pan-y;
-}
-
-.timeline-slider:active{cursor:grabbing}
-
-.timeline-slider::-webkit-slider-runnable-track{
-  height:4px;
-  border-radius:999px;
-  background:linear-gradient(to right,#0736FE 0,#0736FE var(--timeline-progress),#d4d4cf var(--timeline-progress),#d4d4cf 100%);
-}
-
-.timeline-slider::-webkit-slider-thumb{
-  width:22px;
-  height:22px;
-  margin-top:-9px;
-  border:4px solid #F3F3F1;
-  border-radius:50%;
-  background:#0736FE;
-  box-shadow:0 0 0 1px rgba(35,31,32,.12);
-  appearance:none;
-  -webkit-appearance:none;
-}
-
-.timeline-slider::-moz-range-track{height:4px;border:0;border-radius:999px;background:#d4d4cf}
-.timeline-slider::-moz-range-progress{height:4px;border-radius:999px;background:#0736FE}
-.timeline-slider::-moz-range-thumb{width:16px;height:16px;border:4px solid #F3F3F1;border-radius:50%;background:#0736FE}
-
 .timeline-viewport{
   width:100%;
   overflow-x:auto;
@@ -1119,7 +1076,9 @@
   scroll-behavior:smooth;
 }
 
-.timeline-viewport::-webkit-scrollbar{display:none}
+.timeline-viewport::-webkit-scrollbar{
+  display:none;
+}
 
 .timeline{
   position:relative;
@@ -1138,6 +1097,12 @@
   border:0;
 }
 
+/* Aproxima os pontos. Como as etapas alternam acima/abaixo,
+   os blocos vizinhos podem ocupar a mesma faixa horizontal. */
+.timeline .timeline-item + .timeline-item{
+  margin-left:-88px;
+}
+
 /* fio contínuo */
 .timeline .timeline-item::after{
   content:"";
@@ -1150,7 +1115,7 @@
   z-index:1;
 }
 
-/* marcador */
+/* marcador de cada etapa */
 .timeline .timeline-item::before{
   content:"";
   position:absolute;
@@ -1165,7 +1130,6 @@
   z-index:3;
 }
 
-/* bloco inteiro de cada evento: foto e texto nunca se separam */
 .timeline-content{
   position:absolute;
   left:50%;
@@ -1174,12 +1138,10 @@
   transform:translateX(-50%);
 }
 
-/* ímpares acima da linha */
 .timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-content{
   bottom:286px;
 }
 
-/* pares abaixo da linha */
 .timeline .timeline-item:nth-child(even) .timeline-content{
   top:286px;
 }
@@ -1211,7 +1173,9 @@
   transition:transform .2s ease;
 }
 
-.timeline-image-button:hover img{transform:scale(1.025)}
+.timeline-image-button:hover img{
+  transform:scale(1.025);
+}
 
 .timeline-entry{
   width:100%;
@@ -1235,7 +1199,9 @@
   line-height:1.38;
 }
 
-.timeline-entry p>strong{color:var(--ink)}
+.timeline-entry p>strong{
+  color:var(--ink);
+}
 
 .timeline-source{
   color:var(--ink);
@@ -1245,12 +1211,46 @@
   text-underline-offset:3px;
 }
 
-/* fechamento textual, abaixo da linha */
 .timeline-current{
   flex-basis:280px;
 }
+
 .timeline-current .timeline-content{
   top:286px;
+}
+
+/* navegação diretamente sobre o fio */
+.timeline-nav{
+  position:absolute;
+  top:260px;
+  z-index:8;
+  display:grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  padding:0;
+  border:1px solid rgba(35,31,32,.16);
+  border-radius:50%;
+  background:#F3F3F1;
+  color:#231F20;
+  font-family:Helvetica,Arial,sans-serif;
+  font-size:20px;
+  line-height:1;
+  transform:translateY(-50%);
+  cursor:pointer;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.timeline-nav-prev{
+  left:-3px;
+}
+
+.timeline-nav-next{
+  right:-3px;
+}
+
+.timeline-nav[hidden]{
+  display:none;
 }
 
 /* Lightbox */
@@ -1265,11 +1265,13 @@
   overflow:hidden;
   box-shadow:0 30px 90px rgba(0,0,0,.38);
 }
+
 .timeline-lightbox::backdrop{
   background:rgba(0,0,0,.78);
   backdrop-filter:blur(5px);
   -webkit-backdrop-filter:blur(5px);
 }
+
 .timeline-lightbox-image{
   display:block;
   width:100%;
@@ -1277,6 +1279,7 @@
   object-fit:contain;
   background:#111;
 }
+
 .timeline-lightbox-close{
   position:absolute;
   top:14px;
@@ -1297,108 +1300,76 @@
 }
 
 @media(max-width:850px){
-  .history-section{padding:86px 0 94px}
+  .history-section{
+    padding:86px 0 94px;
+  }
+
   .history-copy{
     grid-template-columns:1fr;
     gap:26px;
     margin-bottom:40px;
   }
-  .history-copy h2,.history-summary{max-width:none}
-  .history-summary p{font-size:16px}
 
-  .timeline{height:500px}
+  .history-copy h2,
+  .history-summary{
+    max-width:none;
+  }
+
+  .history-summary p{
+    font-size:16px;
+  }
+
+  .timeline{
+    height:500px;
+  }
+
   .timeline .timeline-item{
     flex-basis:min(76vw,300px);
     height:500px;
     padding:0 10px;
   }
+
+  .timeline .timeline-item + .timeline-item{
+    margin-left:-64px;
+  }
+
   .timeline .timeline-item::after,
   .timeline .timeline-item::before{
     top:250px;
   }
+
   .timeline-content{
     width:calc(100% - 20px);
     max-width:230px;
   }
+
   .timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-content{
     bottom:276px;
   }
+
   .timeline .timeline-item:nth-child(even) .timeline-content,
   .timeline-current .timeline-content{
     top:276px;
   }
-  .timeline-image-button img{height:102px}
-  .timeline-entry p{font-size:12px;line-height:1.36}
-  .timeline-lightbox{width:94vw;border-radius:14px}
-}
-
-/* Episódio 1 — timeline mais compacta + slider curto à direita */
-.timeline-controls{
-  width:min(300px,32vw);
-  margin:0 0 12px auto;
-}
-
-.timeline .timeline-item{
-  flex-basis:clamp(225px,20vw,260px);
-  padding-left:8px;
-  padding-right:8px;
-}
-
-.timeline-content{
-  width:calc(100% - 16px);
-  max-width:220px;
-}
-
-.timeline-media{
-  margin-bottom:7px;
-}
-
-.timeline-image-button img{
-  height:96px;
-}
-
-.timeline-entry time{
-  margin-bottom:4px;
-  font-size:18px;
-}
-
-.timeline-entry p{
-  font-size:12px;
-  line-height:1.34;
-}
-
-.timeline-current{
-  flex-basis:230px;
-}
-
-@media(max-width:850px){
-  .timeline-controls{
-    width:min(210px,58vw);
-    margin-left:auto;
-    margin-bottom:10px;
-  }
-
-  .timeline .timeline-item{
-    flex-basis:min(64vw,240px);
-    padding-left:7px;
-    padding-right:7px;
-  }
-
-  .timeline-content{
-    width:calc(100% - 14px);
-    max-width:205px;
-  }
 
   .timeline-image-button img{
-    height:92px;
-  }
-
-  .timeline-entry time{
-    font-size:18px;
+    height:102px;
   }
 
   .timeline-entry p{
-    font-size:11.5px;
-    line-height:1.32;
+    font-size:12px;
+    line-height:1.36;
+  }
+
+  .timeline-nav{
+    top:250px;
+    width:36px;
+    height:36px;
+    font-size:19px;
+  }
+
+  .timeline-lightbox{
+    width:94vw;
+    border-radius:14px;
   }
 }

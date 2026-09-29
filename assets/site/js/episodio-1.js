@@ -122,47 +122,41 @@ initData();
 // episode-one-horizontal-timeline
 (() => {
   const viewport = document.querySelector('[data-timeline-viewport]');
-  const slider = document.querySelector('[data-timeline-slider]');
-  if (!viewport || !slider) return;
-
-  let syncingFromSlider = false;
-  let raf = null;
+  const prev = document.querySelector('[data-timeline-prev]');
+  const next = document.querySelector('[data-timeline-next]');
+  if (!viewport || !prev || !next) return;
 
   const maxScroll = () =>
     Math.max(0, viewport.scrollWidth - viewport.clientWidth);
 
-  const paintSlider = value => {
-    const clamped = Math.max(0, Math.min(100, value));
-    slider.value = String(clamped);
-    slider.style.setProperty('--timeline-progress', clamped + '%');
+  const getStep = () => {
+    const items = [...viewport.querySelectorAll('.timeline-item')];
+    if (items.length > 1) {
+      const delta = items[1].offsetLeft - items[0].offsetLeft;
+      if (delta > 0) return delta;
+    }
+    return Math.min(viewport.clientWidth * 0.55, 260);
   };
 
-  const syncFromScroll = () => {
-    if (syncingFromSlider) return;
-    if (raf) cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      const max = maxScroll();
-      const value = max > 0 ? (viewport.scrollLeft / max) * 100 : 0;
-      paintSlider(value);
-    });
-  };
-
-  slider.addEventListener('input', () => {
-    syncingFromSlider = true;
+  const updateArrows = () => {
     const max = maxScroll();
-    const value = Number(slider.value);
-    paintSlider(value);
-    viewport.scrollLeft = max * (value / 100);
-    requestAnimationFrame(() => {
-      syncingFromSlider = false;
-    });
+    const atStart = viewport.scrollLeft <= 4;
+    const atEnd = viewport.scrollLeft >= max - 4 || max <= 4;
+    prev.hidden = atStart;
+    next.hidden = atEnd;
+  };
+
+  prev.addEventListener('click', () => {
+    viewport.scrollBy({ left: -getStep(), behavior: 'smooth' });
   });
 
-  viewport.addEventListener('scroll', syncFromScroll, { passive:true });
-  window.addEventListener('resize', syncFromScroll);
+  next.addEventListener('click', () => {
+    viewport.scrollBy({ left: getStep(), behavior: 'smooth' });
+  });
 
-  paintSlider(0);
-  syncFromScroll();
+  viewport.addEventListener('scroll', updateArrows, { passive:true });
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
 })();
 
 
