@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />
   <link rel="preload" as="image" href="assets/site/episodes/episodio-2-peixes-mortos.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="assets/site/css/series.css?v=20260929-1415" />
-  <link rel="stylesheet" href="assets/site/css/episodio-2.css?v=20260929-1415" />
+  <link rel="stylesheet" href="assets/site/css/episodio-2.css?v=20260929-1538" />
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260929-1212" />
 </head>
 <body class="episode-page episode-2">
@@ -37,19 +37,36 @@
     <section class="ep2-opening" id="enterro">
       <div class="ep2-shell">
         <p class="eyebrow">14 de outubro de 1978</p>
-        <h2 class="section-title">Você sabia que o Rio Piracicaba já foi declarado morto?</h2>
 
         <div class="protest-grid">
+          <figure class="protest-photo">
+            <div class="protest-photo-frame" data-protest-media>
+              <button
+                class="protest-image-button"
+                type="button"
+                data-protest-image="assets/site/cards/episodio-2-caixao.jpg"
+                aria-label="Ampliar foto do protesto em defesa do Rio Piracicaba"
+              >
+                <img
+                  src="assets/site/cards/episodio-2-caixao.jpg"
+                  alt="Manifestantes carregam um caixão simbólico durante protesto em defesa do Rio Piracicaba em 1978"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            </div>
+            <figcaption>
+              Protesto em defesa do Rio Piracicaba, outubro de 1978.
+              <strong>Foto: Christiano Diehl Neto.</strong>
+            </figcaption>
+          </figure>
+
           <div class="protest-copy">
             <blockquote>Cerca de três mil pessoas foram às margens do rio. Teve roupa preta, bandeira preta, pescadores de máscara e até um caixão.</blockquote>
+            <p class="protest-death-line">Declaravam: <strong>“o rio está morto”</strong>.</p>
             <p>O ato foi organizado como um funeral simbólico. A edição de <em>O Estado de S. Paulo</em> do dia seguinte registrou a mobilização na antiga Rua do Porto, perto do Salto, sob a manchete “Piracicaba unida em defesa do seu rio”.</p>
             <p class="source-note">Fonte principal: <strong>O Estado de S. Paulo, 15 out. 1978, p. 54</strong>. O protesto ocorreu no dia anterior.</p>
           </div>
-
-          <figure class="protest-photo">
-            <img src="assets/site/cards/episodio-2-caixao.jpg" alt="Manifestantes carregam um caixão simbólico durante protesto em defesa do Rio Piracicaba em 1978" loading="eager" decoding="async" />
-            <figcaption>Protesto em defesa do Rio Piracicaba, outubro de 1978. O caixão tornou literal a ideia de “morte do rio”.</figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -432,11 +449,17 @@
     </section>
   </main>
 
+  <dialog class="protest-lightbox" id="protest-lightbox" aria-label="Imagem ampliada do protesto em defesa do Rio Piracicaba">
+    <button class="protest-lightbox-close" type="button" data-close-protest-lightbox aria-label="Fechar imagem">×</button>
+    <img class="protest-lightbox-image" data-protest-lightbox-image alt="" />
+  </dialog>
+
   <footer class="series-footer ep2-shell">
     <span>Gabriel Delvaje · Piracicaba Data Stories</span>
     <span>Dados públicos · documentos históricos · fontes identificadas</span>
   </footer>
 
+  <script src="assets/site/js/episodio-2.js?v=20260929-1538"></script>
   <script src="assets/site/js/page-transition.js?v=20260929-1008"></script>
 </body>
 </html>
