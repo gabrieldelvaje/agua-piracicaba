@@ -597,3 +597,119 @@
     max-width:none;
   }
 }
+
+/* Episódio 1 — junções como únicos marcadores */
+.process-step::before,
+.process-step::after{
+  content:none!important;
+  display:none!important;
+}
+
+.pipe-joints,
+.pipe-stage-grid{
+  position:absolute;
+  left:max(8vw,calc((100vw - 1180px)/2));
+  right:max(8vw,calc((100vw - 1180px)/2));
+  top:0;
+  bottom:0;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+}
+
+.pipe-joints{
+  z-index:2;
+  pointer-events:none;
+}
+
+.pipe-joint{
+  position:relative;
+}
+
+.pipe-joint::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:70.8%;
+  width:18px;
+  height:64px;
+  transform:translate(-50%,-50%);
+  border-radius:999px;
+  background:#0736FE;
+  box-shadow:0 0 0 5px #231F20;
+}
+
+.pipe-stage-grid{
+  z-index:3;
+  align-items:stretch;
+}
+
+.process-step,
+.process-step:nth-child(even){
+  position:relative;
+  min-width:0;
+  width:100%;
+  max-width:none;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.process-step{
+  justify-content:flex-end;
+  padding:0 10px 108px;
+}
+
+.process-step:nth-child(even){
+  justify-content:flex-start;
+  padding:108px 10px 0;
+}
+
+.process-step strong{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:8px;
+  margin:0 0 8px;
+  color:#fff;
+  font-size:18px;
+  line-height:1.15;
+}
+
+.step-num{
+  color:#8EA2FF!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  letter-spacing:.08em!important;
+  line-height:1!important;
+  margin:0!important;
+  flex:0 0 auto;
+}
+
+.process-step small{
+  display:block;
+  max-width:170px;
+  margin:0 auto;
+  color:rgba(255,255,255,.68);
+  font-size:13px;
+  line-height:1.4;
+}
+
+@media(max-width:850px){
+  .process-step,
+  .process-step:nth-child(even){
+    display:block;
+    width:auto;
+    padding:14px 16px;
+    text-align:left;
+  }
+
+  .process-step strong{
+    justify-content:flex-start;
+  }
+
+  .process-step small{
+    margin:0;
+    max-width:none;
+  }
+}
