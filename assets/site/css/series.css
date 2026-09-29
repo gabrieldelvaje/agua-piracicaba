@@ -374,7 +374,7 @@ a{color:inherit}
   color:#fff;
   background:
     linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.52) 52%,rgba(0,0,0,.30) 100%),
-    url("../../../peixes%20mortos.jpg") center center/cover no-repeat;
+    url("../episodes/episodio-2-peixes-mortos.jpg") center center/cover no-repeat;
 }
 .episode-page.episode-2 .episode-cover h1{
   max-width:900px;
@@ -429,7 +429,7 @@ a{color:inherit}
     padding:34px 14px 28px;
     background:
       linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%),
-      url("../../../peixes%20mortos.jpg") center center/cover no-repeat;
+      url("../episodes/episodio-2-peixes-mortos.jpg") center center/cover no-repeat;
   }
   .episode-page.episode-2 .episode-cover h1{
     max-width:760px;
