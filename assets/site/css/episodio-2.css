@@ -1004,3 +1004,21 @@ body.episode-2{
     opacity:.45;
   }
 }
+
+
+/* Opening protest — explicit text-left / image-right layout */
+@media(min-width:901px){
+  .ep2-opening .protest-copy{
+    grid-column:1;
+    grid-row:1;
+  }
+
+  .ep2-opening .protest-photo{
+    grid-column:2;
+    grid-row:1;
+  }
+}
+
+.ep2-opening > .ep2-shell > .section-title{
+  display:none!important;
+}
