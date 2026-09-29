@@ -66,3 +66,18 @@ body.route-transition-lock{
     visibility:hidden;
   }
 }
+
+
+/* On mobile return, the rendered Home iframe becomes the live page.
+   No second document navigation occurs after the slide finishes. */
+@media(max-width:850px){
+  .route-page-stage.is-promoted{
+    pointer-events:auto!important;
+    transform:translate3d(0,0,0)!important;
+    transition:none!important;
+  }
+
+  .route-page-stage.is-promoted iframe{
+    pointer-events:auto;
+  }
+}

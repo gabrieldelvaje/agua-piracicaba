@@ -43,6 +43,42 @@
     }catch(_){}
   };
 
+  const promoteMobileHome = (stage,frame,destination) => {
+    /* The animated Home is already fully rendered and positioned at Episódios.
+       Keep that exact document onscreen instead of triggering a second navigation. */
+    const clean=new URL(destination.href);
+    clean.hash="";
+    clean.searchParams.delete("adrReturn");
+
+    history.replaceState(null,"",clean.pathname + (clean.search || ""));
+    document.title=frame.contentDocument?.title || document.title;
+
+    stage.classList.add("is-promoted");
+    stage.removeAttribute("aria-hidden");
+    stage.style.pointerEvents="auto";
+
+    frame.removeAttribute("aria-hidden");
+    frame.removeAttribute("tabindex");
+    frame.setAttribute("title","Águas do Rio Piracicaba");
+
+    running=false;
+
+    /* page-transition.js intentionally does not run inside preload iframes.
+       Bridge only the episode-card clicks back to the top-level transition. */
+    try{
+      frame.contentDocument.addEventListener("click",event => {
+        const link=event.target.closest("a");
+        if(!link || !primary(event)) return;
+
+        if(link.matches(".home-episode[href^='episodio-']")){
+          event.preventDefault();
+          const href=link.getAttribute("href");
+          if(href) animateDestination(href,"forward");
+        }
+      },true);
+    }catch(_){}
+  };
+
   const animateDestination=(href,direction) => {
     if(running) return;
     const destination=normalizeDestination(href);
@@ -75,16 +111,12 @@
       navigated=true;
       if(loadFallback) clearTimeout(loadFallback);
 
-      let finalHref=destination.href;
-
       if(direction==="back" && isMobile()){
-        const clean=new URL(destination.href);
-        clean.hash="";
-        clean.searchParams.set("adrReturn","episodes");
-        finalHref=clean.href;
+        promoteMobileHome(stage,frame,destination);
+        return;
       }
 
-      window.location.href=finalHref;
+      window.location.href=destination.href;
     };
 
     const begin=() => {
@@ -118,14 +150,7 @@
 
     /* If a browser delays iframe load unusually long, fall back to normal navigation. */
     loadFallback=setTimeout(() => {
-      let finalHref=destination.href;
-      if(direction==="back" && isMobile()){
-        const clean=new URL(destination.href);
-        clean.hash="";
-        clean.searchParams.set("adrReturn","episodes");
-        finalHref=clean.href;
-      }
-      window.location.href=finalHref;
+      window.location.href=destination.href;
     },5000);
   };
 
