@@ -866,3 +866,119 @@
     text-align:left;
   }
 }
+
+/* Episódio 1 — fluxo vertical responsivo final */
+@media(max-width:1024px){
+  .pipe-diagram{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    min-height:auto!important;
+    padding:30px 18px 30px 96px!important;
+    overflow:visible!important;
+  }
+
+  /* cano principal vertical */
+  .pipe-track{
+    position:absolute!important;
+    left:34px!important;
+    top:0!important;
+    bottom:0!important;
+    right:auto!important;
+    width:30px!important;
+    height:auto!important;
+    transform:none!important;
+    border-radius:0!important;
+    background:#0736FE!important;
+    box-shadow:none!important;
+    z-index:1!important;
+  }
+
+  .pipe-track::before,
+  .pipe-track::after{
+    display:none!important;
+    content:none!important;
+  }
+
+  /* esconde as junções horizontais do desktop */
+  .pipe-joint,
+  .pipe-joint-extra{
+    display:none!important;
+  }
+
+  /* etapas realmente verticais, uma por linha */
+  .process-step,
+  .process-step:nth-of-type(even),
+  .process-step:nth-of-type(1),
+  .process-step:nth-of-type(2),
+  .process-step:nth-of-type(3),
+  .process-step:nth-of-type(4),
+  .process-step:nth-of-type(5),
+  .process-step:nth-of-type(6){
+    position:relative!important;
+    display:block!important;
+    grid-column:auto!important;
+    justify-self:auto!important;
+    width:100%!important;
+    max-width:none!important;
+    min-height:104px!important;
+    margin:0!important;
+    padding:24px 0 24px 0!important;
+    text-align:left!important;
+    z-index:2!important;
+  }
+
+  /* junção horizontal ligada ao cano vertical */
+  .process-step::before{
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    left:-75px!important;
+    top:38px!important;
+    width:58px!important;
+    height:18px!important;
+    transform:none!important;
+    border:0!important;
+    border-radius:999px!important;
+    background:#0736FE!important;
+    box-shadow:0 0 0 5px #231F20!important;
+    z-index:3!important;
+  }
+
+  .process-step::after{
+    content:none!important;
+    display:none!important;
+  }
+
+  .process-step strong{
+    display:flex!important;
+    align-items:baseline!important;
+    justify-content:flex-start!important;
+    gap:8px!important;
+    margin:0 0 8px!important;
+    color:#fff!important;
+    font-size:18px!important;
+    line-height:1.15!important;
+    text-align:left!important;
+  }
+
+  .process-step strong .step-num{
+    display:inline!important;
+    margin:0!important;
+    color:#0736FE!important;
+    font-size:inherit!important;
+    font-weight:inherit!important;
+    line-height:inherit!important;
+    letter-spacing:inherit!important;
+  }
+
+  .process-step small{
+    display:block!important;
+    max-width:none!important;
+    margin:0!important;
+    color:rgba(255,255,255,.68)!important;
+    font-size:13px!important;
+    line-height:1.4!important;
+    text-align:left!important;
+  }
+}
