@@ -1132,12 +1132,13 @@ body.episode-2{
 
 .ep2-timeline-entry time{
   display:block;
-  margin:0 0 16px;
-  color:#8EA1FF;
-  font-size:12px;
+  margin:0 0 8px;
+  color:#0736FE;
+  font-size:19px;
   font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
+  line-height:1;
+  letter-spacing:-.03em;
+  text-transform:none;
 }
 
 .ep2-timeline-entry h3{
