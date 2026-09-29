@@ -117,3 +117,39 @@ initData();
   media.addEventListener?.('change', updateVisibility);
   updateVisibility();
 })();
+
+
+// episode-one-horizontal-timeline
+(() => {
+  const viewport = document.querySelector('[data-timeline-viewport]');
+  const prev = document.querySelector('[data-timeline-prev]');
+  const next = document.querySelector('[data-timeline-next]');
+  if (!viewport || !prev || !next) return;
+
+  const getStep = () => {
+    const item = viewport.querySelector('.timeline-item');
+    if (!item) return viewport.clientWidth * 0.75;
+    const styles = getComputedStyle(item);
+    return item.getBoundingClientRect().width
+      + parseFloat(styles.marginLeft || 0)
+      + parseFloat(styles.marginRight || 0);
+  };
+
+  const update = () => {
+    const max = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+    prev.disabled = viewport.scrollLeft <= 4;
+    next.disabled = viewport.scrollLeft >= max - 4;
+  };
+
+  prev.addEventListener('click', () => {
+    viewport.scrollBy({ left: -getStep(), behavior: 'smooth' });
+  });
+
+  next.addEventListener('click', () => {
+    viewport.scrollBy({ left: getStep(), behavior: 'smooth' });
+  });
+
+  viewport.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
