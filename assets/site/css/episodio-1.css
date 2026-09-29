@@ -401,8 +401,32 @@
   }
 }
 
-/* Episódio 1 — cano reto flat, inspirado em tubulação */
-.process-heading .eyebrow{display:none!important}
+/* Episódio 1 — fluxo de água consolidado */
+#caminho{
+  scroll-margin-top:68px;
+}
+.process-section{
+  min-height:calc(100svh - 68px);
+  height:calc(100svh - 68px);
+  padding:0;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:#231F20;
+  color:#fff;
+}
+.process-shell{
+  width:var(--shell);
+  height:100%;
+  min-height:calc(100svh - 68px);
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+  align-items:center;
+  padding:38px 0 30px;
+}
+.process-heading{
+  align-self:start;
+}
 .process-heading h2{
   margin:0;
   max-width:1080px;
@@ -410,483 +434,160 @@
   line-height:.98;
   letter-spacing:-.05em;
 }
+
 .pipe-diagram{
   position:relative;
-  display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
-  align-items:center;
-  gap:20px;
-  width:100%;
-  min-height:300px;
-  padding:84px 0 92px;
-}
-.pipe-track{
-  position:absolute;
-  left:3%;
-  right:3%;
-  top:50%;
-  height:22px;
-  transform:translateY(-50%);
-  border-radius:0;
-  background:#0736FE;
-  box-shadow:none!important;
-}
-.pipe-track::before,
-.pipe-track::after{
-  display:none!important;
-}
-.pipe-joint{
-  position:absolute;
-  top:50%;
-  transform:translate(-50%,-50%);
-  width:18px;
-  height:64px;
-  border-radius:999px;
-  background:#0736FE;
-  box-shadow:0 0 0 5px #231F20;
-  z-index:2;
-}
-.joint-1{left:19.2%}
-.joint-2{left:38.6%}
-.joint-3{left:58%}
-.joint-4{left:77.4%}
-.process-step,
-.process-step:nth-of-type(even){
-  position:relative;
-  z-index:3;
-  min-width:0;
-}
-.process-step{
-  padding-bottom:104px;
-}
-.process-step:nth-of-type(even){
-  padding-top:104px;
-  padding-bottom:0;
-}
-.process-step::before,
-.process-step::after{
-  display:none!important;
-}
-.process-step span,
-.process-step strong,
-.process-step small{
-  display:block;
-}
-.process-step span{
-  margin-bottom:8px;
-  color:#8EA2FF;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.08em;
-}
-.process-step strong{
-  margin:0 0 7px;
-  color:#fff;
-  font-size:18px;
-  line-height:1.15;
-}
-.process-step small{
-  max-width:150px;
-  color:rgba(255,255,255,.68);
-  font-size:13px;
-  line-height:1.35;
-}
-.process-section .source-note{
-  margin-top:0;
-  color:rgba(255,255,255,.58);
-}
-.process-section .source-note a{
-  color:#fff;
-}
-@media(max-width:850px){
-  .process-heading h2{
-    font-size:clamp(40px,10vw,62px);
-  }
-  .pipe-diagram{
-    display:block;
-    min-height:auto;
-    padding:10px 0 10px 56px;
-  }
-  .pipe-track{
-    left:18px;
-    right:auto;
-    top:18px;
-    bottom:18px;
-    width:16px;
-    height:auto;
-    transform:none;
-    border-radius:0;
-  }
-  .pipe-joint{display:none}
-  .process-step,
-  .process-step:nth-of-type(even){
-    min-height:78px;
-    padding:8px 0 18px;
-  }
-  .process-step small{
-    max-width:none;
-  }
-}
-
-/* Episódio 1 — cano mais grosso e etapas alinhadas às junções */
-.pipe-diagram{
-  position:relative;
-  display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
-  align-items:center;
-  gap:0;
-  width:100%;
-  min-height:320px;
-  padding:90px 0 110px;
-}
-.pipe-track{
-  position:absolute;
-  left:3%;
-  right:3%;
-  top:50%;
-  height:42px;
-  transform:translateY(-50%);
-  border-radius:0;
-  background:#0736FE;
-  box-shadow:none!important;
-}
-.pipe-track::before,
-.pipe-track::after{
-  display:none!important;
-}
-.pipe-joint{
-  position:absolute;
-  top:50%;
-  transform:translate(-50%,-50%);
-  width:30px;
-  height:88px;
-  border-radius:999px;
-  background:#0736FE;
-  box-shadow:0 0 0 8px #231F20;
-  z-index:2;
-}
-.joint-1{left:20%}
-.joint-2{left:40%}
-.joint-3{left:60%}
-.joint-4{left:80%}
-
-.process-step,
-.process-step:nth-of-type(even){
-  position:relative;
-  z-index:3;
-  min-width:0;
-  width:max-content;
-  max-width:180px;
-}
-.process-step{
-  padding-bottom:118px;
-}
-.process-step:nth-of-type(even){
-  padding-top:118px;
-  padding-bottom:0;
-}
-.process-step::before,
-.process-step::after{
-  display:none!important;
-}
-.process-step:nth-of-type(1){
-  grid-column:1;
-  justify-self:start;
-  text-align:left;
-}
-.process-step:nth-of-type(2){
-  grid-column:2;
-  justify-self:center;
-  text-align:center;
-}
-.process-step:nth-of-type(3){
-  grid-column:3;
-  justify-self:center;
-  text-align:center;
-}
-.process-step:nth-of-type(4){
-  grid-column:4;
-  justify-self:center;
-  text-align:center;
-}
-.process-step:nth-of-type(5){
-  grid-column:5;
-  justify-self:center;
-  text-align:center;
-}
-.process-step:nth-of-type(6){
-  grid-column:6;
-  justify-self:end;
-  text-align:right;
-}
-.process-step span,
-.process-step strong,
-.process-step small{
-  display:block;
-}
-.process-step span{
-  margin-bottom:8px;
-  color:#8EA2FF;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.08em;
-}
-.process-step strong{
-  margin:0 0 7px;
-  color:#fff;
-  font-size:18px;
-  line-height:1.15;
-}
-.process-step small{
-  max-width:180px;
-  color:rgba(255,255,255,.68);
-  font-size:13px;
-  line-height:1.35;
-}
-@media(max-width:850px){
-  .pipe-diagram{
-    display:block;
-    min-height:auto;
-    padding:10px 0 10px 64px;
-  }
-  .pipe-track{
-    left:20px;
-    right:auto;
-    top:18px;
-    bottom:18px;
-    width:26px;
-    height:auto;
-    transform:none;
-  }
-  .pipe-joint{
-    display:none;
-  }
-  .process-step,
-  .process-step:nth-of-type(even){
-    min-height:78px;
-    width:auto;
-    max-width:none;
-    padding:8px 0 18px;
-    text-align:left;
-  }
-  .process-step small{
-    max-width:none;
-  }
-}
-
-/* Episódio 1 — uma junção por etapa */
-.pipe-track{
-  height:42px;
-}
-.pipe-joint{
-  width:18px;
-  height:64px;
-  border-radius:999px;
-  background:#0736FE;
-  box-shadow:0 0 0 5px #231F20;
-}
-.joint-1{left:8.333%}
-.joint-2{left:25%}
-.joint-3{left:41.667%}
-.joint-4{left:58.333%}
-.joint-5{left:75%}
-.joint-6{left:91.667%}
-
-.process-step,
-.process-step:nth-of-type(even){
-  width:100%;
-  max-width:none;
-  justify-self:stretch;
-  text-align:center;
-}
-.process-step:nth-of-type(1),
-.process-step:nth-of-type(2),
-.process-step:nth-of-type(3),
-.process-step:nth-of-type(4),
-.process-step:nth-of-type(5),
-.process-step:nth-of-type(6){
-  justify-self:stretch;
-  text-align:center;
-}
-.process-step small{
-  max-width:170px;
-  margin-left:auto;
-  margin-right:auto;
-}
-@media(max-width:850px){
-  .pipe-joint{display:none}
-  .process-step,
-  .process-step:nth-of-type(even){
-    width:auto;
-    text-align:left;
-  }
-  .process-step small{
-    margin-left:0;
-    margin-right:0;
-  }
-}
-
-/* Episódio 1 — etapas nas junções + cotovelos decorativos */
-.pipe-diagram{
-  position:relative;
-  display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
-  align-items:center;
-  gap:0;
-  width:100%;
+  left:50%;
+  width:100vw;
+  height:100%;
   min-height:330px;
-  padding:96px 0 118px;
+  transform:translateX(-50%);
+  overflow:hidden;
+}
+.pipe-flow-svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
   overflow:visible;
 }
-.pipe-track{
-  position:absolute;
-  left:3%;
-  right:3%;
-  top:50%;
-  height:42px;
-  transform:translateY(-50%);
-  background:#0736FE;
-  border-radius:0;
-  box-shadow:none!important;
-  z-index:1;
+.pipe-flow-path{
+  fill:none;
+  stroke:#0736FE;
+  stroke-width:44;
+  stroke-linecap:butt;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
 }
-.pipe-track::before,
-.pipe-track::after{
-  display:none!important;
+
+/* As junções e os textos usam exatamente as mesmas seis colunas. */
+.pipe-joints,
+.pipe-stage-grid{
+  position:absolute;
+  left:max(8vw,calc((100vw - 1180px)/2));
+  right:max(8vw,calc((100vw - 1180px)/2));
+  top:0;
+  bottom:0;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+}
+.pipe-joints{
+  pointer-events:none;
+  z-index:2;
 }
 .pipe-joint{
+  position:relative;
+}
+.pipe-joint::before{
+  content:"";
   position:absolute;
-  top:50%;
-  transform:translate(-50%,-50%);
+  left:50%;
+  top:70.8%;
   width:18px;
   height:64px;
+  transform:translate(-50%,-50%);
   border-radius:999px;
   background:#0736FE;
   box-shadow:0 0 0 5px #231F20;
+}
+
+.pipe-stage-grid{
   z-index:3;
-}
-.joint-1{left:8.333%}
-.joint-2{left:25%}
-.joint-3{left:41.667%}
-.joint-4{left:58.333%}
-.joint-5{left:75%}
-.joint-6{left:91.667%}
-
-.pipe-elbow{
-  position:absolute;
-  top:50%;
-  width:118px;
-  height:118px;
-  z-index:1;
-  pointer-events:none;
-}
-.elbow-left{
-  left:-72px;
-  transform:translateY(-50%);
-  border-left:42px solid #0736FE;
-  border-bottom:42px solid #0736FE;
-  border-bottom-left-radius:96px;
-}
-.elbow-left::before{
-  content:"";
-  position:absolute;
-  left:-42px;
-  top:-90px;
-  width:42px;
-  height:90px;
-  background:#0736FE;
-}
-.elbow-right{
-  right:-72px;
-  transform:translateY(-50%);
-  border-right:42px solid #0736FE;
-  border-top:42px solid #0736FE;
-  border-top-right-radius:96px;
-}
-.elbow-right::before{
-  content:"";
-  position:absolute;
-  right:-42px;
-  top:76px;
-  width:42px;
-  height:90px;
-  background:#0736FE;
-}
-
-.process-step,
-.process-step:nth-of-type(even){
-  position:relative;
-  z-index:4;
-  min-width:0;
-  width:100%;
-  max-width:none;
-  justify-self:stretch;
-  text-align:center;
+  align-items:center;
 }
 .process-step{
-  padding-bottom:118px;
+  min-width:0;
+  width:100%;
+  text-align:center;
+  padding:0 10px 112px;
 }
-.process-step:nth-of-type(even){
-  padding-top:118px;
-  padding-bottom:0;
-}
-.process-step::before,
-.process-step::after{
-  display:none!important;
+.process-step:nth-child(even){
+  padding:112px 10px 0;
 }
 .process-step strong{
   display:flex;
   align-items:baseline;
   justify-content:center;
-  gap:9px;
+  gap:8px;
   margin:0 0 7px;
   color:#fff;
   font-size:18px;
   line-height:1.15;
 }
 .step-num{
-  color:#8EA2FF!important;
-  font-size:11px!important;
-  font-weight:700!important;
-  letter-spacing:.08em!important;
-  line-height:1!important;
-  margin:0!important;
+  color:#8EA2FF;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  line-height:1;
 }
 .process-step small{
   display:block;
   max-width:170px;
-  margin-left:auto;
-  margin-right:auto;
+  margin:0 auto;
   color:rgba(255,255,255,.68);
   font-size:13px;
   line-height:1.35;
 }
+.process-section .source-note{
+  align-self:end;
+  margin:0;
+  color:rgba(255,255,255,.58);
+  font-size:12px;
+}
+.process-section .source-note a{
+  color:#fff;
+}
+
 @media(max-width:850px){
-  .pipe-elbow,
-  .pipe-joint{
-    display:none;
+  #caminho{
+    scroll-margin-top:58px;
+  }
+  .process-section{
+    height:auto;
+    min-height:calc(100svh - 58px);
+    overflow:visible;
+  }
+  .process-shell{
+    height:auto;
+    min-height:calc(100svh - 58px);
+    padding:34px 0 30px;
+    grid-template-rows:auto auto auto;
+    gap:28px;
+  }
+  .process-heading h2{
+    font-size:clamp(40px,10vw,62px);
   }
   .pipe-diagram{
-    display:block;
-    min-height:auto;
-    padding:10px 0 10px 64px;
-    overflow:hidden;
-  }
-  .pipe-track{
-    left:20px;
-    right:auto;
-    top:18px;
-    bottom:18px;
-    width:26px;
+    left:auto;
+    width:100%;
     height:auto;
+    min-height:0;
     transform:none;
+    overflow:visible;
+  }
+  .pipe-flow-svg,
+  .pipe-joints{
+    display:none;
+  }
+  .pipe-stage-grid{
+    position:relative;
+    left:auto;
+    right:auto;
+    top:auto;
+    bottom:auto;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
   }
   .process-step,
-  .process-step:nth-of-type(even){
-    min-height:78px;
+  .process-step:nth-child(even){
     width:auto;
-    padding:8px 0 18px;
+    padding:14px 16px;
     text-align:left;
+    border:1px solid rgba(142,162,255,.35);
+    border-radius:14px;
+    background:rgba(7,54,254,.08);
   }
   .process-step strong{
     justify-content:flex-start;
@@ -894,173 +595,5 @@
   .process-step small{
     margin:0;
     max-width:none;
-  }
-}
-
-/* Episódio 1 — cotovelos integrados ao fluxo e saída pelas laterais */
-.pipe-diagram{
-  --pipe-color:#0736FE;
-  --pipe-thickness:42px;
-  --pipe-joint-width:18px;
-  --pipe-joint-height:64px;
-  --pipe-side:140px;
-  --pipe-gap:5px;
-
-  position:relative;
-  display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
-  align-items:center;
-  gap:0;
-  width:100%;
-  min-height:360px;
-  padding:104px 0 124px;
-  overflow:hidden;
-}
-
-.pipe-track{
-  position:absolute;
-  left:calc(var(--pipe-side) - 6px);
-  right:calc(var(--pipe-side) - 6px);
-  top:50%;
-  height:var(--pipe-thickness);
-  transform:translateY(-50%);
-  background:var(--pipe-color);
-  border-radius:0;
-  box-shadow:none!important;
-  z-index:1;
-}
-.pipe-track::before,
-.pipe-track::after{
-  display:none!important;
-}
-
-.pipe-joint{
-  position:absolute;
-  top:50%;
-  width:var(--pipe-joint-width);
-  height:var(--pipe-joint-height);
-  transform:translate(-50%,-50%);
-  border-radius:999px;
-  background:var(--pipe-color);
-  box-shadow:0 0 0 var(--pipe-gap) #231F20;
-  z-index:3;
-}
-.joint-1{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * 0)}
-.joint-2{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .2)}
-.joint-3{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .4)}
-.joint-4{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .6)}
-.joint-5{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .8)}
-.joint-6{left:calc(100% - var(--pipe-side))}
-
-.pipe-elbow{
-  position:absolute;
-  width:var(--pipe-side);
-  height:var(--pipe-side);
-  z-index:1;
-  pointer-events:none;
-}
-
-/* esquerdo: a curva termina exatamente na mesma altura da reta */
-.elbow-left{
-  left:calc(var(--pipe-side) * -.45);
-  top:calc(50% - (var(--pipe-side) - (var(--pipe-thickness) / 2)));
-  border-left:var(--pipe-thickness) solid var(--pipe-color);
-  border-bottom:var(--pipe-thickness) solid var(--pipe-color);
-  border-bottom-left-radius:calc(var(--pipe-side) - 10px);
-}
-.elbow-left::before{
-  content:"";
-  position:absolute;
-  left:calc(var(--pipe-thickness) * -1);
-  top:-260px;
-  width:var(--pipe-thickness);
-  height:260px;
-  background:var(--pipe-color);
-}
-.elbow-left::after{
-  content:"";
-  position:absolute;
-  right:0;
-  bottom:calc(var(--pipe-thickness) / -2);
-  width:var(--pipe-joint-width);
-  height:var(--pipe-joint-height);
-  transform:translate(50%,50%);
-  border-radius:999px;
-  background:var(--pipe-color);
-  box-shadow:0 0 0 var(--pipe-gap) #231F20;
-}
-
-/* direito: a curva começa na reta e desce até desaparecer na lateral */
-.elbow-right{
-  right:calc(var(--pipe-side) * -.45);
-  top:calc(50% - (var(--pipe-thickness) / 2));
-  border-right:var(--pipe-thickness) solid var(--pipe-color);
-  border-top:var(--pipe-thickness) solid var(--pipe-color);
-  border-top-right-radius:calc(var(--pipe-side) - 10px);
-}
-.elbow-right::before{
-  content:"";
-  position:absolute;
-  right:calc(var(--pipe-thickness) * -1);
-  top:var(--pipe-side);
-  width:var(--pipe-thickness);
-  height:260px;
-  background:var(--pipe-color);
-}
-.elbow-right::after{
-  content:"";
-  position:absolute;
-  left:0;
-  top:calc(var(--pipe-thickness) / 2);
-  width:var(--pipe-joint-width);
-  height:var(--pipe-joint-height);
-  transform:translate(-50%,-50%);
-  border-radius:999px;
-  background:var(--pipe-color);
-  box-shadow:0 0 0 var(--pipe-gap) #231F20;
-}
-
-/* mantém textos afastados das curvas */
-.process-step:nth-of-type(1){
-  padding-left:54px;
-}
-.process-step:nth-of-type(6){
-  padding-right:54px;
-}
-
-@media(max-width:850px){
-  .pipe-elbow,
-  .pipe-joint{
-    display:none;
-  }
-  .pipe-diagram{
-    display:block;
-    min-height:auto;
-    padding:10px 0 10px 64px;
-    overflow:hidden;
-  }
-  .pipe-track{
-    left:20px;
-    right:auto;
-    top:18px;
-    bottom:18px;
-    width:26px;
-    height:auto;
-    transform:none;
-  }
-  .process-step,
-  .process-step:nth-of-type(even){
-    min-height:78px;
-    width:auto;
-    padding:8px 0 18px;
-    text-align:left;
-  }
-  .process-step strong{
-    justify-content:flex-start;
-  }
-  .process-step small{
-    margin:0;
-    max-width:none;
-    text-align:left;
   }
 }
