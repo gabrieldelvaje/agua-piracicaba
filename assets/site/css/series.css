@@ -477,9 +477,7 @@ a{color:inherit}
   flex-direction:column;
   justify-content:center;
   color:#fff;
-  background:
-    linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.52) 52%,rgba(0,0,0,.30) 100%),
-    url("../episodes/episodio-3-museu-da-agua-antigo.jpg") center center/cover no-repeat;
+  background:#151515;
 }
 .episode-page.episode-3 .episode-cover h1{
   max-width:900px;
@@ -532,9 +530,7 @@ a{color:inherit}
     min-height:calc(100svh - 68px);
     max-height:none;
     padding:34px 14px 28px;
-    background:
-      linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%),
-      url("../episodes/episodio-3-museu-da-agua-antigo.jpg") center center/cover no-repeat;
+    background:#151515;
   }
   .episode-page.episode-3 .episode-cover h1{
     max-width:760px;
@@ -582,9 +578,7 @@ a{color:inherit}
   flex-direction:column;
   justify-content:center;
   color:#fff;
-  background:
-    linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.52) 52%,rgba(0,0,0,.30) 100%),
-    url("../episodes/episodio-4-festa-do-divino.jpg") center center/cover no-repeat;
+  background:#151515;
 }
 .episode-page.episode-4 .episode-cover h1{
   max-width:900px;
@@ -637,9 +631,7 @@ a{color:inherit}
     min-height:calc(100svh - 68px);
     max-height:none;
     padding:34px 14px 28px;
-    background:
-      linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%),
-      url("../episodes/episodio-4-festa-do-divino.jpg") center center/cover no-repeat;
+    background:#151515;
   }
   .episode-page.episode-4 .episode-cover h1{
     max-width:760px;
@@ -669,5 +661,45 @@ a{color:inherit}
   }
   .episode-page.episode-4 .episode-cover .lead{
     font-size:16px;
+  }
+}
+
+
+/* Episode 3/4 — preload real hero image before route animation */
+.episode-page.episode-3 .episode-cover,
+.episode-page.episode-4 .episode-cover{
+  overflow:hidden;
+  isolation:isolate;
+  background:#151515;
+}
+.episode-page.episode-3 .episode-cover-image,
+.episode-page.episode-4 .episode-cover-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  z-index:0;
+  pointer-events:none;
+}
+.episode-page.episode-3 .episode-cover::before,
+.episode-page.episode-4 .episode-cover::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.52) 52%,rgba(0,0,0,.30) 100%);
+}
+.episode-page.episode-3 .episode-cover > :not(.episode-cover-image),
+.episode-page.episode-4 .episode-cover > :not(.episode-cover-image){
+  position:relative;
+  z-index:2;
+}
+@media(max-width:900px){
+  .episode-page.episode-3 .episode-cover::before,
+  .episode-page.episode-4 .episode-cover::before{
+    background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%);
   }
 }
