@@ -1869,3 +1869,87 @@
     right:-12px!important;
   }
 }
+
+
+/* Episódio 1 — acabamento dos cards da timeline e respiro das setas */
+
+/* Cada evento vira um card único, envolvendo foto + data + texto */
+.timeline-content{
+  background:#E7E7E2!important;
+  border-radius:16px!important;
+  padding:12px!important;
+  box-shadow:0 1px 0 rgba(35,31,32,.05)!important;
+}
+
+.timeline-media{
+  border-radius:10px!important;
+  margin-bottom:10px!important;
+  background:#DCDCD6!important;
+}
+
+.timeline-entry{
+  padding:0 2px 2px!important;
+}
+
+/* O fechamento sem foto mantém a mesma linguagem visual */
+.timeline-current .timeline-content{
+  padding:14px 16px!important;
+}
+
+/* Pequena interrupção visual da linha antes da seta,
+   repetindo a lógica do espaço em volta dos marcadores */
+.timeline-carousel::before,
+.timeline-carousel::after{
+  content:"";
+  position:absolute;
+  top:278px;
+  z-index:7;
+  width:18px;
+  height:8px;
+  background:#F3F3F1;
+  transform:translateY(-50%);
+  pointer-events:none;
+}
+
+.timeline-carousel::before{
+  left:0;
+}
+
+.timeline-carousel::after{
+  right:0;
+}
+
+/* Seta fica visualmente separada da linha */
+.timeline-nav-prev{
+  left:-12px!important;
+}
+
+.timeline-nav-next{
+  right:-12px!important;
+}
+
+@media(max-width:850px){
+  .timeline-content{
+    border-radius:15px!important;
+    padding:11px!important;
+  }
+
+  .timeline-current .timeline-content{
+    padding:13px 14px!important;
+  }
+
+  .timeline-carousel::before,
+  .timeline-carousel::after{
+    top:278px;
+    width:16px;
+    height:8px;
+  }
+
+  .timeline-nav-prev{
+    left:-13px!important;
+  }
+
+  .timeline-nav-next{
+    right:-13px!important;
+  }
+}
