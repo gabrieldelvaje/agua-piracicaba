@@ -1373,3 +1373,69 @@
     border-radius:14px;
   }
 }
+
+/* Episódio 1 — timeline mais coesa e compacta */
+.timeline .timeline-item{
+  flex-basis:clamp(300px,25.5vw,340px);
+  padding-left:12px;
+  padding-right:12px;
+}
+
+/* Mais sobreposição horizontal entre etapas alternadas */
+.timeline .timeline-item + .timeline-item{
+  margin-left:-132px;
+}
+
+.timeline-content{
+  width:calc(100% - 24px);
+  max-width:270px;
+}
+
+.timeline-image-button img{
+  height:124px;
+}
+
+.timeline-entry time{
+  margin-bottom:6px;
+  font-size:22px;
+}
+
+.timeline-entry p{
+  font-size:14px;
+  line-height:1.4;
+}
+
+/* um pouco mais de respiro entre imagem e texto */
+.timeline-media{
+  margin-bottom:10px;
+}
+
+@media(max-width:850px){
+  .timeline .timeline-item{
+    flex-basis:min(82vw,320px);
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .timeline .timeline-item + .timeline-item{
+    margin-left:-96px;
+  }
+
+  .timeline-content{
+    width:calc(100% - 20px);
+    max-width:250px;
+  }
+
+  .timeline-image-button img{
+    height:116px;
+  }
+
+  .timeline-entry time{
+    font-size:21px;
+  }
+
+  .timeline-entry p{
+    font-size:13px;
+    line-height:1.4;
+  }
+}
