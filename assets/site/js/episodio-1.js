@@ -94,3 +94,26 @@ initData();
     requestAnimationFrame(step);
   });
 })();
+
+
+// episode-one-back-to-top
+(() => {
+  const button = document.querySelector('[data-back-to-top]');
+  if (!button) return;
+
+  const media = window.matchMedia('(max-width: 1024px)');
+
+  const updateVisibility = () => {
+    const visible = media.matches && window.scrollY > Math.max(520, window.innerHeight * 0.7);
+    button.classList.toggle('is-visible', visible);
+  };
+
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  window.addEventListener('resize', updateVisibility);
+  media.addEventListener?.('change', updateVisibility);
+  updateVisibility();
+})();
