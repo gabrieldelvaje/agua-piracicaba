@@ -2208,3 +2208,43 @@ main > section:not(.hero){
     background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%);
   }
 }
+
+
+/* 2026-09-29 — evita o hero fixo aparecer nas laterais do conteúdo */
+main > section:not(.hero){
+  position:relative;
+  z-index:3;
+}
+
+/* Seções claras: fundo ocupa toda a viewport, mesmo quando o conteúdo usa section-shell. */
+.history-section,
+.growth-section,
+.loss-section,
+.events-section,
+.investment-section,
+.sources-section{
+  background:var(--bg);
+  box-shadow:0 0 0 100vmax var(--bg);
+  clip-path:inset(0 -100vmax);
+}
+
+/* Seções que já têm fundo próprio também sangram até as bordas. */
+.process-section,
+.production-section,
+.infrastructure-section,
+.conclusion-section{
+  box-shadow:0 0 0 100vmax var(--dark);
+  clip-path:inset(0 -100vmax);
+}
+.question-section{
+  box-shadow:0 0 0 100vmax var(--blue);
+  clip-path:inset(0 -100vmax);
+}
+
+.site-footer{
+  position:relative;
+  z-index:3;
+  background:var(--bg);
+  box-shadow:0 0 0 100vmax var(--bg);
+  clip-path:inset(0 -100vmax);
+}
