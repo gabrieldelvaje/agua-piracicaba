@@ -896,3 +896,223 @@
     max-width:none;
   }
 }
+
+/* Episódio 1 — ajuste final de cotovelos, extremidades e alinhamento */
+.pipe-diagram{
+  --pipe-color:#0736FE;
+  --pipe-thickness:42px;
+  --pipe-joint-width:18px;
+  --pipe-joint-height:64px;
+  --pipe-side:118px;
+  --pipe-gap:5px;
+
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  align-items:center;
+  gap:0;
+  width:100%;
+  min-height:360px;
+  padding:104px 0 124px;
+  overflow:visible;
+}
+
+/* reta principal começa e termina exatamente nos cotovelos */
+.pipe-track{
+  position:absolute;
+  left:var(--pipe-side);
+  right:var(--pipe-side);
+  top:50%;
+  height:var(--pipe-thickness);
+  transform:translateY(-50%);
+  background:var(--pipe-color);
+  border-radius:0;
+  box-shadow:none!important;
+  z-index:1;
+}
+.pipe-track::before,
+.pipe-track::after{
+  display:none!important;
+}
+
+/* uma junção por etapa, alinhada com o centro de cada coluna */
+.pipe-joint{
+  position:absolute;
+  top:50%;
+  width:var(--pipe-joint-width);
+  height:var(--pipe-joint-height);
+  transform:translate(-50%,-50%);
+  border-radius:999px;
+  background:var(--pipe-color);
+  box-shadow:0 0 0 var(--pipe-gap) #231F20;
+  z-index:3;
+}
+.joint-1{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * 0)}
+.joint-2{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .2)}
+.joint-3{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .4)}
+.joint-4{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .6)}
+.joint-5{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .8)}
+.joint-6{left:calc(100% - var(--pipe-side))}
+
+/* cotovelos: saem da reta e continuam até as bordas */
+.pipe-elbow{
+  position:absolute;
+  top:50%;
+  width:var(--pipe-side);
+  height:var(--pipe-side);
+  transform:translateY(-50%);
+  z-index:1;
+  pointer-events:none;
+}
+
+/* cotovelo esquerdo */
+.elbow-left{
+  left:0;
+  border-left:var(--pipe-thickness) solid var(--pipe-color);
+  border-bottom:var(--pipe-thickness) solid var(--pipe-color);
+  border-bottom-left-radius:calc(var(--pipe-side) - 12px);
+}
+.elbow-left::before{
+  content:"";
+  position:absolute;
+  left:calc(var(--pipe-thickness) * -1);
+  top:calc(var(--pipe-side) * -.9);
+  width:var(--pipe-thickness);
+  height:calc(var(--pipe-side) * .9);
+  background:var(--pipe-color);
+}
+.elbow-left::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:var(--pipe-joint-width);
+  height:var(--pipe-joint-height);
+  transform:translate(50%,-50%);
+  border-radius:999px;
+  background:var(--pipe-color);
+  box-shadow:0 0 0 var(--pipe-gap) #231F20;
+}
+
+/* cotovelo direito */
+.elbow-right{
+  right:0;
+  border-right:var(--pipe-thickness) solid var(--pipe-color);
+  border-top:var(--pipe-thickness) solid var(--pipe-color);
+  border-top-right-radius:calc(var(--pipe-side) - 12px);
+}
+.elbow-right::before{
+  content:"";
+  position:absolute;
+  right:calc(var(--pipe-thickness) * -1);
+  top:calc(var(--pipe-side) - 2px);
+  width:var(--pipe-thickness);
+  height:calc(var(--pipe-side) * .9);
+  background:var(--pipe-color);
+}
+.elbow-right::after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  width:var(--pipe-joint-width);
+  height:var(--pipe-joint-height);
+  transform:translate(-50%,-50%);
+  border-radius:999px;
+  background:var(--pipe-color);
+  box-shadow:0 0 0 var(--pipe-gap) #231F20;
+}
+
+/* textos alinhados às seis junções */
+.process-step,
+.process-step:nth-of-type(even){
+  position:relative;
+  z-index:4;
+  min-width:0;
+  width:100%;
+  max-width:none;
+  justify-self:stretch;
+  text-align:center;
+}
+.process-step{
+  padding-bottom:126px;
+}
+.process-step:nth-of-type(even){
+  padding-top:126px;
+  padding-bottom:0;
+}
+.process-step::before,
+.process-step::after{
+  display:none!important;
+}
+.process-step strong{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:9px;
+  margin:0 0 7px;
+  color:#fff;
+  font-size:18px;
+  line-height:1.15;
+}
+.step-num{
+  color:#8EA2FF!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  letter-spacing:.08em!important;
+  line-height:1!important;
+  margin:0!important;
+}
+.process-step small{
+  display:block;
+  max-width:170px;
+  margin:0 auto;
+  color:rgba(255,255,255,.68);
+  font-size:13px;
+  line-height:1.35;
+}
+
+/* afasta os textos das curvas das extremidades */
+.process-step:nth-of-type(1){
+  padding-left:18px;
+}
+.process-step:nth-of-type(6){
+  padding-right:18px;
+}
+
+@media(max-width:850px){
+  .pipe-elbow,
+  .pipe-joint{
+    display:none;
+  }
+  .pipe-diagram{
+    display:block;
+    min-height:auto;
+    padding:10px 0 10px 64px;
+    overflow:hidden;
+  }
+  .pipe-track{
+    left:20px;
+    right:auto;
+    top:18px;
+    bottom:18px;
+    width:26px;
+    height:auto;
+    transform:none;
+  }
+  .process-step,
+  .process-step:nth-of-type(even){
+    min-height:78px;
+    width:auto;
+    padding:8px 0 18px;
+    text-align:left;
+  }
+  .process-step strong{
+    justify-content:flex-start;
+  }
+  .process-step small{
+    margin:0;
+    max-width:none;
+    text-align:left;
+  }
+}
