@@ -2018,3 +2018,43 @@
     top:320px!important;
   }
 }
+
+
+/* Episódio 1 — mais respiro nas pontas e deslocamento visual da timeline */
+.timeline-carousel::before,
+.timeline-carousel::after{
+  width:30px!important;
+  height:10px!important;
+}
+
+.timeline-nav-prev{
+  left:-9px!important;
+}
+
+.timeline-nav-next{
+  right:-9px!important;
+}
+
+.timeline-viewport.is-sliding{
+  cursor:grabbing;
+}
+
+.timeline-viewport.is-sliding .timeline{
+  will-change:transform;
+}
+
+@media(max-width:850px){
+  .timeline-carousel::before,
+  .timeline-carousel::after{
+    width:28px!important;
+    height:10px!important;
+  }
+
+  .timeline-nav-prev{
+    left:-10px!important;
+  }
+
+  .timeline-nav-next{
+    right:-10px!important;
+  }
+}

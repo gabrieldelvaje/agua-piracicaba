@@ -126,32 +126,90 @@ initData();
   const next = document.querySelector('[data-timeline-next]');
   if (!viewport || !prev || !next) return;
 
+  let activeFrame = null;
+  let sliding = false;
+
   const maxScroll = () =>
     Math.max(0, viewport.scrollWidth - viewport.clientWidth);
 
-  const getStep = () => {
+  const getBaseStep = () => {
     const items = [...viewport.querySelectorAll('.timeline-item')];
     if (items.length > 1) {
       const delta = items[1].offsetLeft - items[0].offsetLeft;
       if (delta > 0) return delta;
     }
-    return Math.min(viewport.clientWidth * 0.55, 260);
+    return Math.min(viewport.clientWidth * 0.45, 300);
+  };
+
+  const getStep = () => {
+    const base = getBaseStep();
+    const visualStep = viewport.clientWidth * 0.34;
+    return Math.min(Math.max(base * 1.25, visualStep), 430);
   };
 
   const updateArrows = () => {
     const max = maxScroll();
-    const atStart = viewport.scrollLeft <= 4;
-    const atEnd = viewport.scrollLeft >= max - 4 || max <= 4;
+    const atStart = viewport.scrollLeft <= 5;
+    const atEnd = viewport.scrollLeft >= max - 5 || max <= 5;
     prev.hidden = atStart;
     next.hidden = atEnd;
   };
 
+  const animateTo = target => {
+    if (activeFrame) cancelAnimationFrame(activeFrame);
+
+    const startLeft = viewport.scrollLeft;
+    const endLeft = Math.max(0, Math.min(maxScroll(), target));
+    const distance = endLeft - startLeft;
+
+    if (Math.abs(distance) < 2) {
+      viewport.scrollLeft = endLeft;
+      updateArrows();
+      return;
+    }
+
+    const previousBehavior = viewport.style.scrollBehavior;
+    viewport.style.scrollBehavior = 'auto';
+    viewport.classList.add('is-sliding');
+    sliding = true;
+
+    const duration = 560;
+    let startedAt = null;
+
+    const easeInOutCubic = t =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const frame = now => {
+      if (startedAt === null) startedAt = now;
+      const progress = Math.min((now - startedAt) / duration, 1);
+      const eased = easeInOutCubic(progress);
+
+      viewport.scrollLeft = startLeft + distance * eased;
+      updateArrows();
+
+      if (progress < 1) {
+        activeFrame = requestAnimationFrame(frame);
+      } else {
+        viewport.scrollLeft = endLeft;
+        viewport.style.scrollBehavior = previousBehavior;
+        viewport.classList.remove('is-sliding');
+        sliding = false;
+        activeFrame = null;
+        updateArrows();
+      }
+    };
+
+    activeFrame = requestAnimationFrame(frame);
+  };
+
   prev.addEventListener('click', () => {
-    viewport.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    if (sliding) return;
+    animateTo(viewport.scrollLeft - getStep());
   });
 
   next.addEventListener('click', () => {
-    viewport.scrollBy({ left: getStep(), behavior: 'smooth' });
+    if (sliding) return;
+    animateTo(viewport.scrollLeft + getStep());
   });
 
   viewport.addEventListener('scroll', updateArrows, { passive:true });
