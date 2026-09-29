@@ -762,3 +762,30 @@ body.episode-2{
   .decree-card strong{font-size:48px}
   .bridge-grid h2{font-size:13vw}
 }
+
+
+/* Faixas opacas que sobem sobre o hero fixo, como na home. */
+.ep2-opening,
+.ep2-cantareira,
+.ep2-data,
+.ep2-legacy,
+.ep2-sources{
+  background:var(--ep2-bg);
+}
+.ep2-opening,
+.ep2-chronology,
+.ep2-cantareira,
+.ep2-dilution,
+.ep2-fishkills,
+.ep2-data,
+.ep2-newspapers,
+.ep2-legacy,
+.ep2-bridge,
+.ep2-sources,
+.episode-2 .series-footer{
+  position:relative;
+  z-index:3;
+}
+.episode-2 .series-footer{
+  background:var(--ep2-bg);
+}
