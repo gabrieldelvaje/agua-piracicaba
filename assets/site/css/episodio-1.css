@@ -896,3 +896,171 @@
     max-width:none;
   }
 }
+
+/* Episódio 1 — cotovelos integrados ao fluxo e saída pelas laterais */
+.pipe-diagram{
+  --pipe-color:#0736FE;
+  --pipe-thickness:42px;
+  --pipe-joint-width:18px;
+  --pipe-joint-height:64px;
+  --pipe-side:140px;
+  --pipe-gap:5px;
+
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  align-items:center;
+  gap:0;
+  width:100%;
+  min-height:360px;
+  padding:104px 0 124px;
+  overflow:hidden;
+}
+
+.pipe-track{
+  position:absolute;
+  left:calc(var(--pipe-side) - 6px);
+  right:calc(var(--pipe-side) - 6px);
+  top:50%;
+  height:var(--pipe-thickness);
+  transform:translateY(-50%);
+  background:var(--pipe-color);
+  border-radius:0;
+  box-shadow:none!important;
+  z-index:1;
+}
+.pipe-track::before,
+.pipe-track::after{
+  display:none!important;
+}
+
+.pipe-joint{
+  position:absolute;
+  top:50%;
+  width:var(--pipe-joint-width);
+  height:var(--pipe-joint-height);
+  transform:translate(-50%,-50%);
+  border-radius:999px;
+  background:var(--pipe-color);
+  box-shadow:0 0 0 var(--pipe-gap) #231F20;
+  z-index:3;
+}
+.joint-1{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * 0)}
+.joint-2{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .2)}
+.joint-3{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .4)}
+.joint-4{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .6)}
+.joint-5{left:calc(var(--pipe-side) + (100% - (var(--pipe-side) * 2)) * .8)}
+.joint-6{left:calc(100% - var(--pipe-side))}
+
+.pipe-elbow{
+  position:absolute;
+  width:var(--pipe-side);
+  height:var(--pipe-side);
+  z-index:1;
+  pointer-events:none;
+}
+
+/* esquerdo: a curva termina exatamente na mesma altura da reta */
+.elbow-left{
+  left:calc(var(--pipe-side) * -.45);
+  top:calc(50% - (var(--pipe-side) - (var(--pipe-thickness) / 2)));
+  border-left:var(--pipe-thickness) solid var(--pipe-color);
+  border-bottom:var(--pipe-thickness) solid var(--pipe-color);
+  border-bottom-left-radius:calc(var(--pipe-side) - 10px);
+}
+.elbow-left::before{
+  content:"";
+  position:absolute;
+  left:calc(var(--pipe-thickness) * -1);
+  top:-260px;
+  width:var(--pipe-thickness);
+  height:260px;
+  background:var(--pipe-color);
+}
+.elbow-left::after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:calc(var(--pipe-thickness) / -2);
+  width:var(--pipe-joint-width);
+  height:var(--pipe-joint-height);
+  transform:translate(50%,50%);
+  border-radius:999px;
+  background:var(--pipe-color);
+  box-shadow:0 0 0 var(--pipe-gap) #231F20;
+}
+
+/* direito: a curva começa na reta e desce até desaparecer na lateral */
+.elbow-right{
+  right:calc(var(--pipe-side) * -.45);
+  top:calc(50% - (var(--pipe-thickness) / 2));
+  border-right:var(--pipe-thickness) solid var(--pipe-color);
+  border-top:var(--pipe-thickness) solid var(--pipe-color);
+  border-top-right-radius:calc(var(--pipe-side) - 10px);
+}
+.elbow-right::before{
+  content:"";
+  position:absolute;
+  right:calc(var(--pipe-thickness) * -1);
+  top:var(--pipe-side);
+  width:var(--pipe-thickness);
+  height:260px;
+  background:var(--pipe-color);
+}
+.elbow-right::after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:calc(var(--pipe-thickness) / 2);
+  width:var(--pipe-joint-width);
+  height:var(--pipe-joint-height);
+  transform:translate(-50%,-50%);
+  border-radius:999px;
+  background:var(--pipe-color);
+  box-shadow:0 0 0 var(--pipe-gap) #231F20;
+}
+
+/* mantém textos afastados das curvas */
+.process-step:nth-of-type(1){
+  padding-left:54px;
+}
+.process-step:nth-of-type(6){
+  padding-right:54px;
+}
+
+@media(max-width:850px){
+  .pipe-elbow,
+  .pipe-joint{
+    display:none;
+  }
+  .pipe-diagram{
+    display:block;
+    min-height:auto;
+    padding:10px 0 10px 64px;
+    overflow:hidden;
+  }
+  .pipe-track{
+    left:20px;
+    right:auto;
+    top:18px;
+    bottom:18px;
+    width:26px;
+    height:auto;
+    transform:none;
+  }
+  .process-step,
+  .process-step:nth-of-type(even){
+    min-height:78px;
+    width:auto;
+    padding:8px 0 18px;
+    text-align:left;
+  }
+  .process-step strong{
+    justify-content:flex-start;
+  }
+  .process-step small{
+    margin:0;
+    max-width:none;
+    text-align:left;
+  }
+}
