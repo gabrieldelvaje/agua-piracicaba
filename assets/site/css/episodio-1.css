@@ -2149,3 +2149,9 @@
     opacity:.45;
   }
 }
+
+
+/* Timeline 1952 — show more of the lower part of the photo */
+.timeline-image-button[data-timeline-image$="1952-departamento-aguas-esgoto.png"] img{
+  object-position:center 78%;
+}
