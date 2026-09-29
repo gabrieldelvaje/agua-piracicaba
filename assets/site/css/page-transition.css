@@ -1,70 +1,59 @@
-/* Cross-document route transition: animate the actual destination page. */
-@view-transition{
-  navigation:auto;
-}
-
-html{
+/* Real destination-page transition using a preloaded same-origin iframe. */
+html,
+body{
   background:#F3F3F1;
 }
 
-::view-transition-group(root),
-::view-transition-image-pair(root),
-::view-transition-old(root),
-::view-transition-new(root){
-  animation-fill-mode:both;
+body.route-transition-lock{
+  overflow:hidden!important;
 }
 
-::view-transition-image-pair(root){
-  isolation:auto;
+.route-page-stage{
+  --route-duration:820ms;
+  --route-ease:cubic-bezier(.22,.78,.22,1);
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  width:100vw;
+  height:100dvh;
+  overflow:hidden;
+  background:#F3F3F1;
+  transform:translate3d(0,100%,0);
+  transition:transform var(--route-duration) var(--route-ease)!important;
+  will-change:transform;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  contain:strict;
+  pointer-events:none;
 }
 
-::view-transition-old(root),
-::view-transition-new(root){
-  mix-blend-mode:normal;
+.route-page-stage.from-top{
+  transform:translate3d(0,-100%,0);
 }
 
-/* Home -> episódio:
-   the real destination page rises over the still image of Home. */
-html.route-forward::view-transition-old(root){
-  z-index:1;
-  animation:none!important;
+.route-page-stage.is-active{
+  transform:translate3d(0,0,0);
 }
 
-html.route-forward::view-transition-new(root){
-  z-index:2;
-  animation:route-page-up 860ms cubic-bezier(.22,.78,.22,1) both!important;
+.route-page-stage iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#F3F3F1;
 }
 
-/* Episódio -> Home:
-   Home is already at #episodios underneath; the real episode page slides down. */
-html.route-back::view-transition-new(root){
-  z-index:1;
-  animation:none!important;
-}
-
-html.route-back::view-transition-old(root){
-  z-index:2;
-  animation:route-page-down 860ms cubic-bezier(.22,.78,.22,1) both!important;
-}
-
-@keyframes route-page-up{
-  from{transform:translate3d(0,100%,0)}
-  to{transform:translate3d(0,0,0)}
-}
-
-@keyframes route-page-down{
-  from{transform:translate3d(0,0,0)}
-  to{transform:translate3d(0,100%,0)}
-}
-
-/* Keep this route animation functional even though other site CSS disables
-   general animation/transition under reduced-motion settings. */
+/* Never let global reduced-motion rules kill the route movement.
+   It stays shorter, but still communicates page direction. */
 @media(prefers-reduced-motion:reduce){
-  html.route-forward::view-transition-new(root){
-    animation:route-page-up 520ms cubic-bezier(.3,.7,.2,1) both!important;
+  .route-page-stage{
+    --route-duration:520ms;
+    transition:transform var(--route-duration) cubic-bezier(.3,.7,.2,1)!important;
   }
+}
 
-  html.route-back::view-transition-old(root){
-    animation:route-page-down 520ms cubic-bezier(.3,.7,.2,1) both!important;
+@media(max-width:850px){
+  .route-page-stage{
+    --route-duration:700ms;
   }
 }
