@@ -358,35 +358,106 @@ a{color:inherit}
   outline:none!important;
 }
 
-
-/* Episode 2 cover — symbolic coffin image */
+/* Episode 2 — hero aligned with Episode 1 */
 .episode-page.episode-2 .episode-cover{
   position:relative;
   width:100%;
   max-width:none;
   margin:0;
+  height:calc(100svh - 68px);
   min-height:calc(100svh - 68px);
-  padding:100px max(24px,calc((100vw - 1220px)/2)) 80px;
+  max-height:calc(100svh - 68px);
+  padding:48px max(20px,calc((100vw - 1220px)/2)) 34px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   color:#fff;
   background:
-    linear-gradient(90deg,rgba(0,0,0,.74) 0%,rgba(0,0,0,.56) 52%,rgba(0,0,0,.34) 100%),
+    linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.52) 52%,rgba(0,0,0,.30) 100%),
     url("../cards/episodio-2-caixao.jpg") center center/cover no-repeat;
 }
-.episode-page.episode-2 .episode-cover .episode-index{
-  color:rgba(255,255,255,.74);
+.episode-page.episode-2 .episode-cover h1{
+  max-width:900px;
+  margin:0 0 30px;
+  font-size:clamp(68px,7.4vw,118px);
+  line-height:1;
+  letter-spacing:-.05em;
 }
 .episode-page.episode-2 .episode-cover .lead{
+  max-width:620px;
+  margin:0;
+  font-size:clamp(20px,1.7vw,25px);
+  line-height:1.42;
+  letter-spacing:-.015em;
   color:rgba(255,255,255,.95);
+}
+.episode-page.episode-2 .episode-scroll-cue{
+  width:max-content;
+  margin-top:28px;
+  padding:12px 18px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  justify-content:flex-start;
+  border:0;
+  border-radius:999px;
+  background:#0736FE;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.10em;
+  text-decoration:none;
+  transition:transform .2s ease,opacity .2s ease;
+}
+.episode-page.episode-2 .episode-scroll-cue:hover{
+  opacity:.9;
+  transform:translateY(-1px);
+}
+.episode-page.episode-2 .episode-scroll-cue b{
+  font-size:16px;
+  line-height:1;
+}
+.episode-page.episode-2 #estrutura{
+  scroll-margin-top:68px;
 }
 @media(max-width:900px){
   .episode-page.episode-2 .episode-cover{
+    height:calc(100svh - 68px);
     min-height:calc(100svh - 68px);
-    padding:70px 14px 60px;
+    max-height:none;
+    padding:34px 14px 28px;
     background:
-      linear-gradient(180deg,rgba(0,0,0,.46) 0%,rgba(0,0,0,.62) 58%,rgba(0,0,0,.80) 100%),
+      linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%),
       url("../cards/episodio-2-caixao.jpg") center center/cover no-repeat;
+  }
+  .episode-page.episode-2 .episode-cover h1{
+    max-width:760px;
+    margin-bottom:24px;
+    font-size:clamp(54px,13vw,88px);
+    line-height:1.02;
+    letter-spacing:-.045em;
+  }
+  .episode-page.episode-2 .episode-cover .lead{
+    max-width:650px;
+    font-size:17px;
+    line-height:1.42;
+  }
+  .episode-page.episode-2 .episode-scroll-cue{
+    margin-top:24px;
+  }
+}
+@media(max-width:520px){
+  .episode-page.episode-2 .episode-cover{
+    min-height:calc(100svh - 68px);
+    height:auto;
+  }
+  .episode-page.episode-2 .episode-cover h1{
+    font-size:12.6vw;
+    line-height:1.04;
+    letter-spacing:-.04em;
+  }
+  .episode-page.episode-2 .episode-cover .lead{
+    font-size:16px;
   }
 }
