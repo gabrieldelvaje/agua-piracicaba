@@ -763,3 +763,21 @@
     padding-bottom:0;
   }
 }
+
+/* Episódio 1 — extensão lateral do cano com passo constante */
+@media(min-width:851px){
+  /* As seis junções das etapas têm passo de 16,667%.
+     As novas junções seguem exatamente o mesmo passo. */
+  .joint-0{left:-8.334%}
+  .joint-7{left:108.334%}
+
+  /* Meio passo além das novas junções para o cano desaparecer nas laterais. */
+  .pipe-track{
+    left:-16.667%;
+    right:-16.667%;
+  }
+
+  .pipe-diagram{
+    overflow:visible;
+  }
+}
