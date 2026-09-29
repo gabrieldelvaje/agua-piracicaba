@@ -1,0 +1,594 @@
+:root{
+  --ep2-bg:#F3F3F1;
+  --ep2-ink:#231F20;
+  --ep2-muted:#686565;
+  --ep2-line:rgba(35,31,32,.16);
+  --ep2-blue:#0736FE;
+  --ep2-dark:#171717;
+  --ep2-paper:#E9E9E5;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body.episode-2{
+  margin:0;
+  background:var(--ep2-bg);
+  color:var(--ep2-ink);
+  font-family:Helvetica,Arial,sans-serif;
+  overflow-x:hidden;
+}
+.episode-2 .episode-nav{
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:rgba(243,243,241,.92);
+  backdrop-filter:blur(18px);
+}
+.episode-2 .episode-nav nav{
+  display:flex;
+  gap:22px;
+  align-items:center;
+}
+.episode-2 .episode-nav nav a{
+  color:rgba(35,31,32,.66);
+}
+.episode-2 .episode-nav nav a:hover{color:var(--ep2-blue)}
+.episode-2 .ep2-shell{
+  width:min(1180px,calc(100vw - 48px));
+  margin:0 auto;
+}
+.episode-2 .eyebrow{
+  margin:0 0 18px;
+  color:var(--ep2-blue);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.episode-2 .section-title{
+  margin:0;
+  max-width:940px;
+  font-size:clamp(44px,6vw,82px);
+  line-height:.98;
+  letter-spacing:-.055em;
+}
+.episode-2 .section-copy{
+  margin:24px 0 0;
+  max-width:760px;
+  color:var(--ep2-muted);
+  font-size:18px;
+  line-height:1.58;
+}
+.episode-2 .source-note{
+  margin:18px 0 0;
+  color:rgba(35,31,32,.56);
+  font-size:12px;
+  line-height:1.5;
+}
+.episode-2 .source-note a,
+.episode-2 .text-link{
+  color:var(--ep2-blue);
+  text-decoration:none;
+}
+.episode-2 .text-link{
+  display:inline-flex;
+  margin-top:16px;
+  font-size:13px;
+  font-weight:700;
+}
+.episode-2 section[id]{scroll-margin-top:86px}
+
+/* Hero adjustments */
+.episode-page.episode-2 .episode-cover{
+  isolation:isolate;
+  overflow:hidden;
+}
+.episode-page.episode-2 .episode-cover:after{
+  content:"Episódio 2";
+  position:absolute;
+  right:max(20px,calc((100vw - 1220px)/2));
+  bottom:34px;
+  z-index:2;
+  color:rgba(255,255,255,.72);
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.episode-page.episode-2 .episode-cover h1,
+.episode-page.episode-2 .episode-cover .lead,
+.episode-page.episode-2 .episode-scroll-cue{position:relative;z-index:2}
+
+/* Opening / protest */
+.ep2-opening{padding:110px 0 100px}
+.protest-grid{
+  margin-top:48px;
+  display:grid;
+  grid-template-columns:minmax(0,.95fr) minmax(420px,1.05fr);
+  gap:52px;
+  align-items:center;
+}
+.protest-copy blockquote{
+  margin:0;
+  font-size:clamp(30px,4vw,56px);
+  line-height:1.04;
+  letter-spacing:-.045em;
+  font-weight:700;
+}
+.protest-copy p{
+  margin:28px 0 0;
+  max-width:620px;
+  color:var(--ep2-muted);
+  font-size:18px;
+  line-height:1.58;
+}
+.protest-photo{
+  margin:0;
+  border-radius:24px;
+  overflow:hidden;
+  background:#111;
+}
+.protest-photo img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.protest-photo figcaption{
+  padding:13px 16px 15px;
+  background:#111;
+  color:rgba(255,255,255,.72);
+  font-size:11px;
+  line-height:1.45;
+}
+
+/* Mini chronology */
+.ep2-chronology{
+  padding:90px 0;
+  background:var(--ep2-dark);
+  color:#fff;
+}
+.chronology-head{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:42px;
+}
+.chronology-head p{
+  margin:0;
+  color:rgba(255,255,255,.62);
+  font-size:17px;
+  line-height:1.55;
+}
+.chronology{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:1px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.18);
+}
+.chronology article{
+  min-height:230px;
+  padding:22px;
+  background:var(--ep2-dark);
+}
+.chronology time{
+  color:#8EA1FF;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.12em;
+}
+.chronology h3{
+  margin:34px 0 9px;
+  font-size:24px;
+  line-height:1.05;
+  letter-spacing:-.035em;
+}
+.chronology p{
+  margin:0;
+  color:rgba(255,255,255,.62);
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* Cantareira */
+.ep2-cantareira{padding:110px 0}
+.cantareira-intro{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:72px;
+  align-items:start;
+}
+.transfer-map{
+  margin-top:48px;
+  padding:30px;
+  border-radius:28px;
+  background:#E7E7E3;
+}
+.transfer-flow{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:18px;
+  align-items:center;
+}
+.transfer-node{
+  min-height:150px;
+  padding:22px;
+  border-radius:18px;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.transfer-node small{
+  color:var(--ep2-muted);
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.transfer-node strong{
+  font-size:25px;
+  line-height:1.04;
+  letter-spacing:-.035em;
+}
+.transfer-arrow{
+  color:var(--ep2-blue);
+  font-size:34px;
+}
+.cantareira-stats{
+  margin-top:36px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.cantareira-stats article{
+  min-height:190px;
+  padding:24px;
+  border-radius:20px;
+  background:#E9E9E5;
+}
+.cantareira-stats span{
+  display:block;
+  color:var(--ep2-muted);
+  font-size:12px;
+}
+.cantareira-stats strong{
+  display:block;
+  margin-top:34px;
+  font-size:clamp(42px,5vw,70px);
+  line-height:.9;
+  letter-spacing:-.06em;
+}
+.cantareira-stats small{
+  display:block;
+  margin-top:10px;
+  color:var(--ep2-muted);
+  font-size:12px;
+  line-height:1.4;
+}
+.rigor-box{
+  margin-top:28px;
+  padding:20px 22px;
+  border-left:3px solid var(--ep2-blue);
+  background:#fff;
+}
+.rigor-box strong{display:block;margin-bottom:7px}
+.rigor-box p{margin:0;color:var(--ep2-muted);line-height:1.55}
+
+/* Dilution */
+.ep2-dilution{
+  padding:105px 0;
+  background:#E9E9E5;
+}
+.dilution-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:72px;
+  align-items:center;
+}
+.pollution-list{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+.pollution-list span{
+  padding:14px 16px;
+  border-radius:999px;
+  background:#fff;
+  font-size:13px;
+  font-weight:700;
+}
+.glass-demo{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+.glass{
+  min-height:360px;
+  padding:22px;
+  border:2px solid rgba(35,31,32,.26);
+  border-top:0;
+  border-radius:0 0 26px 26px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  position:relative;
+  overflow:hidden;
+  background:rgba(255,255,255,.38);
+}
+.glass:before{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:78%;
+  background:rgba(7,54,254,.18);
+}
+.glass.low:before{height:42%}
+.glass:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:34%;
+  background:rgba(35,31,32,.36);
+  mix-blend-mode:multiply;
+}
+.glass.low:after{height:34%;background:rgba(35,31,32,.62)}
+.glass > *{position:relative;z-index:2}
+.glass b{font-size:18px}
+.glass small{margin-top:7px;color:var(--ep2-muted)}
+.demo-caption{
+  margin:18px 0 0;
+  color:var(--ep2-muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+/* Data */
+.ep2-data{padding:110px 0}
+.data-grid{
+  margin-top:42px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.data-card{
+  padding:28px;
+  min-height:250px;
+  border-radius:24px;
+  background:#fff;
+}
+.data-card span{
+  color:var(--ep2-muted);
+  font-size:12px;
+}
+.data-card strong{
+  display:block;
+  margin-top:40px;
+  font-size:clamp(58px,7vw,92px);
+  line-height:.86;
+  letter-spacing:-.07em;
+}
+.data-card small{
+  display:block;
+  margin-top:12px;
+  color:var(--ep2-muted);
+  line-height:1.45;
+}
+.data-card.primary{
+  background:var(--ep2-blue);
+  color:#fff;
+}
+.data-card.primary span,
+.data-card.primary small{color:rgba(255,255,255,.76)}
+
+/* Journalism */
+.ep2-newspapers{
+  padding:105px 0;
+  background:#111;
+  color:#fff;
+}
+.newspaper-quote{
+  max-width:1030px;
+  margin:36px 0 0;
+  font-size:clamp(44px,7.5vw,100px);
+  line-height:.95;
+  letter-spacing:-.065em;
+}
+.newspaper-quote em{
+  color:#9AADFF;
+  font-style:normal;
+}
+.newspaper-meta{
+  margin-top:22px;
+  color:rgba(255,255,255,.56);
+  font-size:12px;
+}
+.warning-label{
+  margin-top:52px;
+  display:inline-block;
+  padding:14px 18px;
+  border:1px solid rgba(255,255,255,.3);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.headline-grid{
+  margin-top:52px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+.headline-card{
+  min-height:230px;
+  padding:24px;
+  border:1px solid rgba(255,255,255,.18);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.headline-card time{
+  color:#9AADFF;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.headline-card h3{
+  margin:32px 0 14px;
+  max-width:500px;
+  font-size:clamp(28px,3.5vw,46px);
+  line-height:1;
+  letter-spacing:-.045em;
+}
+.headline-card p{
+  margin:0;
+  color:rgba(255,255,255,.56);
+  font-size:12px;
+  line-height:1.45;
+}
+
+/* Praça / legacy */
+.ep2-legacy{padding:110px 0}
+.legacy-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:58px;
+  align-items:start;
+}
+.decree-card{
+  padding:30px;
+  border-radius:24px;
+  background:#E9E9E5;
+}
+.decree-card strong{
+  display:block;
+  font-size:58px;
+  line-height:.92;
+  letter-spacing:-.06em;
+}
+.decree-card span{
+  display:block;
+  margin-top:14px;
+  color:var(--ep2-muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* Bridge */
+.ep2-bridge{
+  padding:110px 0;
+  background:var(--ep2-blue);
+  color:#fff;
+}
+.bridge-grid{
+  display:grid;
+  grid-template-columns:1fr .8fr;
+  gap:70px;
+  align-items:end;
+}
+.bridge-grid h2{
+  margin:0;
+  font-size:clamp(50px,7vw,96px);
+  line-height:.94;
+  letter-spacing:-.065em;
+}
+.bridge-grid p{
+  margin:0;
+  color:rgba(255,255,255,.82);
+  font-size:18px;
+  line-height:1.55;
+}
+.bridge-grid .next-episode{
+  grid-column:1/-1;
+  color:#fff;
+  border-top-color:rgba(255,255,255,.35);
+  padding-bottom:0;
+}
+.bridge-grid .next-episode small{color:rgba(255,255,255,.68)}
+
+/* Sources */
+.ep2-sources{padding:100px 0 80px}
+.source-list{
+  margin-top:40px;
+  display:grid;
+  gap:0;
+  border-top:1px solid var(--ep2-line);
+}
+.source-list a,
+.source-list .source-static{
+  display:grid;
+  grid-template-columns:150px 1fr auto;
+  gap:24px;
+  align-items:center;
+  padding:20px 0;
+  border-bottom:1px solid var(--ep2-line);
+  color:inherit;
+  text-decoration:none;
+}
+.source-list small{
+  color:var(--ep2-muted);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.source-list strong{
+  font-size:15px;
+  line-height:1.4;
+}
+.source-list b{
+  color:var(--ep2-blue);
+  font-size:18px;
+}
+.episode-2 .series-footer{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:28px 0 42px;
+  border-top:1px solid var(--ep2-line);
+  color:var(--ep2-muted);
+  font-size:12px;
+}
+
+@media(max-width:900px){
+  .episode-2 .episode-nav nav{display:none}
+  .episode-2 .ep2-shell{width:calc(100vw - 28px)}
+  .episode-page.episode-2 .episode-cover:after{right:14px;bottom:20px}
+  .ep2-opening,.ep2-cantareira,.ep2-data,.ep2-legacy{padding:78px 0}
+  .ep2-chronology,.ep2-dilution,.ep2-newspapers,.ep2-bridge,.ep2-sources{padding:78px 0}
+  .protest-grid,.chronology-head,.cantareira-intro,.dilution-grid,.legacy-grid,.bridge-grid{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+  .protest-grid{margin-top:34px}
+  .chronology{grid-template-columns:1fr}
+  .chronology article{min-height:0}
+  .transfer-flow{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .transfer-arrow{
+    transform:rotate(90deg);
+    justify-self:center;
+    line-height:1;
+  }
+  .cantareira-stats,.data-grid{grid-template-columns:1fr}
+  .pollution-list{grid-template-columns:1fr 1fr}
+  .headline-grid{grid-template-columns:1fr}
+  .source-list a,.source-list .source-static{grid-template-columns:1fr auto;gap:8px 16px}
+  .source-list small{grid-column:1/-1}
+}
+@media(max-width:560px){
+  .section-copy,.protest-copy p,.bridge-grid p{font-size:16px}
+  .section-title{font-size:12vw}
+  .transfer-map{padding:16px;border-radius:20px}
+  .cantareira-stats article,.data-card{min-height:190px}
+  .glass-demo{gap:10px}
+  .glass{min-height:280px;padding:14px}
+  .pollution-list{grid-template-columns:1fr}
+  .newspaper-quote{font-size:12.5vw}
+  .headline-card{min-height:200px}
+  .decree-card strong{font-size:48px}
+  .bridge-grid h2{font-size:13vw}
+}
