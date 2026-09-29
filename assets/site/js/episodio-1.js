@@ -247,3 +247,34 @@ initData();
     image.alt = '';
   });
 })();
+
+
+// episode-one-timeline-image-skeleton
+(() => {
+  document.querySelectorAll('.timeline-media').forEach(media => {
+    const image = media.querySelector('.timeline-image-button img');
+    if (!image) {
+      media.classList.add('is-loaded');
+      return;
+    }
+
+    const showImage = () => {
+      media.classList.remove('is-error');
+      media.classList.add('is-loaded');
+    };
+
+    const showFallback = () => {
+      media.classList.remove('is-loaded');
+      media.classList.add('is-error');
+    };
+
+    if (image.complete) {
+      if (image.naturalWidth > 0) showImage();
+      else showFallback();
+      return;
+    }
+
+    image.addEventListener('load', showImage, { once:true });
+    image.addEventListener('error', showFallback, { once:true });
+  });
+})();
