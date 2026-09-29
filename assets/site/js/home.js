@@ -10,18 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const start = window.scrollY;
     const end = target.getBoundingClientRect().top + window.scrollY;
     const distance = end - start;
-    const duration = 1050;
+    const mobile = window.matchMedia("(max-width: 850px)").matches;
+    const duration = mobile ? 620 : 1050;
     let startTime = null;
 
     const easeInOutCubic = (t) =>
       t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const easeOutCubic = (t) =>
+      1 - Math.pow(1 - t, 3);
 
     const animate = (time) => {
       if (startTime === null) startTime = time;
 
       const elapsed = time - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = easeInOutCubic(progress);
+      const eased = mobile ? easeOutCubic(progress) : easeInOutCubic(progress);
 
       window.scrollTo(0, start + distance * eased);
 
