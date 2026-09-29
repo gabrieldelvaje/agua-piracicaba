@@ -3,6 +3,9 @@
   if(window.self !== window.top) return;
 
   const body=document.body;
+  const root=document.documentElement;
+  const MOBILE_HOME_KEY="adr-mobile-home-return";
+  const isMobile=() => window.matchMedia("(max-width:850px)").matches;
   let running=false;
 
   const primary=event =>
@@ -72,6 +75,13 @@
       if(navigated) return;
       navigated=true;
       if(loadFallback) clearTimeout(loadFallback);
+
+      if(direction==="back" && isMobile()){
+        try{sessionStorage.setItem(MOBILE_HOME_KEY,"1")}catch(_){}
+      }else if(isMobile()){
+        try{sessionStorage.removeItem(MOBILE_HOME_KEY)}catch(_){}
+      }
+
       window.location.href=destination.href;
     };
 
@@ -106,9 +116,47 @@
 
     /* If a browser delays iframe load unusually long, fall back to normal navigation. */
     loadFallback=setTimeout(() => {
+      if(direction==="back" && isMobile()){
+        try{sessionStorage.setItem(MOBILE_HOME_KEY,"1")}catch(_){}
+      }
       window.location.href=destination.href;
     },5000);
   };
+
+  const settleMobileHome = () => {
+    if(!body.classList.contains("series-home") || !isMobile()) return;
+
+    let returning=false;
+    try{
+      returning=sessionStorage.getItem(MOBILE_HOME_KEY)==="1";
+    }catch(_){}
+
+    if("scrollRestoration" in history){
+      history.scrollRestoration="manual";
+    }
+
+    if(returning){
+      const target=document.getElementById("episodios");
+      if(target){
+        const top=target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({top,left:0,behavior:"auto"});
+      }
+      try{sessionStorage.removeItem(MOBILE_HOME_KEY)}catch(_){}
+    }else{
+      if(location.hash){
+        history.replaceState(null,"",location.pathname+location.search);
+      }
+      window.scrollTo({top:0,left:0,behavior:"auto"});
+    }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        root.classList.remove("mobile-home-return","mobile-home-reset");
+      });
+    });
+  };
+
+  settleMobileHome();
 
   document.addEventListener("click",event => {
     const link=event.target.closest("a");

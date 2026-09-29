@@ -57,3 +57,14 @@ body.route-transition-lock{
     --route-duration:700ms;
   }
 }
+
+
+/* Mobile Home paint guard:
+   returning from an episode is revealed only after #episodios is positioned;
+   a normal load/reload is revealed only after scroll is reset to the cover. */
+@media(max-width:850px){
+  html.mobile-home-return body.series-home,
+  html.mobile-home-reset body.series-home{
+    visibility:hidden;
+  }
+}

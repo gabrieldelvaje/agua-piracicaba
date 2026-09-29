@@ -30,8 +30,33 @@
 .explore-series:hover{opacity:.9;transform:translateY(-1px)}
 </style>
 
-  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260929-0738" />
+  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260929-0758" />
 
+
+<script>
+(() => {
+  try{
+    if(window.self !== window.top) return;
+    if(!window.matchMedia("(max-width:850px)").matches) return;
+
+    const key="adr-mobile-home-return";
+    const returning=sessionStorage.getItem(key)==="1";
+
+    if("scrollRestoration" in history){
+      history.scrollRestoration="manual";
+    }
+
+    if(returning){
+      document.documentElement.classList.add("mobile-home-return");
+    }else{
+      document.documentElement.classList.add("mobile-home-reset");
+      if(location.hash){
+        history.replaceState(null,"",location.pathname+location.search);
+      }
+    }
+  }catch(_){}
+})();
+</script>
 </head>
 <body class="series-home">
   <main>
@@ -93,6 +118,6 @@
     </section>
   </main>
   <script src="assets/site/js/home.js" defer></script>
-  <script src="assets/site/js/page-transition.js?v=20260929-0738"></script>
+  <script src="assets/site/js/page-transition.js?v=20260929-0758"></script>
 </body>
 </html>
