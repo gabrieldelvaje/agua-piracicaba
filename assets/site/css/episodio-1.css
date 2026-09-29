@@ -713,3 +713,16 @@
     max-width:none;
   }
 }
+
+/* Episódio 1 — reposicionamento do fluxo */
+@media(min-width:851px){
+  .pipe-flow-svg,
+  .pipe-joints,
+  .pipe-stage-grid{
+    transform:translate(-52px,-42px);
+  }
+
+  .pipe-flow-svg{
+    width:calc(100% + 104px);
+  }
+}
