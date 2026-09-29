@@ -1953,3 +1953,68 @@
     right:-13px!important;
   }
 }
+
+
+/* Episódio 1 — mais área vertical para os cards superiores da timeline */
+.timeline{
+  height:660px!important;
+}
+
+.timeline .timeline-item{
+  height:660px!important;
+}
+
+/* A linha desce um pouco para dar espaço real aos cards de cima */
+.timeline .timeline-item::after,
+.timeline .timeline-item::before{
+  top:320px!important;
+}
+
+/* Cards superiores terminam antes da linha, com respiro */
+.timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-content,
+.timeline .timeline-current .timeline-content{
+  top:auto!important;
+  bottom:368px!important;
+}
+
+/* Cards inferiores começam depois da linha */
+.timeline .timeline-item:nth-child(even) .timeline-content{
+  top:348px!important;
+}
+
+/* Setas e cortes nas pontas acompanham exatamente o novo eixo da linha */
+.timeline-nav,
+.timeline-carousel::before,
+.timeline-carousel::after{
+  top:320px!important;
+}
+
+@media(max-width:850px){
+  .timeline{
+    height:660px!important;
+  }
+
+  .timeline .timeline-item{
+    height:660px!important;
+  }
+
+  .timeline .timeline-item::after,
+  .timeline .timeline-item::before{
+    top:320px!important;
+  }
+
+  .timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-content,
+  .timeline .timeline-current .timeline-content{
+    bottom:368px!important;
+  }
+
+  .timeline .timeline-item:nth-child(even) .timeline-content{
+    top:348px!important;
+  }
+
+  .timeline-nav,
+  .timeline-carousel::before,
+  .timeline-carousel::after{
+    top:320px!important;
+  }
+}
