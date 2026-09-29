@@ -1439,3 +1439,69 @@
     line-height:1.4;
   }
 }
+
+/* Episódio 1 — corrige textos inferiores e fixa o fechamento em 2024 */
+.timeline{
+  height:610px;
+}
+
+.timeline .timeline-item{
+  height:610px;
+}
+
+/* linha um pouco acima do centro para dar mais área às etapas inferiores */
+.timeline .timeline-item::after,
+.timeline .timeline-item::before{
+  top:278px;
+}
+
+/* blocos de cima permanecem próximos da linha */
+.timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-content{
+  bottom:358px;
+}
+
+/* blocos de baixo ganham espaço suficiente para textos longos */
+.timeline .timeline-item:nth-child(even) .timeline-content{
+  top:304px;
+}
+
+/* 2024 é o fechamento cronológico e aparece acima da linha */
+.timeline .timeline-current .timeline-content{
+  top:auto;
+  bottom:358px;
+}
+
+/* evita que o texto da etapa seja artificialmente limitado */
+.timeline-content,
+.timeline-entry{
+  max-height:none;
+  overflow:visible;
+}
+
+@media(max-width:850px){
+  .timeline{
+    height:610px;
+  }
+
+  .timeline .timeline-item{
+    height:610px;
+  }
+
+  .timeline .timeline-item::after,
+  .timeline .timeline-item::before{
+    top:278px;
+  }
+
+  .timeline .timeline-item:nth-child(odd):not(.timeline-current) .timeline-content,
+  .timeline .timeline-current .timeline-content{
+    bottom:358px;
+  }
+
+  .timeline .timeline-item:nth-child(even) .timeline-content{
+    top:304px;
+  }
+
+  .timeline-nav{
+    top:278px;
+  }
+}
