@@ -82,7 +82,12 @@
         try{sessionStorage.removeItem(MOBILE_HOME_KEY)}catch(_){}
       }
 
-      window.location.href=destination.href;
+      const finalHref =
+        direction==="back" && isMobile()
+          ? destination.href.split("#")[0]
+          : destination.href;
+
+      window.location.href=finalHref;
     };
 
     const begin=() => {
@@ -119,7 +124,11 @@
       if(direction==="back" && isMobile()){
         try{sessionStorage.setItem(MOBILE_HOME_KEY,"1")}catch(_){}
       }
-      window.location.href=destination.href;
+      const finalHref =
+        direction==="back" && isMobile()
+          ? destination.href.split("#")[0]
+          : destination.href;
+      window.location.href=finalHref;
     },5000);
   };
 
@@ -137,10 +146,14 @@
 
     if(returning){
       const target=document.getElementById("episodios");
-      if(target){
-        const top=target.getBoundingClientRect().top + window.scrollY;
+      const top=target ? target.offsetTop : 0;
+
+      window.scrollTo({top,left:0,behavior:"auto"});
+
+      requestAnimationFrame(() => {
         window.scrollTo({top,left:0,behavior:"auto"});
-      }
+      });
+
       try{sessionStorage.removeItem(MOBILE_HOME_KEY)}catch(_){}
     }else{
       if(location.hash){
