@@ -747,3 +747,11 @@
     justify-content:flex-start;
   }
 }
+
+/* Episódio 1 — mais espaço para as etapas abaixo do cano */
+@media(min-width:851px){
+  .process-step:nth-of-type(even){
+    padding-top:142px;
+    padding-bottom:0;
+  }
+}
