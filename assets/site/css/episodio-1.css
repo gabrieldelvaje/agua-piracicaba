@@ -2058,3 +2058,17 @@
     right:-10px!important;
   }
 }
+
+
+/* Episódio 1 — ponta da seta maior */
+.timeline-nav::before{
+  width:36px!important;
+  height:36px!important;
+}
+
+@media(max-width:850px){
+  .timeline-nav::before{
+    width:34px!important;
+    height:34px!important;
+  }
+}
