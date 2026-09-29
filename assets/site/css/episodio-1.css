@@ -673,3 +673,55 @@
     max-width:none;
   }
 }
+
+/* Episódio 1 — uma junção por etapa */
+.pipe-track{
+  height:42px;
+}
+.pipe-joint{
+  width:18px;
+  height:64px;
+  border-radius:999px;
+  background:#0736FE;
+  box-shadow:0 0 0 5px #231F20;
+}
+.joint-1{left:8.333%}
+.joint-2{left:25%}
+.joint-3{left:41.667%}
+.joint-4{left:58.333%}
+.joint-5{left:75%}
+.joint-6{left:91.667%}
+
+.process-step,
+.process-step:nth-of-type(even){
+  width:100%;
+  max-width:none;
+  justify-self:stretch;
+  text-align:center;
+}
+.process-step:nth-of-type(1),
+.process-step:nth-of-type(2),
+.process-step:nth-of-type(3),
+.process-step:nth-of-type(4),
+.process-step:nth-of-type(5),
+.process-step:nth-of-type(6){
+  justify-self:stretch;
+  text-align:center;
+}
+.process-step small{
+  max-width:170px;
+  margin-left:auto;
+  margin-right:auto;
+}
+@media(max-width:850px){
+  .pipe-joint{display:none}
+  .process-step,
+  .process-step:nth-of-type(even){
+    width:auto;
+    text-align:left;
+  }
+  .process-step small{
+    margin-left:0;
+    margin-right:0;
+  }
+}
