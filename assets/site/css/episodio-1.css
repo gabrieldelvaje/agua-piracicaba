@@ -982,3 +982,12 @@
     text-align:left!important;
   }
 }
+
+/* Episódio 1 — fontes integradas à linha do tempo */
+.timeline .timeline-source{
+  color:var(--ink);
+  font-weight:700;
+  text-decoration:underline;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+}
