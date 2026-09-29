@@ -2275,27 +2275,3 @@ main > section:not(.hero){
   bottom:100%;
   height:28px;
 }
-
-
-/* Timeline cards — portfolio dark palette */
-.timeline-content{
-  background:#231F20!important;
-  color:#fff!important;
-  box-shadow:0 1px 0 rgba(0,0,0,.14)!important;
-}
-
-.timeline-entry p{
-  color:rgba(255,255,255,.72)!important;
-}
-
-.timeline-entry p>strong{
-  color:#fff!important;
-}
-
-.timeline-source{
-  color:#fff!important;
-}
-
-.timeline-entry time{
-  color:#0736FE!important;
-}
