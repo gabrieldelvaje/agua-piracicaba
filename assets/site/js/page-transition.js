@@ -89,6 +89,51 @@
     }catch(_){}
   };
 
+  const createLoadingOverlay = () => {
+    const overlay=document.createElement("div");
+    overlay.className="route-loading-overlay";
+    overlay.setAttribute("role","status");
+    overlay.setAttribute("aria-live","polite");
+    overlay.setAttribute("aria-label","Carregando página");
+    overlay.innerHTML=
+      '<div class="route-loading-indicator">' +
+        '<span class="route-loading-spinner" aria-hidden="true"></span>' +
+        '<span class="route-loading-label">Carregando</span>' +
+      '</div>';
+
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(() => {
+      overlay.classList.add("is-visible");
+    });
+
+    return overlay;
+  };
+
+  const dismissLoadingOverlay = (overlay,callback) => {
+    if(!overlay){
+      callback?.();
+      return;
+    }
+
+    overlay.classList.remove("is-visible");
+    overlay.classList.add("is-leaving");
+
+    let finished=false;
+    const done=() => {
+      if(finished) return;
+      finished=true;
+      overlay.remove();
+      callback?.();
+    };
+
+    overlay.addEventListener("transitionend",event => {
+      if(event.target===overlay && event.propertyName==="opacity") done();
+    },{once:true});
+
+    window.setTimeout(done,240);
+  };
+
   const animateDestination=(href,direction) => {
     if(running) return;
     const destination=normalizeDestination(href);
@@ -98,6 +143,8 @@
     }
 
     running=true;
+    const loadingOverlay=createLoadingOverlay();
+
     if(!isMobile()){
       body.classList.add("route-transition-lock");
     }
@@ -134,28 +181,30 @@
     const begin=() => {
       prepareFramePosition(frame,destination,direction);
 
-      /* Wait two paints so the destination has actually rendered before moving it onscreen. */
-      requestAnimationFrame(() => {
+      dismissLoadingOverlay(loadingOverlay,() => {
+        /* Wait two paints so the loaded destination is fully composited before it moves onscreen. */
         requestAnimationFrame(() => {
-          stage.classList.add("is-active");
+          requestAnimationFrame(() => {
+            stage.classList.add("is-active");
+          });
         });
+
+        let ended=false;
+        const finish=() => {
+          if(ended) return;
+          ended=true;
+          navigate();
+        };
+
+        const onEnd=event => {
+          if(event.target===stage && event.propertyName==="transform"){
+            stage.removeEventListener("transitionend",onEnd);
+            finish();
+          }
+        };
+        stage.addEventListener("transitionend",onEnd);
+        setTimeout(finish,1100);
       });
-
-      let ended=false;
-      const finish=() => {
-        if(ended) return;
-        ended=true;
-        navigate();
-      };
-
-      const onEnd=event => {
-        if(event.target===stage && event.propertyName==="transform"){
-          stage.removeEventListener("transitionend",onEnd);
-          finish();
-        }
-      };
-      stage.addEventListener("transitionend",onEnd);
-      setTimeout(finish,1100);
     };
 
     frame.addEventListener("load",begin,{once:true});

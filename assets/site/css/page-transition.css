@@ -102,3 +102,79 @@ body.route-transition-lock{
     touch-action:auto;
   }
 }
+
+
+/* Immediate route-loading feedback while the destination document is fetched. */
+.route-loading-overlay{
+  position:fixed;
+  inset:0;
+  z-index:100001;
+  display:grid;
+  place-items:center;
+  background:rgba(15,15,15,.34);
+  opacity:0;
+  transition:opacity 160ms ease!important;
+  pointer-events:auto;
+  touch-action:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.route-loading-overlay.is-visible{
+  opacity:1;
+}
+
+.route-loading-overlay.is-leaving{
+  opacity:0;
+}
+
+.route-loading-indicator{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  color:#fff;
+  font:600 12px/1 Helvetica,Arial,sans-serif;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.route-loading-spinner{
+  display:block;
+  width:34px;
+  height:34px;
+  border:3px solid rgba(255,255,255,.34);
+  border-top-color:#fff;
+  border-radius:50%;
+  animation:route-loading-spin 720ms linear infinite!important;
+  will-change:transform;
+}
+
+.route-loading-label{
+  text-shadow:0 1px 8px rgba(0,0,0,.24);
+}
+
+@keyframes route-loading-spin{
+  to{transform:rotate(360deg)}
+}
+
+@media(max-width:850px){
+  .route-loading-overlay{
+    background:rgba(15,15,15,.30);
+  }
+
+  .route-loading-spinner{
+    width:32px;
+    height:32px;
+  }
+}
+
+/* Keep the loading affordance alive even when episode CSS disables motion globally. */
+@media(prefers-reduced-motion:reduce){
+  .route-loading-overlay{
+    transition:opacity 120ms ease!important;
+  }
+
+  .route-loading-spinner{
+    animation:route-loading-spin 900ms linear infinite!important;
+  }
+}
