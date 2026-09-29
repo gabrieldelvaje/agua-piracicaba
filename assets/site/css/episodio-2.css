@@ -20,6 +20,9 @@ body.episode-2{
   position:sticky;
   top:0;
   z-index:30;
+  width:100%;
+  margin:0;
+  padding:0 max(20px,calc((100vw - 1220px)/2));
   background:rgba(243,243,241,.92);
   backdrop-filter:blur(18px);
 }
@@ -712,6 +715,7 @@ body.episode-2{
 }
 
 @media(max-width:900px){
+  .episode-2 .episode-nav{padding-inline:14px}
   .episode-2 .episode-nav nav{display:none}
   .episode-2 .ep2-shell{width:calc(100vw - 28px)}
   .episode-page.episode-2 .episode-cover:after{right:14px;bottom:20px}
