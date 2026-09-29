@@ -1022,3 +1022,26 @@ body.episode-2{
 .ep2-opening > .ep2-shell > .section-title{
   display:none!important;
 }
+
+
+/* Opening protest — integrated declaration text */
+.protest-copy .protest-inline-accent{
+  color:var(--ep2-blue);
+  font-weight:700;
+}
+
+.protest-copy > p:not(.source-note){
+  margin:24px 0 0;
+  max-width:620px;
+  color:var(--ep2-muted);
+  font-size:18px;
+  line-height:1.58;
+}
+
+.protest-copy > p:not(.source-note) strong{
+  color:var(--ep2-ink);
+}
+
+.protest-copy .protest-death-line{
+  display:none!important;
+}
