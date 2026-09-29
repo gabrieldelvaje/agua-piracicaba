@@ -1342,3 +1342,94 @@ body.episode-2{
     height:28px;
   }
 }
+
+
+/* Episode 2 — featured historical newspapers */
+.newspaper-featured-grid{
+  margin-top:48px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+.newspaper-featured-card{
+  min-width:0;
+  padding:12px 12px 18px;
+  display:flex;
+  flex-direction:column;
+  color:#fff;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.17);
+  border-radius:20px;
+  background:#1A1A1A;
+  transition:transform .2s ease,border-color .2s ease;
+}
+
+.newspaper-featured-card img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  margin-bottom:16px;
+  border-radius:12px;
+  object-fit:cover;
+  object-position:top center;
+  background:#262626;
+  filter:grayscale(1);
+}
+
+.newspaper-featured-card span{
+  color:#8EA1FF;
+  font-size:10px;
+  font-weight:700;
+  line-height:1.3;
+  letter-spacing:.1em;
+}
+
+.newspaper-featured-card strong{
+  margin-top:10px;
+  font-size:25px;
+  line-height:1.02;
+  letter-spacing:-.04em;
+}
+
+.newspaper-featured-card small{
+  margin-top:10px;
+  color:rgba(255,255,255,.6);
+  font-size:12px;
+  line-height:1.45;
+}
+
+.newspaper-featured-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.45);
+}
+
+.newspaper-archive-link{
+  margin-top:18px;
+  padding:18px 0 4px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  color:#fff;
+  border-top:1px solid rgba(255,255,255,.24);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:700;
+}
+
+.newspaper-archive-link b{
+  color:#8EA1FF;
+  font-size:26px;
+  font-weight:400;
+}
+
+@media(max-width:900px){
+  .newspaper-featured-grid{
+    grid-template-columns:1fr;
+  }
+
+  .newspaper-featured-card img{
+    aspect-ratio:16/9;
+  }
+}
