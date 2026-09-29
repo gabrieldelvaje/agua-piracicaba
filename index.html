@@ -30,11 +30,14 @@
 .explore-series:hover{opacity:.9;transform:translateY(-1px)}
 </style>
 
-  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260928-2322" />
+  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260929-0648" />
+
 <script>
 try{
-  if(sessionStorage.getItem("adr-route-enter")){
-    document.documentElement.classList.add("route-entering");
+  const raw=sessionStorage.getItem("adr-route-panel");
+  const state=raw?JSON.parse(raw):null;
+  if(state?.direction==="back"){
+    document.documentElement.classList.add("route-back-pending");
   }
 }catch(e){}
 </script>
@@ -99,6 +102,6 @@ try{
     </section>
   </main>
   <script src="assets/site/js/home.js" defer></script>
-  <script src="assets/site/js/page-transition.js?v=20260928-2310"></script>
+  <script src="assets/site/js/page-transition.js?v=20260929-0648"></script>
 </body>
 </html>

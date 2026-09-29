@@ -1,49 +1,135 @@
+/* Route transition — one fixed panel, no cross-document animation stack */
 html{
   background:#F3F3F1;
 }
-html.route-entering body{
+
+/* Prevent a one-frame flash of the home hero before the reverse panel is mounted. */
+html.route-back-pending body.series-home > main{
   visibility:hidden;
 }
-body.route-enter-forward,
-body.route-enter-back{
-  visibility:visible!important;
-  will-change:transform,opacity;
+
+.route-panel{
+  --route-duration:820ms;
+  --route-ease:cubic-bezier(.22,.78,.22,1);
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  overflow:hidden;
+  transform:translate3d(0,100%,0);
+  transition:transform var(--route-duration) var(--route-ease)!important;
+  will-change:transform;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  contain:layout paint;
+  background:#231F20;
+  color:#fff;
+  pointer-events:auto;
 }
-body.route-enter-forward{
-  animation:route-enter-forward 900ms cubic-bezier(.22,.78,.22,1) both;
+
+.route-panel.is-covering{
+  transform:translate3d(0,0,0);
 }
-body.route-enter-back{
-  animation:route-enter-back 900ms cubic-bezier(.22,.78,.22,1) both;
+
+.route-panel.is-revealing{
+  transform:translate3d(0,100%,0);
 }
-@keyframes route-enter-forward{
-  from{
-    transform:translate3d(0,100vh,0);
-    opacity:.98;
-  }
-  to{
-    transform:translate3d(0,0,0);
-    opacity:1;
-  }
+
+.route-panel-media{
+  position:absolute;
+  inset:0;
+  background-image:var(--route-image);
+  background-position:center;
+  background-size:cover;
+  transform:scale(1.015);
 }
-@keyframes route-enter-back{
-  from{
-    transform:translate3d(0,100vh,0);
-    opacity:.98;
-  }
-  to{
-    transform:translate3d(0,0,0);
-    opacity:1;
-  }
+
+.route-panel-shade{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.30) 36%,rgba(0,0,0,.76) 100%);
 }
-  to{
-    transform:translate3d(0,0,0);
-    opacity:1;
-  }
+
+.route-panel-topbar,
+.route-panel-copy{
+  position:absolute;
+  z-index:2;
+  left:max(20px,calc((100vw - 1180px)/2));
+  right:max(20px,calc((100vw - 1180px)/2));
 }
+
+.route-panel-topbar{
+  top:24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,.38);
+  font:600 13px/1.2 Helvetica,Arial,sans-serif;
+}
+
+.route-panel-topbar span:last-child{
+  color:rgba(255,255,255,.72);
+}
+
+.route-panel-copy{
+  bottom:clamp(48px,8vh,96px);
+  max-width:980px;
+}
+
+.route-panel-kicker{
+  display:block;
+  margin-bottom:18px;
+  color:#9FB0FF;
+  font:700 12px/1 Helvetica,Arial,sans-serif;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.route-panel-copy h2{
+  margin:0;
+  max-width:1000px;
+  color:#fff;
+  font:700 clamp(58px,7.4vw,118px)/1 Helvetica,Arial,sans-serif;
+  letter-spacing:-.05em;
+}
+
+body.route-transition-lock{
+  overflow:hidden!important;
+}
+
+/* The route panel must remain animated even when the rest of the site disables transitions. */
 @media(prefers-reduced-motion:reduce){
-  html.route-entering body{visibility:visible}
-  body.route-enter-forward,
-  body.route-enter-back{
-    animation:none!important;
+  .route-panel{
+    --route-duration:420ms;
+    transition:transform var(--route-duration) cubic-bezier(.3,.7,.2,1)!important;
+  }
+}
+
+@media(max-width:850px){
+  .route-panel{
+    --route-duration:700ms;
+  }
+
+  .route-panel-topbar,
+  .route-panel-copy{
+    left:14px;
+    right:14px;
+  }
+
+  .route-panel-topbar{
+    top:18px;
+    font-size:12px;
+  }
+
+  .route-panel-copy{
+    bottom:42px;
+  }
+
+  .route-panel-copy h2{
+    font-size:clamp(50px,13vw,82px);
+    line-height:1.02;
+    letter-spacing:-.045em;
   }
 }
