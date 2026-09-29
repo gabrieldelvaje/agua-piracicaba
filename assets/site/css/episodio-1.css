@@ -1331,3 +1331,74 @@
   .timeline-entry p{font-size:12px;line-height:1.36}
   .timeline-lightbox{width:94vw;border-radius:14px}
 }
+
+/* Episódio 1 — timeline mais compacta + slider curto à direita */
+.timeline-controls{
+  width:min(300px,32vw);
+  margin:0 0 12px auto;
+}
+
+.timeline .timeline-item{
+  flex-basis:clamp(225px,20vw,260px);
+  padding-left:8px;
+  padding-right:8px;
+}
+
+.timeline-content{
+  width:calc(100% - 16px);
+  max-width:220px;
+}
+
+.timeline-media{
+  margin-bottom:7px;
+}
+
+.timeline-image-button img{
+  height:96px;
+}
+
+.timeline-entry time{
+  margin-bottom:4px;
+  font-size:18px;
+}
+
+.timeline-entry p{
+  font-size:12px;
+  line-height:1.34;
+}
+
+.timeline-current{
+  flex-basis:230px;
+}
+
+@media(max-width:850px){
+  .timeline-controls{
+    width:min(210px,58vw);
+    margin-left:auto;
+    margin-bottom:10px;
+  }
+
+  .timeline .timeline-item{
+    flex-basis:min(64vw,240px);
+    padding-left:7px;
+    padding-right:7px;
+  }
+
+  .timeline-content{
+    width:calc(100% - 14px);
+    max-width:205px;
+  }
+
+  .timeline-image-button img{
+    height:92px;
+  }
+
+  .timeline-entry time{
+    font-size:18px;
+  }
+
+  .timeline-entry p{
+    font-size:11.5px;
+    line-height:1.32;
+  }
+}
