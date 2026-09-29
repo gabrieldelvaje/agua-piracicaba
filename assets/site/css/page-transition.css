@@ -24,6 +24,10 @@ body.route-transition-lock{
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
   contain:strict;
+  pointer-events:auto;
+}
+
+.route-page-stage:not(.is-promoted) iframe{
   pointer-events:none;
 }
 
@@ -79,5 +83,22 @@ body.route-transition-lock{
 
   .route-page-stage.is-promoted iframe{
     pointer-events:auto;
+  }
+}
+
+
+/* iOS Safari: never freeze the scrolled episode body during route animation.
+   Freezing a long page can snap it to the top; the overlay itself captures touch. */
+@media(max-width:850px){
+  body.route-transition-lock{
+    overflow:visible!important;
+  }
+
+  .route-page-stage{
+    touch-action:none;
+  }
+
+  .route-page-stage.is-promoted{
+    touch-action:auto;
   }
 }

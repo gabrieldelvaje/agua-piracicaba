@@ -32,13 +32,23 @@
         const hash=destination.hash || "#episodios";
         const target=hash ? doc.querySelector(hash) : null;
         if(target){
-          const top=target.getBoundingClientRect().top + win.scrollY;
-          win.scrollTo({top,left:0,behavior:"auto"});
+          const top=target.offsetTop;
+          doc.documentElement.style.scrollBehavior="auto";
+          doc.body.style.scrollBehavior="auto";
+          doc.documentElement.scrollTop=top;
+          doc.body.scrollTop=top;
+          win.scrollTo(0,top);
         }else{
-          win.scrollTo({top:0,left:0,behavior:"auto"});
+          doc.documentElement.scrollTop=0;
+          doc.body.scrollTop=0;
+          win.scrollTo(0,0);
         }
       }else{
-        win.scrollTo({top:0,left:0,behavior:"auto"});
+        doc.documentElement.style.scrollBehavior="auto";
+        doc.body.style.scrollBehavior="auto";
+        doc.documentElement.scrollTop=0;
+        doc.body.scrollTop=0;
+        win.scrollTo(0,0);
       }
     }catch(_){}
   };
@@ -88,7 +98,9 @@
     }
 
     running=true;
-    body.classList.add("route-transition-lock");
+    if(!isMobile()){
+      body.classList.add("route-transition-lock");
+    }
 
     const stage=document.createElement("div");
     stage.className="route-page-stage" + (direction==="back" ? " from-top" : "");
