@@ -1,135 +1,70 @@
-/* Route transition — one fixed panel, no cross-document animation stack */
+/* Cross-document route transition: animate the actual destination page. */
+@view-transition{
+  navigation:auto;
+}
+
 html{
   background:#F3F3F1;
 }
 
-/* Prevent a one-frame flash of the home hero before the reverse panel is mounted. */
-html.route-back-pending body.series-home > main{
-  visibility:hidden;
+::view-transition-group(root),
+::view-transition-image-pair(root),
+::view-transition-old(root),
+::view-transition-new(root){
+  animation-fill-mode:both;
 }
 
-.route-panel{
-  --route-duration:820ms;
-  --route-ease:cubic-bezier(.22,.78,.22,1);
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  overflow:hidden;
-  transform:translate3d(0,100%,0);
-  transition:transform var(--route-duration) var(--route-ease)!important;
-  will-change:transform;
-  backface-visibility:hidden;
-  -webkit-backface-visibility:hidden;
-  contain:layout paint;
-  background:#231F20;
-  color:#fff;
-  pointer-events:auto;
+::view-transition-image-pair(root){
+  isolation:auto;
 }
 
-.route-panel.is-covering{
-  transform:translate3d(0,0,0);
+::view-transition-old(root),
+::view-transition-new(root){
+  mix-blend-mode:normal;
 }
 
-.route-panel.is-revealing{
-  transform:translate3d(0,100%,0);
+/* Home -> episódio:
+   the real destination page rises over the still image of Home. */
+html.route-forward::view-transition-old(root){
+  z-index:1;
+  animation:none!important;
 }
 
-.route-panel-media{
-  position:absolute;
-  inset:0;
-  background-image:var(--route-image);
-  background-position:center;
-  background-size:cover;
-  transform:scale(1.015);
-}
-
-.route-panel-shade{
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.30) 36%,rgba(0,0,0,.76) 100%);
-}
-
-.route-panel-topbar,
-.route-panel-copy{
-  position:absolute;
+html.route-forward::view-transition-new(root){
   z-index:2;
-  left:max(20px,calc((100vw - 1180px)/2));
-  right:max(20px,calc((100vw - 1180px)/2));
+  animation:route-page-up 860ms cubic-bezier(.22,.78,.22,1) both!important;
 }
 
-.route-panel-topbar{
-  top:24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding-bottom:18px;
-  border-bottom:1px solid rgba(255,255,255,.38);
-  font:600 13px/1.2 Helvetica,Arial,sans-serif;
+/* Episódio -> Home:
+   Home is already at #episodios underneath; the real episode page slides down. */
+html.route-back::view-transition-new(root){
+  z-index:1;
+  animation:none!important;
 }
 
-.route-panel-topbar span:last-child{
-  color:rgba(255,255,255,.72);
+html.route-back::view-transition-old(root){
+  z-index:2;
+  animation:route-page-down 860ms cubic-bezier(.22,.78,.22,1) both!important;
 }
 
-.route-panel-copy{
-  bottom:clamp(48px,8vh,96px);
-  max-width:980px;
+@keyframes route-page-up{
+  from{transform:translate3d(0,100%,0)}
+  to{transform:translate3d(0,0,0)}
 }
 
-.route-panel-kicker{
-  display:block;
-  margin-bottom:18px;
-  color:#9FB0FF;
-  font:700 12px/1 Helvetica,Arial,sans-serif;
-  letter-spacing:.10em;
-  text-transform:uppercase;
+@keyframes route-page-down{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(0,100%,0)}
 }
 
-.route-panel-copy h2{
-  margin:0;
-  max-width:1000px;
-  color:#fff;
-  font:700 clamp(58px,7.4vw,118px)/1 Helvetica,Arial,sans-serif;
-  letter-spacing:-.05em;
-}
-
-body.route-transition-lock{
-  overflow:hidden!important;
-}
-
-/* The route panel must remain animated even when the rest of the site disables transitions. */
+/* Keep this route animation functional even though other site CSS disables
+   general animation/transition under reduced-motion settings. */
 @media(prefers-reduced-motion:reduce){
-  .route-panel{
-    --route-duration:420ms;
-    transition:transform var(--route-duration) cubic-bezier(.3,.7,.2,1)!important;
-  }
-}
-
-@media(max-width:850px){
-  .route-panel{
-    --route-duration:700ms;
+  html.route-forward::view-transition-new(root){
+    animation:route-page-up 520ms cubic-bezier(.3,.7,.2,1) both!important;
   }
 
-  .route-panel-topbar,
-  .route-panel-copy{
-    left:14px;
-    right:14px;
-  }
-
-  .route-panel-topbar{
-    top:18px;
-    font-size:12px;
-  }
-
-  .route-panel-copy{
-    bottom:42px;
-  }
-
-  .route-panel-copy h2{
-    font-size:clamp(50px,13vw,82px);
-    line-height:1.02;
-    letter-spacing:-.045em;
+  html.route-back::view-transition-old(root){
+    animation:route-page-down 520ms cubic-bezier(.3,.7,.2,1) both!important;
   }
 }
