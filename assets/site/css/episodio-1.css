@@ -401,10 +401,11 @@
   }
 }
 
-/* Episódio 1 — fluxo de água consolidado */
+/* Episódio 1 — fluxo de água final */
 #caminho{
   scroll-margin-top:68px;
 }
+
 .process-section{
   min-height:calc(100svh - 68px);
   height:calc(100svh - 68px);
@@ -415,6 +416,7 @@
   background:#231F20;
   color:#fff;
 }
+
 .process-shell{
   width:var(--shell);
   height:100%;
@@ -424,9 +426,11 @@
   align-items:center;
   padding:38px 0 30px;
 }
+
 .process-heading{
   align-self:start;
 }
+
 .process-heading h2{
   margin:0;
   max-width:1080px;
@@ -435,22 +439,25 @@
   letter-spacing:-.05em;
 }
 
+/* Full-viewport canvas: only the elbows overflow the content margins. */
 .pipe-diagram{
   position:relative;
   left:50%;
   width:100vw;
   height:100%;
-  min-height:330px;
+  min-height:340px;
   transform:translateX(-50%);
   overflow:hidden;
 }
+
 .pipe-flow-svg{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
-  overflow:visible;
+  overflow:hidden;
 }
+
 .pipe-flow-path{
   fill:none;
   stroke:#0736FE;
@@ -460,156 +467,12 @@
   vector-effect:non-scaling-stroke;
 }
 
-/* As junções e os textos usam exatamente as mesmas seis colunas. */
+/* Straight section runs from 14.375% to 85.625% of viewport. */
 .pipe-joints,
 .pipe-stage-grid{
   position:absolute;
-  left:max(8vw,calc((100vw - 1180px)/2));
-  right:max(8vw,calc((100vw - 1180px)/2));
-  top:0;
-  bottom:0;
-  display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
-}
-.pipe-joints{
-  pointer-events:none;
-  z-index:2;
-}
-.pipe-joint{
-  position:relative;
-}
-.pipe-joint::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:70.8%;
-  width:18px;
-  height:64px;
-  transform:translate(-50%,-50%);
-  border-radius:999px;
-  background:#0736FE;
-  box-shadow:0 0 0 5px #231F20;
-}
-
-.pipe-stage-grid{
-  z-index:3;
-  align-items:center;
-}
-.process-step{
-  min-width:0;
-  width:100%;
-  text-align:center;
-  padding:0 10px 112px;
-}
-.process-step:nth-child(even){
-  padding:112px 10px 0;
-}
-.process-step strong{
-  display:flex;
-  align-items:baseline;
-  justify-content:center;
-  gap:8px;
-  margin:0 0 7px;
-  color:#fff;
-  font-size:18px;
-  line-height:1.15;
-}
-.step-num{
-  color:#8EA2FF;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.08em;
-  line-height:1;
-}
-.process-step small{
-  display:block;
-  max-width:170px;
-  margin:0 auto;
-  color:rgba(255,255,255,.68);
-  font-size:13px;
-  line-height:1.35;
-}
-.process-section .source-note{
-  align-self:end;
-  margin:0;
-  color:rgba(255,255,255,.58);
-  font-size:12px;
-}
-.process-section .source-note a{
-  color:#fff;
-}
-
-@media(max-width:850px){
-  #caminho{
-    scroll-margin-top:58px;
-  }
-  .process-section{
-    height:auto;
-    min-height:calc(100svh - 58px);
-    overflow:visible;
-  }
-  .process-shell{
-    height:auto;
-    min-height:calc(100svh - 58px);
-    padding:34px 0 30px;
-    grid-template-rows:auto auto auto;
-    gap:28px;
-  }
-  .process-heading h2{
-    font-size:clamp(40px,10vw,62px);
-  }
-  .pipe-diagram{
-    left:auto;
-    width:100%;
-    height:auto;
-    min-height:0;
-    transform:none;
-    overflow:visible;
-  }
-  .pipe-flow-svg,
-  .pipe-joints{
-    display:none;
-  }
-  .pipe-stage-grid{
-    position:relative;
-    left:auto;
-    right:auto;
-    top:auto;
-    bottom:auto;
-    display:grid;
-    grid-template-columns:1fr;
-    gap:10px;
-  }
-  .process-step,
-  .process-step:nth-child(even){
-    width:auto;
-    padding:14px 16px;
-    text-align:left;
-    border:1px solid rgba(142,162,255,.35);
-    border-radius:14px;
-    background:rgba(7,54,254,.08);
-  }
-  .process-step strong{
-    justify-content:flex-start;
-  }
-  .process-step small{
-    margin:0;
-    max-width:none;
-  }
-}
-
-/* Episódio 1 — junções como únicos marcadores */
-.process-step::before,
-.process-step::after{
-  content:none!important;
-  display:none!important;
-}
-
-.pipe-joints,
-.pipe-stage-grid{
-  position:absolute;
-  left:max(8vw,calc((100vw - 1180px)/2));
-  right:max(8vw,calc((100vw - 1180px)/2));
+  left:14.375vw;
+  right:14.375vw;
   top:0;
   bottom:0;
   display:grid;
@@ -629,7 +492,7 @@
   content:"";
   position:absolute;
   left:50%;
-  top:70.8%;
+  top:50%;
   width:18px;
   height:64px;
   transform:translate(-50%,-50%);
@@ -648,21 +511,26 @@
   position:relative;
   min-width:0;
   width:100%;
-  max-width:none;
-  text-align:center;
   display:flex;
   flex-direction:column;
   align-items:center;
+  text-align:center;
 }
 
 .process-step{
   justify-content:flex-end;
-  padding:0 10px 108px;
+  padding:0 10px calc(50% + 48px);
 }
 
 .process-step:nth-child(even){
   justify-content:flex-start;
-  padding:108px 10px 0;
+  padding:calc(50% + 48px) 10px 0;
+}
+
+.process-step::before,
+.process-step::after{
+  content:none!important;
+  display:none!important;
 }
 
 .process-step strong{
@@ -695,13 +563,74 @@
   line-height:1.4;
 }
 
+.process-section .source-note{
+  align-self:end;
+  margin:0;
+  color:rgba(255,255,255,.58);
+  font-size:12px;
+}
+
+.process-section .source-note a{
+  color:#fff;
+}
+
 @media(max-width:850px){
+  #caminho{
+    scroll-margin-top:58px;
+  }
+
+  .process-section{
+    height:auto;
+    min-height:calc(100svh - 58px);
+    overflow:visible;
+  }
+
+  .process-shell{
+    height:auto;
+    min-height:calc(100svh - 58px);
+    padding:34px 0 30px;
+    grid-template-rows:auto auto auto;
+    gap:28px;
+  }
+
+  .process-heading h2{
+    font-size:clamp(40px,10vw,62px);
+  }
+
+  .pipe-diagram{
+    left:auto;
+    width:100%;
+    height:auto;
+    min-height:0;
+    transform:none;
+    overflow:visible;
+  }
+
+  .pipe-flow-svg,
+  .pipe-joints{
+    display:none;
+  }
+
+  .pipe-stage-grid{
+    position:relative;
+    left:auto;
+    right:auto;
+    top:auto;
+    bottom:auto;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
   .process-step,
   .process-step:nth-child(even){
-    display:block;
     width:auto;
+    display:block;
     padding:14px 16px;
     text-align:left;
+    border:1px solid rgba(142,162,255,.35);
+    border-radius:14px;
+    background:rgba(7,54,254,.08);
   }
 
   .process-step strong{
@@ -711,18 +640,5 @@
   .process-step small{
     margin:0;
     max-width:none;
-  }
-}
-
-/* Episódio 1 — reposicionamento do fluxo */
-@media(min-width:851px){
-  .pipe-flow-svg,
-  .pipe-joints,
-  .pipe-stage-grid{
-    transform:translate(-52px,-42px);
-  }
-
-  .pipe-flow-svg{
-    width:calc(100% + 104px);
   }
 }
