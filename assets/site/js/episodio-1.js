@@ -164,3 +164,34 @@ initData();
   paintSlider(0);
   syncFromScroll();
 })();
+
+
+// episode-one-timeline-lightbox
+(() => {
+  const dialog = document.querySelector('#timeline-lightbox');
+  const image = dialog?.querySelector('[data-timeline-lightbox-image]');
+  const close = dialog?.querySelector('[data-close-timeline-lightbox]');
+  if (!dialog || !image) return;
+
+  document.querySelectorAll('[data-timeline-image]').forEach(button => {
+    button.addEventListener('click', () => {
+      const src = button.getAttribute('data-timeline-image');
+      const thumb = button.querySelector('img');
+      if (!src) return;
+      image.src = src;
+      image.alt = thumb?.alt || '';
+      dialog.showModal();
+    });
+  });
+
+  close?.addEventListener('click', () => dialog.close());
+
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  dialog.addEventListener('close', () => {
+    image.removeAttribute('src');
+    image.alt = '';
+  });
+})();
