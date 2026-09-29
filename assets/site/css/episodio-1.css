@@ -725,3 +725,174 @@
     margin-right:0;
   }
 }
+
+/* Episódio 1 — etapas nas junções + cotovelos decorativos */
+.pipe-diagram{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  align-items:center;
+  gap:0;
+  width:100%;
+  min-height:330px;
+  padding:96px 0 118px;
+  overflow:visible;
+}
+.pipe-track{
+  position:absolute;
+  left:3%;
+  right:3%;
+  top:50%;
+  height:42px;
+  transform:translateY(-50%);
+  background:#0736FE;
+  border-radius:0;
+  box-shadow:none!important;
+  z-index:1;
+}
+.pipe-track::before,
+.pipe-track::after{
+  display:none!important;
+}
+.pipe-joint{
+  position:absolute;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:18px;
+  height:64px;
+  border-radius:999px;
+  background:#0736FE;
+  box-shadow:0 0 0 5px #231F20;
+  z-index:3;
+}
+.joint-1{left:8.333%}
+.joint-2{left:25%}
+.joint-3{left:41.667%}
+.joint-4{left:58.333%}
+.joint-5{left:75%}
+.joint-6{left:91.667%}
+
+.pipe-elbow{
+  position:absolute;
+  top:50%;
+  width:118px;
+  height:118px;
+  z-index:1;
+  pointer-events:none;
+}
+.elbow-left{
+  left:-72px;
+  transform:translateY(-50%);
+  border-left:42px solid #0736FE;
+  border-bottom:42px solid #0736FE;
+  border-bottom-left-radius:96px;
+}
+.elbow-left::before{
+  content:"";
+  position:absolute;
+  left:-42px;
+  top:-90px;
+  width:42px;
+  height:90px;
+  background:#0736FE;
+}
+.elbow-right{
+  right:-72px;
+  transform:translateY(-50%);
+  border-right:42px solid #0736FE;
+  border-top:42px solid #0736FE;
+  border-top-right-radius:96px;
+}
+.elbow-right::before{
+  content:"";
+  position:absolute;
+  right:-42px;
+  top:76px;
+  width:42px;
+  height:90px;
+  background:#0736FE;
+}
+
+.process-step,
+.process-step:nth-of-type(even){
+  position:relative;
+  z-index:4;
+  min-width:0;
+  width:100%;
+  max-width:none;
+  justify-self:stretch;
+  text-align:center;
+}
+.process-step{
+  padding-bottom:118px;
+}
+.process-step:nth-of-type(even){
+  padding-top:118px;
+  padding-bottom:0;
+}
+.process-step::before,
+.process-step::after{
+  display:none!important;
+}
+.process-step strong{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:9px;
+  margin:0 0 7px;
+  color:#fff;
+  font-size:18px;
+  line-height:1.15;
+}
+.step-num{
+  color:#8EA2FF!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  letter-spacing:.08em!important;
+  line-height:1!important;
+  margin:0!important;
+}
+.process-step small{
+  display:block;
+  max-width:170px;
+  margin-left:auto;
+  margin-right:auto;
+  color:rgba(255,255,255,.68);
+  font-size:13px;
+  line-height:1.35;
+}
+@media(max-width:850px){
+  .pipe-elbow,
+  .pipe-joint{
+    display:none;
+  }
+  .pipe-diagram{
+    display:block;
+    min-height:auto;
+    padding:10px 0 10px 64px;
+    overflow:hidden;
+  }
+  .pipe-track{
+    left:20px;
+    right:auto;
+    top:18px;
+    bottom:18px;
+    width:26px;
+    height:auto;
+    transform:none;
+  }
+  .process-step,
+  .process-step:nth-of-type(even){
+    min-height:78px;
+    width:auto;
+    padding:8px 0 18px;
+    text-align:left;
+  }
+  .process-step strong{
+    justify-content:flex-start;
+  }
+  .process-step small{
+    margin:0;
+    max-width:none;
+  }
+}
