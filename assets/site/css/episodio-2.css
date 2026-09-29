@@ -1076,13 +1076,13 @@ body.episode-2{
 
 .ep2-timeline-item{
   position:relative;
-  flex:0 0 clamp(310px,29vw,350px);
+  flex:0 0 clamp(300px,26vw,335px);
   height:540px;
   padding:0 14px;
 }
 
 .ep2-timeline-item + .ep2-timeline-item{
-  margin-left:-64px;
+  margin-left:-128px;
 }
 
 .ep2-timeline-item::after{
@@ -1263,7 +1263,7 @@ body.episode-2{
   }
 
   .ep2-timeline-item + .ep2-timeline-item{
-    margin-left:-54px;
+    margin-left:-96px;
   }
 
   .ep2-timeline-item::after,
