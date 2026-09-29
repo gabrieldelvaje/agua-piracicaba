@@ -98,7 +98,6 @@
     overlay.innerHTML=
       '<div class="route-loading-indicator">' +
         '<span class="route-loading-spinner" aria-hidden="true"></span>' +
-        '<span class="route-loading-label">Carregando</span>' +
       '</div>';
 
     document.body.appendChild(overlay);

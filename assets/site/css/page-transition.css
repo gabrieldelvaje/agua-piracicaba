@@ -149,9 +149,6 @@ body.route-transition-lock{
   will-change:transform;
 }
 
-.route-loading-label{
-  text-shadow:0 1px 8px rgba(0,0,0,.24);
-}
 
 @keyframes route-loading-spin{
   to{transform:rotate(360deg)}
