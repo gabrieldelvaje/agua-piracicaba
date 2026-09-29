@@ -725,3 +725,25 @@
     margin-right:0;
   }
 }
+
+/* Episódio 1 — número da etapa junto ao título */
+.process-step strong{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:8px;
+}
+.process-step strong .step-num{
+  display:inline;
+  margin:0;
+  color:#0736FE;
+  font-size:inherit;
+  font-weight:inherit;
+  line-height:inherit;
+  letter-spacing:inherit;
+}
+@media(max-width:850px){
+  .process-step strong{
+    justify-content:flex-start;
+  }
+}
