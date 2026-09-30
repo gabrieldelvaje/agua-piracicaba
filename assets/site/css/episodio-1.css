@@ -3741,10 +3741,8 @@ body.data-dialog-open{
 
 /* 2026-09-30 — conclusão narrativa do episódio */
 .conclusion-shell > h2{
-  max-width:920px;
-  margin:0 0 40px;
-  font-size:clamp(34px,4.2vw,58px);
-  line-height:1.04;
+  max-width:1050px;
+  margin:0 0 46px;
 }
 
 .conclusion-copy{
@@ -3765,12 +3763,12 @@ body.data-dialog-open{
 }
 
 .conclusion-copy .conclusion-impact{
-  max-width:820px;
-  margin:44px 0 0;
+  max-width:900px;
+  margin:54px 0 0;
   color:#fff;
-  font-size:clamp(28px,3.6vw,48px);
-  line-height:1.06;
-  letter-spacing:-.035em;
+  font-size:clamp(32px,4.4vw,62px);
+  line-height:1.02;
+  letter-spacing:-.045em;
   font-weight:700;
 }
 
@@ -3784,8 +3782,8 @@ body.data-dialog-open{
   }
 
   .conclusion-copy .conclusion-impact{
-    margin-top:34px;
-    font-size:clamp(28px,8vw,40px);
+    margin-top:40px;
+    font-size:clamp(34px,10vw,52px);
   }
 }
 
