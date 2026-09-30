@@ -843,3 +843,17 @@ a{color:inherit}
     font-size:12px;
   }
 }
+
+
+/* 2026-09-29 — ponta de seta igual à timeline nos botões de retorno */
+.episode-nav .back-episodes::before{
+  content:"";
+  display:block;
+  flex:0 0 auto;
+  width:18px;
+  height:18px;
+  background:#0736FE;
+  -webkit-mask:url("../icons/angle-small-right.svg") center/contain no-repeat;
+  mask:url("../icons/angle-small-right.svg") center/contain no-repeat;
+  transform:rotate(180deg);
+}
