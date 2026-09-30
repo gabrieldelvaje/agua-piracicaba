@@ -209,7 +209,15 @@ async function initData(){
       {values:ri,color:'#231f20',label:'Rede',tooltipFormat:v=>'Índice '+fmt.format(v),endpointStroke:'#fff',endpointStrokeWidth:1.5}
     ],{height:360,minY:90,maxY:215,yFormat:v=>fmtInt.format(v),interactive:true,tooltipGap:true});
 
-    const lastLoss=loss.find(d=>d.ano==='2022'); const lossRate=n(lastLoss?.perdas_distribuicao_pct||53.93); window.lossRate=lossRate; document.querySelector('#loss-rate-title').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira-bar').style.width=lossRate+'%'; updateWater();
+    const lastLoss=loss.find(d=>d.ano==='2022');
+    const lossRate=n(lastLoss?.perdas_distribuicao_pct||53.93);
+    const nationalLossRate=37.78;
+    const aboveNational=(lossRate/nationalLossRate-1)*100;
+    window.lossRate=lossRate;
+    document.querySelector('#loss-pira').textContent=fmt.format(lossRate)+'%';
+    document.querySelector('#loss-pira-bar').style.width=lossRate+'%';
+    document.querySelector('#loss-above-national').textContent='+'+fmt.format(aboveNational)+'%';
+    updateWater();
 
     const validEtas=etas.filter(d=>d.unidade!=='Total'); const max=Math.max(...validEtas.map(d=>n(d.volume_m3))); const list=document.querySelector('#eta-list'); list.innerHTML=validEtas.map(d=>'<div class="eta-row"><div class="eta-head"><span>'+d.unidade+'</span><strong>'+fmt.format(n(d.participacao_pct))+'%</strong></div><div class="eta-track"><i style="width:'+(n(d.volume_m3)/max*100)+'%"></i></div></div>').join('');
   }catch(err){console.warn('Dados não carregados',err)}
