@@ -4535,15 +4535,20 @@ main,
 
 /* 2026-09-30 — refinamento do cabeçalho mobile */
 @media(max-width:850px){
-  /* Cabeçalho e menu formam a mesma superfície translúcida. */
+  /* Header permanece sempre visível; header e menu usam a mesma superfície. */
   .site-header{
+    --mobile-header-surface:rgba(243,243,241,.94);
     overflow:visible!important;
-    background:rgba(243,243,241,.92)!important;
+    background:var(--mobile-header-surface)!important;
     backdrop-filter:blur(18px)!important;
     -webkit-backdrop-filter:blur(18px)!important;
   }
 
-  /* Voltar: apenas a ponta da seta, sem círculo azul. */
+  .site-header.is-menu-open{
+    border-bottom-color:transparent!important;
+  }
+
+  /* Voltar: ponta maior, sem círculo. */
   .site-header .back-episodes{
     width:42px!important;
     height:42px!important;
@@ -4557,8 +4562,8 @@ main,
   }
 
   .site-header .back-episodes::before{
-    width:20px!important;
-    height:20px!important;
+    width:28px!important;
+    height:28px!important;
     background:#231F20!important;
   }
 
@@ -4572,7 +4577,7 @@ main,
     transform:scale(.9)!important;
   }
 
-  /* Ocupa toda a largura do cabeçalho/viewport, sem herdar a coluna central do grid. */
+  /* Menu ocupa toda a largura e desce a partir do header. */
   .site-header nav{
     grid-column:1 / -1!important;
     justify-self:stretch!important;
@@ -4583,8 +4588,8 @@ main,
     max-width:none!important;
     margin:0!important;
     padding:8px 14px 14px!important;
-    background:rgba(243,243,241,.92)!important;
-    border-top:1px solid rgba(35,31,32,.08)!important;
+    background:var(--mobile-header-surface)!important;
+    border-top:0!important;
     border-bottom:1px solid rgba(35,31,32,.10)!important;
     box-shadow:none!important;
     backdrop-filter:blur(18px)!important;
