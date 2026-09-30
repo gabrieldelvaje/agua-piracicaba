@@ -196,6 +196,72 @@ consumptionTableDialog?.addEventListener('click',event=>{
 
 consumptionTableDialog?.addEventListener('close',unlockPageForConsumptionDialog);
 
+// Consulta da comparação entre residências e extensão da rede.
+const growthTableDialog=document.querySelector('#growth-table-dialog');
+const growthTableBody=growthTableDialog?.querySelector('[data-growth-table-body]');
+let growthTableLoaded=false;
+
+async function fillGrowthTable(){
+  if(growthTableLoaded || !growthTableBody) return;
+  try{
+    const [econRows,networkRows]=await Promise.all([
+      loadCSV('data/clean/economias_agua_por_categoria_1997_2022.csv'),
+      loadCSV('data/clean/extensao_rede_agua_esgoto_1976_2022.csv')
+    ]);
+    const econMap=new Map(
+      econRows
+        .filter(row=>n(row.ano)>=1997&&n(row.ano)<=2021)
+        .map(row=>[n(row.ano),n(row.residencial)])
+    );
+    const networkMap=new Map(
+      networkRows
+        .filter(row=>n(row.ano)>=1997&&n(row.ano)<=2021)
+        .map(row=>[n(row.ano),n(row.agua_rede_existente_m)/1000])
+    );
+    const years=[...econMap.keys()].filter(year=>networkMap.has(year)).sort((a,b)=>a-b);
+    const baseE=econMap.get(1997);
+    const baseR=networkMap.get(1997);
+
+    growthTableBody.innerHTML=years.map(year=>{
+      const residences=econMap.get(year);
+      const networkKm=networkMap.get(year);
+      const residenceGrowth=(residences/baseE-1)*100;
+      const networkGrowth=(networkKm/baseR-1)*100;
+      const gap=residenceGrowth-networkGrowth;
+      const signed=value=>(value>0?'+':'')+fmt.format(value)+'%';
+      const signedGap=value=>(value>0?'+':'')+fmt.format(value)+' p.p.';
+      return '<tr>'+
+        '<td>'+year+'</td>'+
+        '<td>'+fmtInt.format(residences)+'</td>'+
+        '<td>'+fmtInt.format(networkKm)+' km</td>'+
+        '<td>'+signed(residenceGrowth)+'</td>'+
+        '<td>'+signed(networkGrowth)+'</td>'+
+        '<td><strong>'+signedGap(gap)+'</strong></td>'+
+      '</tr>';
+    }).join('');
+    growthTableLoaded=true;
+  }catch(err){
+    growthTableBody.innerHTML='<tr><td colspan="6">Não foi possível carregar a tabela.</td></tr>';
+  }
+}
+
+document.querySelector('[data-open-growth-table]')?.addEventListener('click',async()=>{
+  await fillGrowthTable();
+  if(!growthTableDialog) return;
+  lockPageForConsumptionDialog();
+  growthTableDialog.showModal();
+});
+
+document.querySelector('[data-close-growth-table]')?.addEventListener('click',()=>{
+  growthTableDialog?.close();
+});
+
+growthTableDialog?.addEventListener('click',event=>{
+  if(event.target===growthTableDialog) growthTableDialog.close();
+});
+
+growthTableDialog?.addEventListener('close',unlockPageForConsumptionDialog);
+
 const dialog=document.querySelector('#coverage-dialog'); document.querySelector('[data-open-coverage]')?.addEventListener('click',()=>dialog.showModal()); document.querySelector('[data-close-coverage]')?.addEventListener('click',()=>dialog.close()); dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
 initData();
