@@ -2438,3 +2438,46 @@ main > section:not(.hero){
     padding:24px 0!important;
   }
 }
+
+
+/* Cabeçalho — botão padronizado para voltar à lista de episódios */
+.back-episodes{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  min-height:40px!important;
+  padding:9px 15px!important;
+  border:1px solid rgba(35,31,32,.16)!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.58)!important;
+  color:#231F20!important;
+  font-size:13px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  text-decoration:none!important;
+  white-space:nowrap!important;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease!important;
+}
+.back-episodes::before{
+  content:"←";
+  display:inline-block;
+  font-size:15px;
+  line-height:1;
+}
+.back-episodes:hover,
+.back-episodes:focus-visible{
+  background:#fff!important;
+  border-color:rgba(35,31,32,.28)!important;
+}
+.back-episodes:active{
+  transform:scale(.97)!important;
+}
+@media(max-width:520px){
+  .back-episodes{
+    min-height:38px!important;
+    padding:8px 13px!important;
+    font-size:12px!important;
+  }
+}
