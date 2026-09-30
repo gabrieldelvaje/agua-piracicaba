@@ -2736,3 +2736,18 @@ main > section:not(.hero){
     margin:0 0 10px!important;
   }
 }
+
+
+/* 2026-09-29 — gráfico de consumo: só eixo inferior e tooltip branco */
+.line-chart .chart-tooltip-text{
+  fill:#fff!important;
+  opacity:1!important;
+}
+
+.line-chart .chart-tooltip-year{
+  font-weight:700!important;
+}
+
+.line-chart .chart-tooltip-value{
+  fill:#fff!important;
+}
