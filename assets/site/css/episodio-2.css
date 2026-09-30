@@ -1912,3 +1912,97 @@ body.episode-2{
     height:26px!important;
   }
 }
+
+
+/* 2026-09-30 — imprensa do EP2 sem reprodução dos recortes do Estadão */
+.newspaper-featured-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:12px!important;
+}
+
+.newspaper-featured-card{
+  min-height:250px;
+  padding:24px!important;
+  justify-content:flex-end;
+}
+
+.newspaper-featured-card img{
+  display:none!important;
+}
+
+.newspaper-featured-card.is-document{
+  grid-column:1 / -1;
+  min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,.8fr) minmax(420px,1.2fr);
+  gap:28px;
+  align-items:center;
+  padding:24px!important;
+}
+
+.newspaper-featured-copy{
+  display:flex;
+  flex-direction:column;
+  align-self:stretch;
+  justify-content:flex-end;
+}
+
+.newspaper-source-link{
+  width:max-content;
+  max-width:100%;
+  margin-top:22px;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  line-height:1.3;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:4px;
+}
+
+.newspaper-page-preview{
+  min-width:0;
+  height:440px;
+  overflow:hidden;
+  border-radius:14px;
+  background:#F3F3F1;
+}
+
+.newspaper-page-preview object{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#F3F3F1;
+}
+
+.newspaper-selection-note{
+  max-width:900px;
+  margin-top:28px!important;
+}
+
+@media(max-width:900px){
+  .newspaper-featured-grid{
+    grid-template-columns:1fr!important;
+  }
+
+  .newspaper-featured-card{
+    min-height:210px;
+  }
+
+  .newspaper-featured-card.is-document{
+    grid-column:auto;
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .newspaper-page-preview{
+    height:520px;
+  }
+}
+
+@media(max-width:560px){
+  .newspaper-page-preview{
+    height:440px;
+  }
+}
