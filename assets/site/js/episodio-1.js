@@ -356,6 +356,47 @@ growthTableDialog?.addEventListener('click',event=>{
 
 growthTableDialog?.addEventListener('close',unlockPageForConsumptionDialog);
 
+// Consulta da produção de água por ETA.
+const productionTableDialog=document.querySelector('#production-table-dialog');
+const productionTableBody=productionTableDialog?.querySelector('[data-production-table-body]');
+let productionTableLoaded=false;
+
+async function fillProductionTable(){
+  if(productionTableLoaded || !productionTableBody) return;
+  try{
+    const rows=await loadCSV('data/clean/pmsb_producao_agua_por_eta_2022.csv');
+    productionTableBody.innerHTML=rows.map(row=>{
+      const volume=n(row.volume_m3);
+      const share=n(row.participacao_pct);
+      return '<tr>'+
+        '<td>'+row.unidade+'</td>'+
+        '<td>'+fmtInt.format(volume)+' m³</td>'+
+        '<td><strong>'+fmt.format(share)+'%</strong></td>'+
+      '</tr>';
+    }).join('');
+    productionTableLoaded=true;
+  }catch(err){
+    productionTableBody.innerHTML='<tr><td colspan="3">Não foi possível carregar a tabela.</td></tr>';
+  }
+}
+
+document.querySelector('[data-open-production-table]')?.addEventListener('click',async()=>{
+  await fillProductionTable();
+  if(!productionTableDialog) return;
+  lockPageForConsumptionDialog();
+  productionTableDialog.showModal();
+});
+
+document.querySelector('[data-close-production-table]')?.addEventListener('click',()=>{
+  productionTableDialog?.close();
+});
+
+productionTableDialog?.addEventListener('click',event=>{
+  if(event.target===productionTableDialog) productionTableDialog.close();
+});
+
+productionTableDialog?.addEventListener('close',unlockPageForConsumptionDialog);
+
 const dialog=document.querySelector('#coverage-dialog'); document.querySelector('[data-open-coverage]')?.addEventListener('click',()=>dialog.showModal()); document.querySelector('[data-close-coverage]')?.addEventListener('click',()=>dialog.close()); dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
 initData();
