@@ -4373,17 +4373,35 @@ main,
     transform:translateY(-50%);
   }
 
+  .site-header nav a{
+    transform:none!important;
+  }
+
+  .site-header nav a > span{
+    display:inline-block;
+    transition:color .16s ease,transform .1s ease;
+  }
+
   .site-header nav a:hover,
   .site-header nav a:focus-visible{
     background:transparent!important;
     border-color:transparent!important;
     color:#0736FE!important;
-    transform:translateY(-1px)!important;
+    transform:none!important;
+  }
+
+  .site-header nav a:hover > span,
+  .site-header nav a:focus-visible > span{
+    transform:translateY(-1px);
   }
 
   .site-header nav a:active{
     color:#062ED8!important;
-    transform:translateY(2px) scale(.97)!important;
+    transform:none!important;
+  }
+
+  .site-header nav a:active > span{
+    transform:translateY(2px) scale(.97);
   }
 }
 
