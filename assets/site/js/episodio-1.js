@@ -736,3 +736,48 @@ initData();
     image.addEventListener('error', showFallback, { once:true });
   });
 })();
+
+
+// episode-one-desktop-pipe-joint-alignment
+(() => {
+  const diagram = document.querySelector('.pipe-diagram');
+  const pipe = diagram?.querySelector('.desktop-pipe-svg');
+  const steps = diagram ? [...diagram.querySelectorAll('.process-step')] : [];
+  if (!diagram || !pipe || steps.length < 6) return;
+
+  const desktop = window.matchMedia('(min-width:1025px)');
+  const jointX = [955, 1255, 1555, 1855, 2155, 2455];
+  const viewBoxWidth = 3410;
+
+  const alignSteps = () => {
+    if (!desktop.matches) {
+      steps.forEach(step => step.style.removeProperty('--pipe-joint-x'));
+      return;
+    }
+
+    const diagramRect = diagram.getBoundingClientRect();
+    const pipeRect = pipe.getBoundingClientRect();
+    if (!pipeRect.width) return;
+
+    jointX.forEach((x, index) => {
+      const position = (pipeRect.left - diagramRect.left) + (x / viewBoxWidth) * pipeRect.width;
+      steps[index]?.style.setProperty('--pipe-joint-x', `${position}px`);
+    });
+  };
+
+  const scheduleAlignment = () => requestAnimationFrame(alignSteps);
+
+  if (pipe.complete) scheduleAlignment();
+  else pipe.addEventListener('load', scheduleAlignment, { once:true });
+
+  window.addEventListener('resize', scheduleAlignment);
+  desktop.addEventListener?.('change', scheduleAlignment);
+
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(scheduleAlignment);
+    observer.observe(diagram);
+    observer.observe(pipe);
+  }
+
+  scheduleAlignment();
+})();
