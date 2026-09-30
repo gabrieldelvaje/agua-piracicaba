@@ -4272,3 +4272,95 @@ main,
     text-align:right!important;
   }
 }
+
+
+/* 2026-09-30 — corrige alinhamento sem alterar o tamanho do cano */
+@media(min-width:1025px){
+  /*
+   * O cano volta exatamente ao tamanho anterior.
+   * O próprio diagrama usa a mesma largura apenas como sistema de coordenadas,
+   * para que cada legenda possa cair no centro real de uma junta do SVG.
+   */
+  .pipe-diagram{
+    position:relative!important;
+    left:50%!important;
+    width:min(2050px,calc(100vw + 160px))!important;
+    max-width:none!important;
+    min-height:300px!important;
+    margin:0!important;
+    padding:78px 0 88px!important;
+    transform:translateX(-50%)!important;
+    display:block!important;
+    overflow:visible!important;
+  }
+
+  .desktop-pipe-svg{
+    left:0!important;
+    top:50%!important;
+    width:100%!important;
+    max-width:none!important;
+    height:auto!important;
+    transform:translateY(-50%)!important;
+  }
+
+  .process-step,
+  .process-step:nth-of-type(even){
+    position:absolute!important;
+    top:50%!important;
+    z-index:2!important;
+    width:170px!important;
+    max-width:170px!important;
+    margin:0!important;
+    padding:0!important;
+    justify-self:auto!important;
+    text-align:center!important;
+  }
+
+  /* Centros exatos das seis juntas do trecho horizontal do SVG. */
+  .process-step:nth-of-type(1){ left:27.991%!important; }
+  .process-step:nth-of-type(2){ left:36.804%!important; }
+  .process-step:nth-of-type(3){ left:45.601%!important; }
+  .process-step:nth-of-type(4){ left:54.399%!important; }
+  .process-step:nth-of-type(5){ left:63.196%!important; }
+  .process-step:nth-of-type(6){ left:72.009%!important; }
+
+  /* Mantém a alternância visual, mas sempre ancorada na junta. */
+  .process-step:nth-of-type(odd){
+    margin-top:-66px!important;
+    transform:translate(-50%,-100%)!important;
+  }
+
+  .process-step:nth-of-type(even){
+    margin-top:66px!important;
+    transform:translateX(-50%)!important;
+  }
+
+  .process-step strong,
+  .process-step small{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  /* Fonte/legenda continua fora do cano, alinhada à direita. */
+  .process-section .source-note{
+    width:min(690px,100%)!important;
+    margin:12px 0 0 auto!important;
+    text-align:right!important;
+  }
+}
+
+@media (min-width:1025px) and (max-width:1366px),
+       (min-width:1025px) and (max-height:760px){
+  .pipe-diagram{
+    min-height:255px!important;
+    padding:60px 0 70px!important;
+  }
+
+  .process-step:nth-of-type(odd){
+    margin-top:-58px!important;
+  }
+
+  .process-step:nth-of-type(even){
+    margin-top:58px!important;
+  }
+}
