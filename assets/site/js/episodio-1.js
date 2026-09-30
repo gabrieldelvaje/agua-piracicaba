@@ -29,9 +29,8 @@ function drawLineChart(svg, series, options={}){
     svg.append(t);
   }
 
-  // Eixos X e Y explícitos para enquadrar a leitura do gráfico.
-  svg.append(svgEl('line',{x1:p.l,y1:p.t,x2:p.l,y2:H-p.b,class:'axis'}));
-  svg.append(svgEl('line',{x1:p.l,y1:H-p.b,x2:W-p.r,y2:H-p.b,class:'axis'}));
+  // Mantém somente a linha de base do eixo X.
+  svg.append(svgEl('line',{x1:p.l,y1:H-p.b,x2:W-p.r,y2:H-p.b,class:'axis axis-x'}));
 
   const years=[minX,Math.round(minX+(maxX-minX)/3),Math.round(minX+2*(maxX-minX)/3),maxX];
   years.forEach(x=>{
@@ -58,8 +57,8 @@ function drawLineChart(svg, series, options={}){
     const dot=svgEl('circle',{cx:0,cy:0,r:5,fill:color,opacity:0});
     const tip=svgEl('g',{opacity:0,'pointer-events':'none'});
     const tipRect=svgEl('rect',{x:0,y:0,width:184,height:56,rx:12,fill:'#231F20'});
-    const tipYear=svgEl('text',{x:0,y:0,fill:'#fff','font-size':14,'font-weight':700});
-    const tipValue=svgEl('text',{x:0,y:0,fill:'#fff','font-size':13});
+    const tipYear=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-year','font-size':14,'font-weight':700});
+    const tipValue=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-value','font-size':13});
     tip.append(tipRect,tipYear,tipValue);
     svg.append(guide,dot,tip);
 
