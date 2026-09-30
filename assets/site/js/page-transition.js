@@ -288,3 +288,98 @@
     }
   },true);
 })();
+
+
+// episode-three-four-header-navigation
+(() => {
+  const body = document.body;
+  if (!body.classList.contains('episode-3') && !body.classList.contains('episode-4')) return;
+
+  const header = document.querySelector('.site-header');
+  const toggle = header?.querySelector('.mobile-menu-toggle');
+  const nav = header?.querySelector('nav');
+  if (!header || !toggle || !nav) return;
+
+  const closeMenu = () => {
+    header.classList.remove('is-menu-open');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Abrir menu do episódio');
+  };
+
+  toggle.addEventListener('click', () => {
+    const open = !header.classList.contains('is-menu-open');
+    header.classList.toggle('is-menu-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Fechar menu do episódio' : 'Abrir menu do episódio');
+  });
+
+  document.addEventListener('click', event => {
+    if (!header.classList.contains('is-menu-open')) return;
+    if (header.contains(event.target)) return;
+    closeMenu();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('scroll', () => {
+    if (header.classList.contains('is-menu-open')) closeMenu();
+  }, { passive:true });
+
+  window.matchMedia('(min-width:851px)').addEventListener?.('change', event => {
+    if (event.matches) closeMenu();
+  });
+
+  const triggers = [
+    ...nav.querySelectorAll('a[href^="#"]'),
+    ...document.querySelectorAll('.episode-scroll-cue[href^="#"]')
+  ];
+
+  const easeInOutCubic = t =>
+    t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+
+  const animateToTarget = (target, hash) => {
+    const root = document.documentElement;
+    const previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+
+    const headerHeight = header.getBoundingClientRect().height;
+    const start = window.scrollY;
+    const rawEnd = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+    const maxEnd = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const end = Math.max(0, Math.min(rawEnd, maxEnd));
+    const distance = end - start;
+    const duration = 950;
+    let startedAt = null;
+
+    const step = now => {
+      if (startedAt === null) startedAt = now;
+      const progress = Math.min((now - startedAt) / duration, 1);
+      window.scrollTo(0, start + distance * easeInOutCubic(progress));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        window.scrollTo(0, end);
+        root.style.scrollBehavior = previousBehavior;
+        history.replaceState(null, '', hash);
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', event => {
+      const hash = trigger.getAttribute('href');
+      if (!hash || hash === '#') return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      event.preventDefault();
+      closeMenu();
+      animateToTarget(target, hash);
+    });
+  });
+})();
