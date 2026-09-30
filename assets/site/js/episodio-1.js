@@ -79,13 +79,15 @@ function drawLineChart(svg, series, options={}){
     });
 
     const tip=svgEl('g',{opacity:0,'pointer-events':'none'});
+    const hasTooltipGap=multi&&options.tooltipGap===true;
     const boxW=multi?224:184;
-    const boxH=multi?82:56;
+    const boxH=multi?(hasTooltipGap?102:82):56;
     const tipRect=svgEl('rect',{x:0,y:0,width:boxW,height:boxH,rx:12,fill:'#231F20'});
     const tipYear=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-year','font-size':14,'font-weight':700});
     tip.append(tipRect,tipYear);
 
     let tipValue=null;
+    let gapText=null;
     const multiRows=[];
     if(multi){
       series.forEach((s,idx)=>{
@@ -97,6 +99,10 @@ function drawLineChart(svg, series, options={}){
         tip.append(bullet,label);
         multiRows.push({bullet,label,series:s});
       });
+      if(hasTooltipGap){
+        gapText=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-value','font-size':13,'font-weight':700});
+        tip.append(gapText);
+      }
     }else{
       tipValue=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-value','font-size':13});
       tip.append(tipValue);
@@ -149,6 +155,14 @@ function drawLineChart(svg, series, options={}){
             : '—';
           row.label.textContent=label+': '+value;
         });
+        if(gapText){
+          const first=series[0].values.find(v=>v.x===nearest.x);
+          const second=series[1].values.find(v=>v.x===nearest.x);
+          const gap=first&&second?first.y-second.y:null;
+          gapText.setAttribute('x',tx+14);
+          gapText.setAttribute('y',ty+85);
+          gapText.textContent=gap===null?'Gap: —':'Gap: '+(gap>0?'+':'')+fmt.format(gap)+' p.p.';
+        }
       }else{
         tipValue.setAttribute('x',tx+14);
         tipValue.setAttribute('y',ty+43);
@@ -190,12 +204,10 @@ async function initData(){
     document.querySelector('#economies-start').textContent=fmtInt.format(e[0].y); document.querySelector('#economies-end').textContent=fmtInt.format(e.at(-1).y); document.querySelector('#economies-growth').textContent='+'+fmt.format(pct(e[0].y,e.at(-1).y))+'%';
     document.querySelector('#network-start').textContent=fmtInt.format(r[0].y)+' km'; document.querySelector('#network-end').textContent=fmtInt.format(r.at(-1).y)+' km'; document.querySelector('#network-growth').textContent='+'+fmt.format(pct(r[0].y,r.at(-1).y))+'%';
     const ei=e.map(d=>({x:d.x,y:d.y/e[0].y*100})); const ri=r.map(d=>({x:d.x,y:d.y/r[0].y*100}));
-    const gi=ei.map((d,i)=>({x:d.x,y:d.y-ri[i].y}));
     drawLineChart(document.querySelector('#growth-chart'),[
       {values:ei,color:'#0736fe',label:'Residências',tooltipFormat:v=>'Índice '+fmt.format(v)},
-      {values:ri,color:'#231f20',label:'Rede',tooltipFormat:v=>'Índice '+fmt.format(v),endpointStroke:'#fff',endpointStrokeWidth:1.5},
-      {values:gi,color:'#777872',label:'Gap',tooltipFormat:v=>(v>0?'+':'')+fmt.format(v)+' p.p.',dasharray:'3 8',strokeWidth:3,showEndpoints:false}
-    ],{height:360,minY:0,maxY:215,yFormat:v=>fmtInt.format(v),interactive:true});
+      {values:ri,color:'#231f20',label:'Rede',tooltipFormat:v=>'Índice '+fmt.format(v),endpointStroke:'#fff',endpointStrokeWidth:1.5}
+    ],{height:360,minY:90,maxY:215,yFormat:v=>fmtInt.format(v),interactive:true,tooltipGap:true});
 
     const lastLoss=loss.find(d=>d.ano==='2022'); const lossRate=n(lastLoss?.perdas_distribuicao_pct||53.93); window.lossRate=lossRate; document.querySelector('#loss-rate-title').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira-bar').style.width=lossRate+'%'; updateWater();
 
