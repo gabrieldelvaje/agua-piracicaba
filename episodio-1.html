@@ -8,7 +8,7 @@
   <title>Episódio 1 | Por que está faltando água em Piracicaba?</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />
   <link rel="preload" as="image" href="assets/site/episodes/episodio-1-museu-da-agua-antigo.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260930-1038" />
+  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260930-1115" />
 
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260929-2240" />
 </head>
@@ -21,7 +21,7 @@
       <a href="#infraestrutura">Infraestrutura</a>
       <a href="#fontes">Fontes</a>
     </nav>
-    <button class="coverage-button" type="button" data-open-coverage>Cobertura dos dados</button>
+    <span class="series-title">Águas do Rio Piracicaba</span>
   </header>
 
   <main id="top">
@@ -368,17 +368,17 @@
       </div>
 
       <div class="source-links source-links-centered">
-        <a href="docs/sources.md">Fontes do episódio ↗︎</a>
-        <a href="docs/methodology.md">Metodologia ↗︎</a>
-        <a href="docs/validation.md">Validação e limitações ↗︎</a>
-        <a href="https://github.com/gabrieldelvaje/agua-piracicaba" target="_blank" rel="noreferrer">Repositório ↗︎</a>
-        <a href="https://piracicaba.sp.gov.br/servicos/plano-municipal-de-saneamento-basico-pmsb/" target="_blank" rel="noreferrer">PMSB oficial ↗︎</a>
+        <button type="button" data-open-info-dialog="episode-sources-dialog">Fontes do episódio</button>
+        <button type="button" data-open-info-dialog="methodology-dialog">Metodologia</button>
+        <button type="button" data-open-info-dialog="validation-dialog">Validação e limitações</button>
+        <a href="https://github.com/gabrieldelvaje/agua-piracicaba" target="_blank" rel="noreferrer">Repositório</a>
+        <a href="https://piracicaba.sp.gov.br/servicos/plano-municipal-de-saneamento-basico-pmsb/" target="_blank" rel="noreferrer">PMSB oficial</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer section-shell">
-    <span>Gabriel Delvaje · Piracicaba Data Stories</span>
+    <span>Gabriel Delvaje · Águas do Rio Piracicaba</span>
     <span>Dados públicos · análise reproduzível</span>
   </footer>
 
@@ -483,15 +483,71 @@
     </div>
   </dialog>
 
-  <dialog class="coverage-dialog" id="coverage-dialog" aria-labelledby="coverage-title">
-    <button class="dialog-close" type="button" data-close-coverage aria-label="Fechar">×</button>
-    <p class="eyebrow">Como ler este site</p>
-    <h2 id="coverage-title">Uma fotografia do período, não um “tempo real”.</h2>
-    <p>Cada indicador mostra explicitamente o período coberto. Dados históricos e PMSB são preservados como retrato daquele momento; ocorrências recentes aparecem sempre com data. Quando uma série estruturada for atualizada no repositório, os gráficos que leem os CSVs passam a refletir a nova base.</p>
-    <p>Última revisão editorial desta versão: <strong>27 de setembro de 2026</strong>.</p>
+
+  <dialog class="data-table-dialog info-dialog" id="episode-sources-dialog" aria-labelledby="episode-sources-title">
+    <button class="dialog-close data-table-close" type="button" data-close-info-dialog aria-label="Fechar">×</button>
+    <div class="data-table-dialog-head">
+      <h2 id="episode-sources-title">Fontes do episódio</h2>
+      <p>Documentos, bases e reportagens usados na construção deste episódio.</p>
+    </div>
+    <div class="data-table-scroll info-dialog-scroll">
+      <div class="info-dialog-content source-directory">
+        <section>
+          <h3>Dados históricos e planejamento</h3>
+          <a href="https://piracicaba.sp.gov.br/servicos/piracicaba-em-dados-historico-ipplap/" target="_blank" rel="noreferrer"><strong>Piracicaba em Dados / IPPLAP</strong><span>Séries históricas de consumo, economias, rede, população, ligações, precipitação, produção e vazão.</span></a>
+          <a href="https://piracicaba.sp.gov.br/wp-content/uploads/2026/03/suplementar1-cap4.pdf" target="_blank" rel="noreferrer"><strong>PMSB 2026 · Capítulo 4</strong><span>Abastecimento de água, perdas, produção por ETA e planejamento da rede.</span></a>
+        </section>
+        <section>
+          <h3>História e sistema de abastecimento</h3>
+          <a href="https://osweb.semaepiracicaba.sp.gov.br/?p=bXVzZXU%3D" target="_blank" rel="noreferrer"><strong>Museu da Água / Semae</strong><span>História da captação e do abastecimento de Piracicaba.</span></a>
+          <a href="https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/" target="_blank" rel="noreferrer"><strong>Prefeitura de Piracicaba</strong><span>Informações sobre os mananciais e participação do rio Corumbataí no abastecimento.</span></a>
+        </section>
+        <section>
+          <h3>Obras e ocorrências recentes</h3>
+          <a href="https://piracicaba.sp.gov.br/noticias/prefeitura-e-semae-entregam-obras-que-reforcam-o-abastecimento-de-agua-para-340-mil-moradores/" target="_blank" rel="noreferrer"><strong>Ampliação da ETA Capim Fino</strong><span>Capacidade e obras entregues em 2026.</span></a>
+          <a href="https://osweb.semaepiracicaba.sp.gov.br/?id=MTUyMjc%3D&p=bm90aWNpYV9jb21wbGV0YQ%3D%3D" target="_blank" rel="noreferrer"><strong>Adutora Dois Córregos–Cecap</strong><span>Projeto e extensão da nova adutora.</span></a>
+          <a href="https://sampi.net.br/piracicaba/noticias/3007244/cidade/2026/09/veja-se-seu-bairro-esta-entre-os-afetados-pela-falta-dagua" target="_blank" rel="noreferrer"><strong>Jornal de Piracicaba · 25 set. 2026</strong><span>Oxidação, vazamentos e bairros afetados.</span></a>
+          <a href="https://sampi.net.br/piracicaba/noticias/3000295/cidade/2026/08/semae-retoma-abastecimento-de-agua-apos-reparo-em-adutora-veja" target="_blank" rel="noreferrer"><strong>Jornal de Piracicaba · 24 ago. 2026</strong><span>Rompimento de adutora e retomada do abastecimento.</span></a>
+          <a href="https://g1.globo.com/sp/piracicaba-regiao/noticia/2026/09/16/rompimento-de-adutora-e-sujeira-deixam-bairros-sem-agua-apos-fortes-chuvas-em-piracicaba.ghtml" target="_blank" rel="noreferrer"><strong>g1 Piracicaba · 16 set. 2026</strong><span>Chuva, detritos, rompimento e interrupções no abastecimento.</span></a>
+        </section>
+      </div>
+    </div>
   </dialog>
 
-  <script src="assets/site/js/episodio-1.js?v=20260930-0815"></script>
+  <dialog class="data-table-dialog info-dialog" id="methodology-dialog" aria-labelledby="methodology-title">
+    <button class="dialog-close data-table-close" type="button" data-close-info-dialog aria-label="Fechar">×</button>
+    <div class="data-table-dialog-head">
+      <h2 id="methodology-title">Metodologia</h2>
+      <p>Como as bases foram convertidas, calculadas e comparadas.</p>
+    </div>
+    <div class="data-table-scroll info-dialog-scroll">
+      <div class="info-dialog-content">
+        <section><h3>Conversão dos PDFs</h3><p>As tabelas textuais foram extraídas preservando os valores publicados. Separadores de milhar foram removidos e vírgulas decimais convertidas para ponto. Valores indisponíveis ou categorias descontinuadas foram mantidos como campos vazios, sem imputação.</p></section>
+        <section><h3>Períodos parciais</h3><p>Linhas explicitamente parciais recebem <code>periodo_completo=false</code>. Isso inclui 2022 em várias séries históricas e 2019 na série de vazão do Rio Piracicaba.</p></section>
+        <section><h3>Consumo residencial</h3><p>O consumo médio mensal por economia é calculado como consumo residencial anual ÷ economias residenciais ÷ 12. A comparação termina em 2021 porque os valores históricos de 2022 representam apenas janeiro.</p></section>
+        <section><h3>Perdas</h3><p>Os índices de perda não foram reconstruídos. O episódio usa a série oficial do SNIS transcrita da Tabela 25 do PMSB 2026.</p></section>
+        <section><h3>Validação</h3><p>Divergências da fonte são preservadas e sinalizadas por <code>quality_flag</code>, sem correção automática dos valores publicados.</p></section>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="data-table-dialog info-dialog" id="validation-dialog" aria-labelledby="validation-title">
+    <button class="dialog-close data-table-close" type="button" data-close-info-dialog aria-label="Fechar">×</button>
+    <div class="data-table-dialog-head">
+      <h2 id="validation-title">Validação e limitações</h2>
+      <p>Inconsistências mantidas no projeto para não reescrever a fonte original.</p>
+    </div>
+    <div class="data-table-scroll info-dialog-scroll">
+      <div class="info-dialog-content">
+        <section><h3>Séries parciais</h3><p>Em 2022, consumo, economias, rede, ligações e produção/distribuição dos PDFs históricos têm apenas janeiro. A vazão de 2019 cobre janeiro a outubro e a precipitação de 2022 também contém apenas janeiro.</p></section>
+        <section><h3>Produção e distribuição</h3><p>Em 2010, a fonte apresenta total distribuído superior ao produzido. Em 2019, os totais anuais não são compatíveis com a média mensal multiplicada por 12. Em 2022, além de parcial, média mensal e total de janeiro não coincidem. Nenhum desses valores foi ajustado.</p></section>
+        <section><h3>População</h3><p>A base SEADE foi mantida exatamente como publicada. Há linhas em que a soma das faixas etárias não coincide com o total; a diferença é calculada no CSV para auditoria.</p></section>
+        <section><h3>Perdas em 2023</h3><p>O PMSB 2026 reporta 55,40% em um trecho e 54,50% em outro. Os dois registros permanecem documentados; este episódio usa 2022 (53,93%), presente na série tabular do SNIS.</p></section>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="assets/site/js/episodio-1.js?v=20260930-1115"></script>
   <script src="assets/site/js/page-transition.js?v=20260929-1008"></script>
 </body>
 </html>
