@@ -8,7 +8,7 @@
   <title>Episódio 1 | Por que está faltando água em Piracicaba?</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />
   <link rel="preload" as="image" href="assets/site/episodes/episodio-1-museu-da-agua-antigo.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260929-2410" />
+  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260929-2445" />
 
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260929-2240" />
 </head>
@@ -211,7 +211,7 @@
             <div class="chart-heading"><span>Consumo médio residencial</span><small>1997–2021 · m³/economia/mês</small></div>
             <svg class="line-chart interactive-line-chart" id="consumption-chart" viewBox="0 0 900 320" role="img" aria-label="Evolução do consumo médio residencial por economia"></svg>
           </div>
-          <p class="source-note">Calculado a partir das séries oficiais de consumo residencial e economias atendidas. <a href="data/processed/consumo_residencial_por_economia_1997_2021.csv">Abrir CSV ↗︎</a></p>
+          <p class="source-note">Calculado a partir das séries oficiais de consumo residencial e economias atendidas. <button class="source-inline-button" type="button" data-open-consumption-table>CSV calculado</button> <span aria-hidden="true">·</span> <a href="https://piracicaba.sp.gov.br/servicos/piracicaba-em-dados-historico-ipplap/" target="_blank" rel="noreferrer">PDFs da Prefeitura ↗︎</a></p>
         </div>
       </div>
     </section>
@@ -351,6 +351,30 @@
 
   <button class="back-to-top" type="button" data-back-to-top aria-label="Voltar ao topo"></button>
 
+  <dialog class="data-table-dialog" id="consumption-table-dialog" aria-labelledby="consumption-table-title">
+    <button class="dialog-close data-table-close" type="button" data-close-consumption-table aria-label="Fechar">×</button>
+    <div class="data-table-dialog-head">
+      <p class="eyebrow">CSV calculado</p>
+      <h2 id="consumption-table-title">Consumo residencial por economia</h2>
+      <p>1997–2021 · consumo residencial anual ÷ economias residenciais ÷ 12.</p>
+    </div>
+    <div class="data-table-scroll">
+      <table class="data-table" aria-label="Tabela calculada de consumo residencial por economia">
+        <thead>
+          <tr>
+            <th>Ano</th>
+            <th>Consumo residencial anual</th>
+            <th>Economias residenciais</th>
+            <th>Consumo médio mensal</th>
+          </tr>
+        </thead>
+        <tbody data-consumption-table-body>
+          <tr><td colspan="4">Carregando dados…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </dialog>
+
   <dialog class="coverage-dialog" id="coverage-dialog" aria-labelledby="coverage-title">
     <button class="dialog-close" type="button" data-close-coverage aria-label="Fechar">×</button>
     <p class="eyebrow">Como ler este site</p>
@@ -359,7 +383,7 @@
     <p>Última revisão editorial desta versão: <strong>27 de setembro de 2026</strong>.</p>
   </dialog>
 
-  <script src="assets/site/js/episodio-1.js?v=20260929-2422"></script>
+  <script src="assets/site/js/episodio-1.js?v=20260929-2445"></script>
   <script src="assets/site/js/page-transition.js?v=20260929-1008"></script>
 </body>
 </html>
