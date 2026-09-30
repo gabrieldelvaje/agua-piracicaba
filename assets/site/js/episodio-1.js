@@ -10,10 +10,91 @@ function pct(a,b){return (b/a-1)*100}
 function n(v){return Number(String(v).replace(',','.'))}
 function svgEl(name,attrs={}){const e=document.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e}
 function drawLineChart(svg, series, options={}){
-  svg.innerHTML=''; const W=900,H=options.height||320,p={l:55,r:20,t:20,b:40}; const all=series.flatMap(s=>s.values); const minY=options.minY??Math.min(...all.map(d=>d.y)); const maxY=options.maxY??Math.max(...all.map(d=>d.y)); const xs=all.map(d=>d.x); const minX=Math.min(...xs),maxX=Math.max(...xs); const sx=x=>p.l+(x-minX)/(maxX-minX)*(W-p.l-p.r); const sy=y=>H-p.b-(y-minY)/(maxY-minY)*(H-p.t-p.b);
-  for(let i=0;i<5;i++){const y=p.t+i*(H-p.t-p.b)/4;svg.append(svgEl('line',{x1:p.l,y1:y,x2:W-p.r,y2:y,class:'grid'})); const value=maxY-i*(maxY-minY)/4; const t=svgEl('text',{x:p.l-10,y:y+4,'text-anchor':'end'});t.textContent=options.yFormat?options.yFormat(value):fmt.format(value);svg.append(t)}
-  const years=[minX,Math.round(minX+(maxX-minX)/3),Math.round(minX+2*(maxX-minX)/3),maxX]; years.forEach(x=>{const t=svgEl('text',{x:sx(x),y:H-12,'text-anchor':'middle'});t.textContent=x;svg.append(t)});
-  series.forEach((s,idx)=>{const d=s.values.map((v,i)=>(i?'L':'M')+sx(v.x)+','+sy(v.y)).join(' '); const path=svgEl('path',{d,fill:'none',stroke:s.color||['#0736fe','#231f20'][idx%2],'stroke-width':options.strokeWidth||4,'stroke-linejoin':'round','stroke-linecap':'round'});svg.append(path); s.values.forEach((v,i)=>{if(i===0||i===s.values.length-1){svg.append(svgEl('circle',{cx:sx(v.x),cy:sy(v.y),r:5,fill:s.color||'#0736fe'}))}})})
+  svg.innerHTML='';
+  const W=900,H=options.height||320,p={l:55,r:20,t:20,b:40};
+  const all=series.flatMap(s=>s.values);
+  const minY=options.minY??Math.min(...all.map(d=>d.y));
+  const maxY=options.maxY??Math.max(...all.map(d=>d.y));
+  const xs=all.map(d=>d.x);
+  const minX=Math.min(...xs),maxX=Math.max(...xs);
+  const sx=x=>p.l+(x-minX)/(maxX-minX)*(W-p.l-p.r);
+  const sy=y=>H-p.b-(y-minY)/(maxY-minY)*(H-p.t-p.b);
+
+  for(let i=0;i<5;i++){
+    const y=p.t+i*(H-p.t-p.b)/4;
+    svg.append(svgEl('line',{x1:p.l,y1:y,x2:W-p.r,y2:y,class:'grid'}));
+    const value=maxY-i*(maxY-minY)/4;
+    const t=svgEl('text',{x:p.l-10,y:y+4,'text-anchor':'end'});
+    t.textContent=options.yFormat?options.yFormat(value):fmt.format(value);
+    svg.append(t);
+  }
+
+  const years=[minX,Math.round(minX+(maxX-minX)/3),Math.round(minX+2*(maxX-minX)/3),maxX];
+  years.forEach(x=>{
+    const t=svgEl('text',{x:sx(x),y:H-12,'text-anchor':'middle'});
+    t.textContent=x;
+    svg.append(t);
+  });
+
+  series.forEach((s,idx)=>{
+    const color=s.color||['#0736fe','#231f20'][idx%2];
+    const d=s.values.map((v,i)=>(i?'L':'M')+sx(v.x)+','+sy(v.y)).join(' ');
+    svg.append(svgEl('path',{d,fill:'none',stroke:color,'stroke-width':options.strokeWidth||4,'stroke-linejoin':'round','stroke-linecap':'round'}));
+    s.values.forEach((v,i)=>{
+      if(i===0||i===s.values.length-1){
+        svg.append(svgEl('circle',{cx:sx(v.x),cy:sy(v.y),r:5,fill:color}));
+      }
+    });
+  });
+
+  if(options.interactive && series[0]?.values?.length){
+    const values=series[0].values;
+    const color=series[0].color||'#0736fe';
+    const guide=svgEl('line',{x1:0,y1:p.t,x2:0,y2:H-p.b,stroke:color,'stroke-width':2,'stroke-dasharray':'5 6',opacity:0});
+    const dot=svgEl('circle',{cx:0,cy:0,r:7,fill:'#fff',stroke:color,'stroke-width':4,opacity:0});
+    const tip=svgEl('g',{opacity:0,'pointer-events':'none'});
+    const tipRect=svgEl('rect',{x:0,y:0,width:184,height:56,rx:12,fill:'#231F20'});
+    const tipYear=svgEl('text',{x:0,y:0,fill:'#fff','font-size':14,'font-weight':700});
+    const tipValue=svgEl('text',{x:0,y:0,fill:'#fff','font-size':13});
+    tip.append(tipRect,tipYear,tipValue);
+    svg.append(guide,dot,tip);
+
+    const showAt=event=>{
+      const bounds=svg.getBoundingClientRect();
+      const localX=(event.clientX-bounds.left)/bounds.width*W;
+      const nearest=values.reduce((best,v)=>Math.abs(sx(v.x)-localX)<Math.abs(sx(best.x)-localX)?v:best,values[0]);
+      const x=sx(nearest.x),y=sy(nearest.y);
+      const boxW=184,boxH=56;
+      let tx=x-boxW/2;
+      tx=Math.max(p.l,Math.min(W-p.r-boxW,tx));
+      let ty=y-boxH-18;
+      if(ty<p.t) ty=y+18;
+
+      guide.setAttribute('x1',x); guide.setAttribute('x2',x); guide.setAttribute('opacity','1');
+      dot.setAttribute('cx',x); dot.setAttribute('cy',y); dot.setAttribute('opacity','1');
+      tip.setAttribute('opacity','1');
+      tipRect.setAttribute('x',tx); tipRect.setAttribute('y',ty);
+      tipYear.setAttribute('x',tx+14); tipYear.setAttribute('y',ty+22);
+      tipValue.setAttribute('x',tx+14); tipValue.setAttribute('y',ty+43);
+      tipYear.textContent=String(nearest.x);
+      tipValue.textContent=(options.tooltipFormat?options.tooltipFormat(nearest.y):fmt.format(nearest.y));
+    };
+
+    const hide=()=>{
+      guide.setAttribute('opacity','0');
+      dot.setAttribute('opacity','0');
+      tip.setAttribute('opacity','0');
+    };
+
+    const hit=svgEl('rect',{
+      x:p.l,y:p.t,width:W-p.l-p.r,height:H-p.t-p.b,
+      fill:'transparent',class:'chart-hover-hit'
+    });
+    hit.addEventListener('pointermove',showAt);
+    hit.addEventListener('pointerdown',showAt);
+    hit.addEventListener('pointerleave',hide);
+    svg.append(hit);
+  }
 }
 
 async function initData(){
@@ -27,7 +108,7 @@ async function initData(){
     ]);
     const c=cons.filter(d=>n(d.ano)<=2021).map(d=>({x:n(d.ano),y:n(d.consumo_medio_m3_por_economia_mes)}));
     document.querySelector('#consumption-start').textContent=fmt.format(c[0].y); document.querySelector('#consumption-end').textContent=fmt.format(c.at(-1).y); document.querySelector('#consumption-change').textContent=fmt.format(pct(c[0].y,c.at(-1).y))+'%';
-    drawLineChart(document.querySelector('#consumption-chart'),[{values:c,color:'#0736fe'}],{minY:10,maxY:20});
+    drawLineChart(document.querySelector('#consumption-chart'),[{values:c,color:'#0736fe'}],{minY:10,maxY:20,interactive:true,tooltipFormat:v=>fmt.format(v)+' m³ / economia / mês'});
 
     const e=econ.filter(d=>n(d.ano)>=1997&&n(d.ano)<=2021).map(d=>({x:n(d.ano),y:n(d.residencial)}));
     const r=network.filter(d=>n(d.ano)>=1997&&n(d.ano)<=2021).map(d=>({x:n(d.ano),y:n(d.agua_rede_existente_m)/1000}));
@@ -42,7 +123,6 @@ async function initData(){
   }catch(err){console.warn('Dados não carregados',err)}
 }
 
-const quiz=document.querySelector('[data-quiz]'); const result=document.querySelector('[data-quiz-result]'); quiz?.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;quiz.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');result.hidden=false;setTimeout(()=>result.scrollIntoView({behavior:'smooth',block:'start'}),100)});
 const slider=document.querySelector('#tons-slider'); function updateWater(){const t=n(slider?.value||7),rate=(window.lossRate||53.93)/100, lost=t*rate, remain=t-lost;document.querySelector('#tons-value').textContent=fmtInt.format(t);document.querySelector('#water-total').textContent=fmt.format(t)+' t';document.querySelector('#water-loss').textContent=fmt.format(lost)+' t';document.querySelector('#water-remaining').textContent=fmt.format(remain)+' t'} slider?.addEventListener('input',updateWater);
 const dialog=document.querySelector('#coverage-dialog'); document.querySelector('[data-open-coverage]')?.addEventListener('click',()=>dialog.showModal()); document.querySelector('[data-close-coverage]')?.addEventListener('click',()=>dialog.close()); dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
