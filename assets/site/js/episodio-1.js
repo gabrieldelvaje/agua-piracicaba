@@ -253,10 +253,24 @@ function lockPageForConsumptionDialog(){
 
 function unlockPageForConsumptionDialog(){
   if(!document.body.classList.contains('data-dialog-open')) return;
-  document.documentElement.classList.remove('data-dialog-open');
-  document.body.classList.remove('data-dialog-open');
-  document.body.style.top='';
-  window.scrollTo(0,consumptionDialogScrollY);
+
+  const root=document.documentElement;
+  const body=document.body;
+  const previousRootBehavior=root.style.scrollBehavior;
+  const previousBodyBehavior=body.style.scrollBehavior;
+
+  // Restaura a posição no mesmo frame, sem disparar o scroll suave global.
+  root.style.scrollBehavior='auto';
+  body.style.scrollBehavior='auto';
+  root.classList.remove('data-dialog-open');
+  body.classList.remove('data-dialog-open');
+  body.style.top='';
+  window.scrollTo({top:consumptionDialogScrollY,left:0,behavior:'auto'});
+
+  requestAnimationFrame(()=>{
+    root.style.scrollBehavior=previousRootBehavior;
+    body.style.scrollBehavior=previousBodyBehavior;
+  });
 }
 
 document.querySelector('[data-open-consumption-table]')?.addEventListener('click',async()=>{
