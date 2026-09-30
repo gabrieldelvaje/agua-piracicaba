@@ -8,7 +8,7 @@
   <title>Episódio 1 | Por que está faltando água em Piracicaba?</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />
   <link rel="preload" as="image" href="assets/site/episodes/episodio-1-museu-da-agua-antigo.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260929-2724" />
+  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260929-2815" />
 
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260929-2240" />
 </head>
@@ -219,17 +219,26 @@
     <section class="growth-section section-shell">
       <h2>O número de residências mais que dobrou, enquanto a rede cresceu só pela metade.</h2>
       <div class="growth-numbers">
-        <article><span>Residências</span><strong id="economies-growth">+103,5%</strong><small><b id="economies-start">87.183</b> em 1997 → <b id="economies-end">177.429</b> em 2021</small></article>
-        <article><span>Extensão da rede</span><strong id="network-growth">+49,7%</strong><small><b id="network-start">1.154 km</b> em 1997 → <b id="network-end">1.727 km</b> em 2021</small></article>
+        <article>
+          <span>Residências</span>
+          <strong id="economies-growth">+103,5%</strong>
+          <small class="growth-card-range"><em>1997</em><b id="economies-start">87.183</b><i aria-hidden="true">→</i><em>2021</em><b id="economies-end">177.429</b></small>
+        </article>
+        <article>
+          <span>Extensão da rede</span>
+          <strong id="network-growth">+49,7%</strong>
+          <small class="growth-card-range"><em>1997</em><b id="network-start">1.154 km</b><i aria-hidden="true">→</i><em>2021</em><b id="network-end">1.727 km</b></small>
+        </article>
       </div>
       <div class="chart-card index-card">
         <div class="chart-heading">
           <div><span>Crescimento comparado</span><small>Índice 1997 = 100</small></div>
-          <div class="legend"><span><i class="dot homes"></i>Economias</span><span><i class="dot network"></i>Rede</span></div>
+          <div class="legend"><span><i class="dot homes"></i>Residências</span><span><i class="dot network"></i>Rede</span></div>
         </div>
-        <svg class="line-chart" id="growth-chart" viewBox="0 0 900 360" role="img" aria-label="Comparação entre crescimento das economias residenciais e da extensão da rede"></svg>
+        <svg class="line-chart" id="growth-chart" viewBox="0 0 900 360" role="img" aria-label="Comparação entre crescimento das residências e da extensão da rede"></svg>
       </div>
-      <p class="editorial-note">O gráfico não diz que a rede “não cresceu”. Ela cresceu. O que ele mostra é que, no mesmo intervalo, a quantidade de economias residenciais cresceu muito mais rapidamente que a extensão total da rede.</p>
+      <p class="editorial-note">O gráfico não diz que a rede “não cresceu”. Ela cresceu. O que ele mostra é que, no mesmo intervalo, o número de residências cresceu muito mais rapidamente que a extensão total da rede.</p>
+      <p class="source-note growth-source-note">Séries oficiais de residências atendidas e extensão da rede de água, de 1997 a 2021. <span class="source-note-actions"><button class="source-inline-button" type="button" data-open-growth-table><span class="source-action-label">Tabela <span aria-hidden="true">↗︎</span></span></button><a href="https://piracicaba.sp.gov.br/servicos/piracicaba-em-dados-historico-ipplap/" target="_blank" rel="noreferrer"><span class="source-action-label">Fonte oficial <span aria-hidden="true">↗︎</span></span></a></span></p>
     </section>
 
     <section class="production-section">
@@ -373,6 +382,31 @@
     </div>
   </dialog>
 
+  <dialog class="data-table-dialog growth-table-dialog" id="growth-table-dialog" aria-labelledby="growth-table-title">
+    <button class="dialog-close data-table-close" type="button" data-close-growth-table aria-label="Fechar">×</button>
+    <div class="data-table-dialog-head">
+      <h2 id="growth-table-title">Residências e extensão da rede</h2>
+      <p>1997–2021 · o gap compara o crescimento acumulado das duas séries desde 1997, em pontos percentuais.</p>
+    </div>
+    <div class="data-table-scroll">
+      <table class="data-table growth-data-table" aria-label="Tabela de residências, extensão da rede e gap de crescimento">
+        <thead>
+          <tr>
+            <th>Ano</th>
+            <th>Residências</th>
+            <th>Rede</th>
+            <th>Cresc. residências</th>
+            <th>Cresc. rede</th>
+            <th>Gap</th>
+          </tr>
+        </thead>
+        <tbody data-growth-table-body>
+          <tr><td colspan="6">Carregando dados…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </dialog>
+
   <dialog class="coverage-dialog" id="coverage-dialog" aria-labelledby="coverage-title">
     <button class="dialog-close" type="button" data-close-coverage aria-label="Fechar">×</button>
     <p class="eyebrow">Como ler este site</p>
@@ -381,7 +415,7 @@
     <p>Última revisão editorial desta versão: <strong>27 de setembro de 2026</strong>.</p>
   </dialog>
 
-  <script src="assets/site/js/episodio-1.js?v=20260929-2518"></script>
+  <script src="assets/site/js/episodio-1.js?v=20260929-2815"></script>
   <script src="assets/site/js/page-transition.js?v=20260929-1008"></script>
 </body>
 </html>
