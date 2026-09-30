@@ -2513,3 +2513,95 @@ main > section:not(.hero){
     transform:rotate(-90deg)!important;
   }
 }
+
+
+/* 2026-09-29 — primeira pergunta aberta, comparação horizontal e gráfico interativo */
+.question-section .quiz-result{
+  padding-top:26px;
+}
+
+.question-section .result-kicker{
+  max-width:760px;
+  margin-bottom:0;
+  font-size:20px;
+  line-height:1.45;
+}
+
+.question-section .result-kicker strong{
+  font-weight:700;
+}
+
+.comparison-arrow{
+  width:44px!important;
+  height:44px!important;
+  margin:0 2px 20px!important;
+  padding:0!important;
+  font-size:0!important;
+  background:#fff!important;
+  -webkit-mask:url("../icons/angle-small-right.svg") center/contain no-repeat!important;
+  mask:url("../icons/angle-small-right.svg") center/contain no-repeat!important;
+  transform:none!important;
+  align-self:end!important;
+}
+
+.interactive-line-chart{
+  cursor:crosshair;
+  touch-action:pan-y;
+}
+
+.chart-hover-hit{
+  cursor:crosshair;
+}
+
+.chart-interaction-hint{
+  margin:10px 0 0;
+  color:#777975;
+  font-size:11px;
+  line-height:1.35;
+}
+
+@media(max-width:520px){
+  .question-section .quiz-result{
+    padding-top:20px;
+  }
+
+  .question-section .result-kicker{
+    font-size:17px;
+  }
+
+  .big-comparison{
+    grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr)!important;
+    align-items:end!important;
+    gap:8px!important;
+    margin:34px 0!important;
+  }
+
+  .big-comparison div:not(.comparison-arrow){
+    min-width:0!important;
+  }
+
+  .big-comparison strong{
+    font-size:clamp(42px,12vw,62px)!important;
+    white-space:nowrap!important;
+  }
+
+  .big-comparison span{
+    font-size:13px!important;
+  }
+
+  .big-comparison small{
+    font-size:10px!important;
+    line-height:1.25!important;
+  }
+
+  .comparison-arrow{
+    width:28px!important;
+    height:28px!important;
+    margin:0 auto 24px!important;
+    transform:none!important;
+  }
+
+  .chart-card{
+    margin-top:38px!important;
+  }
+}
