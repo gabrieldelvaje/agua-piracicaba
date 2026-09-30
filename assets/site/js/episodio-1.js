@@ -446,7 +446,24 @@ lossTableDialog?.addEventListener('click',event=>{
 
 lossTableDialog?.addEventListener('close',unlockPageForConsumptionDialog);
 
-const dialog=document.querySelector('#coverage-dialog'); document.querySelector('[data-open-coverage]')?.addEventListener('click',()=>dialog.showModal()); document.querySelector('[data-close-coverage]')?.addEventListener('click',()=>dialog.close()); dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
+// Janelas de fontes, metodologia e validação.
+document.querySelectorAll('[data-open-info-dialog]').forEach(trigger=>{
+  trigger.addEventListener('click',()=>{
+    const id=trigger.getAttribute('data-open-info-dialog');
+    const infoDialog=document.getElementById(id);
+    if(!infoDialog) return;
+    lockPageForConsumptionDialog();
+    infoDialog.showModal();
+  });
+});
+
+document.querySelectorAll('.info-dialog').forEach(infoDialog=>{
+  infoDialog.querySelector('[data-close-info-dialog]')?.addEventListener('click',()=>infoDialog.close());
+  infoDialog.addEventListener('click',event=>{
+    if(event.target===infoDialog) infoDialog.close();
+  });
+  infoDialog.addEventListener('close',unlockPageForConsumptionDialog);
+});
 
 initData();
 
