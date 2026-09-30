@@ -4535,6 +4535,14 @@ main,
 
 /* 2026-09-30 — refinamento do cabeçalho mobile */
 @media(max-width:850px){
+  /* Cabeçalho e menu formam a mesma superfície translúcida. */
+  .site-header{
+    overflow:visible!important;
+    background:rgba(243,243,241,.92)!important;
+    backdrop-filter:blur(18px)!important;
+    -webkit-backdrop-filter:blur(18px)!important;
+  }
+
   /* Voltar: apenas a ponta da seta, sem círculo azul. */
   .site-header .back-episodes{
     width:42px!important;
@@ -4564,9 +4572,16 @@ main,
     transform:scale(.9)!important;
   }
 
-  /* O menu usa a mesma superfície translúcida do cabeçalho e revela de cima para baixo. */
+  /* Ocupa toda a largura do cabeçalho/viewport, sem herdar a coluna central do grid. */
   .site-header nav{
-    width:100%!important;
+    grid-column:1 / -1!important;
+    justify-self:stretch!important;
+    left:0!important;
+    right:0!important;
+    top:100%!important;
+    width:auto!important;
+    max-width:none!important;
+    margin:0!important;
     padding:8px 14px 14px!important;
     background:rgba(243,243,241,.92)!important;
     border-top:1px solid rgba(35,31,32,.08)!important;
