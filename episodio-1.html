@@ -8,7 +8,7 @@
   <title>Episódio 1 | Por que está faltando água em Piracicaba?</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />
   <link rel="preload" as="image" href="assets/site/episodes/episodio-1-museu-da-agua-antigo.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260930-0738" />
+  <link rel="stylesheet" href="assets/site/css/episodio-1.css?v=20260930-0815" />
 
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260929-2240" />
 </head>
@@ -274,13 +274,12 @@
           <p class="loss-caption">Com o índice de 2022, a equivalência matemática seria:</p>
         </div>
         <div class="water-balance">
-          <div class="water-total"><span>Total</span><strong id="water-total">7,0 t</strong></div>
           <div class="water-loss"><span>Associado às perdas</span><strong id="water-loss">3,8 t</strong></div>
-          <div class="water-remaining"><span>Restante equivalente</span><strong id="water-remaining">3,2 t</strong></div>
+          <div class="water-remaining"><span>Restante após as perdas</span><strong id="water-remaining">3,2 t</strong></div>
         </div>
       </div>
-      <details class="method-note"><summary>“Perda” quer dizer que toda essa água vazou?</summary><p>Não. O indicador inclui perdas reais — como vazamentos — e perdas aparentes/comerciais, como problemas de medição. A analogia acima serve para visualizar a proporção do indicador, não para afirmar que 53,93% da água literalmente escorre pelo chão.</p></details>
-      <p class="source-note">Fonte: SNIS reproduzido no PMSB 2026. <a href="data/clean/pmsb_indices_perdas_2010_2022.csv">Abrir série 2010–2022 ↗︎</a></p>
+      <p class="method-note loss-method-note"><strong>“Perda” não quer dizer que toda essa água vazou.</strong> O indicador inclui perdas reais, como vazamentos, e perdas aparentes/comerciais, como problemas de medição.</p>
+      <p class="source-note">Fonte: SNIS reproduzido no PMSB 2026. <span class="source-note-actions"><button class="source-inline-button" type="button" data-open-loss-table><span class="source-action-label">Tabela <span aria-hidden="true">↗︎</span></span></button><a href="https://piracicaba.sp.gov.br/wp-content/uploads/2026/03/suplementar1-cap4.pdf" target="_blank" rel="noreferrer"><span class="source-action-label">Fonte oficial <span aria-hidden="true">↗︎</span></span></a></span></p>
     </section>
 
     <section class="infrastructure-section" id="infraestrutura">
@@ -435,6 +434,30 @@
     </div>
   </dialog>
 
+  <dialog class="data-table-dialog loss-table-dialog" id="loss-table-dialog" aria-labelledby="loss-table-title">
+    <button class="dialog-close data-table-close" type="button" data-close-loss-table aria-label="Fechar">×</button>
+    <div class="data-table-dialog-head">
+      <h2 id="loss-table-title">Índices de perdas</h2>
+      <p>2010–2022 · série SNIS reproduzida na Tabela 25 do PMSB 2026.</p>
+    </div>
+    <div class="data-table-scroll">
+      <table class="data-table loss-data-table" aria-label="Tabela de índices de perdas de água">
+        <thead>
+          <tr>
+            <th>Ano</th>
+            <th>Perdas na distribuição</th>
+            <th>Perdas no faturamento</th>
+            <th>Perdas por ligação</th>
+            <th>Perdas brutas lineares</th>
+          </tr>
+        </thead>
+        <tbody data-loss-table-body>
+          <tr><td colspan="5">Carregando dados…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </dialog>
+
   <dialog class="coverage-dialog" id="coverage-dialog" aria-labelledby="coverage-title">
     <button class="dialog-close" type="button" data-close-coverage aria-label="Fechar">×</button>
     <p class="eyebrow">Como ler este site</p>
@@ -443,7 +466,7 @@
     <p>Última revisão editorial desta versão: <strong>27 de setembro de 2026</strong>.</p>
   </dialog>
 
-  <script src="assets/site/js/episodio-1.js?v=20260930-0738"></script>
+  <script src="assets/site/js/episodio-1.js?v=20260930-0815"></script>
   <script src="assets/site/js/page-transition.js?v=20260929-1008"></script>
 </body>
 </html>
