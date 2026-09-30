@@ -2481,3 +2481,35 @@ main > section:not(.hero){
     font-size:12px!important;
   }
 }
+
+
+/* 2026-09-29 — mesma ponta de seta da timeline nos controles de navegação */
+.back-episodes::before{
+  content:""!important;
+  display:block!important;
+  flex:0 0 auto!important;
+  width:18px!important;
+  height:18px!important;
+  background:#0736FE!important;
+  -webkit-mask:url("../icons/angle-small-right.svg") center/contain no-repeat!important;
+  mask:url("../icons/angle-small-right.svg") center/contain no-repeat!important;
+  transform:rotate(180deg)!important;
+}
+
+/* Botão inferior direito: usa o mesmo ícone, girado para cima. */
+@media(max-width:1024px){
+  .back-to-top{
+    font-size:0!important;
+  }
+
+  .back-to-top::before{
+    content:""!important;
+    display:block!important;
+    width:24px!important;
+    height:24px!important;
+    background:#0736FE!important;
+    -webkit-mask:url("../icons/angle-small-right.svg") center/contain no-repeat!important;
+    mask:url("../icons/angle-small-right.svg") center/contain no-repeat!important;
+    transform:rotate(-90deg)!important;
+  }
+}
