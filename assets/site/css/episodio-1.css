@@ -3486,3 +3486,102 @@ body.data-dialog-open{
     margin-top:0!important;
   }
 }
+
+
+/* 2026-09-30 — seção do plano de substituição da rede */
+.infrastructure-section .infra-shell{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:0!important;
+}
+
+.infrastructure-section .infra-shell > h2{
+  max-width:980px;
+  margin:0 0 54px!important;
+}
+
+.infrastructure-section .network-meter{
+  width:100%;
+  max-width:none;
+  align-self:auto!important;
+}
+
+.infrastructure-section .meter-labels{
+  margin-bottom:14px!important;
+}
+
+.infrastructure-section .meter-track{
+  height:52px!important;
+  padding:6px!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.16)!important;
+  overflow:hidden!important;
+}
+
+.infrastructure-section .meter-track i{
+  width:50.3%!important;
+  height:100%!important;
+  border-radius:999px!important;
+  background:var(--blue)!important;
+}
+
+.infrastructure-section .meter-percent{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  margin-top:18px!important;
+}
+
+.infrastructure-section .meter-percent strong{
+  font-size:clamp(56px,7vw,92px)!important;
+  line-height:1!important;
+}
+
+.infrastructure-section .meter-percent span{
+  color:#aaa;
+  font-size:13px;
+}
+
+.infrastructure-section .infra-note{
+  max-width:760px;
+  margin:32px 0 0;
+  color:#bbb;
+  font-size:18px;
+  line-height:1.5;
+}
+
+.infrastructure-section .infra-source-note{
+  margin-top:20px!important;
+  color:#aaa;
+}
+
+.infrastructure-section .infra-source-note a{
+  color:#fff;
+  text-decoration:none;
+}
+
+@media(max-width:850px){
+  .infrastructure-section .infra-shell > h2{
+    margin-bottom:36px!important;
+  }
+
+  .infrastructure-section .meter-track{
+    height:44px!important;
+    padding:5px!important;
+  }
+
+  .infrastructure-section .meter-percent{
+    align-items:flex-end;
+    gap:10px;
+  }
+
+  .infrastructure-section .meter-percent strong{
+    font-size:54px!important;
+  }
+
+  .infrastructure-section .infra-note{
+    margin-top:26px;
+    font-size:16px;
+  }
+}
