@@ -4642,3 +4642,8 @@ main,
 .site-header .series-title strong{
   font-weight:700;
 }
+
+/* 2026-09-30 — CTA do hero sem seta, peso igual à home */
+.hero .scroll-cue{
+  font-weight:600!important;
+}
