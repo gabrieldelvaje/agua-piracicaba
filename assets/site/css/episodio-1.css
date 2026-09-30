@@ -3211,3 +3211,32 @@ body.data-dialog-open{
     margin-top:7px;
   }
 }
+
+
+/* 2026-09-29 — valores dos cards alinhados à esquerda */
+.growth-card-range{
+  grid-template-columns:auto auto auto auto auto!important;
+  justify-content:start!important;
+  justify-items:start!important;
+  width:auto!important;
+  gap:8px 10px!important;
+}
+
+.growth-card-range i{
+  justify-self:start!important;
+}
+
+@media(max-width:520px){
+  .growth-card-range{
+    grid-template-columns:auto auto auto auto auto!important;
+    justify-content:start!important;
+    justify-items:start!important;
+    width:auto!important;
+    gap:7px 9px!important;
+  }
+
+  .growth-card-range i{
+    display:block!important;
+    justify-self:start!important;
+  }
+}
