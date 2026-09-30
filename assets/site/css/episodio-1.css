@@ -2605,3 +2605,61 @@ main > section:not(.hero){
     margin-top:38px!important;
   }
 }
+
+
+/* 2026-09-29 — cards para 1997 e 2021 + seta original */
+.question-section .result-kicker{
+  margin:24px 0 14px!important;
+}
+
+.big-comparison div:not(.comparison-arrow){
+  border-top:0!important;
+  padding:20px 22px!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.12)!important;
+  min-height:170px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+}
+
+.big-comparison div:not(.comparison-arrow) span{
+  margin-bottom:auto!important;
+  color:rgba(255,255,255,.72)!important;
+  font-weight:700!important;
+}
+
+.comparison-arrow{
+  width:auto!important;
+  height:auto!important;
+  margin:0!important;
+  padding:0 4px 24px!important;
+  background:none!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  color:#fff!important;
+  font-size:48px!important;
+  line-height:1!important;
+  transform:none!important;
+  align-self:end!important;
+}
+
+@media(max-width:520px){
+  .question-section .result-kicker{
+    margin:18px 0 10px!important;
+  }
+
+  .big-comparison div:not(.comparison-arrow){
+    min-height:132px!important;
+    padding:14px!important;
+    border-radius:14px!important;
+  }
+
+  .comparison-arrow{
+    width:auto!important;
+    height:auto!important;
+    padding:0 0 22px!important;
+    font-size:28px!important;
+    transform:none!important;
+  }
+}
