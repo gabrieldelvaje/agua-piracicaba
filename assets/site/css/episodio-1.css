@@ -3585,3 +3585,75 @@ body.data-dialog-open{
     font-size:16px;
   }
 }
+
+
+/* 2026-09-30 — cards de reportagens sobre interrupções */
+.events-section > h2{
+  max-width:900px;
+  margin-top:0;
+}
+
+.news-event-grid{
+  margin-top:46px!important;
+}
+
+.news-event-card{
+  display:flex;
+  flex-direction:column;
+  min-height:360px;
+  border-radius:var(--radius)!important;
+  padding:26px!important;
+}
+
+.news-event-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-bottom:26px;
+  font-size:12px;
+  line-height:1.2;
+}
+
+.news-event-meta time{
+  color:var(--blue)!important;
+  font-weight:700;
+  text-transform:none!important;
+}
+
+.news-event-meta span{
+  color:var(--muted);
+  text-align:right;
+}
+
+.news-event-card h3{
+  margin:0 0 18px!important;
+  font-size:clamp(25px,2.2vw,34px)!important;
+  line-height:1.02;
+  letter-spacing:-.035em;
+}
+
+.news-event-card p{
+  margin:0 0 28px;
+  color:var(--muted)!important;
+  line-height:1.48;
+}
+
+.news-event-card p strong{
+  color:var(--ink);
+}
+
+.news-event-card a{
+  margin-top:auto;
+  width:max-content;
+  color:var(--ink);
+  text-decoration:none;
+  border-bottom:1px solid currentColor;
+  padding-bottom:2px;
+}
+
+@media(max-width:850px){
+  .news-event-card{
+    min-height:0;
+  }
+}
