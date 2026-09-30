@@ -136,6 +136,41 @@ async function initData(){
 }
 
 const slider=document.querySelector('#tons-slider'); function updateWater(){const t=n(slider?.value||7),rate=(window.lossRate||53.93)/100, lost=t*rate, remain=t-lost;document.querySelector('#tons-value').textContent=fmtInt.format(t);document.querySelector('#water-total').textContent=fmt.format(t)+' t';document.querySelector('#water-loss').textContent=fmt.format(lost)+' t';document.querySelector('#water-remaining').textContent=fmt.format(remain)+' t'} slider?.addEventListener('input',updateWater);
+// Consulta do CSV calculado em uma janela sobre a página.
+const consumptionTableDialog=document.querySelector('#consumption-table-dialog');
+const consumptionTableBody=consumptionTableDialog?.querySelector('[data-consumption-table-body]');
+let consumptionTableLoaded=false;
+
+async function fillConsumptionTable(){
+  if(consumptionTableLoaded || !consumptionTableBody) return;
+  try{
+    const rows=await loadCSV('data/processed/consumo_residencial_por_economia_1997_2021.csv');
+    consumptionTableBody.innerHTML=rows.map(row=>{
+      const annual=n(row.consumo_residencial_anual_m3);
+      const economies=n(row.economias_residenciais);
+      const monthly=n(row.consumo_medio_m3_por_economia_mes);
+      return '<tr>'+
+        '<td>'+row.ano+'</td>'+
+        '<td>'+fmtInt.format(annual)+' m³</td>'+
+        '<td>'+fmtInt.format(economies)+'</td>'+
+        '<td><strong>'+fmt.format(monthly)+' m³</strong></td>'+
+      '</tr>';
+    }).join('');
+    consumptionTableLoaded=true;
+  }catch(err){
+    consumptionTableBody.innerHTML='<tr><td colspan="4">Não foi possível carregar a tabela.</td></tr>';
+  }
+}
+
+document.querySelector('[data-open-consumption-table]')?.addEventListener('click',async()=>{
+  await fillConsumptionTable();
+  consumptionTableDialog?.showModal();
+});
+document.querySelector('[data-close-consumption-table]')?.addEventListener('click',()=>consumptionTableDialog?.close());
+consumptionTableDialog?.addEventListener('click',event=>{
+  if(event.target===consumptionTableDialog) consumptionTableDialog.close();
+});
+
 const dialog=document.querySelector('#coverage-dialog'); document.querySelector('[data-open-coverage]')?.addEventListener('click',()=>dialog.showModal()); document.querySelector('[data-close-coverage]')?.addEventListener('click',()=>dialog.close()); dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
 initData();
