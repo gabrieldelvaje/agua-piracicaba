@@ -1771,3 +1771,7 @@ body.episode-2{
     transform:translateY(0);
   }
 }
+
+.episode-2 .site-header .series-title strong{
+  font-weight:700;
+}
