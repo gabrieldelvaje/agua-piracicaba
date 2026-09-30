@@ -86,7 +86,7 @@ body.episode-2{
   overflow:hidden;
 }
 .episode-page.episode-2 .episode-cover:after{
-  content:"Episódio 2";
+  content:none;
   position:absolute;
   right:max(20px,calc((100vw - 1220px)/2));
   bottom:34px;
@@ -1785,7 +1785,7 @@ body.episode-2{
 .episode-page.episode-2 .hero-photo-credit{
   position:absolute;
   right:max(20px,calc((100vw - 1220px)/2));
-  bottom:54px;
+  bottom:34px;
   z-index:3;
   max-width:min(520px,48vw);
   color:rgba(255,255,255,.76);
@@ -1807,7 +1807,7 @@ body.episode-2{
 @media(max-width:900px){
   .episode-page.episode-2 .hero-photo-credit{
     right:14px;
-    bottom:52px;
+    bottom:20px;
     max-width:68vw;
     font-size:9.5px;
   }
