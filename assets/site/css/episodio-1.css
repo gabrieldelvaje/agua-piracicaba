@@ -3240,3 +3240,14 @@ body.data-dialog-open{
     justify-self:start!important;
   }
 }
+
+
+/* 2026-09-29 — linha de gap na legenda do gráfico */
+.legend .gap-line{
+  display:inline-block;
+  width:18px;
+  height:0;
+  margin-right:6px;
+  border-top:2px dotted #777872;
+  vertical-align:middle;
+}
