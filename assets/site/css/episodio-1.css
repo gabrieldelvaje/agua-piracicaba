@@ -3334,3 +3334,56 @@ body.data-dialog-open{
     margin-top:30px!important;
   }
 }
+
+
+/* 2026-09-30 — cards de perdas no mesmo padrão visual das comparações anteriores */
+.loss-section > h2{
+  margin-top:0!important;
+  max-width:1050px;
+}
+
+.loss-compare{
+  gap:18px!important;
+  margin:42px 0 55px!important;
+}
+
+.loss-compare article{
+  border-top:0!important;
+  border-radius:var(--radius)!important;
+  background:#E7E7E2!important;
+  padding:26px!important;
+  min-height:190px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+}
+
+.loss-compare article > span{
+  margin-bottom:auto!important;
+  color:var(--ink)!important;
+  font-size:15px!important;
+  font-weight:700!important;
+}
+
+.loss-compare strong{
+  display:block!important;
+  margin:18px 0 18px!important;
+  line-height:1!important;
+}
+
+.loss-compare .bar{
+  margin-top:0!important;
+}
+
+@media(max-width:520px){
+  .loss-compare{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    margin:28px 0 40px!important;
+  }
+
+  .loss-compare article{
+    min-height:160px!important;
+    padding:18px!important;
+  }
+}
