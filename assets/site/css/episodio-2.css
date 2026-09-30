@@ -1780,3 +1780,35 @@ body.episode-2{
 .episode-page.episode-2 .episode-scroll-cue{
   font-weight:600!important;
 }
+
+/* 2026-09-30 — crédito da imagem do hero */
+.episode-page.episode-2 .hero-photo-credit{
+  position:absolute;
+  right:max(20px,calc((100vw - 1220px)/2));
+  bottom:54px;
+  z-index:3;
+  max-width:min(520px,48vw);
+  color:rgba(255,255,255,.76);
+  font-size:10px;
+  font-weight:500;
+  line-height:1.35;
+  letter-spacing:.02em;
+  text-align:right;
+  text-decoration:none;
+  text-shadow:0 1px 8px rgba(0,0,0,.35);
+  transition:color .18s ease,opacity .18s ease;
+}
+
+.episode-page.episode-2 .hero-photo-credit:hover,
+.episode-page.episode-2 .hero-photo-credit:focus-visible{
+  color:#fff;
+}
+
+@media(max-width:900px){
+  .episode-page.episode-2 .hero-photo-credit{
+    right:14px;
+    bottom:52px;
+    max-width:68vw;
+    font-size:9.5px;
+  }
+}
