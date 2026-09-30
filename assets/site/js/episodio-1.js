@@ -8,6 +8,14 @@ function parseCSV(text){
 async function loadCSV(path){ const r=await fetch(path); if(!r.ok) throw new Error(path); return parseCSV(await r.text()); }
 function pct(a,b){return (b/a-1)*100}
 function n(v){return Number(String(v).replace(',','.'))}
+function etaDisplayName(name){
+  const labels={
+    'ETA I':'ETA I (Luiz de Queiroz)',
+    'ETA II':'ETA II (Luiz de Queiroz)',
+    'ETA III':'ETA III (Capim Fino)'
+  };
+  return labels[name]||name;
+}
 function svgEl(name,attrs={}){const e=document.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e}
 function smoothLinePath(values,sx,sy){
   if(!values.length) return '';
@@ -219,7 +227,7 @@ async function initData(){
     document.querySelector('#loss-above-national').textContent='+'+fmt.format(aboveNational)+'%';
     updateWater();
 
-    const validEtas=etas.filter(d=>d.unidade!=='Total'); const max=Math.max(...validEtas.map(d=>n(d.volume_m3))); const list=document.querySelector('#eta-list'); list.innerHTML=validEtas.map(d=>'<div class="eta-row"><div class="eta-head"><span>'+d.unidade+'</span><strong>'+fmt.format(n(d.participacao_pct))+'%</strong></div><div class="eta-track"><i style="width:'+(n(d.volume_m3)/max*100)+'%"></i></div></div>').join('');
+    const validEtas=etas.filter(d=>d.unidade!=='Total'); const max=Math.max(...validEtas.map(d=>n(d.volume_m3))); const list=document.querySelector('#eta-list'); list.innerHTML=validEtas.map(d=>'<div class="eta-row"><div class="eta-head"><span>'+etaDisplayName(d.unidade)+'</span><strong>'+fmt.format(n(d.participacao_pct))+'%</strong></div><div class="eta-track"><i style="width:'+(n(d.volume_m3)/max*100)+'%"></i></div></div>').join('');
   }catch(err){console.warn('Dados não carregados',err)}
 }
 
@@ -377,7 +385,7 @@ async function fillProductionTable(){
       const volume=n(row.volume_m3);
       const share=n(row.participacao_pct);
       return '<tr>'+
-        '<td>'+row.unidade+'</td>'+
+        '<td>'+etaDisplayName(row.unidade)+'</td>'+
         '<td>'+fmtInt.format(volume)+' m³</td>'+
         '<td><strong>'+fmt.format(share)+'%</strong></td>'+
       '</tr>';
