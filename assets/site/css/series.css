@@ -874,3 +874,50 @@ a{color:inherit}
   border-color:#062ED8;
   color:#fff;
 }
+
+
+/* 2026-09-30 — créditos IHGP dos heroes 3 e 4 */
+.episode-page.episode-3 .episode-cover > .hero-photo-credit,
+.episode-page.episode-4 .episode-cover > .hero-photo-credit{
+  position:absolute!important;
+  left:auto!important;
+  right:max(20px,calc((100vw - 1220px)/2))!important;
+  top:auto!important;
+  bottom:34px!important;
+  z-index:4!important;
+  display:block!important;
+  width:auto!important;
+  max-width:min(520px,48vw)!important;
+  margin:0!important;
+  align-self:auto!important;
+  color:rgba(255,255,255,.76)!important;
+  font-size:10px!important;
+  font-weight:500!important;
+  line-height:1.35!important;
+  letter-spacing:.02em!important;
+  text-align:right!important;
+  text-decoration:none!important;
+  text-shadow:0 1px 8px rgba(0,0,0,.35);
+  transition:color .18s ease,opacity .18s ease;
+}
+
+.episode-page.episode-3 .episode-cover > .hero-photo-credit:hover,
+.episode-page.episode-3 .episode-cover > .hero-photo-credit:focus-visible,
+.episode-page.episode-4 .episode-cover > .hero-photo-credit:hover,
+.episode-page.episode-4 .episode-cover > .hero-photo-credit:focus-visible{
+  color:#fff!important;
+}
+
+@media(max-width:900px){
+  .episode-page.episode-3 .episode-cover > .hero-photo-credit,
+  .episode-page.episode-4 .episode-cover > .hero-photo-credit{
+    left:auto!important;
+    right:14px!important;
+    top:auto!important;
+    bottom:20px!important;
+    max-width:calc(100vw - 28px)!important;
+    margin:0!important;
+    font-size:9.5px!important;
+    text-align:right!important;
+  }
+}
