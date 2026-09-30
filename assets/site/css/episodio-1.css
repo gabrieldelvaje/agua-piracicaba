@@ -4562,8 +4562,8 @@ main,
   }
 
   .site-header .back-episodes::before{
-    width:16px!important;
-    height:16px!important;
+    width:20px!important;
+    height:20px!important;
     background:#231F20!important;
     border:0!important;
     transform:none!important;
