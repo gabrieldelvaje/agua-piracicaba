@@ -544,16 +544,35 @@ initData();
   if (!button) return;
 
   const media = window.matchMedia('(max-width: 1024px)');
+  const forceTopKey = 'episode-1-force-top-after-refresh';
 
   const updateVisibility = () => {
     const visible = media.matches && window.scrollY > Math.max(520, window.innerHeight * 0.7);
     button.classList.toggle('is-visible', visible);
   };
 
+  const keepTopAfterRefresh = () => {
+    if (sessionStorage.getItem(forceTopKey) !== '1') return;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+    const forceTop = () => window.scrollTo({ top:0, left:0, behavior:'auto' });
+    forceTop();
+    requestAnimationFrame(forceTop);
+    window.setTimeout(forceTop, 80);
+    window.setTimeout(() => sessionStorage.removeItem(forceTopKey), 300);
+  };
+
   button.addEventListener('click', () => {
+    sessionStorage.setItem(forceTopKey, '1');
+
+    const cleanUrl = window.location.pathname + window.location.search;
+    history.replaceState(null, '', cleanUrl);
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  window.addEventListener('pageshow', keepTopAfterRefresh);
+  window.addEventListener('load', keepTopAfterRefresh);
   window.addEventListener('scroll', updateVisibility, { passive: true });
   window.addEventListener('resize', updateVisibility);
   media.addEventListener?.('change', updateVisibility);
