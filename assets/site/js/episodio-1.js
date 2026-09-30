@@ -223,7 +223,7 @@ async function initData(){
   }catch(err){console.warn('Dados não carregados',err)}
 }
 
-const slider=document.querySelector('#tons-slider'); function updateWater(){const t=n(slider?.value||7),rate=(window.lossRate||53.93)/100, lost=t*rate, remain=t-lost;document.querySelector('#tons-value').textContent=fmtInt.format(t);document.querySelector('#water-total').textContent=fmt.format(t)+' t';document.querySelector('#water-loss').textContent=fmt.format(lost)+' t';document.querySelector('#water-remaining').textContent=fmt.format(remain)+' t'} slider?.addEventListener('input',updateWater);
+const slider=document.querySelector('#tons-slider'); function updateWater(){const t=n(slider?.value||7),rate=(window.lossRate||53.93)/100, lost=t*rate, remain=t-lost;document.querySelector('#tons-value').textContent=fmtInt.format(t);document.querySelector('#water-loss').textContent=fmt.format(lost)+' t';document.querySelector('#water-remaining').textContent=fmt.format(remain)+' t'} slider?.addEventListener('input',updateWater);
 // Consulta do CSV calculado em uma janela sobre a página.
 const consumptionTableDialog=document.querySelector('#consumption-table-dialog');
 const consumptionTableBody=consumptionTableDialog?.querySelector('[data-consumption-table-body]');
@@ -404,6 +404,47 @@ productionTableDialog?.addEventListener('click',event=>{
 });
 
 productionTableDialog?.addEventListener('close',unlockPageForConsumptionDialog);
+
+// Consulta da série histórica de perdas.
+const lossTableDialog=document.querySelector('#loss-table-dialog');
+const lossTableBody=lossTableDialog?.querySelector('[data-loss-table-body]');
+let lossTableLoaded=false;
+
+async function fillLossTable(){
+  if(lossTableLoaded || !lossTableBody) return;
+  try{
+    const rows=await loadCSV('data/clean/pmsb_indices_perdas_2010_2022.csv');
+    lossTableBody.innerHTML=rows.map(row=>{
+      return '<tr>'+
+        '<td>'+row.ano+'</td>'+
+        '<td><strong>'+fmt.format(n(row.perdas_distribuicao_pct))+'%</strong></td>'+
+        '<td>'+fmt.format(n(row.perdas_faturamento_pct))+'%</td>'+
+        '<td>'+fmt.format(n(row.perdas_por_ligacao_l_dia))+' L/ligação/dia</td>'+
+        '<td>'+fmt.format(n(row.perdas_brutas_lineares_m3_dia_km))+' m³/dia/km</td>'+
+      '</tr>';
+    }).join('');
+    lossTableLoaded=true;
+  }catch(err){
+    lossTableBody.innerHTML='<tr><td colspan="5">Não foi possível carregar a tabela.</td></tr>';
+  }
+}
+
+document.querySelector('[data-open-loss-table]')?.addEventListener('click',async()=>{
+  await fillLossTable();
+  if(!lossTableDialog) return;
+  lockPageForConsumptionDialog();
+  lossTableDialog.showModal();
+});
+
+document.querySelector('[data-close-loss-table]')?.addEventListener('click',()=>{
+  lossTableDialog?.close();
+});
+
+lossTableDialog?.addEventListener('click',event=>{
+  if(event.target===lossTableDialog) lossTableDialog.close();
+});
+
+lossTableDialog?.addEventListener('close',unlockPageForConsumptionDialog);
 
 const dialog=document.querySelector('#coverage-dialog'); document.querySelector('[data-open-coverage]')?.addEventListener('click',()=>dialog.showModal()); document.querySelector('[data-close-coverage]')?.addEventListener('click',()=>dialog.close()); dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
