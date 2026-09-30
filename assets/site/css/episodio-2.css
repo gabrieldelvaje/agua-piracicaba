@@ -2226,3 +2226,143 @@ body.episode-2{
     padding:30px 22px;
   }
 }
+
+
+/* 2026-09-30 — miniaturas editoriais simulando manchetes de jornal */
+.newspaper-featured-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;
+  align-items:stretch!important;
+}
+
+.newspaper-featured-card,
+.newspaper-featured-card.is-document,
+.newspaper-featured-card-with-thumb{
+  grid-column:auto!important;
+  min-height:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  justify-content:flex-start!important;
+  gap:0!important;
+  padding:12px 12px 20px!important;
+}
+
+.newspaper-thumb{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  margin:0 0 18px;
+  overflow:hidden;
+  border-radius:12px;
+  color:#171717;
+  background:#EEEDE8;
+}
+
+.newspaper-thumb-headline{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  padding:15px 16px 14px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.45),rgba(220,219,213,.66)),
+    repeating-linear-gradient(0deg,transparent 0 8px,rgba(35,31,32,.055) 8px 9px);
+}
+
+.newspaper-thumb-headline::before{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  top:42px;
+  height:1px;
+  background:rgba(23,23,23,.34);
+}
+
+.newspaper-thumb-headline > span{
+  position:relative;
+  z-index:1;
+  color:#171717!important;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:11px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:.05em!important;
+  text-transform:uppercase;
+}
+
+.newspaper-thumb-headline > small{
+  position:relative;
+  z-index:1;
+  margin:11px 0 0!important;
+  color:rgba(23,23,23,.58)!important;
+  font-size:8px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:.1em!important;
+  text-transform:uppercase;
+}
+
+.newspaper-thumb-headline > strong{
+  position:relative;
+  z-index:1;
+  max-width:96%;
+  margin:12px 0 0!important;
+  color:#171717!important;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(20px,2vw,29px)!important;
+  font-weight:700!important;
+  line-height:.94!important;
+  letter-spacing:-.035em!important;
+}
+
+.newspaper-thumb-headline > i{
+  position:absolute;
+  left:16px;
+  right:16px;
+  bottom:14px;
+  height:24px;
+  opacity:.34;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(23,23,23,.45) 0 1px,
+      transparent 1px 6px
+    );
+}
+
+.newspaper-featured-card > span{
+  margin-top:0!important;
+}
+
+.newspaper-source-link{
+  margin-top:auto!important;
+  padding-top:18px;
+}
+
+.newspaper-thumb-button,
+.newspaper-page-preview,
+.newspaper-lightbox{
+  display:none!important;
+}
+
+@media(max-width:900px){
+  .newspaper-featured-grid{
+    grid-template-columns:1fr!important;
+  }
+
+  .newspaper-featured-card,
+  .newspaper-featured-card.is-document,
+  .newspaper-featured-card-with-thumb{
+    min-height:0!important;
+  }
+
+  .newspaper-thumb{
+    aspect-ratio:16/9;
+  }
+
+  .newspaper-thumb-headline > strong{
+    font-size:clamp(24px,7.4vw,34px)!important;
+  }
+}
