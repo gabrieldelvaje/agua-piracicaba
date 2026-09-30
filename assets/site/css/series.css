@@ -800,3 +800,46 @@ a{color:inherit}
     padding-inline:14px;
   }
 }
+
+
+/* Cabeçalhos dos episódios — botão de retorno consistente e clicável */
+.episode-nav .back-episodes{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:40px;
+  padding:9px 15px;
+  border:1px solid rgba(35,31,32,.16);
+  border-radius:999px;
+  background:rgba(255,255,255,.58);
+  color:#231F20;
+  font-size:13px;
+  font-weight:700;
+  line-height:1;
+  text-decoration:none;
+  white-space:nowrap;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease;
+}
+.episode-nav .back-episodes::before{
+  content:"←";
+  display:inline-block;
+  font-size:15px;
+  line-height:1;
+}
+.episode-nav .back-episodes:hover,
+.episode-nav .back-episodes:focus-visible{
+  background:#fff;
+  border-color:rgba(35,31,32,.28);
+}
+.episode-nav .back-episodes:active{
+  transform:scale(.97);
+}
+@media(max-width:600px){
+  .episode-nav .back-episodes{
+    min-height:38px;
+    padding:8px 13px;
+    font-size:12px;
+  }
+}
