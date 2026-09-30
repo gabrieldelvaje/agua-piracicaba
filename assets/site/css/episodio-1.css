@@ -2710,3 +2710,29 @@ main > section:not(.hero){
   border-color:#062ED8!important;
   color:#fff!important;
 }
+
+
+/* 2026-09-29 — refinamento do gráfico de consumo e espaçamento da resposta */
+.question-section .quiz-result{
+  padding-top:8px!important;
+}
+
+.question-section .result-kicker{
+  margin:0 0 14px!important;
+}
+
+.line-chart .axis{
+  stroke:#9A9B97;
+  stroke-width:1.5;
+  shape-rendering:crispEdges;
+}
+
+@media(max-width:520px){
+  .question-section .quiz-result{
+    padding-top:6px!important;
+  }
+
+  .question-section .result-kicker{
+    margin:0 0 10px!important;
+  }
+}
