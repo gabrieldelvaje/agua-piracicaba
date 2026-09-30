@@ -162,14 +162,39 @@ async function fillConsumptionTable(){
   }
 }
 
+let consumptionDialogScrollY=0;
+
+function lockPageForConsumptionDialog(){
+  consumptionDialogScrollY=window.scrollY;
+  document.documentElement.classList.add('data-dialog-open');
+  document.body.classList.add('data-dialog-open');
+  document.body.style.top='-'+consumptionDialogScrollY+'px';
+}
+
+function unlockPageForConsumptionDialog(){
+  if(!document.body.classList.contains('data-dialog-open')) return;
+  document.documentElement.classList.remove('data-dialog-open');
+  document.body.classList.remove('data-dialog-open');
+  document.body.style.top='';
+  window.scrollTo(0,consumptionDialogScrollY);
+}
+
 document.querySelector('[data-open-consumption-table]')?.addEventListener('click',async()=>{
   await fillConsumptionTable();
-  consumptionTableDialog?.showModal();
+  if(!consumptionTableDialog) return;
+  lockPageForConsumptionDialog();
+  consumptionTableDialog.showModal();
 });
-document.querySelector('[data-close-consumption-table]')?.addEventListener('click',()=>consumptionTableDialog?.close());
+
+document.querySelector('[data-close-consumption-table]')?.addEventListener('click',()=>{
+  consumptionTableDialog?.close();
+});
+
 consumptionTableDialog?.addEventListener('click',event=>{
   if(event.target===consumptionTableDialog) consumptionTableDialog.close();
 });
+
+consumptionTableDialog?.addEventListener('close',unlockPageForConsumptionDialog);
 
 const dialog=document.querySelector('#coverage-dialog'); document.querySelector('[data-open-coverage]')?.addEventListener('click',()=>dialog.showModal()); document.querySelector('[data-close-coverage]')?.addEventListener('click',()=>dialog.close()); dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
