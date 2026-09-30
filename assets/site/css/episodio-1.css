@@ -4136,3 +4136,64 @@ main,
     height:26px!important;
   }
 }
+
+
+/* 2026-09-30 — cano desktop em SVG com extremidades sangrando para fora da tela */
+.desktop-pipe-svg{
+  display:none;
+}
+
+@media(min-width:1025px){
+  .process-section{
+    overflow:hidden!important;
+  }
+
+  .process-shell,
+  .pipe-diagram{
+    position:relative!important;
+  }
+
+  .pipe-diagram{
+    overflow:visible!important;
+    isolation:isolate;
+  }
+
+  .desktop-pipe-svg{
+    display:block!important;
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    width:min(2050px,calc(100vw + 160px))!important;
+    max-width:none!important;
+    height:auto!important;
+    transform:translate(-50%,-50%)!important;
+    z-index:1!important;
+    pointer-events:none!important;
+    user-select:none!important;
+  }
+
+  /* O novo SVG já desenha o tubo e todas as juntas no desktop. */
+  .pipe-track,
+  .pipe-joint,
+  .pipe-joint-extra{
+    display:none!important;
+  }
+
+  .process-step,
+  .process-step:nth-of-type(even){
+    position:relative!important;
+    z-index:2!important;
+  }
+
+  .process-heading,
+  .process-section .source-note{
+    position:relative;
+    z-index:3;
+  }
+}
+
+@media(max-width:1024px){
+  .desktop-pipe-svg{
+    display:none!important;
+  }
+}
