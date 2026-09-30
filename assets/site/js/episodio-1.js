@@ -67,7 +67,9 @@ function drawLineChart(svg, series, options={}){
 
     const dots=series.map((s,idx)=>{
       const color=s.color||['#0736fe','#231f20'][idx%2];
-      return svgEl('circle',{cx:0,cy:0,r:5,fill:color,opacity:0});
+      const attrs={cx:0,cy:0,r:5,fill:color,opacity:0};
+      if(idx>0){attrs.stroke='#fff';attrs['stroke-width']=1.5;}
+      return svgEl('circle',attrs);
     });
 
     const tip=svgEl('g',{opacity:0,'pointer-events':'none'});
@@ -82,7 +84,9 @@ function drawLineChart(svg, series, options={}){
     if(multi){
       series.forEach((s,idx)=>{
         const color=s.color||['#0736fe','#231f20'][idx%2];
-        const bullet=svgEl('circle',{cx:0,cy:0,r:4,fill:color});
+        const bulletAttrs={cx:0,cy:0,r:4,fill:color};
+        if(idx>0){bulletAttrs.stroke='#fff';bulletAttrs['stroke-width']=1.5;}
+        const bullet=svgEl('circle',bulletAttrs);
         const label=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-value','font-size':13});
         tip.append(bullet,label);
         multiRows.push({bullet,label,series:s});
@@ -181,8 +185,8 @@ async function initData(){
     document.querySelector('#network-start').textContent=fmtInt.format(r[0].y)+' km'; document.querySelector('#network-end').textContent=fmtInt.format(r.at(-1).y)+' km'; document.querySelector('#network-growth').textContent='+'+fmt.format(pct(r[0].y,r.at(-1).y))+'%';
     const ei=e.map(d=>({x:d.x,y:d.y/e[0].y*100})); const ri=r.map(d=>({x:d.x,y:d.y/r[0].y*100}));
     drawLineChart(document.querySelector('#growth-chart'),[
-      {values:ei,color:'#0736fe',label:'Residências',tooltipFormat:v=>fmt.format(v)},
-      {values:ri,color:'#231f20',label:'Rede',tooltipFormat:v=>fmt.format(v)}
+      {values:ei,color:'#0736fe',label:'Residências',tooltipFormat:v=>'Índice '+fmt.format(v)},
+      {values:ri,color:'#231f20',label:'Rede',tooltipFormat:v=>'Índice '+fmt.format(v)}
     ],{height:360,minY:90,maxY:215,yFormat:v=>fmtInt.format(v),interactive:true});
 
     const lastLoss=loss.find(d=>d.ano==='2022'); const lossRate=n(lastLoss?.perdas_distribuicao_pct||53.93); window.lossRate=lossRate; document.querySelector('#loss-rate-title').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira-bar').style.width=lossRate+'%'; updateWater();
