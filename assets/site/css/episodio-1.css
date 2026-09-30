@@ -4638,3 +4638,7 @@ main,
     background:transparent!important;
   }
 }
+
+.site-header .series-title strong{
+  font-weight:700;
+}
