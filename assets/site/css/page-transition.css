@@ -140,9 +140,9 @@ body.route-transition-lock{
 
 .route-loading-spinner{
   display:block;
-  width:34px;
-  height:34px;
-  border:3px solid rgba(255,255,255,.34);
+  width:50px;
+  height:50px;
+  border:5px solid rgba(255,255,255,.34);
   border-top-color:#0736FE;
   border-radius:50%;
   animation:route-loading-spin 720ms linear infinite!important;
@@ -160,8 +160,9 @@ body.route-transition-lock{
   }
 
   .route-loading-spinner{
-    width:32px;
-    height:32px;
+    width:48px;
+    height:48px;
+    border-width:5px;
   }
 }
 
