@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -356 3165 1422" width="3165" height="1422" preserveAspectRatio="xMidYMid meet">
+  <g fill="#0A3DFF">
+    <rect x="988" y="300" width="185" height="110"/>
+    <rect x="1239" y="300" width="185" height="110"/>
+    <rect x="1490" y="300" width="185" height="110"/>
+    <rect x="1741" y="300" width="185" height="110"/>
+    <rect x="1992" y="300" width="185" height="110"/>
+    <rect x="930" y="271" width="50" height="168" rx="25"/>
+    <rect x="1181" y="271" width="50" height="168" rx="25"/>
+    <rect x="1432" y="271" width="50" height="168" rx="25"/>
+    <rect x="1683" y="271" width="50" height="168" rx="25"/>
+    <rect x="1934" y="271" width="50" height="168" rx="25"/>
+    <rect x="2185" y="271" width="50" height="168" rx="25"/>
+    <g id="lado">
+      <path d="M2243,410 H2343 A110,110 0 0 0 2453,300 V200 H2343 V275 A25,25 0 0 1 2318,300 H2243 Z"/>
+      <rect x="2343" y="-51" width="110" height="185"/>
+      <path d="M2343,-117 V-217 A110,110 0 0 1 2453,-327 H2553 V-217 H2478 A25,25 0 0 0 2453,-192 V-117 Z"/>
+      <rect x="2314" y="142" width="168" height="50" rx="25"/>
+      <rect x="2314" y="-109" width="168" height="50" rx="25"/>
+      <rect x="2619" y="-327" width="185" height="110"/>
+      <rect x="2870" y="-327" width="295" height="110"/>
+      <rect x="2561" y="-356" width="50" height="168" rx="25"/>
+      <rect x="2812" y="-356" width="50" height="168" rx="25"/>
+    </g>
+    <use href="#lado" transform="rotate(180 1582.5 355)"/>
+  </g>
+</svg>
