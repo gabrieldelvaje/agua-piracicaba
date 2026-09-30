@@ -781,3 +781,43 @@ initData();
 
   scheduleAlignment();
 })();
+
+
+// episode-one-mobile-header-menu
+(() => {
+  const header = document.querySelector('.site-header');
+  const toggle = header?.querySelector('.mobile-menu-toggle');
+  const nav = header?.querySelector('nav');
+  if (!header || !toggle || !nav) return;
+
+  const closeMenu = () => {
+    header.classList.remove('is-menu-open');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Abrir menu do episódio');
+  };
+
+  toggle.addEventListener('click', () => {
+    const open = !header.classList.contains('is-menu-open');
+    header.classList.toggle('is-menu-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Fechar menu do episódio' : 'Abrir menu do episódio');
+  });
+
+  nav.querySelectorAll('a[href^="#"]').forEach(link=>{
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('click', event=>{
+    if (!header.classList.contains('is-menu-open')) return;
+    if (header.contains(event.target)) return;
+    closeMenu();
+  });
+
+  document.addEventListener('keydown', event=>{
+    if (event.key === 'Escape') closeMenu();
+  });
+
+  window.matchMedia('(min-width:851px)').addEventListener?.('change', event=>{
+    if (event.matches) closeMenu();
+  });
+})();
