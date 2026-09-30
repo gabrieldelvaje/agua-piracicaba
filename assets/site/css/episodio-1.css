@@ -4679,3 +4679,32 @@ main,
     font-size:9.5px;
   }
 }
+
+
+/* 2026-09-30 — fixa o crédito do EP1 no canto inferior direito */
+.hero > .hero-photo-credit{
+  position:absolute!important;
+  left:auto!important;
+  right:max(20px,calc((100vw - 1180px)/2))!important;
+  top:auto!important;
+  bottom:34px!important;
+  z-index:4!important;
+  display:block!important;
+  width:auto!important;
+  max-width:min(520px,48vw)!important;
+  margin:0!important;
+  align-self:auto!important;
+  text-align:right!important;
+}
+
+@media(max-width:850px){
+  .hero > .hero-photo-credit{
+    left:auto!important;
+    right:14px!important;
+    top:auto!important;
+    bottom:20px!important;
+    max-width:calc(100vw - 28px)!important;
+    margin:0!important;
+    text-align:right!important;
+  }
+}
