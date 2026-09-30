@@ -4023,3 +4023,49 @@ main,
 .site-footer{
   max-width:100%;
 }
+
+
+/* 2026-09-30 — setas da timeline com triângulo preenchido e pontas arredondadas */
+.timeline-nav::before{
+  content:""!important;
+  display:block!important;
+  width:32px!important;
+  height:32px!important;
+  border:0!important;
+  background:#0736FE!important;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M7 3.5Q5 2.4 5 5v22q0 2.6 2 1.5l20-10.7q3.8-1.8 0-3.6L7 3.5Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M7 3.5Q5 2.4 5 5v22q0 2.6 2 1.5l20-10.7q3.8-1.8 0-3.6L7 3.5Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat!important;
+}
+
+.timeline-nav-next::before{
+  transform:none!important;
+}
+
+.timeline-nav-prev::before{
+  transform:rotate(180deg)!important;
+}
+
+.timeline-nav:hover::before,
+.timeline-nav:focus-visible::before{
+  transform:scale(1.08)!important;
+}
+
+.timeline-nav-prev:hover::before,
+.timeline-nav-prev:focus-visible::before{
+  transform:rotate(180deg) scale(1.08)!important;
+}
+
+.timeline-nav:active::before{
+  transform:scale(.92)!important;
+}
+
+.timeline-nav-prev:active::before{
+  transform:rotate(180deg) scale(.92)!important;
+}
+
+@media(max-width:850px){
+  .timeline-nav::before{
+    width:30px!important;
+    height:30px!important;
+  }
+}
