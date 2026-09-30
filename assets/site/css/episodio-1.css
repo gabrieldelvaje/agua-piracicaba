@@ -3081,3 +3081,61 @@ body.data-dialog-open{
   margin-top:0!important;
   max-width:1050px;
 }
+
+
+/* 2026-09-29 — cards da comparação residencial no mesmo estilo da seção anterior */
+.growth-section > h2{
+  margin-top:0!important;
+  max-width:980px;
+}
+
+.growth-numbers{
+  gap:18px!important;
+  margin:40px 0 18px!important;
+}
+
+.growth-numbers article{
+  border-top:0!important;
+  border-radius:var(--radius)!important;
+  background:#E7E7E2!important;
+  padding:24px 26px!important;
+  min-height:190px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+}
+
+.growth-numbers article > span{
+  margin-bottom:auto!important;
+  color:var(--muted)!important;
+  font-weight:700!important;
+}
+
+.growth-numbers strong{
+  margin:18px 0 10px!important;
+}
+
+.growth-footnote{
+  margin:0 0 24px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.4;
+}
+
+@media(max-width:520px){
+  .growth-numbers{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    margin:28px 0 14px!important;
+  }
+
+  .growth-numbers article{
+    min-height:160px!important;
+    padding:18px!important;
+  }
+
+  .growth-footnote{
+    margin-bottom:20px;
+    font-size:11px;
+  }
+}
