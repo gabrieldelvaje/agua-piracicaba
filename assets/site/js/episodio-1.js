@@ -50,7 +50,7 @@ function drawLineChart(svg, series, options={}){
 
   series.forEach((s,idx)=>{
     const color=s.color||['#0736fe','#231f20'][idx%2];
-    const d=smoothLinePath(s.values,sx,sy);
+    const d=s.values.map((v,i)=>(i?'L':'M')+sx(v.x)+','+sy(v.y)).join(' ');
     svg.append(svgEl('path',{d,fill:'none',stroke:color,'stroke-width':options.strokeWidth||4,'stroke-linejoin':'round','stroke-linecap':'round'}));
     s.values.forEach((v,i)=>{
       if(i===0||i===s.values.length-1){
