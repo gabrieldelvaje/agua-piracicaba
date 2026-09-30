@@ -2693,3 +2693,20 @@ main > section:not(.hero){
     padding:0!important;
   }
 }
+
+
+/* 2026-09-29 — botão voltar aos episódios em azul */
+.back-episodes{
+  background:#0736FE!important;
+  border-color:#0736FE!important;
+  color:#fff!important;
+}
+.back-episodes::before{
+  background:#fff!important;
+}
+.back-episodes:hover,
+.back-episodes:focus-visible{
+  background:#062ED8!important;
+  border-color:#062ED8!important;
+  color:#fff!important;
+}
