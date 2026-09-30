@@ -3387,3 +3387,42 @@ body.data-dialog-open{
     padding:18px!important;
   }
 }
+
+
+/* 2026-09-30 — destaque do índice de perdas de Piracicaba */
+.loss-compare .loss-pira{
+  background:var(--blue)!important;
+  color:#fff!important;
+}
+
+.loss-compare .loss-pira > span,
+.loss-compare .loss-pira strong{
+  color:#fff!important;
+}
+
+.loss-compare .loss-pira .bar{
+  background:rgba(255,255,255,.28)!important;
+}
+
+.loss-compare .loss-pira .bar i{
+  background:#fff!important;
+}
+
+.loss-summary{
+  margin:-24px 0 58px;
+  font-size:24px;
+  line-height:1.3;
+}
+
+.loss-summary strong{
+  color:var(--blue);
+  font-size:1.8em;
+  letter-spacing:-.04em;
+}
+
+@media(max-width:520px){
+  .loss-summary{
+    margin:-10px 0 42px;
+    font-size:19px;
+  }
+}
