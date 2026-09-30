@@ -9,6 +9,18 @@ async function loadCSV(path){ const r=await fetch(path); if(!r.ok) throw new Err
 function pct(a,b){return (b/a-1)*100}
 function n(v){return Number(String(v).replace(',','.'))}
 function svgEl(name,attrs={}){const e=document.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));return e}
+function smoothLinePath(values,sx,sy){
+  if(!values.length) return '';
+  if(values.length===1) return 'M'+sx(values[0].x)+','+sy(values[0].y);
+  const pts=values.map(v=>({x:sx(v.x),y:sy(v.y)}));
+  let d='M'+pts[0].x+','+pts[0].y;
+  for(let i=0;i<pts.length-1;i++){
+    const a=pts[i], b=pts[i+1];
+    const dx=(b.x-a.x)*0.16;
+    d+=' C'+(a.x+dx)+','+a.y+' '+(b.x-dx)+','+b.y+' '+b.x+','+b.y;
+  }
+  return d;
+}
 function drawLineChart(svg, series, options={}){
   svg.innerHTML='';
   const W=900,H=options.height||320,p={l:55,r:20,t:20,b:40};
@@ -29,9 +41,6 @@ function drawLineChart(svg, series, options={}){
     svg.append(t);
   }
 
-  // Mantém somente a linha de base do eixo X.
-  svg.append(svgEl('line',{x1:p.l,y1:H-p.b,x2:W-p.r,y2:H-p.b,class:'axis axis-x'}));
-
   const years=[minX,Math.round(minX+(maxX-minX)/3),Math.round(minX+2*(maxX-minX)/3),maxX];
   years.forEach(x=>{
     const t=svgEl('text',{x:sx(x),y:H-12,'text-anchor':'middle'});
@@ -41,7 +50,7 @@ function drawLineChart(svg, series, options={}){
 
   series.forEach((s,idx)=>{
     const color=s.color||['#0736fe','#231f20'][idx%2];
-    const d=s.values.map((v,i)=>(i?'L':'M')+sx(v.x)+','+sy(v.y)).join(' ');
+    const d=smoothLinePath(s.values,sx,sy);
     svg.append(svgEl('path',{d,fill:'none',stroke:color,'stroke-width':options.strokeWidth||4,'stroke-linejoin':'round','stroke-linecap':'round'}));
     s.values.forEach((v,i)=>{
       if(i===0||i===s.values.length-1){
