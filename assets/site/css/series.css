@@ -857,3 +857,20 @@ a{color:inherit}
   mask:url("../icons/angle-small-right.svg") center/contain no-repeat;
   transform:rotate(180deg);
 }
+
+
+/* 2026-09-29 — botão voltar aos episódios em azul */
+.episode-nav .back-episodes{
+  background:#0736FE;
+  border-color:#0736FE;
+  color:#fff;
+}
+.episode-nav .back-episodes::before{
+  background:#fff;
+}
+.episode-nav .back-episodes:hover,
+.episode-nav .back-episodes:focus-visible{
+  background:#062ED8;
+  border-color:#062ED8;
+  color:#fff;
+}
