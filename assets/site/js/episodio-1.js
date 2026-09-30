@@ -51,12 +51,18 @@ function drawLineChart(svg, series, options={}){
   series.forEach((s,idx)=>{
     const color=s.color||['#0736fe','#231f20'][idx%2];
     const d=s.values.map((v,i)=>(i?'L':'M')+sx(v.x)+','+sy(v.y)).join(' ');
-    svg.append(svgEl('path',{d,fill:'none',stroke:color,'stroke-width':options.strokeWidth||4,'stroke-linejoin':'round','stroke-linecap':'round'}));
-    s.values.forEach((v,i)=>{
-      if(i===0||i===s.values.length-1){
-        svg.append(svgEl('circle',{cx:sx(v.x),cy:sy(v.y),r:5,fill:color}));
-      }
-    });
+    const pathAttrs={d,fill:'none',stroke:color,'stroke-width':s.strokeWidth||options.strokeWidth||4,'stroke-linejoin':'round','stroke-linecap':'round'};
+    if(s.dasharray) pathAttrs['stroke-dasharray']=s.dasharray;
+    svg.append(svgEl('path',pathAttrs));
+    if(s.showEndpoints!==false){
+      s.values.forEach((v,i)=>{
+        if(i===0||i===s.values.length-1){
+          const endpointAttrs={cx:sx(v.x),cy:sy(v.y),r:5,fill:color};
+          if(s.endpointStroke){endpointAttrs.stroke=s.endpointStroke;endpointAttrs['stroke-width']=s.endpointStrokeWidth||1.5;}
+          svg.append(svgEl('circle',endpointAttrs));
+        }
+      });
+    }
   });
 
   if(options.interactive && series[0]?.values?.length){
@@ -184,10 +190,12 @@ async function initData(){
     document.querySelector('#economies-start').textContent=fmtInt.format(e[0].y); document.querySelector('#economies-end').textContent=fmtInt.format(e.at(-1).y); document.querySelector('#economies-growth').textContent='+'+fmt.format(pct(e[0].y,e.at(-1).y))+'%';
     document.querySelector('#network-start').textContent=fmtInt.format(r[0].y)+' km'; document.querySelector('#network-end').textContent=fmtInt.format(r.at(-1).y)+' km'; document.querySelector('#network-growth').textContent='+'+fmt.format(pct(r[0].y,r.at(-1).y))+'%';
     const ei=e.map(d=>({x:d.x,y:d.y/e[0].y*100})); const ri=r.map(d=>({x:d.x,y:d.y/r[0].y*100}));
+    const gi=ei.map((d,i)=>({x:d.x,y:d.y-ri[i].y}));
     drawLineChart(document.querySelector('#growth-chart'),[
       {values:ei,color:'#0736fe',label:'Residências',tooltipFormat:v=>'Índice '+fmt.format(v)},
-      {values:ri,color:'#231f20',label:'Rede',tooltipFormat:v=>'Índice '+fmt.format(v)}
-    ],{height:360,minY:90,maxY:215,yFormat:v=>fmtInt.format(v),interactive:true});
+      {values:ri,color:'#231f20',label:'Rede',tooltipFormat:v=>'Índice '+fmt.format(v),endpointStroke:'#fff',endpointStrokeWidth:1.5},
+      {values:gi,color:'#777872',label:'Gap',tooltipFormat:v=>(v>0?'+':'')+fmt.format(v)+' p.p.',dasharray:'3 8',strokeWidth:3,showEndpoints:false}
+    ],{height:360,minY:0,maxY:215,yFormat:v=>fmtInt.format(v),interactive:true});
 
     const lastLoss=loss.find(d=>d.ano==='2022'); const lossRate=n(lastLoss?.perdas_distribuicao_pct||53.93); window.lossRate=lossRate; document.querySelector('#loss-rate-title').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira-bar').style.width=lossRate+'%'; updateWater();
 
