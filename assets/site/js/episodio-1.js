@@ -467,18 +467,18 @@ document.querySelectorAll('.info-dialog').forEach(infoDialog=>{
 
 initData();
 
-// episode-one-scroll-cue
+// episode-one-smooth-section-navigation
 (() => {
-  const cue = document.querySelector('.scroll-cue[href="#caminho"]');
-  const target = document.querySelector('#caminho');
-  if (!cue || !target) return;
+  const triggers = [
+    ...document.querySelectorAll('.scroll-cue[href^="#"]'),
+    ...document.querySelectorAll('.site-header nav a[href^="#"]')
+  ];
+  if (!triggers.length) return;
 
   const easeInOutCubic = t =>
     t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
 
-  cue.addEventListener('click', event => {
-    event.preventDefault();
-
+  const animateToTarget = (target, hash) => {
     const root = document.documentElement;
     const body = document.body;
     const previousRootBehavior = root.style.scrollBehavior;
@@ -490,7 +490,9 @@ initData();
     const header = document.querySelector('.site-header');
     const headerHeight = header ? header.getBoundingClientRect().height : 0;
     const start = window.scrollY;
-    const end = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+    const rawEnd = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+    const maxEnd = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const end = Math.max(0, Math.min(rawEnd, maxEnd));
     const distance = end - start;
     const duration = 950;
     let startedAt = null;
@@ -506,11 +508,24 @@ initData();
         window.scrollTo(0, end);
         root.style.scrollBehavior = previousRootBehavior;
         body.style.scrollBehavior = previousBodyBehavior;
-        history.replaceState(null, '', '#caminho');
+        history.replaceState(null, '', hash);
       }
     };
 
     requestAnimationFrame(step);
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', event => {
+      const hash = trigger.getAttribute('href');
+      if (!hash || hash === '#') return;
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      event.preventDefault();
+      animateToTarget(target, hash);
+    });
   });
 })();
 
