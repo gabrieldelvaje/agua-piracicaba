@@ -2663,3 +2663,33 @@ main > section:not(.hero){
     transform:none!important;
   }
 }
+
+
+/* 2026-09-29 — centralização real da seta entre os cards */
+.big-comparison{
+  align-items:stretch!important;
+}
+
+.big-comparison .comparison-arrow{
+  align-self:stretch!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+@media(max-width:520px){
+  .big-comparison{
+    align-items:stretch!important;
+  }
+
+  .big-comparison .comparison-arrow{
+    align-self:stretch!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    margin:0!important;
+    padding:0!important;
+  }
+}
