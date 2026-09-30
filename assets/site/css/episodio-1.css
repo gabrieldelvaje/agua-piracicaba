@@ -3458,3 +3458,31 @@ body.data-dialog-open{
 .loss-data-table th:nth-child(n+2){
   text-align:right;
 }
+
+
+/* 2026-09-30 — centraliza o comparativo nacional entre os cards e o experimento */
+.loss-compare{
+  margin-bottom:0!important;
+}
+
+.loss-summary{
+  margin:44px 0!important;
+}
+
+.loss-lab{
+  margin-top:0!important;
+}
+
+@media(max-width:520px){
+  .loss-compare{
+    margin-bottom:0!important;
+  }
+
+  .loss-summary{
+    margin:32px 0!important;
+  }
+
+  .loss-lab{
+    margin-top:0!important;
+  }
+}
