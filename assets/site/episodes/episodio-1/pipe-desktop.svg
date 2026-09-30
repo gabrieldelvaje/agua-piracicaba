@@ -1,27 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -356 3165 1422" width="3165" height="1422" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -105 3410 920" width="3410" height="920">
   <g fill="#0A3DFF">
-    <rect x="988" y="300" width="185" height="110"/>
-    <rect x="1239" y="300" width="185" height="110"/>
-    <rect x="1490" y="300" width="185" height="110"/>
-    <rect x="1741" y="300" width="185" height="110"/>
-    <rect x="1992" y="300" width="185" height="110"/>
+    <!-- Cano principal: 5 trechos + 6 juntas -->
+    <rect x="988" y="300" width="234" height="110"/>
+    <rect x="1288" y="300" width="234" height="110"/>
+    <rect x="1588" y="300" width="234" height="110"/>
+    <rect x="1888" y="300" width="234" height="110"/>
+    <rect x="2188" y="300" width="234" height="110"/>
     <rect x="930" y="271" width="50" height="168" rx="25"/>
-    <rect x="1181" y="271" width="50" height="168" rx="25"/>
-    <rect x="1432" y="271" width="50" height="168" rx="25"/>
-    <rect x="1683" y="271" width="50" height="168" rx="25"/>
-    <rect x="1934" y="271" width="50" height="168" rx="25"/>
-    <rect x="2185" y="271" width="50" height="168" rx="25"/>
+    <rect x="1230" y="271" width="50" height="168" rx="25"/>
+    <rect x="1530" y="271" width="50" height="168" rx="25"/>
+    <rect x="1830" y="271" width="50" height="168" rx="25"/>
+    <rect x="2130" y="271" width="50" height="168" rx="25"/>
+    <rect x="2430" y="271" width="50" height="168" rx="25"/>
+    <!-- Lado direito: cotovelo, 1 junta, cotovelo, cano com 2 juntas -->
     <g id="lado">
-      <path d="M2243,410 H2343 A110,110 0 0 0 2453,300 V200 H2343 V275 A25,25 0 0 1 2318,300 H2243 Z"/>
-      <rect x="2343" y="-51" width="110" height="185"/>
-      <path d="M2343,-117 V-217 A110,110 0 0 1 2453,-327 H2553 V-217 H2478 A25,25 0 0 0 2453,-192 V-117 Z"/>
-      <rect x="2314" y="142" width="168" height="50" rx="25"/>
-      <rect x="2314" y="-109" width="168" height="50" rx="25"/>
-      <rect x="2619" y="-327" width="185" height="110"/>
-      <rect x="2870" y="-327" width="295" height="110"/>
-      <rect x="2561" y="-356" width="50" height="168" rx="25"/>
-      <rect x="2812" y="-356" width="50" height="168" rx="25"/>
+      <path d="M2488,410 H2588 A110,110 0 0 0 2698,300 V200 H2588 V275 A25,25 0 0 1 2563,300 H2488 Z"/>
+      <path d="M2588,134 V34 A110,110 0 0 1 2698,-76 H2798 V34 H2723 A25,25 0 0 0 2698,59 V134 Z"/>
+      <rect x="2559" y="142" width="168" height="50" rx="25"/>
+      <rect x="2864" y="-76" width="185" height="110"/>
+      <rect x="3115" y="-76" width="295" height="110"/>
+      <rect x="2806" y="-105" width="50" height="168" rx="25"/>
+      <rect x="3057" y="-105" width="50" height="168" rx="25"/>
     </g>
-    <use href="#lado" transform="rotate(180 1582.5 355)"/>
+    <!-- Lado esquerdo: mesmo conjunto girado 180° -->
+    <use href="#lado" transform="rotate(180 1705.0 355)"/>
   </g>
 </svg>
