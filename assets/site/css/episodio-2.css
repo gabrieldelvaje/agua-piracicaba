@@ -1775,3 +1775,8 @@ body.episode-2{
 .episode-2 .site-header .series-title strong{
   font-weight:700;
 }
+
+/* 2026-09-30 — CTA do hero sem seta, peso igual à home */
+.episode-page.episode-2 .episode-scroll-cue{
+  font-weight:600!important;
+}
