@@ -254,7 +254,7 @@
             <div class="eta-list" id="eta-list" aria-label="Produção de água por estação de tratamento"></div>
           </div>
         </div>
-        <p class="source-note">Fonte: PMSB 2026 · produção de água tratada em 2022. <a href="data/clean/pmsb_producao_agua_por_eta_2022.csv">Abrir CSV ↗︎</a></p>
+        <p class="source-note">Fonte: PMSB 2026 · produção de água tratada em 2022. <span class="source-note-actions"><button class="source-inline-button" type="button" data-open-production-table><span class="source-action-label">Tabela <span aria-hidden="true">↗︎</span></span></button></span></p>
       </div>
     </section>
 
@@ -413,6 +413,28 @@
     </div>
   </dialog>
 
+  <dialog class="data-table-dialog production-table-dialog" id="production-table-dialog" aria-labelledby="production-table-title">
+    <button class="dialog-close data-table-close" type="button" data-close-production-table aria-label="Fechar">×</button>
+    <div class="data-table-dialog-head">
+      <h2 id="production-table-title">Produção de água por ETA</h2>
+      <p>2022 · volume produzido e participação de cada estação no total do sistema.</p>
+    </div>
+    <div class="data-table-scroll">
+      <table class="data-table production-data-table" aria-label="Tabela de produção de água por estação de tratamento">
+        <thead>
+          <tr>
+            <th>Unidade</th>
+            <th>Volume produzido</th>
+            <th>Participação</th>
+          </tr>
+        </thead>
+        <tbody data-production-table-body>
+          <tr><td colspan="3">Carregando dados…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </dialog>
+
   <dialog class="coverage-dialog" id="coverage-dialog" aria-labelledby="coverage-title">
     <button class="dialog-close" type="button" data-close-coverage aria-label="Fechar">×</button>
     <p class="eyebrow">Como ler este site</p>
@@ -421,7 +443,7 @@
     <p>Última revisão editorial desta versão: <strong>27 de setembro de 2026</strong>.</p>
   </dialog>
 
-  <script src="assets/site/js/episodio-1.js?v=20260929-2258"></script>
+  <script src="assets/site/js/episodio-1.js?v=20260929-2348"></script>
   <script src="assets/site/js/page-transition.js?v=20260929-1008"></script>
 </body>
 </html>
