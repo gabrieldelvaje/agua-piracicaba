@@ -4270,3 +4270,9 @@ main,
     margin-top:58px!important;
   }
 }
+
+
+/* 2026-09-30 — números das etapas com o mesmo azul dos anos da timeline do episódio 2 */
+.process-step strong .step-num{
+  color:#8EA1FF!important;
+}
