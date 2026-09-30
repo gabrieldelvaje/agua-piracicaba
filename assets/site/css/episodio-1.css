@@ -3326,3 +3326,11 @@ body.data-dialog-open{
     margin-bottom:16px;
   }
 }
+
+
+/* 2026-09-30 — separa a unidade do número grande na produção */
+@media(min-width:851px){
+  .production-main > span{
+    margin-top:30px!important;
+  }
+}
