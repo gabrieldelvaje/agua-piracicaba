@@ -3139,3 +3139,75 @@ body.data-dialog-open{
     font-size:11px;
   }
 }
+
+
+/* 2026-09-29 — reforço visual dos dados de residências e rede */
+.growth-numbers article > span{
+  color:var(--ink)!important;
+  font-size:15px!important;
+}
+
+.growth-card-range{
+  display:grid!important;
+  grid-template-columns:auto auto 1fr auto auto;
+  align-items:center;
+  gap:8px 10px;
+  width:100%;
+  color:var(--ink)!important;
+  font-size:14px!important;
+  opacity:1!important;
+}
+
+.growth-card-range em{
+  font-style:normal;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:600;
+}
+
+.growth-card-range b{
+  color:var(--ink);
+  font-size:17px;
+  font-weight:700;
+}
+
+.growth-card-range i{
+  justify-self:center;
+  color:var(--blue);
+  font-style:normal;
+  font-size:18px;
+  font-weight:700;
+}
+
+.growth-source-note{
+  margin-top:22px!important;
+  color:var(--muted);
+}
+
+.growth-data-table th:nth-child(n+2),
+.growth-data-table td:nth-child(n+2){
+  text-align:right;
+}
+
+.growth-data-table td:last-child strong{
+  color:var(--blue);
+}
+
+@media(max-width:520px){
+  .growth-card-range{
+    grid-template-columns:auto 1fr auto 1fr;
+    column-gap:8px;
+  }
+
+  .growth-card-range i{
+    display:none;
+  }
+
+  .growth-card-range b{
+    font-size:16px;
+  }
+
+  .growth-source-note .source-note-actions{
+    margin-top:7px;
+  }
+}
