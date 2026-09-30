@@ -3039,3 +3039,38 @@ body.data-dialog-open{
     transform-origin:center!important;
   }
 }
+
+
+/* 2026-09-29 — cards de consumo maiores e centralizados no mobile */
+@media(max-width:520px){
+  .big-comparison div:not(.comparison-arrow){
+    min-height:156px!important;
+    padding:18px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:center!important;
+  }
+
+  .big-comparison div:not(.comparison-arrow) span{
+    margin:0 0 8px!important;
+    font-size:15px!important;
+    line-height:1.1!important;
+  }
+
+  .big-comparison div:not(.comparison-arrow) strong{
+    font-size:clamp(54px,16vw,72px)!important;
+    line-height:.95!important;
+    text-align:center!important;
+  }
+
+  .big-comparison div:not(.comparison-arrow) small{
+    margin-top:8px!important;
+    font-size:12px!important;
+    line-height:1.25!important;
+    text-align:center!important;
+  }
+
+  .big-comparison .comparison-arrow{
+    font-size:34px!important;
+  }
+}
