@@ -3996,3 +3996,30 @@ body.data-dialog-open{
     gap:5px;
   }
 }
+
+
+/* 2026-09-30 — impede vazamento horizontal da página */
+html,
+body{
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+@supports (overflow:clip){
+  html,
+  body{
+    overflow-x:clip;
+  }
+}
+
+/* 100vw pode somar a largura da barra de rolagem no desktop. */
+.hero-fixed-image{
+  width:100%!important;
+  max-width:100%!important;
+}
+
+.site-header,
+main,
+.site-footer{
+  max-width:100%;
+}
