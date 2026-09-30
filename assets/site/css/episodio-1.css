@@ -3657,3 +3657,83 @@ body.data-dialog-open{
     min-height:0;
   }
 }
+
+
+/* 2026-09-30 — bloco neutro de obras e intervenções */
+.investment-callout{
+  border:0!important;
+  background:#E7E7E2!important;
+  border-radius:var(--radius)!important;
+  padding:42px!important;
+}
+
+.investment-callout h2{
+  max-width:none!important;
+  margin:0 0 18px!important;
+}
+
+.investment-callout .investment-intro{
+  max-width:850px!important;
+  margin:0 0 34px!important;
+  color:var(--muted)!important;
+  font-size:19px!important;
+  line-height:1.5!important;
+}
+
+.investment-actions{
+  display:grid;
+  grid-template-columns:1fr;
+}
+
+.investment-actions a{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:24px;
+  padding:20px 0;
+  border-top:1px solid #C9C9C3;
+  color:var(--ink);
+  text-decoration:none;
+}
+
+.investment-actions a:last-child{
+  border-bottom:1px solid #C9C9C3;
+}
+
+.investment-actions a span{
+  display:inline;
+  width:fit-content;
+  line-height:1.45;
+  border-bottom:1px solid transparent;
+  transition:border-color .2s ease;
+}
+
+.investment-actions a:hover span{
+  border-bottom-color:currentColor;
+}
+
+.investment-actions a strong{
+  color:var(--ink);
+}
+
+.investment-actions a b{
+  color:var(--blue);
+  font-size:20px;
+  font-weight:700;
+}
+
+@media(max-width:520px){
+  .investment-callout{
+    padding:24px!important;
+  }
+
+  .investment-callout .investment-intro{
+    font-size:17px!important;
+    margin-bottom:26px!important;
+  }
+
+  .investment-actions a{
+    gap:16px;
+    padding:18px 0;
+  }
+}
