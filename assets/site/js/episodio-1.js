@@ -61,40 +61,94 @@ function drawLineChart(svg, series, options={}){
 
   if(options.interactive && series[0]?.values?.length){
     const values=series[0].values;
-    const color=series[0].color||'#0736fe';
-    const guide=svgEl('line',{x1:0,y1:p.t,x2:0,y2:H-p.b,stroke:color,'stroke-width':2,'stroke-dasharray':'5 6',opacity:0});
-    const dot=svgEl('circle',{cx:0,cy:0,r:5,fill:color,opacity:0});
+    const primaryColor=series[0].color||'#0736fe';
+    const multi=series.length>1;
+    const guide=svgEl('line',{x1:0,y1:p.t,x2:0,y2:H-p.b,stroke:primaryColor,'stroke-width':2,'stroke-dasharray':'5 6',opacity:0});
+
+    const dots=series.map((s,idx)=>{
+      const color=s.color||['#0736fe','#231f20'][idx%2];
+      return svgEl('circle',{cx:0,cy:0,r:5,fill:color,opacity:0});
+    });
+
     const tip=svgEl('g',{opacity:0,'pointer-events':'none'});
-    const tipRect=svgEl('rect',{x:0,y:0,width:184,height:56,rx:12,fill:'#231F20'});
+    const boxW=multi?224:184;
+    const boxH=multi?82:56;
+    const tipRect=svgEl('rect',{x:0,y:0,width:boxW,height:boxH,rx:12,fill:'#231F20'});
     const tipYear=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-year','font-size':14,'font-weight':700});
-    const tipValue=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-value','font-size':13});
-    tip.append(tipRect,tipYear,tipValue);
-    svg.append(guide,dot,tip);
+    tip.append(tipRect,tipYear);
+
+    let tipValue=null;
+    const multiRows=[];
+    if(multi){
+      series.forEach((s,idx)=>{
+        const color=s.color||['#0736fe','#231f20'][idx%2];
+        const bullet=svgEl('circle',{cx:0,cy:0,r:4,fill:color});
+        const label=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-value','font-size':13});
+        tip.append(bullet,label);
+        multiRows.push({bullet,label,series:s});
+      });
+    }else{
+      tipValue=svgEl('text',{x:0,y:0,class:'chart-tooltip-text chart-tooltip-value','font-size':13});
+      tip.append(tipValue);
+    }
+
+    svg.append(guide,...dots,tip);
 
     const showAt=event=>{
       const bounds=svg.getBoundingClientRect();
       const localX=(event.clientX-bounds.left)/bounds.width*W;
       const nearest=values.reduce((best,v)=>Math.abs(sx(v.x)-localX)<Math.abs(sx(best.x)-localX)?v:best,values[0]);
-      const x=sx(nearest.x),y=sy(nearest.y);
-      const boxW=184,boxH=56;
+      const x=sx(nearest.x);
+      const points=series.map(s=>s.values.find(v=>v.x===nearest.x)).filter(Boolean);
+      const anchorY=Math.min(...points.map(v=>sy(v.y)));
       let tx=x-boxW/2;
       tx=Math.max(p.l,Math.min(W-p.r-boxW,tx));
-      let ty=y-boxH-18;
-      if(ty<p.t) ty=y+18;
+      let ty=anchorY-boxH-18;
+      if(ty<p.t) ty=anchorY+18;
 
-      guide.setAttribute('x1',x); guide.setAttribute('x2',x); guide.setAttribute('opacity','1');
-      dot.setAttribute('cx',x); dot.setAttribute('cy',y); dot.setAttribute('opacity','1');
+      guide.setAttribute('x1',x);
+      guide.setAttribute('x2',x);
+      guide.setAttribute('opacity','1');
+
+      dots.forEach((dot,idx)=>{
+        const point=series[idx].values.find(v=>v.x===nearest.x);
+        if(!point){dot.setAttribute('opacity','0');return;}
+        dot.setAttribute('cx',x);
+        dot.setAttribute('cy',sy(point.y));
+        dot.setAttribute('opacity','1');
+      });
+
       tip.setAttribute('opacity','1');
-      tipRect.setAttribute('x',tx); tipRect.setAttribute('y',ty);
-      tipYear.setAttribute('x',tx+14); tipYear.setAttribute('y',ty+22);
-      tipValue.setAttribute('x',tx+14); tipValue.setAttribute('y',ty+43);
+      tipRect.setAttribute('x',tx);
+      tipRect.setAttribute('y',ty);
+      tipYear.setAttribute('x',tx+14);
+      tipYear.setAttribute('y',ty+22);
       tipYear.textContent=String(nearest.x);
-      tipValue.textContent=(options.tooltipFormat?options.tooltipFormat(nearest.y):fmt.format(nearest.y));
+
+      if(multi){
+        multiRows.forEach((row,idx)=>{
+          const point=row.series.values.find(v=>v.x===nearest.x);
+          const rowY=ty+45+(idx*20);
+          row.bullet.setAttribute('cx',tx+17);
+          row.bullet.setAttribute('cy',rowY-4);
+          row.label.setAttribute('x',tx+29);
+          row.label.setAttribute('y',rowY);
+          const label=row.series.label||('Série '+(idx+1));
+          const value=point
+            ? (row.series.tooltipFormat?row.series.tooltipFormat(point.y):fmt.format(point.y))
+            : '—';
+          row.label.textContent=label+': '+value;
+        });
+      }else{
+        tipValue.setAttribute('x',tx+14);
+        tipValue.setAttribute('y',ty+43);
+        tipValue.textContent=(options.tooltipFormat?options.tooltipFormat(nearest.y):fmt.format(nearest.y));
+      }
     };
 
     const hide=()=>{
       guide.setAttribute('opacity','0');
-      dot.setAttribute('opacity','0');
+      dots.forEach(dot=>dot.setAttribute('opacity','0'));
       tip.setAttribute('opacity','0');
     };
 
@@ -106,8 +160,7 @@ function drawLineChart(svg, series, options={}){
     hit.addEventListener('pointerdown',showAt);
     hit.addEventListener('pointerleave',hide);
     svg.append(hit);
-  }
-}
+  }}
 
 async function initData(){
   try{
@@ -127,7 +180,10 @@ async function initData(){
     document.querySelector('#economies-start').textContent=fmtInt.format(e[0].y); document.querySelector('#economies-end').textContent=fmtInt.format(e.at(-1).y); document.querySelector('#economies-growth').textContent='+'+fmt.format(pct(e[0].y,e.at(-1).y))+'%';
     document.querySelector('#network-start').textContent=fmtInt.format(r[0].y)+' km'; document.querySelector('#network-end').textContent=fmtInt.format(r.at(-1).y)+' km'; document.querySelector('#network-growth').textContent='+'+fmt.format(pct(r[0].y,r.at(-1).y))+'%';
     const ei=e.map(d=>({x:d.x,y:d.y/e[0].y*100})); const ri=r.map(d=>({x:d.x,y:d.y/r[0].y*100}));
-    drawLineChart(document.querySelector('#growth-chart'),[{values:ei,color:'#0736fe'},{values:ri,color:'#231f20'}],{height:360,minY:90,maxY:215,yFormat:v=>fmtInt.format(v)});
+    drawLineChart(document.querySelector('#growth-chart'),[
+      {values:ei,color:'#0736fe',label:'Residências',tooltipFormat:v=>fmt.format(v)},
+      {values:ri,color:'#231f20',label:'Rede',tooltipFormat:v=>fmt.format(v)}
+    ],{height:360,minY:90,maxY:215,yFormat:v=>fmtInt.format(v),interactive:true});
 
     const lastLoss=loss.find(d=>d.ano==='2022'); const lossRate=n(lastLoss?.perdas_distribuicao_pct||53.93); window.lossRate=lossRate; document.querySelector('#loss-rate-title').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira').textContent=fmt.format(lossRate)+'%'; document.querySelector('#loss-pira-bar').style.width=lossRate+'%'; updateWater();
 
