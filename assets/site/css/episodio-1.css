@@ -3426,3 +3426,35 @@ body.data-dialog-open{
     font-size:19px;
   }
 }
+
+
+/* 2026-09-30 — simplificação do laboratório e nota de perdas */
+.water-balance{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.water-balance>div{
+  min-height:72px;
+}
+
+.loss-method-note{
+  display:block;
+  margin:25px 0!important;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:18px 0!important;
+  color:var(--muted);
+  cursor:default;
+}
+
+.loss-method-note strong{
+  color:var(--ink);
+  font-weight:700;
+}
+
+.loss-data-table td:nth-child(n+2),
+.loss-data-table th:nth-child(n+2){
+  text-align:right;
+}
