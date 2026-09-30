@@ -4120,3 +4120,19 @@ main,
     animation:none!important;
   }
 }
+
+
+/* 2026-09-30 — máscara das extremidades mais curta, do tamanho visual do marcador */
+.timeline-carousel::before,
+.timeline-carousel::after{
+  width:34px!important;
+  height:26px!important;
+}
+
+@media(max-width:850px){
+  .timeline-carousel::before,
+  .timeline-carousel::after{
+    width:32px!important;
+    height:26px!important;
+  }
+}
