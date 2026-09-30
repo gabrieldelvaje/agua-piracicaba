@@ -562,6 +562,14 @@ initData();
 
   let activeFrame = null;
   let sliding = false;
+  let timelineSeen = false;
+
+  const pulseArrowOnce = button => {
+    if (!timelineSeen || button.hidden || button.dataset.introPulsed === 'true') return;
+    button.dataset.introPulsed = 'true';
+    button.classList.add('is-intro-pulse');
+    window.setTimeout(()=>button.classList.remove('is-intro-pulse'),2600);
+  };
 
   const maxScroll = () =>
     Math.max(0, viewport.scrollWidth - viewport.clientWidth);
@@ -587,6 +595,8 @@ initData();
     const atEnd = viewport.scrollLeft >= max - 5 || max <= 5;
     prev.hidden = atStart;
     next.hidden = atEnd;
+    pulseArrowOnce(prev);
+    pulseArrowOnce(next);
   };
 
   const animateTo = target => {
@@ -648,6 +658,20 @@ initData();
 
   viewport.addEventListener('scroll', updateArrows, { passive:true });
   window.addEventListener('resize', updateArrows);
+
+  const carousel = viewport.closest('.timeline-carousel') || viewport;
+  if ('IntersectionObserver' in window) {
+    const introObserver = new IntersectionObserver(entries=>{
+      if (!entries.some(entry=>entry.isIntersecting)) return;
+      timelineSeen = true;
+      updateArrows();
+      introObserver.disconnect();
+    },{threshold:.22});
+    introObserver.observe(carousel);
+  } else {
+    timelineSeen = true;
+  }
+
   updateArrows();
 })();
 
