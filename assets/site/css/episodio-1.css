@@ -3010,3 +3010,32 @@ body.data-dialog-open{
     padding-bottom:16px;
   }
 }
+
+
+/* 2026-09-29 — comparação de consumo empilhada no mobile */
+@media(max-width:520px){
+  .big-comparison{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    align-items:stretch!important;
+    gap:12px!important;
+  }
+
+  .big-comparison div:not(.comparison-arrow){
+    width:100%!important;
+  }
+
+  .big-comparison .comparison-arrow{
+    width:100%!important;
+    height:34px!important;
+    align-self:auto!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:0!important;
+    margin:0!important;
+    font-size:30px!important;
+    transform:rotate(90deg)!important;
+    transform-origin:center!important;
+  }
+}
