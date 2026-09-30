@@ -817,6 +817,10 @@ initData();
     if (event.key === 'Escape') closeMenu();
   });
 
+  window.addEventListener('scroll', () => {
+    if (header.classList.contains('is-menu-open')) closeMenu();
+  }, { passive:true });
+
   window.matchMedia('(min-width:851px)').addEventListener?.('change', event=>{
     if (event.matches) closeMenu();
   });
