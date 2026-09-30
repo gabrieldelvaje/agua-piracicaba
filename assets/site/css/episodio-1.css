@@ -4197,3 +4197,78 @@ main,
     display:none!important;
   }
 }
+
+
+/* 2026-09-30 — alinha as seis etapas às seis juntas do cano principal */
+@media(min-width:1025px){
+  .process-section{
+    overflow:hidden!important;
+  }
+
+  .pipe-diagram{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:repeat(6,minmax(0,1fr))!important;
+    align-items:center!important;
+    gap:0!important;
+    overflow:visible!important;
+    isolation:isolate;
+  }
+
+  /*
+   * O SVG tem seis juntas horizontais igualmente espaçadas entre x=955 e x=2455.
+   * Com 189,444% da largura do diagrama, esses centros caem exatamente em
+   * 8,333%, 25%, 41,667%, 58,333%, 75% e 91,667% — os centros das 6 colunas.
+   */
+  .desktop-pipe-svg{
+    display:block!important;
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    width:189.444%!important;
+    max-width:none!important;
+    height:auto!important;
+    transform:translate(-50%,-50%)!important;
+    z-index:1!important;
+    pointer-events:none!important;
+    user-select:none!important;
+  }
+
+  .process-step,
+  .process-step:nth-of-type(even){
+    position:relative!important;
+    z-index:2!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    justify-self:stretch!important;
+    text-align:center!important;
+  }
+
+  .process-step{
+    padding:0 8px 118px!important;
+  }
+
+  .process-step:nth-of-type(even){
+    padding:118px 8px 0!important;
+  }
+
+  .process-step strong,
+  .process-step small{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  .process-step small{
+    max-width:150px!important;
+  }
+
+  /* A legenda/fonte fica fora do cano e encostada à direita. */
+  .process-section .source-note{
+    position:relative!important;
+    z-index:3!important;
+    width:min(690px,100%)!important;
+    margin:12px 0 0 auto!important;
+    text-align:right!important;
+  }
+}
