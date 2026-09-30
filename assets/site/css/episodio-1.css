@@ -3251,3 +3251,22 @@ body.data-dialog-open{
   border-top:2px dotted #777872;
   vertical-align:middle;
 }
+
+
+/* 2026-09-29 — legenda do gráfico de crescimento com linhas */
+.growth-legend .legend-line{
+  display:inline-block;
+  width:22px;
+  height:0;
+  margin-right:7px;
+  border-top:3px solid currentColor;
+  vertical-align:middle;
+}
+
+.growth-legend .legend-line.homes{
+  color:var(--blue);
+}
+
+.growth-legend .legend-line.network{
+  color:var(--dark);
+}
