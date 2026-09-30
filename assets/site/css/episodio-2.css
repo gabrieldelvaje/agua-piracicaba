@@ -2366,3 +2366,74 @@ body.episode-2{
     font-size:clamp(24px,7.4vw,34px)!important;
   }
 }
+
+
+/* 2026-09-30 — manchetes grandes sem miniaturas */
+.newspaper-featured-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;
+  align-items:stretch!important;
+}
+
+.newspaper-featured-card{
+  min-height:340px!important;
+  padding:28px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  align-items:stretch!important;
+}
+
+.newspaper-thumb,
+.newspaper-thumb-headline{
+  display:none!important;
+}
+
+.newspaper-featured-card > span{
+  margin:0!important;
+  color:#8EA1FF!important;
+  font-size:10px!important;
+  font-weight:700!important;
+  line-height:1.3!important;
+  letter-spacing:.1em!important;
+}
+
+.newspaper-featured-card > strong{
+  margin:18px 0 0!important;
+  color:#fff!important;
+  font-size:clamp(34px,3.15vw,52px)!important;
+  line-height:.95!important;
+  letter-spacing:-.055em!important;
+}
+
+.newspaper-featured-card > small{
+  margin:24px 0 0!important;
+  color:rgba(255,255,255,.64)!important;
+  font-size:14px!important;
+  line-height:1.5!important;
+}
+
+.newspaper-source-link{
+  margin-top:auto!important;
+  padding-top:24px!important;
+  font-size:11px!important;
+}
+
+@media(max-width:900px){
+  .newspaper-featured-grid{
+    grid-template-columns:1fr!important;
+  }
+
+  .newspaper-featured-card{
+    min-height:0!important;
+    padding:24px!important;
+  }
+
+  .newspaper-featured-card > strong{
+    font-size:clamp(38px,10vw,58px)!important;
+  }
+
+  .newspaper-featured-card > small{
+    font-size:13px!important;
+  }
+}
