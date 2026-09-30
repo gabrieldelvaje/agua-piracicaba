@@ -148,6 +148,69 @@
 })();
 
 
+// episode-two-smooth-section-navigation
+(() => {
+  const triggers = [
+    ...document.querySelectorAll('.episode-scroll-cue[href^="#"]'),
+    ...document.querySelectorAll('.site-header nav a[href^="#"]')
+  ];
+  if (!triggers.length) return;
+
+  const easeInOutCubic = t =>
+    t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+
+  const animateToTarget = (target, hash) => {
+    const root = document.documentElement;
+    const body = document.body;
+    const previousRootBehavior = root.style.scrollBehavior;
+    const previousBodyBehavior = body.style.scrollBehavior;
+
+    root.style.scrollBehavior = 'auto';
+    body.style.scrollBehavior = 'auto';
+
+    const header = document.querySelector('.site-header');
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+    const start = window.scrollY;
+    const rawEnd = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+    const maxEnd = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const end = Math.max(0, Math.min(rawEnd, maxEnd));
+    const distance = end - start;
+    const duration = 950;
+    let startedAt = null;
+
+    const step = now => {
+      if (startedAt === null) startedAt = now;
+      const progress = Math.min((now - startedAt) / duration, 1);
+      window.scrollTo(0, start + distance * easeInOutCubic(progress));
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        window.scrollTo(0, end);
+        root.style.scrollBehavior = previousRootBehavior;
+        body.style.scrollBehavior = previousBodyBehavior;
+        history.replaceState(null, '', hash);
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', event => {
+      const hash = trigger.getAttribute('href');
+      if (!hash || hash === '#') return;
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      event.preventDefault();
+      animateToTarget(target, hash);
+    });
+  });
+})();
+
+
 // episode-two-mobile-header-menu
 (() => {
   const header = document.querySelector('.site-header');
@@ -198,16 +261,36 @@
   if (!button) return;
 
   const media = window.matchMedia('(max-width:1024px)');
+  const forceTopKey = 'episode-2-force-top-after-refresh';
 
   const updateVisibility = () => {
     const visible = media.matches && window.scrollY > Math.max(520, window.innerHeight * 0.7);
     button.classList.toggle('is-visible', visible);
   };
 
+  const keepTopAfterRefresh = () => {
+    if (sessionStorage.getItem(forceTopKey) !== '1') return;
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+    const forceTop = () => window.scrollTo({ top:0, left:0, behavior:'auto' });
+    forceTop();
+    requestAnimationFrame(forceTop);
+    window.setTimeout(forceTop, 80);
+    window.setTimeout(() => sessionStorage.removeItem(forceTopKey), 300);
+  };
+
   button.addEventListener('click', () => {
+    sessionStorage.setItem(forceTopKey, '1');
+
+    // Remove a âncora da seção atual para que o navegador não volte a ela ao atualizar.
+    const cleanUrl = window.location.pathname + window.location.search;
+    history.replaceState(null, '', cleanUrl);
+
     window.scrollTo({ top:0, behavior:'smooth' });
   });
 
+  window.addEventListener('pageshow', keepTopAfterRefresh);
+  window.addEventListener('load', keepTopAfterRefresh);
   window.addEventListener('scroll', updateVisibility, { passive:true });
   window.addEventListener('resize', updateVisibility);
   media.addEventListener?.('change', updateVisibility);
