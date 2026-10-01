@@ -4581,6 +4581,8 @@ body.episode-2{
 .ep2-legacy .decree-card span{color:#686565!important;}
 
 .ep2-sources.sources-section{
+  width:min(1180px,calc(100vw - 40px));
+  line-height:1.45;
   padding:130px 0!important;
   background:#F3F3F1!important;
   color:#231F20!important;
@@ -4588,8 +4590,14 @@ body.episode-2{
   box-shadow:0 0 0 100vmax #F3F3F1!important;
   clip-path:inset(0 -100vmax)!important;
 }
-.sources-section > h2{
+.episode-2 .sources-section > h2{
+  max-width:none;
   margin:0 auto 34px;
+  color:#171717;
+  font-size:clamp(36px,5vw,70px);
+  line-height:1.02;
+  letter-spacing:-.045em;
+  text-align:center;
 }
 .sources-copy{
   max-width:860px;
@@ -4597,7 +4605,7 @@ body.episode-2{
 }
 .sources-copy p{
   margin:0 auto 18px;
-  color:#686565;
+  color:#666864;
   font-size:18px;
   line-height:1.55;
 }
@@ -4750,16 +4758,16 @@ body.info-dialog-open{
   overflow:hidden!important;
 }
 
-@media(max-width:900px){
+@media(max-width:850px){
   .ep2-sources.sources-section{padding:90px 0!important;}
   .site-footer{flex-direction:column;gap:8px;padding-inline:14px;}
 }
 @media(max-width:520px){
-  .sources-section{text-align:left;}
-  .sources-section > h2{margin-bottom:26px;}
+  .ep2-sources.sources-section{width:calc(100vw - 28px);text-align:left;}
+  .episode-2 .sources-section > h2{margin-bottom:26px;}
   .sources-copy p{font-size:16px;}
   .source-links-centered{
-    justify-content:flex-start!important;
+    justify-content:center!important;
     margin-top:30px!important;
   }
   .source-links-centered a,
