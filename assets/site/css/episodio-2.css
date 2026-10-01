@@ -3065,3 +3065,17 @@ body.episode-2{
     right:-10px!important;
   }
 }
+
+
+/* 2026-10-01 — evita corte lateral dos cards da timeline do EP2 */
+.ep2-timeline{
+  padding-left:72px!important;
+  padding-right:72px!important;
+}
+
+@media(max-width:900px){
+  .ep2-timeline{
+    padding-left:28px!important;
+    padding-right:28px!important;
+  }
+}
