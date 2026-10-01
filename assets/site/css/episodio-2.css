@@ -3952,3 +3952,164 @@ body.episode-2{
   color:#fff;
   font-weight:700;
 }
+
+
+/* 2026-10-01 — diluição em largura total com béqueres compactos */
+.cantareira-source .source-action-label{
+  font-weight:400!important;
+}
+
+.ep2-dilution{
+  padding:105px 0!important;
+}
+
+.dilution-title{
+  width:100%;
+  max-width:none!important;
+  margin:0!important;
+}
+
+.dilution-layout{
+  display:grid;
+  grid-template-columns:minmax(320px,.8fr) minmax(0,1.2fr);
+  gap:72px;
+  align-items:center;
+  margin-top:54px;
+}
+
+.dilution-copy{
+  max-width:650px;
+}
+
+.dilution-copy p{
+  margin:0;
+  color:var(--ep2-muted);
+  font-size:19px;
+  line-height:1.58;
+}
+
+.dilution-copy p + p{
+  margin-top:22px;
+}
+
+.glass-demo{
+  display:flex!important;
+  align-items:flex-end;
+  gap:26px!important;
+}
+
+.glass{
+  position:relative;
+  width:176px;
+  min-height:230px!important;
+  flex:0 0 176px;
+  padding:20px 16px!important;
+  border:2px solid rgba(35,31,32,.34)!important;
+  border-top:2px solid rgba(35,31,32,.34)!important;
+  border-radius:10px 10px 24px 24px!important;
+  background:rgba(255,255,255,.24)!important;
+  overflow:visible!important;
+  justify-content:flex-end!important;
+}
+
+.glass::before{
+  inset:auto 5px 5px!important;
+  height:72%!important;
+  border-radius:6px 6px 18px 18px!important;
+  background:#0736FE!important;
+  opacity:.78;
+}
+
+.glass.low::before{
+  height:40%!important;
+}
+
+.glass::after{
+  content:""!important;
+  position:absolute!important;
+  top:-7px!important;
+  right:18px!important;
+  left:auto!important;
+  bottom:auto!important;
+  width:24px!important;
+  height:9px!important;
+  border-top:2px solid rgba(35,31,32,.34)!important;
+  border-right:2px solid rgba(35,31,32,.34)!important;
+  border-radius:0 7px 0 0!important;
+  background:transparent!important;
+  mix-blend-mode:normal!important;
+}
+
+.glass.low::after{
+  height:9px!important;
+  background:transparent!important;
+}
+
+.glass > *{
+  position:relative;
+  z-index:2;
+}
+
+.glass b{
+  color:#fff!important;
+  font-size:18px!important;
+  line-height:1.1;
+  text-shadow:0 1px 8px rgba(0,0,0,.28);
+}
+
+.glass small{
+  margin-top:7px!important;
+  color:rgba(255,255,255,.82)!important;
+  font-size:12px;
+  line-height:1.35;
+  text-shadow:0 1px 8px rgba(0,0,0,.28);
+}
+
+.demo-caption{
+  max-width:390px;
+  margin:16px 0 0!important;
+  color:var(--ep2-muted)!important;
+  font-size:11px!important;
+  line-height:1.45!important;
+}
+
+@media(max-width:900px){
+  .dilution-layout{
+    grid-template-columns:1fr;
+    gap:34px;
+    margin-top:36px;
+  }
+
+  .glass-demo{
+    justify-content:flex-start;
+  }
+
+  .dilution-copy{
+    max-width:none;
+  }
+
+  .dilution-copy p{
+    font-size:16px;
+  }
+}
+
+@media(max-width:560px){
+  .glass-demo{
+    gap:14px!important;
+  }
+
+  .glass{
+    width:calc(50% - 7px);
+    min-height:205px!important;
+    flex:1 1 0;
+    padding:16px 12px!important;
+  }
+
+  .glass b{
+    font-size:16px!important;
+  }
+
+  .glass small{
+    font-size:11px;
+  }
+}
