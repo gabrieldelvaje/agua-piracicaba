@@ -4912,3 +4912,19 @@ body.info-dialog-open{
   color:#0736FE!important;
   font-weight:700!important;
 }
+
+
+/* 2026-10-01 — foto real da Praça do Protesto Ecológico */
+.ep2-legacy .legacy-photo{
+  margin:0;
+  overflow:hidden;
+  border-radius:24px;
+  background:#E7E7E2;
+}
+.ep2-legacy .legacy-photo img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  object-position:center;
+}
