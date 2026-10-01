@@ -3067,15 +3067,54 @@ body.episode-2{
 }
 
 
-/* 2026-10-01 — evita corte lateral dos cards da timeline do EP2 */
+
+
+/* 2026-10-01 — corrige corte vertical dos cards da timeline do EP2 */
 .ep2-timeline{
-  padding-left:72px!important;
-  padding-right:72px!important;
+  height:740px!important;
+  padding-left:0!important;
+  padding-right:0!important;
+}
+
+.ep2-timeline-item{
+  height:740px!important;
+}
+
+.ep2-timeline-item::after,
+.ep2-timeline-item::before,
+.ep2-timeline-nav,
+.ep2-timeline-carousel::before,
+.ep2-timeline-carousel::after{
+  top:380px!important;
+}
+
+.ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+  bottom:388px!important;
+}
+
+.ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+  top:408px!important;
 }
 
 @media(max-width:900px){
-  .ep2-timeline{
-    padding-left:28px!important;
-    padding-right:28px!important;
+  .ep2-timeline,
+  .ep2-timeline-item{
+    height:740px!important;
+  }
+
+  .ep2-timeline-item::after,
+  .ep2-timeline-item::before,
+  .ep2-timeline-nav,
+  .ep2-timeline-carousel::before,
+  .ep2-timeline-carousel::after{
+    top:380px!important;
+  }
+
+  .ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+    bottom:388px!important;
+  }
+
+  .ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+    top:408px!important;
   }
 }
