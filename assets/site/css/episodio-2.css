@@ -4883,3 +4883,14 @@ body.info-dialog-open{
     min-height:280px;
   }
 }
+
+
+/* 2026-10-01 — mais respiro no título de mortandades */
+.fishkills-equation{
+  line-height:1.12!important;
+}
+@media(max-width:900px){
+  .fishkills-equation{
+    line-height:1.1!important;
+  }
+}
