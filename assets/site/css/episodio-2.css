@@ -4174,3 +4174,14 @@ body.episode-2{
 .dilution-illustration figcaption{
   display:none!important;
 }
+
+
+/* 2026-10-01 — alinha texto da diluição pelo topo dos béqueres */
+.dilution-layout{
+  align-items:start!important;
+}
+
+.dilution-copy{
+  justify-content:flex-start!important;
+  align-self:start!important;
+}
