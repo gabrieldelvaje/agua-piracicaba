@@ -1,3 +1,7 @@
+# Nota sobre a revisão editorial
+
+A página foi encurtada em 01/10/2026: concentra-se no projeto Corumbataí e em seu papel no abastecimento. A digitalização do Estadão foi retirada da página e das fontes clicáveis; conserva-se apenas a manchete e a referência. Os tópicos de tratamento, produção e chuva abaixo são pesquisa de apoio da versão anterior, não seções publicadas na versão atual.
+
 # Evidências e decisões editoriais
 
 ## Pesquisa realizada
