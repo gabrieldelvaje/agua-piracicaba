@@ -4894,3 +4894,21 @@ body.info-dialog-open{
     line-height:1.1!important;
   }
 }
+
+
+/* 2026-10-01 — terceiro card do Cantareira igual aos demais, com destaque só na bacia */
+.ep2-cantareira-system .cantareira-stats article.is-piracicaba{
+  background:#F3F3F1!important;
+  color:#231F20!important;
+}
+.ep2-cantareira-system .cantareira-stats article.is-piracicaba span,
+.ep2-cantareira-system .cantareira-stats article.is-piracicaba small{
+  color:#686565!important;
+}
+.ep2-cantareira-system .cantareira-stats article.is-piracicaba strong{
+  color:#231F20!important;
+}
+.ep2-cantareira-system .cantareira-card-emphasis{
+  color:#0736FE!important;
+  font-weight:700!important;
+}
