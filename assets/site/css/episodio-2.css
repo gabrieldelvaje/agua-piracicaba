@@ -4161,3 +4161,16 @@ body.episode-2{
     margin-inline:8px;
   }
 }
+
+
+/* 2026-10-01 — centraliza texto da diluição e remove legenda inferior */
+.dilution-copy{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-self:stretch!important;
+}
+
+.dilution-illustration figcaption{
+  display:none!important;
+}
