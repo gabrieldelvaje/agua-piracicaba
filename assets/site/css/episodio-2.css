@@ -3118,3 +3118,200 @@ body.episode-2{
     top:408px!important;
   }
 }
+
+
+/* 2026-10-01 — redesenho da seção Cantareira e alinhamento da cronologia */
+.chronology-head{
+  align-items:center!important;
+}
+
+.chronology-head .section-title{
+  margin:0!important;
+}
+
+.ep2-cantareira{
+  padding:110px 0!important;
+}
+
+.cantareira-intro{
+  display:grid!important;
+  grid-template-columns:1fr .9fr!important;
+  gap:72px!important;
+  align-items:center!important;
+}
+
+.cantareira-lead{
+  margin:0!important;
+  color:var(--ep2-muted)!important;
+  font-size:18px!important;
+  line-height:1.58!important;
+}
+
+.cantareira-context-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:48px;
+  align-items:stretch;
+}
+
+.cantareira-context-copy,
+.cantareira-photo-slot{
+  min-height:320px;
+  border-radius:24px;
+  overflow:hidden;
+}
+
+.cantareira-context-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:30px;
+  background:#E9E9E5;
+}
+
+.cantareira-context-kicker{
+  display:block;
+  margin-bottom:auto;
+  color:var(--ep2-blue);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.cantareira-context-copy p{
+  max-width:520px;
+  margin:0;
+  color:var(--ep2-ink);
+  font-size:17px;
+  line-height:1.5;
+}
+
+.cantareira-context-copy p + p{
+  margin-top:16px;
+  color:var(--ep2-muted);
+}
+
+.cantareira-photo-slot{
+  position:relative;
+  margin:0;
+  background:#D9D9D4;
+}
+
+.cantareira-photo-placeholder{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg,rgba(7,54,254,.06),rgba(35,31,32,.05)),
+    #D9D9D4;
+}
+
+.cantareira-photo-slot figcaption{
+  position:absolute;
+  left:22px;
+  bottom:20px;
+  z-index:1;
+  margin:0;
+  color:#231F20;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+
+.cantareira-stats{
+  margin-top:12px!important;
+  gap:12px!important;
+}
+
+.cantareira-stats article{
+  min-height:250px!important;
+  padding:24px!important;
+  display:flex;
+  flex-direction:column;
+  background:#E9E9E5!important;
+}
+
+.cantareira-stats strong{
+  margin-top:28px!important;
+}
+
+.cantareira-share{
+  margin-top:auto;
+  padding-top:24px;
+}
+
+.cantareira-share-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:9px;
+}
+
+.cantareira-share-head b{
+  color:var(--ep2-ink);
+  font-size:18px;
+  line-height:1;
+}
+
+.cantareira-share-head em{
+  color:var(--ep2-muted);
+  font-size:11px;
+  font-style:normal;
+}
+
+.cantareira-share-track{
+  height:8px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#D4D4CF;
+}
+
+.cantareira-share-track i{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:var(--ep2-blue);
+}
+
+.cantareira-source{
+  margin:20px 0 0!important;
+  font-size:13px!important;
+}
+
+.cantareira-source a{
+  color:var(--ep2-ink)!important;
+  font-weight:700;
+  text-decoration:underline;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+}
+
+@media(max-width:900px){
+  .chronology-head{
+    align-items:start!important;
+  }
+
+  .cantareira-intro{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+
+  .cantareira-context-grid{
+    grid-template-columns:1fr!important;
+  }
+
+  .cantareira-context-copy,
+  .cantareira-photo-slot{
+    min-height:280px;
+  }
+
+  .cantareira-stats{
+    grid-template-columns:1fr!important;
+  }
+
+  .cantareira-stats article{
+    min-height:220px!important;
+  }
+}
