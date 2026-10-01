@@ -237,6 +237,27 @@
 })();
 
 
+
+// episode-two-cantareira-photo-lightbox
+(() => {
+  const dialog = document.querySelector('#cantareira-photo-lightbox');
+  const open = document.querySelector('[data-open-cantareira-photo]');
+  const close = dialog?.querySelector('[data-close-cantareira-photo]');
+  if (!dialog || !open) return;
+
+  open.addEventListener('click', () => dialog.showModal());
+  close?.addEventListener('click', () => dialog.close());
+
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && dialog.open) dialog.close();
+  });
+})();
+
+
 // episode-two-smooth-section-navigation
 (() => {
   const triggers = [
