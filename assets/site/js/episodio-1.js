@@ -742,7 +742,6 @@ initData();
 
         caption.classList.remove('is-expanded');
         if (captionToggle) {
-          captionToggle.textContent = '…';
           captionToggle.setAttribute('aria-expanded', 'false');
           captionToggle.setAttribute('aria-label', 'Expandir legenda');
         }
@@ -758,7 +757,6 @@ initData();
   captionToggle?.addEventListener('click', () => {
     if (!caption) return;
     const expanded = caption.classList.toggle('is-expanded');
-    captionToggle.textContent = expanded ? '×' : '…';
     captionToggle.setAttribute('aria-expanded', String(expanded));
     captionToggle.setAttribute('aria-label', expanded ? 'Recolher legenda' : 'Expandir legenda');
   });
@@ -777,7 +775,6 @@ initData();
       caption.classList.remove('is-expanded');
     }
     if (captionToggle) {
-      captionToggle.textContent = '…';
       captionToggle.setAttribute('aria-expanded', 'false');
       captionToggle.setAttribute('aria-label', 'Expandir legenda');
     }
