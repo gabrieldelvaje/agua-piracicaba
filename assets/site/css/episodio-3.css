@@ -141,3 +141,90 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}body.ep3-modal-open{
     padding:11px 16px!important;
   }
 }
+
+
+/* 2026-10-01 — hero EP3 restaurado ao padrão visual dos EP1, EP2 e EP4 */
+.episode-page.episode-3 .episode-cover{
+  height:calc(100svh - 68px)!important;
+  min-height:calc(100svh - 68px)!important;
+  max-height:calc(100svh - 68px)!important;
+  padding:48px max(20px,calc((100vw - 1220px)/2)) 34px!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+}
+.episode-page.episode-3 .episode-cover h1{
+  max-width:900px!important;
+  margin:0 0 30px!important;
+  font-size:clamp(68px,7.4vw,118px)!important;
+  line-height:1!important;
+  letter-spacing:-.05em!important;
+}
+.episode-page.episode-3 .episode-cover .lead{
+  max-width:620px!important;
+  margin:0!important;
+  font-size:clamp(20px,1.7vw,25px)!important;
+  line-height:1.42!important;
+  letter-spacing:-.015em!important;
+}
+.episode-page.episode-3 .episode-scroll-cue{
+  margin-top:28px!important;
+  padding:12px 18px!important;
+  gap:0!important;
+}
+
+/* Em notebooks baixos, preserva o título e comprime primeiro os vazios. */
+@media (max-height:760px) and (min-width:901px){
+  .episode-page.episode-3 .episode-cover{
+    padding-top:18px!important;
+    padding-bottom:16px!important;
+  }
+  .episode-page.episode-3 .episode-cover h1{
+    margin-bottom:16px!important;
+    font-size:clamp(68px,7.1vw,96px)!important;
+    line-height:.98!important;
+  }
+  .episode-page.episode-3 .episode-cover .lead{
+    max-width:650px!important;
+    font-size:18px!important;
+    line-height:1.34!important;
+  }
+  .episode-page.episode-3 .episode-scroll-cue{
+    margin-top:14px!important;
+    padding:10px 16px!important;
+  }
+}
+
+/* Padrão responsivo igual aos demais episódios. */
+@media(max-width:900px){
+  .episode-page.episode-3 .episode-cover{
+    height:calc(100svh - 68px)!important;
+    min-height:calc(100svh - 68px)!important;
+    max-height:none!important;
+    padding:34px 14px 28px!important;
+  }
+  .episode-page.episode-3 .episode-cover h1{
+    max-width:760px!important;
+    margin-bottom:24px!important;
+    font-size:clamp(54px,13vw,88px)!important;
+    line-height:1.02!important;
+    letter-spacing:-.045em!important;
+  }
+  .episode-page.episode-3 .episode-cover .lead{
+    max-width:650px!important;
+    font-size:17px!important;
+    line-height:1.42!important;
+  }
+  .episode-page.episode-3 .episode-scroll-cue{
+    margin-top:24px!important;
+  }
+}
+@media(max-width:520px){
+  .episode-page.episode-3 .episode-cover h1{
+    font-size:12.6vw!important;
+    line-height:1.04!important;
+    letter-spacing:-.04em!important;
+  }
+  .episode-page.episode-3 .episode-cover .lead{
+    font-size:16px!important;
+  }
+}
