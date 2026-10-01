@@ -708,15 +708,42 @@ initData();
   const dialog = document.querySelector('#timeline-lightbox');
   const image = dialog?.querySelector('[data-timeline-lightbox-image]');
   const close = dialog?.querySelector('[data-close-timeline-lightbox]');
+  const caption = dialog?.querySelector('[data-timeline-lightbox-caption]');
+  const captionText = dialog?.querySelector('[data-timeline-lightbox-caption-text]');
+  const credit = dialog?.querySelector('[data-timeline-lightbox-credit]');
   if (!dialog || !image) return;
 
   document.querySelectorAll('[data-timeline-image]').forEach(button => {
     button.addEventListener('click', () => {
       const src = button.getAttribute('data-timeline-image');
       const thumb = button.querySelector('img');
+      const description = button.getAttribute('data-timeline-caption') || '';
+      const creditLabel = button.getAttribute('data-timeline-credit') || '';
+      const creditUrl = button.getAttribute('data-timeline-credit-url') || '';
       if (!src) return;
+
       image.src = src;
       image.alt = thumb?.alt || '';
+
+      if (caption && captionText && credit && (description || (creditLabel && creditUrl))) {
+        captionText.textContent = description;
+        captionText.hidden = !description;
+
+        if (creditLabel && creditUrl) {
+          credit.textContent = creditLabel;
+          credit.href = creditUrl;
+          credit.hidden = false;
+        } else {
+          credit.textContent = '';
+          credit.removeAttribute('href');
+          credit.hidden = true;
+        }
+
+        caption.hidden = false;
+      } else if (caption) {
+        caption.hidden = true;
+      }
+
       dialog.showModal();
     });
   });
@@ -730,6 +757,16 @@ initData();
   dialog.addEventListener('close', () => {
     image.removeAttribute('src');
     image.alt = '';
+    if (caption) caption.hidden = true;
+    if (captionText) {
+      captionText.textContent = '';
+      captionText.hidden = false;
+    }
+    if (credit) {
+      credit.textContent = '';
+      credit.removeAttribute('href');
+      credit.hidden = false;
+    }
   });
 })();
 
