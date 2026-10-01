@@ -2602,3 +2602,285 @@ body.episode-2{
     max-width:286px!important;
   }
 }
+
+
+/* 2026-10-01 — primeira foto histórica e lightbox da timeline do EP2 */
+.ep2-timeline{
+  height:850px!important;
+}
+
+.ep2-timeline-item{
+  height:850px!important;
+}
+
+.ep2-timeline-item::after,
+.ep2-timeline-item::before,
+.ep2-timeline-nav,
+.ep2-timeline-carousel::before,
+.ep2-timeline-carousel::after{
+  top:425px!important;
+}
+
+.ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+  bottom:453px!important;
+}
+
+.ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+  top:453px!important;
+}
+
+.ep2-timeline-image-button{
+  display:block;
+  width:100%;
+  padding:0;
+  border:0;
+  border-radius:10px;
+  background:transparent;
+  overflow:hidden;
+  cursor:zoom-in;
+}
+
+.ep2-timeline-image-button img{
+  display:block;
+  width:100%;
+  height:104px;
+  object-fit:cover;
+  transition:transform .22s ease;
+}
+
+.ep2-timeline-image-button:hover img,
+.ep2-timeline-image-button:focus-visible img{
+  transform:scale(1.025);
+}
+
+.ep2-timeline-lightbox{
+  width:min(92vw,1100px);
+  max-width:none;
+  max-height:90vh;
+  padding:0;
+  border:0;
+  border-radius:18px;
+  background:#111;
+  overflow:hidden;
+  box-shadow:0 30px 90px rgba(0,0,0,.38);
+}
+
+.ep2-timeline-lightbox::backdrop{
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+
+.ep2-timeline-lightbox-stage{
+  position:relative;
+  width:100%;
+  min-height:0;
+  background:#111;
+}
+
+.ep2-timeline-lightbox-image{
+  display:block;
+  width:100%;
+  max-height:90vh;
+  object-fit:contain;
+  background:#111;
+}
+
+.ep2-timeline-lightbox-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  z-index:3;
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+  text-shadow:0 2px 12px rgba(0,0,0,.85);
+  opacity:.9;
+}
+
+.ep2-timeline-lightbox-close:hover,
+.ep2-timeline-lightbox-close:focus-visible{
+  opacity:1;
+}
+
+.ep2-timeline-lightbox-caption{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:1;
+  padding:92px clamp(22px,4vw,48px) clamp(22px,3vw,34px);
+  color:#fff;
+  background:linear-gradient(
+    to bottom,
+    rgba(17,17,17,0) 0%,
+    rgba(17,17,17,.24) 24%,
+    rgba(17,17,17,.72) 64%,
+    rgba(17,17,17,.94) 100%
+  );
+  text-shadow:0 2px 14px rgba(0,0,0,.78);
+  pointer-events:none;
+}
+
+.ep2-timeline-lightbox-caption[hidden]{
+  display:none!important;
+}
+
+.ep2-timeline-lightbox-caption-copy{
+  display:flex;
+  align-items:flex-end;
+  gap:10px;
+  min-width:0;
+}
+
+.ep2-timeline-lightbox-caption p{
+  flex:1 1 auto;
+  min-width:0;
+  max-width:760px;
+  margin:0;
+  font-size:clamp(14px,1.5vw,18px);
+  line-height:1.42;
+  letter-spacing:-.01em;
+}
+
+.ep2-timeline-lightbox-caption:not(.is-expanded) p{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+
+.ep2-timeline-lightbox-caption.is-expanded p{
+  display:block;
+  overflow:visible;
+}
+
+.ep2-timeline-lightbox-caption-toggle{
+  position:relative;
+  flex:0 0 auto;
+  display:inline-grid;
+  place-items:center;
+  width:30px;
+  height:24px;
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  pointer-events:auto;
+  text-shadow:0 2px 12px rgba(0,0,0,.85);
+}
+
+.ep2-timeline-lightbox-caption-toggle::before{
+  content:"";
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:7px 0 0 currentColor,14px 0 0 currentColor;
+  transform:translateX(-7px);
+}
+
+.ep2-timeline-lightbox-caption.is-expanded .ep2-timeline-lightbox-caption-copy{
+  align-items:flex-start;
+}
+
+.ep2-timeline-lightbox-caption.is-expanded .ep2-timeline-lightbox-caption-toggle::before{
+  content:"×";
+  width:auto;
+  height:auto;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  transform:none;
+  font:400 22px/1 Helvetica,Arial,sans-serif;
+}
+
+.ep2-timeline-lightbox-caption > a{
+  display:inline-flex;
+  align-items:center;
+  margin-top:10px;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:.04em;
+  text-decoration:none;
+  pointer-events:auto;
+  opacity:.86;
+}
+
+.ep2-timeline-lightbox-caption > a::after{
+  content:" ↗︎";
+}
+
+.ep2-timeline-lightbox-caption > a:hover,
+.ep2-timeline-lightbox-caption > a:focus-visible{
+  opacity:1;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+@media(max-width:900px){
+  .ep2-timeline,
+  .ep2-timeline-item{
+    height:850px!important;
+  }
+
+  .ep2-timeline-item::after,
+  .ep2-timeline-item::before,
+  .ep2-timeline-nav,
+  .ep2-timeline-carousel::before,
+  .ep2-timeline-carousel::after{
+    top:425px!important;
+  }
+
+  .ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+    bottom:453px!important;
+  }
+
+  .ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+    top:453px!important;
+  }
+}
+
+@media(max-width:700px){
+  .ep2-timeline-lightbox{
+    width:94vw;
+    border-radius:14px;
+  }
+
+  .ep2-timeline-lightbox-caption{
+    padding:54px 18px 16px;
+  }
+
+  .ep2-timeline-lightbox-caption-copy{
+    gap:8px;
+  }
+
+  .ep2-timeline-lightbox-caption p{
+    font-size:13px;
+    line-height:1.4;
+  }
+
+  .ep2-timeline-lightbox-caption:not(.is-expanded) p{
+    -webkit-line-clamp:1;
+  }
+
+  .ep2-timeline-lightbox-caption:not(.is-expanded) > a{
+    display:none;
+  }
+
+  .ep2-timeline-lightbox-caption.is-expanded > a{
+    display:inline-flex;
+  }
+}
