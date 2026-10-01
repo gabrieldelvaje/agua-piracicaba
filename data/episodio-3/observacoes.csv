@@ -1,0 +1,11 @@
+indicador,periodo,valor,unidade,fonte,localizador,observacao
+chuva_jan_ago,2023,1177.2,mm,CHUVA,primeiro paragrafo,pluviometro Defesa Civil bairro Paulista
+chuva_jan_ago,2024,516.9,mm,CHUVA,primeiro paragrafo,mesma janela e estacao; nao media da bacia
+vazao_rio_corumbatai,2024-09-27,1.63,m3/s,CHUVA,Abastecimento,posto e intervalo de agregacao nao explicitados
+vazao_referencia_corumbatai,setembro,3.67,m3/s,CHUVA,Abastecimento,periodo-base da referencia nao explicitado
+captacao_corumbatai,2024-09-27,1453,L/s,CHUVA,Abastecimento,retrato operacional
+captacao_referencia_corumbatai,setembro,1500,L/s,CHUVA,Abastecimento,referencia operacional do comunicado
+capacidade_eta_iii,antes da ampliacao de 2026,1500,L/s,AMPLIACAO,paragrafo capacidade,capacidade anunciada
+capacidade_eta_iii,entrega 2026-08-28,2000,L/s,AMPLIACAO,paragrafo capacidade,ate este valor; nao producao medida
+participacao_corumbatai,2006-05-16,90,%,COBRANCA,declaracao presidente,captacao; estimativa pontual
+participacao_corumbatai,2024-09-17,80,%,SECA,paragrafo final,abastecimento; estimativa pontual

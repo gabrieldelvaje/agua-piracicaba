@@ -1,0 +1,42 @@
+{
+  "producao_total_2022_m3": 70719256,
+  "producao_por_eta": [
+    {
+      "unidade": "ETA Anhumas",
+      "volume_m3": 129911,
+      "participacao_pct": 0.18
+    },
+    {
+      "unidade": "ETA Ibitiruna",
+      "volume_m3": 5377,
+      "participacao_pct": 0.01
+    },
+    {
+      "unidade": "ETA I",
+      "volume_m3": 14707657,
+      "participacao_pct": 20.8
+    },
+    {
+      "unidade": "ETA II",
+      "volume_m3": 9640944,
+      "participacao_pct": 13.63
+    },
+    {
+      "unidade": "ETA III",
+      "volume_m3": 46235367,
+      "participacao_pct": 65.38
+    }
+  ],
+  "chuva_jan_ago_mm": {
+    "2023": 1177.2,
+    "2024": 516.9
+  },
+  "chuva_reducao_pct": 56.09,
+  "capacidade_ampliacao_pct": 33.33,
+  "capacidade_adicional_milhoes_l_dia": 43.2,
+  "aducao_sobre_capacidade_pct": {
+    "ETA I": 93.44,
+    "ETA II": 87.46,
+    "ETA III": 97.91
+  }
+}

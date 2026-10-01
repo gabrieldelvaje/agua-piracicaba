@@ -1,0 +1,83 @@
+[
+  {
+    "id": "PMSB",
+    "titulo": "PMSB · caracterização do abastecimento",
+    "url": "https://piracicaba.sp.gov.br/wp-content/uploads/2026/03/suplementar1-cap4.pdf",
+    "data": "Publicado em março de 2026; diagnóstico com referências a 2010, 2022 e 2023",
+    "localizador": "PDF pp. 29, 34, 61, 72–74, 103–104; impressas 20, 25, 52, 63–65, 94–95",
+    "uso": "Qualidade relativa; entrada da ETA III em 1982; tentativa de 2000; mistura de águas; tabelas 14 e 16.",
+    "acesso": "2026-10-01"
+  },
+  {
+    "id": "CAMARA",
+    "titulo": "Câmara · origem do Projeto Corumbataí",
+    "url": "https://www.camarapiracicaba.sp.gov.br/projeto-corumbatai-surgiu-no-primeiro-mandato-de-adilson-maluf-23268",
+    "data": "Retrospectiva de 2014",
+    "localizador": "Parágrafos sobre 1973, 1979 e maio de 1982; seção Extensão",
+    "uso": "Cronologia e referência indireta ao Jornal de Piracicaba de 31/05/1974. Não adotar a opinião incorreta de que o Corumbataí estaria fora das bacias PCJ.",
+    "acesso": "2026-10-01"
+  },
+  {
+    "id": "USP",
+    "titulo": "Laura Alves Martirani · pesquisa documental",
+    "url": "https://teses.usp.br/teses/disponiveis/livredocencia/11/tde-15072014-152922/publico/TESE_LIVRE-DOCENCIA_Laura_A_Martirani.pdf",
+    "data": "2013; disponibilização digital em 2014",
+    "localizador": "PDF pp. 74–75; impressas 71–72; figuras 30 e 32–34",
+    "uso": "Identifica jornais de 1978, 1979 e 2000; consulta mediada pela tese, não aos exemplares completos.",
+    "acesso": "2026-10-01"
+  },
+  {
+    "id": "COBRANCA",
+    "titulo": "Prefeitura · cobrança e proteção do Corumbataí",
+    "url": "https://piracicaba.sp.gov.br/noticias/consorcio-e-semae-apresentam-balanco-sobre-cobranca-da-agua-no-corumbatai/",
+    "data": "16/05/2006",
+    "localizador": "Declaração do presidente do Semae e histórico da contribuição",
+    "uso": "90% de captação no Corumbataí naquele momento; contribuição iniciada em outubro de 1999.",
+    "acesso": "2026-10-01"
+  },
+  {
+    "id": "SECA",
+    "titulo": "Semae · mananciais durante a estiagem",
+    "url": "https://semaepiracicaba.sp.gov.br/?id=MTM4OTY%3D&p=bm90aWNpYV9jb21wbGV0YQ%3D%3D",
+    "data": "17/09/2024",
+    "localizador": "Parágrafo final antes da imagem",
+    "uso": "80% Corumbataí e 20% Piracicaba; estimativas de comunicação institucional, não série anual.",
+    "acesso": "2026-10-01"
+  },
+  {
+    "id": "CHUVA",
+    "titulo": "Prefeitura · chuva e captação em setembro de 2024",
+    "url": "https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/",
+    "data": "27/09/2024",
+    "localizador": "Primeiros parágrafos e seção Abastecimento",
+    "uso": "Chuva jan–ago 2023/2024; vazão e captação em 27/09/2024; pluviômetro da Defesa Civil, bairro Paulista.",
+    "acesso": "2026-10-01"
+  },
+  {
+    "id": "AMPLIACAO",
+    "titulo": "Consórcio PCJ · entrega da ampliação de Capim Fino",
+    "url": "https://agua.org.br/noticias/piracicaba-reforca-sistema-de-abastecimento-com-ampliacao-da-eta-capim-fino-e-novas-adutoras/",
+    "data": "28/08/2026",
+    "localizador": "Título, data e parágrafos iniciais",
+    "uso": "Capacidade anunciada de 1.500 para até 2.000 L/s e entrega de adutoras; não equivale à produção medida.",
+    "acesso": "2026-10-01"
+  },
+  {
+    "id": "JP2024",
+    "titulo": "Jornal de Piracicaba · debate sobre outro manancial",
+    "url": "https://sampi.net.br/piracicaba/noticias/2812788/cidade/2024/01/rio-tiete-pode-se-tornar-opcao-como-nova-fonte-de-captacao-de-agua-para-o-municipio",
+    "data": "28/01/2024 · André Thieful",
+    "localizador": "Abertura e proposta de captação no Tietê",
+    "uso": "Notícia sobre interrupção e proposta em estudo, não obra aprovada ou em operação.",
+    "acesso": "2026-10-01"
+  },
+  {
+    "id": "ESTADAO1979",
+    "titulo": "O Estado de S. Paulo · mobilização e projeto Corumbataí",
+    "url": "jornais/Estadão 08-08-1979 p24.jpg",
+    "data": "08/08/1979",
+    "localizador": "Página impressa 30, reportagem central, terceira coluna; o nome do arquivo indica p24",
+    "uso": "Documento primário fornecido no repositório. Registra o Corumbataí como projeto e a cobrança pela recuperação do Piracicaba. Página conferida visualmente.",
+    "acesso": "2026-10-01"
+  }
+]
