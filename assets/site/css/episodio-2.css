@@ -4536,3 +4536,245 @@ body.episode-2{
   border:0!important;
   box-shadow:none!important;
 }
+
+
+/* 2026-10-01 — fechamento do EP2 alinhado ao EP1 */
+.ep2-newspapers{
+  background:#F3F3F1!important;
+  color:#231F20!important;
+  box-shadow:0 0 0 100vmax #F3F3F1!important;
+  clip-path:inset(0 -100vmax)!important;
+}
+.ep2-newspapers .eyebrow{color:#0736FE!important;}
+.ep2-newspapers .section-title,
+.ep2-newspapers .newspaper-quote{color:#231F20!important;}
+.ep2-newspapers .newspaper-quote em{color:#0736FE!important;}
+.ep2-newspapers .newspaper-meta,
+.ep2-newspapers .newspaper-selection-note{color:#686565!important;}
+.ep2-newspapers .section-copy{color:#686565!important;}
+.ep2-newspapers .warning-label{
+  background:#0736FE!important;
+  color:#fff!important;
+}
+.ep2-newspapers .newspaper-featured-card{
+  background:#231F20!important;
+  color:#fff!important;
+}
+.ep2-newspapers .newspaper-featured-card > span{color:#9AADFF!important;}
+.ep2-newspapers .newspaper-featured-card > small{color:rgba(255,255,255,.68)!important;}
+.ep2-newspapers .newspaper-source-link{color:#fff!important;}
+
+.ep2-legacy{
+  background:#231F20!important;
+  color:#fff!important;
+  box-shadow:0 0 0 100vmax #231F20!important;
+  clip-path:inset(0 -100vmax)!important;
+}
+.ep2-legacy .eyebrow{color:#9AADFF!important;}
+.ep2-legacy .section-title{color:#fff!important;}
+.ep2-legacy .section-copy{color:rgba(255,255,255,.68)!important;}
+.ep2-legacy .text-link{color:#fff!important;}
+.ep2-legacy .decree-card{
+  background:#F3F3F1!important;
+  color:#231F20!important;
+}
+.ep2-legacy .decree-card span{color:#686565!important;}
+
+.ep2-sources.sources-section{
+  padding:130px 0!important;
+  background:#F3F3F1!important;
+  color:#231F20!important;
+  text-align:center;
+  box-shadow:0 0 0 100vmax #F3F3F1!important;
+  clip-path:inset(0 -100vmax)!important;
+}
+.sources-section > h2{
+  margin:0 auto 34px;
+}
+.sources-copy{
+  max-width:860px;
+  margin:0 auto;
+}
+.sources-copy p{
+  margin:0 auto 18px;
+  color:#686565;
+  font-size:18px;
+  line-height:1.55;
+}
+.source-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.source-links-centered{
+  justify-content:center!important;
+  max-width:900px;
+  margin:38px auto 0!important;
+}
+.source-links-centered a,
+.source-links-centered button{
+  appearance:none;
+  border:0!important;
+  border-radius:999px!important;
+  background:#DEDED9!important;
+  color:#231F20!important;
+  padding:11px 15px!important;
+  font:inherit;
+  font-size:13px!important;
+  line-height:1.2;
+  text-decoration:none!important;
+  cursor:pointer;
+  transition:background .18s ease,transform .18s ease;
+}
+.source-links-centered a:hover,
+.source-links-centered button:hover{
+  background:#D2D2CC!important;
+  transform:translateY(-1px);
+}
+
+.site-footer{
+  position:relative;
+  z-index:3;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  border-top:1px solid #D8D8D3;
+  padding:25px 0 45px;
+  background:#F3F3F1;
+  color:#686565;
+  font-size:12px;
+}
+
+.data-table-dialog{
+  width:min(1040px,calc(100vw - 32px));
+  max-width:none;
+  max-height:min(86vh,820px);
+  padding:0;
+  border:0;
+  border-radius:24px;
+  background:#F3F3F1;
+  color:#231F20;
+  box-shadow:0 30px 90px rgba(0,0,0,.28);
+  overflow:hidden;
+}
+.data-table-dialog::backdrop{
+  background:rgba(0,0,0,.52);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.dialog-close{
+  position:absolute;
+  right:20px;
+  top:18px;
+  border:0;
+  background:transparent;
+  color:#231F20;
+  font-size:30px;
+  line-height:1;
+  cursor:pointer;
+}
+.data-table-close{z-index:2;}
+.data-table-dialog-head{
+  padding:32px 64px 22px 28px;
+  border-bottom:1px solid #D8D8D3;
+}
+.data-table-dialog-head h2{
+  margin:0 0 9px;
+  font-size:clamp(30px,4vw,52px);
+  line-height:1;
+  letter-spacing:-.045em;
+}
+.data-table-dialog-head p:last-child{
+  margin:0;
+  color:#686565;
+  font-size:13px;
+}
+.data-table-scroll{
+  max-height:calc(min(86vh,820px) - 145px);
+  overflow:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
+.info-dialog{
+  width:min(820px,calc(100vw - 32px))!important;
+}
+.info-dialog-scroll{
+  padding:0 28px 24px!important;
+}
+.info-dialog-content{
+  padding:20px 0 0;
+  text-align:left;
+}
+.info-dialog-content section{
+  padding:20px 0;
+  border-bottom:1px solid #D8D8D3;
+}
+.info-dialog-content section:first-child{padding-top:4px;}
+.info-dialog-content section:last-child{border-bottom:0;}
+.info-dialog-content h3{
+  margin:0 0 10px;
+  font-size:20px;
+  letter-spacing:-.025em;
+}
+.info-dialog-content p{
+  margin:0;
+  color:#686565;
+  line-height:1.55;
+}
+.source-directory a,
+.info-source-static{
+  display:grid;
+  grid-template-columns:minmax(180px,.42fr) 1fr;
+  gap:22px;
+  padding:14px 0;
+  border-top:1px solid #D8D8D3;
+  color:#231F20;
+  text-decoration:none;
+}
+.source-directory a strong,
+.info-source-static strong{font-size:14px;}
+.source-directory a span,
+.info-source-static span{
+  color:#686565;
+  font-size:13px;
+  line-height:1.4;
+}
+.source-directory a:hover strong{
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+html.info-dialog-open,
+body.info-dialog-open{
+  overflow:hidden!important;
+}
+
+@media(max-width:900px){
+  .ep2-sources.sources-section{padding:90px 0!important;}
+  .site-footer{flex-direction:column;gap:8px;}
+}
+@media(max-width:520px){
+  .sources-section{text-align:left;}
+  .sources-section > h2{margin-bottom:26px;}
+  .sources-copy p{font-size:16px;}
+  .source-links-centered{
+    justify-content:flex-start!important;
+    margin-top:30px!important;
+  }
+  .source-links-centered a,
+  .source-links-centered button{font-size:12px!important;}
+  .info-dialog-scroll{padding:0 18px 18px!important;}
+  .source-directory a,
+  .info-source-static{
+    grid-template-columns:1fr;
+    gap:5px;
+  }
+  .data-table-dialog{
+    width:calc(100vw - 20px);
+    max-height:88vh;
+    border-radius:20px;
+  }
+  .data-table-dialog-head{padding:24px 52px 18px 18px;}
+  .data-table-dialog-head h2{font-size:30px;}
+  .data-table-scroll{max-height:calc(88vh - 132px);}
+  .site-footer{padding-bottom:35px;}
+}
