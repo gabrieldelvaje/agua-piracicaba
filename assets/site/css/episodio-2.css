@@ -4405,3 +4405,9 @@ body.episode-2{
     font-size:clamp(40px,11vw,58px);
   }
 }
+
+
+/* 2026-10-01 — fundo próprio para a seção do Sistema Cantareira */
+.ep2-cantareira-system{
+  background:#ECEFF8!important;
+}
