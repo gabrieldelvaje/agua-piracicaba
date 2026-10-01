@@ -321,3 +321,20 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}body.ep3-modal-open{
     font-size:16px!important;
   }
 }
+
+
+/* 2026-10-01 — reduz apenas os espaçamentos verticais do hero do EP3 */
+.episode-page.episode-3 .episode-cover h1{
+  margin-bottom:22px!important;
+}
+.episode-page.episode-3 .episode-scroll-cue{
+  margin-top:20px!important;
+}
+@media(max-width:900px){
+  .episode-page.episode-3 .episode-cover h1{
+    margin-bottom:18px!important;
+  }
+  .episode-page.episode-3 .episode-scroll-cue{
+    margin-top:18px!important;
+  }
+}
