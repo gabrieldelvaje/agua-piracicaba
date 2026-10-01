@@ -72,6 +72,12 @@ body.episode-2{
   color:var(--ep2-blue);
   text-decoration:none;
 }
+.episode-2 .ep2-data .source-note a{
+  color:inherit;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+}
 .episode-2 .text-link{
   display:inline-flex;
   margin-top:16px;
@@ -517,8 +523,8 @@ body.episode-2{
   gap:10px;
 }
 .data-card{
-  padding:28px;
-  min-height:250px;
+  padding:22px 24px;
+  min-height:205px;
   border-radius:24px;
   background:#fff;
 }
@@ -528,7 +534,7 @@ body.episode-2{
 }
 .data-card strong{
   display:block;
-  margin-top:40px;
+  margin-top:26px;
   font-size:clamp(58px,7vw,92px);
   line-height:.86;
   letter-spacing:-.07em;
