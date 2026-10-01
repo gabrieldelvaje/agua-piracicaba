@@ -4855,13 +4855,76 @@ main,
 }
 
 
-/* 2026-10-01 — legenda compacta expansível no mobile */
+/* 2026-10-01 — legenda expansível: 2 linhas desktop, 1 linha mobile */
 .timeline-lightbox-caption-copy{
+  display:flex;
+  align-items:flex-end;
+  gap:10px;
+  min-width:0;
+}
+
+.timeline-lightbox-caption p{
+  flex:1 1 auto;
+  min-width:0;
+  margin:0;
+}
+
+.timeline-lightbox-caption:not(.is-expanded) p{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+
+.timeline-lightbox-caption.is-expanded p{
   display:block;
+  overflow:visible;
 }
 
 .timeline-lightbox-caption-toggle{
-  display:none;
+  position:relative;
+  flex:0 0 auto;
+  display:inline-grid;
+  place-items:center;
+  width:30px;
+  height:24px;
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  pointer-events:auto;
+  text-shadow:0 2px 12px rgba(0,0,0,.85);
+}
+
+.timeline-lightbox-caption-toggle::before{
+  content:"";
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:7px 0 0 currentColor,14px 0 0 currentColor;
+  transform:translateX(-7px);
+}
+
+.timeline-lightbox-caption.is-expanded .timeline-lightbox-caption-copy{
+  align-items:flex-start;
+}
+
+.timeline-lightbox-caption.is-expanded .timeline-lightbox-caption-toggle::before{
+  content:"×";
+  width:auto;
+  height:auto;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  transform:none;
+  font:400 22px/1 Helvetica,Arial,sans-serif;
+}
+
+.timeline-lightbox-caption > a{
+  margin-top:10px;
 }
 
 @media(max-width:700px){
@@ -4870,50 +4933,11 @@ main,
   }
 
   .timeline-lightbox-caption-copy{
-    display:flex;
-    align-items:flex-end;
     gap:8px;
-    min-width:0;
-  }
-
-  .timeline-lightbox-caption p{
-    flex:1 1 auto;
-    min-width:0;
-    margin:0;
   }
 
   .timeline-lightbox-caption:not(.is-expanded) p{
-    overflow:hidden;
-    white-space:nowrap;
-    text-overflow:clip;
-  }
-
-  .timeline-lightbox-caption-toggle{
-    flex:0 0 auto;
-    display:inline-grid;
-    place-items:center;
-    min-width:28px;
-    height:24px;
-    margin:0;
-    padding:0 3px 4px;
-    border:0;
-    background:transparent;
-    color:#fff;
-    font:700 22px/1 Helvetica,Arial,sans-serif;
-    letter-spacing:.04em;
-    cursor:pointer;
-    pointer-events:auto;
-    text-shadow:0 2px 12px rgba(0,0,0,.85);
-  }
-
-  .timeline-lightbox-caption.is-expanded .timeline-lightbox-caption-copy{
-    align-items:flex-start;
-  }
-
-  .timeline-lightbox-caption.is-expanded .timeline-lightbox-caption-toggle{
-    padding-bottom:0;
-    font-size:22px;
-    line-height:1;
+    -webkit-line-clamp:1;
   }
 
   .timeline-lightbox-caption:not(.is-expanded) > a{
@@ -4921,6 +4945,6 @@ main,
   }
 
   .timeline-lightbox-caption.is-expanded > a{
-    margin-top:10px;
+    display:inline-flex;
   }
 }
