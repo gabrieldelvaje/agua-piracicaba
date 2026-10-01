@@ -2437,3 +2437,43 @@ body.episode-2{
     font-size:13px!important;
   }
 }
+
+
+/* 2026-09-30 — retorno discreto no desktop do EP2 */
+@media(min-width:851px){
+  .episode-2 .site-header .back-episodes{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-height:40px!important;
+    padding:9px 15px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    color:#231F20!important;
+    font-size:14px!important;
+    font-weight:400!important;
+    line-height:1!important;
+    text-decoration:none!important;
+    white-space:nowrap!important;
+    transform:none!important;
+  }
+
+  .episode-2 .site-header .back-episodes::before{
+    display:none!important;
+    content:none!important;
+  }
+
+  .episode-2 .site-header .back-episodes:hover,
+  .episode-2 .site-header .back-episodes:focus-visible{
+    background:transparent!important;
+    border-color:transparent!important;
+    color:#0736FE!important;
+    transform:none!important;
+  }
+
+  .episode-2 .site-header .back-episodes:active{
+    transform:translateY(1px)!important;
+  }
+}
