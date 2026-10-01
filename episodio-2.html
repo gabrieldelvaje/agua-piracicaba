@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />
   <link rel="preload" as="image" href="assets/site/episodes/episodio-2-peixes-mortos.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="assets/site/css/series.css?v=20260929-2305" />
-  <link rel="stylesheet" href="assets/site/css/episodio-2.css?v=20261001-1428" />
+  <link rel="stylesheet" href="assets/site/css/episodio-2.css?v=20261001-1450" />
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20260929-2240" />
 </head>
 <body class="episode-page episode-2">
@@ -199,27 +199,21 @@
 
     <section class="ep2-cantareira" id="cantareira">
       <div class="ep2-shell">
-        <div class="cantareira-intro">
-          <div>
-            <p class="eyebrow">A disputa pela água</p>
-            <h2 class="section-title">Por que São Paulo precisava da água da bacia do Piracicaba?</h2>
-          </div>
-        </div>
-
         <div class="cantareira-context-grid">
-          <figure class="cantareira-photo">
-            <div class="cantareira-photo-frame">
-              <img src="copan.jpg" alt="Vista aérea da região central de São Paulo em 1964, com o Edifício Copan em construção" loading="lazy" decoding="async">
-            </div>
-            <figcaption>São Paulo, 1964. Edifício Copan em construção. <a href="https://www.tumblr.com/saopauloantiga/79811192924160000" target="_blank" rel="noreferrer">São Paulo Antiga · Tumblr ↗︎</a></figcaption>
-          </figure>
-
           <div class="cantareira-context-copy">
-            <span class="cantareira-context-kicker">Região Metropolitana de São Paulo</span>
-            <h3>Uma metrópole crescendo mais rápido que seus mananciais.</h3>
+            <h2 class="section-title">Por que São Paulo precisava da água da bacia do Piracicaba?</h2>
             <p>A Região Metropolitana de São Paulo cresceu em ritmo acelerado, enquanto a disponibilidade de água dentro da bacia do Alto Tietê era limitada. O Sistema Cantareira foi construído para buscar água em cabeceiras vizinhas e ampliar a oferta para a metrópole.</p>
             <p>Não existe um cano retirando água da Rua do Porto. A transferência acontece nas cabeceiras, antes de parte dessa água continuar descendo naturalmente pela bacia do Piracicaba.</p>
           </div>
+
+          <figure class="cantareira-photo">
+            <button class="cantareira-photo-button" type="button" data-open-cantareira-photo aria-label="Ampliar fotografia aérea de São Paulo em 1964">
+              <span class="cantareira-photo-frame">
+                <img src="copan.jpg" alt="Vista aérea da região central de São Paulo em 1964, com o Edifício Copan em construção" loading="lazy" decoding="async">
+              </span>
+            </button>
+            <figcaption>São Paulo, 1964. Edifício Copan em construção. <a href="https://www.tumblr.com/saopauloantiga/79811192924160000" target="_blank" rel="noreferrer">São Paulo Antiga · Tumblr ↗︎</a></figcaption>
+          </figure>
         </div>
 
         <div class="cantareira-stats" aria-label="Composição aproximada da vazão do Sistema Cantareira em condição normal">
@@ -522,6 +516,22 @@
     <img class="protest-lightbox-image" data-protest-lightbox-image alt="" />
   </dialog>
 
+  <dialog class="cantareira-photo-lightbox" id="cantareira-photo-lightbox" aria-label="Fotografia aérea de São Paulo em 1964">
+    <div class="cantareira-photo-lightbox-grid">
+      <button class="cantareira-photo-lightbox-close" type="button" data-close-cantareira-photo aria-label="Fechar imagem">×</button>
+      <div class="cantareira-photo-lightbox-image-wrap">
+        <img src="copan.jpg" alt="Vista aérea da região central de São Paulo em 1964, com o Edifício Copan em construção">
+      </div>
+      <aside class="cantareira-photo-lightbox-copy">
+        <small>São Paulo · 1964</small>
+        <h3>O Copan no meio de uma cidade que crescia para cima.</h3>
+        <p>Em 1964, o Edifício Copan ainda estava em construção em uma região central já marcada pela verticalização. Projetado por Oscar Niemeyer, o edifício se tornaria um dos símbolos da modernização de São Paulo.</p>
+        <p>A imagem ajuda a dimensionar a escala da metrópole que se expandia rapidamente: mais moradores, mais edifícios e mais infraestrutura também significavam uma demanda crescente por água. Esse crescimento ajuda a entender por que São Paulo buscou reforço hídrico em bacias vizinhas, entre elas a do Piracicaba.</p>
+        <a href="https://www.tumblr.com/saopauloantiga/79811192924160000" target="_blank" rel="noreferrer">Fonte: São Paulo Antiga · Tumblr ↗︎</a>
+      </aside>
+    </div>
+  </dialog>
+
   <dialog class="ep2-timeline-lightbox" id="ep2-timeline-lightbox" aria-label="Imagem ampliada da linha do tempo">
     <div class="ep2-timeline-lightbox-stage">
       <button class="ep2-timeline-lightbox-close" type="button" data-close-ep2-timeline-lightbox aria-label="Fechar imagem">×</button>
@@ -543,7 +553,7 @@
 
   <button class="back-to-top" type="button" data-back-to-top aria-label="Voltar ao topo"></button>
 
-  <script src="assets/site/js/episodio-2.js?v=20261001-0955"></script>
+  <script src="assets/site/js/episodio-2.js?v=20261001-1450"></script>
   <script src="assets/site/js/page-transition.js?v=20260929-1008"></script>
 </body>
 </html>
