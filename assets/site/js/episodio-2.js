@@ -425,3 +425,39 @@
   media.addEventListener?.('change', updateVisibility);
   updateVisibility();
 })();
+
+
+
+// episode-two-info-dialogs
+(() => {
+  const triggers = document.querySelectorAll('[data-open-info-dialog]');
+  const dialogs = document.querySelectorAll('.info-dialog');
+  if (!triggers.length || !dialogs.length) return;
+
+  const lock = () => {
+    document.documentElement.classList.add('info-dialog-open');
+    document.body.classList.add('info-dialog-open');
+  };
+  const unlock = () => {
+    document.documentElement.classList.remove('info-dialog-open');
+    document.body.classList.remove('info-dialog-open');
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const id = trigger.getAttribute('data-open-info-dialog');
+      const dialog = document.getElementById(id);
+      if (!dialog) return;
+      lock();
+      dialog.showModal();
+    });
+  });
+
+  dialogs.forEach(dialog => {
+    dialog.querySelector('[data-close-info-dialog]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('close', unlock);
+  });
+})();
