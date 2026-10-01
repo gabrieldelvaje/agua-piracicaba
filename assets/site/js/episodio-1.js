@@ -711,6 +711,7 @@ initData();
   const caption = dialog?.querySelector('[data-timeline-lightbox-caption]');
   const captionText = dialog?.querySelector('[data-timeline-lightbox-caption-text]');
   const credit = dialog?.querySelector('[data-timeline-lightbox-credit]');
+  const captionToggle = dialog?.querySelector('[data-timeline-lightbox-caption-toggle]');
   if (!dialog || !image) return;
 
   document.querySelectorAll('[data-timeline-image]').forEach(button => {
@@ -739,6 +740,12 @@ initData();
           credit.hidden = true;
         }
 
+        caption.classList.remove('is-expanded');
+        if (captionToggle) {
+          captionToggle.textContent = '…';
+          captionToggle.setAttribute('aria-expanded', 'false');
+          captionToggle.setAttribute('aria-label', 'Expandir legenda');
+        }
         caption.hidden = false;
       } else if (caption) {
         caption.hidden = true;
@@ -746,6 +753,14 @@ initData();
 
       dialog.showModal();
     });
+  });
+
+  captionToggle?.addEventListener('click', () => {
+    if (!caption) return;
+    const expanded = caption.classList.toggle('is-expanded');
+    captionToggle.textContent = expanded ? '×' : '…';
+    captionToggle.setAttribute('aria-expanded', String(expanded));
+    captionToggle.setAttribute('aria-label', expanded ? 'Recolher legenda' : 'Expandir legenda');
   });
 
   close?.addEventListener('click', () => dialog.close());
@@ -757,7 +772,15 @@ initData();
   dialog.addEventListener('close', () => {
     image.removeAttribute('src');
     image.alt = '';
-    if (caption) caption.hidden = true;
+    if (caption) {
+      caption.hidden = true;
+      caption.classList.remove('is-expanded');
+    }
+    if (captionToggle) {
+      captionToggle.textContent = '…';
+      captionToggle.setAttribute('aria-expanded', 'false');
+      captionToggle.setAttribute('aria-label', 'Expandir legenda');
+    }
     if (captionText) {
       captionText.textContent = '';
       captionText.hidden = false;
