@@ -4411,3 +4411,60 @@ body.episode-2{
 .ep2-cantareira-system{
   background:#F3F3F1!important;
 }
+
+
+/* 2026-10-01 — seção Cantareira em azul oficial */
+.ep2-cantareira-system{
+  background:#0736FE!important;
+  color:#fff!important;
+  border-top:0!important;
+}
+
+.ep2-cantareira-system .cantareira-system-head .section-title{
+  color:#fff!important;
+}
+
+.ep2-cantareira-system .cantareira-stats article{
+  background:#F3F3F1!important;
+  color:#231F20!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+
+.ep2-cantareira-system .cantareira-stats article span,
+.ep2-cantareira-system .cantareira-stats article small{
+  color:#686565!important;
+}
+
+.ep2-cantareira-system .cantareira-stats article strong{
+  color:#231F20!important;
+}
+
+.ep2-cantareira-system .cantareira-stats article.is-piracicaba{
+  background:#231F20!important;
+  color:#fff!important;
+}
+
+.ep2-cantareira-system .cantareira-stats article.is-piracicaba span,
+.ep2-cantareira-system .cantareira-stats article.is-piracicaba small,
+.ep2-cantareira-system .cantareira-stats article.is-piracicaba strong,
+.ep2-cantareira-system .cantareira-card-emphasis{
+  color:#fff!important;
+}
+
+.ep2-cantareira-system .cantareira-share-summary,
+.ep2-cantareira-system .cantareira-share-summary strong{
+  color:#fff!important;
+}
+
+.ep2-cantareira-system .cantareira-source{
+  color:rgba(255,255,255,.72)!important;
+}
+
+.ep2-cantareira-system .cantareira-source a{
+  color:#fff!important;
+}
+
+.ep2-cantareira-system .cantareira-source .source-action-label{
+  border-bottom-color:currentColor!important;
+}
