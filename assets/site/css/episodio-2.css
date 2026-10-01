@@ -2884,3 +2884,118 @@ body.episode-2{
     display:inline-flex;
   }
 }
+
+
+/* 2026-10-01 — timeline EP2 mais compacta, próxima do EP1 */
+.ep2-timeline{
+  height:640px!important;
+}
+
+.ep2-timeline-item{
+  flex:0 0 clamp(270px,24vw,300px)!important;
+  height:640px!important;
+  padding:0 10px!important;
+}
+
+.ep2-timeline-item + .ep2-timeline-item{
+  margin-left:-44px!important;
+}
+
+.ep2-timeline-item::after,
+.ep2-timeline-item::before,
+.ep2-timeline-nav,
+.ep2-timeline-carousel::before,
+.ep2-timeline-carousel::after{
+  top:320px!important;
+}
+
+.ep2-timeline-content{
+  width:calc(100% - 20px)!important;
+  max-width:250px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+}
+
+.ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+  bottom:348px!important;
+}
+
+.ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+  top:348px!important;
+}
+
+.ep2-timeline-media{
+  margin:0 0 8px!important;
+  border-radius:10px!important;
+}
+
+.ep2-timeline-image-button img{
+  height:108px!important;
+}
+
+.ep2-timeline-entry time{
+  margin-bottom:5px!important;
+  font-size:18px!important;
+}
+
+.ep2-timeline-entry h3{
+  margin:0 0 7px!important;
+  font-size:20px!important;
+  line-height:1.02!important;
+  letter-spacing:-.035em!important;
+}
+
+.ep2-timeline-entry p{
+  font-size:12.5px!important;
+  line-height:1.38!important;
+}
+
+.ep2-timeline-entry .timeline-source{
+  margin-left:.18em!important;
+  font-size:inherit!important;
+}
+
+@media(max-width:900px){
+  .ep2-timeline,
+  .ep2-timeline-item{
+    height:620px!important;
+  }
+
+  .ep2-timeline-item{
+    flex-basis:min(76vw,285px)!important;
+  }
+
+  .ep2-timeline-item + .ep2-timeline-item{
+    margin-left:-38px!important;
+  }
+
+  .ep2-timeline-item::after,
+  .ep2-timeline-item::before,
+  .ep2-timeline-nav,
+  .ep2-timeline-carousel::before,
+  .ep2-timeline-carousel::after{
+    top:310px!important;
+  }
+
+  .ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+    bottom:338px!important;
+  }
+
+  .ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+    top:338px!important;
+  }
+
+  .ep2-timeline-content{
+    max-width:240px!important;
+  }
+
+  .ep2-timeline-entry h3{
+    font-size:19px!important;
+  }
+
+  .ep2-timeline-entry p{
+    font-size:12px!important;
+  }
+}
