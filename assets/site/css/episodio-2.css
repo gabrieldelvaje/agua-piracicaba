@@ -4794,3 +4794,31 @@ body.info-dialog-open{
   .data-table-scroll{max-height:calc(88vh - 132px);}
   .site-footer{padding-bottom:35px;}
 }
+
+
+/* 2026-10-01 — manchetes do EP2 no mesmo padrão cinza do EP1 */
+.ep2-newspapers .newspaper-featured-card{
+  background:#E7E7E2!important;
+  color:#231F20!important;
+  border-color:transparent!important;
+  transition:none!important;
+  transform:none!important;
+}
+.ep2-newspapers .newspaper-featured-card:hover{
+  background:#E7E7E2!important;
+  color:#231F20!important;
+  border-color:transparent!important;
+  transform:none!important;
+}
+.ep2-newspapers .newspaper-featured-card > span{
+  color:#0736FE!important;
+}
+.ep2-newspapers .newspaper-featured-card > strong{
+  color:#231F20!important;
+}
+.ep2-newspapers .newspaper-featured-card > small{
+  color:#686565!important;
+}
+.ep2-newspapers .newspaper-source-link{
+  color:#231F20!important;
+}
