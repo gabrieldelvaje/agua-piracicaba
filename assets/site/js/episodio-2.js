@@ -243,18 +243,37 @@
   const dialog = document.querySelector('#cantareira-photo-lightbox');
   const open = document.querySelector('[data-open-cantareira-photo]');
   const close = dialog?.querySelector('[data-close-cantareira-photo]');
+  const caption = dialog?.querySelector('[data-cantareira-photo-caption]');
+  const toggle = dialog?.querySelector('[data-cantareira-photo-caption-toggle]');
   if (!dialog || !open) return;
 
-  open.addEventListener('click', () => dialog.showModal());
+  const resetCaption = () => {
+    caption?.classList.remove('is-expanded');
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Expandir legenda');
+    }
+  };
+
+  open.addEventListener('click', () => {
+    resetCaption();
+    dialog.showModal();
+  });
+
+  toggle?.addEventListener('click', () => {
+    if (!caption) return;
+    const expanded = caption.classList.toggle('is-expanded');
+    toggle.setAttribute('aria-expanded', String(expanded));
+    toggle.setAttribute('aria-label', expanded ? 'Recolher legenda' : 'Expandir legenda');
+  });
+
   close?.addEventListener('click', () => dialog.close());
 
   dialog.addEventListener('click', event => {
     if (event.target === dialog) dialog.close();
   });
 
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && dialog.open) dialog.close();
-  });
+  dialog.addEventListener('close', resetCaption);
 })();
 
 
