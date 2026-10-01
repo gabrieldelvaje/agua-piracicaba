@@ -3839,3 +3839,76 @@ body.episode-2{
     border-radius:14px!important;
   }
 }
+
+
+/* 2026-10-01 — cards escuros e resumo percentual compacto */
+.cantareira-context-copy .section-title{
+  font-size:clamp(40px,4.8vw,66px)!important;
+  line-height:1!important;
+  max-width:590px!important;
+}
+
+.cantareira-stats article,
+.cantareira-stats article.is-piracicaba{
+  min-height:176px!important;
+  background:#10245F!important;
+  border:0!important;
+  box-shadow:none!important;
+  color:#fff!important;
+}
+
+.cantareira-stats span{
+  color:rgba(255,255,255,.62)!important;
+}
+
+.cantareira-stats strong,
+.cantareira-stats article.is-piracicaba strong{
+  color:#fff!important;
+}
+
+.cantareira-stats small{
+  color:rgba(255,255,255,.68)!important;
+}
+
+.cantareira-stats article.is-piracicaba{
+  background:#0736FE!important;
+}
+
+.cantareira-share-summary{
+  display:flex!important;
+  align-items:baseline!important;
+  gap:14px!important;
+  width:max-content!important;
+  max-width:none!important;
+  margin:24px 0 0!important;
+  font-size:18px!important;
+  line-height:1.2!important;
+  white-space:nowrap!important;
+  letter-spacing:-.018em!important;
+}
+
+.cantareira-share-summary strong{
+  font-size:clamp(34px,3.6vw,46px)!important;
+  line-height:1!important;
+  letter-spacing:-.045em!important;
+}
+
+@media(max-width:900px){
+  .cantareira-context-copy .section-title{
+    font-size:clamp(36px,10vw,48px)!important;
+  }
+
+  .cantareira-share-summary{
+    display:block!important;
+    width:auto!important;
+    white-space:normal!important;
+    font-size:17px!important;
+    line-height:1.35!important;
+  }
+
+  .cantareira-share-summary strong{
+    display:block!important;
+    margin:0 0 8px!important;
+    font-size:38px!important;
+  }
+}
