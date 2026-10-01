@@ -4747,3 +4747,25 @@ main,
     transform:translateY(1px)!important;
   }
 }
+
+
+/* 2026-09-30 — seta do mobile também no retorno desktop do EP1 */
+@media(min-width:851px){
+  .site-header .back-episodes{
+    gap:7px!important;
+  }
+  .site-header .back-episodes::before{
+    content:""!important;
+    display:block!important;
+    flex:0 0 auto!important;
+    width:16px!important;
+    height:16px!important;
+    background:#231F20!important;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M11.5 2.5 5 9l6.5 6.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat!important;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M11.5 2.5 5 9l6.5 6.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  }
+  .site-header .back-episodes:hover::before,
+  .site-header .back-episodes:focus-visible::before{
+    background:#0736FE!important;
+  }
+}
