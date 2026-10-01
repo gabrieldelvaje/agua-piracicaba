@@ -3315,3 +3315,96 @@ body.episode-2{
     min-height:220px!important;
   }
 }
+
+
+/* 2026-10-01 — foto do Copan no contexto metropolitano */
+.cantareira-intro{
+  display:block!important;
+}
+
+.cantareira-intro > div{
+  max-width:980px;
+}
+
+.cantareira-context-grid{
+  grid-template-columns:minmax(420px,1.08fr) minmax(0,.92fr)!important;
+  gap:56px!important;
+  align-items:center!important;
+  margin-top:48px!important;
+}
+
+.cantareira-photo{
+  margin:0;
+}
+
+.cantareira-photo-frame{
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border-radius:24px;
+  background:#E7E7E2;
+}
+
+.cantareira-photo-frame img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.cantareira-photo figcaption{
+  padding:10px 2px 0;
+  color:rgba(35,31,32,.56);
+  font-size:11px;
+  line-height:1.45;
+}
+
+.cantareira-photo figcaption a{
+  color:var(--ep2-ink);
+  font-weight:700;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+}
+
+.cantareira-context-copy{
+  min-height:0!important;
+  padding:0!important;
+  background:transparent!important;
+  border-radius:0!important;
+  justify-content:center!important;
+}
+
+.cantareira-context-kicker{
+  margin:0 0 18px!important;
+}
+
+.cantareira-context-copy h3{
+  margin:0 0 24px;
+  max-width:520px;
+  color:var(--ep2-ink);
+  font-size:clamp(34px,4vw,58px);
+  line-height:.98;
+  letter-spacing:-.05em;
+}
+
+.cantareira-context-copy p{
+  max-width:560px!important;
+  font-size:17px!important;
+  line-height:1.55!important;
+}
+
+@media(max-width:900px){
+  .cantareira-context-grid{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+
+  .cantareira-photo-frame{
+    aspect-ratio:4/3;
+    border-radius:20px;
+  }
+
+  .cantareira-context-copy h3{
+    font-size:clamp(34px,10vw,48px);
+  }
+}
