@@ -4332,3 +4332,19 @@ body.episode-2{
     grid-template-columns:1fr!important;
   }
 }
+
+
+/* 2026-10-01 — remove fluxo e destaca frase final */
+.fishkills-keyline{
+  display:block;
+  margin-top:20px;
+  color:#fff;
+  font-size:clamp(24px,2.4vw,34px);
+  font-weight:700;
+  line-height:1.08;
+  letter-spacing:-.03em;
+}
+
+.fishkill-quote{
+  margin-top:54px!important;
+}
