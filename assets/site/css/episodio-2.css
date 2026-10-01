@@ -3912,3 +3912,43 @@ body.episode-2{
     font-size:38px!important;
   }
 }
+
+
+/* 2026-10-01 — somente Piracicaba em azul */
+.cantareira-stats article{
+  background:#E9E9E5!important;
+  color:var(--ep2-ink)!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+
+.cantareira-stats article span{
+  color:var(--ep2-muted)!important;
+}
+
+.cantareira-stats article strong{
+  color:var(--ep2-ink)!important;
+}
+
+.cantareira-stats article small{
+  color:var(--ep2-muted)!important;
+}
+
+.cantareira-stats article.is-piracicaba{
+  background:#0736FE!important;
+  color:#fff!important;
+}
+
+.cantareira-stats article.is-piracicaba span{
+  color:rgba(255,255,255,.72)!important;
+}
+
+.cantareira-stats article.is-piracicaba strong,
+.cantareira-stats article.is-piracicaba small{
+  color:#fff!important;
+}
+
+.cantareira-card-emphasis{
+  color:#fff;
+  font-weight:700;
+}
