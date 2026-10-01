@@ -4292,3 +4292,43 @@ body.episode-2{
     line-height:1!important;
   }
 }
+
+
+/* 2026-10-01 — texto em uma coluna e cards sem fluxo */
+.fishkills-equation-copy{
+  display:block!important;
+  max-width:760px!important;
+  margin-top:42px!important;
+}
+
+.fishkills-equation-copy .section-copy + .section-copy{
+  margin-top:18px!important;
+}
+
+.oxygen-chain{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;
+  margin-top:46px!important;
+  align-items:stretch!important;
+}
+
+.oxygen-chain > b{
+  display:none!important;
+}
+
+@media(max-width:900px){
+  .fishkills-equation-copy{
+    max-width:680px!important;
+  }
+
+  .oxygen-chain{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+
+@media(max-width:560px){
+  .oxygen-chain{
+    grid-template-columns:1fr!important;
+  }
+}
