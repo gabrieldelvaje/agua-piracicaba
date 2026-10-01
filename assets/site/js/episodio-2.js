@@ -53,6 +53,95 @@
 })();
 
 
+
+// episode-two-timeline-lightbox
+(() => {
+  const dialog = document.querySelector('#ep2-timeline-lightbox');
+  const image = dialog?.querySelector('[data-ep2-timeline-lightbox-image]');
+  const close = dialog?.querySelector('[data-close-ep2-timeline-lightbox]');
+  const caption = dialog?.querySelector('[data-ep2-timeline-lightbox-caption]');
+  const captionText = dialog?.querySelector('[data-ep2-timeline-lightbox-caption-text]');
+  const credit = dialog?.querySelector('[data-ep2-timeline-lightbox-credit]');
+  const captionToggle = dialog?.querySelector('[data-ep2-timeline-lightbox-caption-toggle]');
+  if (!dialog || !image) return;
+
+  document.querySelectorAll('[data-ep2-timeline-image]').forEach(button => {
+    button.addEventListener('click', () => {
+      const src = button.getAttribute('data-ep2-timeline-image');
+      const thumb = button.querySelector('img');
+      const description = button.getAttribute('data-ep2-timeline-caption') || '';
+      const creditLabel = button.getAttribute('data-ep2-timeline-credit') || '';
+      const creditUrl = button.getAttribute('data-ep2-timeline-credit-url') || '';
+      if (!src) return;
+
+      image.src = src;
+      image.alt = thumb?.alt || '';
+
+      if (caption && captionText && credit && (description || (creditLabel && creditUrl))) {
+        captionText.textContent = description;
+        captionText.hidden = !description;
+
+        if (creditLabel && creditUrl) {
+          credit.textContent = creditLabel;
+          credit.href = creditUrl;
+          credit.hidden = false;
+        } else {
+          credit.textContent = '';
+          credit.removeAttribute('href');
+          credit.hidden = true;
+        }
+
+        caption.classList.remove('is-expanded');
+        if (captionToggle) {
+          captionToggle.setAttribute('aria-expanded', 'false');
+          captionToggle.setAttribute('aria-label', 'Expandir legenda');
+        }
+        caption.hidden = false;
+      } else if (caption) {
+        caption.hidden = true;
+      }
+
+      dialog.showModal();
+    });
+  });
+
+  captionToggle?.addEventListener('click', () => {
+    if (!caption) return;
+    const expanded = caption.classList.toggle('is-expanded');
+    captionToggle.setAttribute('aria-expanded', String(expanded));
+    captionToggle.setAttribute('aria-label', expanded ? 'Recolher legenda' : 'Expandir legenda');
+  });
+
+  close?.addEventListener('click', () => dialog.close());
+
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  dialog.addEventListener('close', () => {
+    image.removeAttribute('src');
+    image.alt = '';
+    if (caption) {
+      caption.hidden = true;
+      caption.classList.remove('is-expanded');
+    }
+    if (captionToggle) {
+      captionToggle.setAttribute('aria-expanded', 'false');
+      captionToggle.setAttribute('aria-label', 'Expandir legenda');
+    }
+    if (captionText) {
+      captionText.textContent = '';
+      captionText.hidden = false;
+    }
+    if (credit) {
+      credit.textContent = '';
+      credit.removeAttribute('href');
+      credit.hidden = false;
+    }
+  });
+})();
+
+
 // episode-two-horizontal-timeline
 (() => {
   const viewport = document.querySelector('[data-ep2-timeline-viewport]');
