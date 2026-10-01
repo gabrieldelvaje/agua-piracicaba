@@ -1249,3 +1249,48 @@ a{color:inherit}
     font-size:12px!important;
   }
 }
+
+
+/* 2026-09-30 — retorno discreto no desktop dos EP3/EP4 */
+@media(min-width:851px){
+  .episode-page.episode-3 .site-header .back-episodes,
+  .episode-page.episode-4 .site-header .back-episodes{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-height:40px!important;
+    padding:9px 15px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    color:#231F20!important;
+    font-size:14px!important;
+    font-weight:400!important;
+    line-height:1!important;
+    text-decoration:none!important;
+    white-space:nowrap!important;
+    transform:none!important;
+  }
+
+  .episode-page.episode-3 .site-header .back-episodes::before,
+  .episode-page.episode-4 .site-header .back-episodes::before{
+    display:none!important;
+    content:none!important;
+  }
+
+  .episode-page.episode-3 .site-header .back-episodes:hover,
+  .episode-page.episode-3 .site-header .back-episodes:focus-visible,
+  .episode-page.episode-4 .site-header .back-episodes:hover,
+  .episode-page.episode-4 .site-header .back-episodes:focus-visible{
+    background:transparent!important;
+    border-color:transparent!important;
+    color:#0736FE!important;
+    transform:none!important;
+  }
+
+  .episode-page.episode-3 .site-header .back-episodes:active,
+  .episode-page.episode-4 .site-header .back-episodes:active{
+    transform:translateY(1px)!important;
+  }
+}
