@@ -1,0 +1,148 @@
+/* Episode 4 — enchentes, margens, recuperação e cultura */
+.episode-4{overflow-x:hidden;background:#F3F3F1;color:#231F20;line-height:1.55}
+.episode-4 .episode-cover h1{max-width:930px}
+.episode-4 .episode-cover .lead{max-width:700px}
+.ep4-shell{width:min(1180px,calc(100% - 40px));margin:auto}
+.ep4-section{position:relative;padding:110px 0;scroll-margin-top:68px;background:#F3F3F1}
+.ep4-section h2{max-width:1040px;margin:0 0 34px;font-size:clamp(40px,5.4vw,76px);line-height:1;letter-spacing:-.05em}
+.ep4-section h3{margin:0 0 14px;font-size:clamp(23px,2.5vw,34px);line-height:1.08;letter-spacing:-.035em}
+.ep4-section p{font-size:18px;line-height:1.55}
+.ep4-kicker{margin:0 0 20px!important;color:#0736FE;font-size:12px!important;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.ep4-lead{max-width:860px;margin:0 0 48px!important;color:#666864;font-size:clamp(21px,2.2vw,28px)!important;line-height:1.38!important}
+.ep4-source{margin:22px 0 0!important;color:#686965;font-size:12px!important;line-height:1.55!important}
+.ep4-source a{color:inherit;text-underline-offset:3px}
+.ep4-dark{background:#231F20;color:#F3F3F1}
+.ep4-dark .ep4-kicker{color:#9AADFF}
+.ep4-dark .ep4-lead,.ep4-dark .ep4-source{color:rgba(255,255,255,.68)}
+.ep4-dark .ep4-source a{color:#fff}
+.ep4-blue{background:#0736FE;color:#fff}
+.ep4-blue .ep4-kicker{color:#C4CEFF}
+.ep4-blue .ep4-lead,.ep4-blue .ep4-source{color:rgba(255,255,255,.78)}
+.ep4-blue .ep4-source a{color:#fff}
+
+/* hero */
+.episode-page.episode-4 .episode-cover .episode-scroll-cue{gap:0!important}
+.episode-page.episode-4 .episode-cover .episode-scroll-cue b{display:none!important}
+
+/* opening / flood */
+.ep4-opening-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(360px,1.08fr);gap:72px;align-items:end}
+.ep4-opening-copy p{max-width:650px;margin:0 0 22px}
+.ep4-river-levels{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ep4-level{min-height:170px;padding:22px;border-radius:20px;background:#E7E7E2;display:flex;flex-direction:column;justify-content:space-between}
+.ep4-level strong{display:block;font-size:clamp(42px,5vw,68px);line-height:.9;letter-spacing:-.06em}
+.ep4-level span{color:#686965;font-size:12px;line-height:1.4}
+.ep4-level.is-overflow{background:#0736FE;color:#fff}
+.ep4-level.is-overflow span{color:rgba(255,255,255,.75)}
+.ep4-risk-line{margin-top:18px;color:#666864;font-size:14px!important}
+
+/* flood history */
+.ep4-history-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:50px 0 32px}
+.ep4-stat-card{min-height:245px;padding:28px;border-radius:24px;background:#E7E7E2;display:flex;flex-direction:column}
+.ep4-stat-card span{color:#686965;font-size:12px}
+.ep4-stat-card strong{margin-top:auto;font-size:clamp(60px,7vw,96px);line-height:.9;letter-spacing:-.065em}
+.ep4-stat-card small{margin-top:10px;color:#686965;font-size:13px}
+.ep4-history-note{max-width:860px;margin-top:34px}
+.ep4-timeline{list-style:none;margin:58px 0 0;padding:0;display:grid;gap:0}
+.ep4-timeline li{display:grid;grid-template-columns:120px 1fr;gap:36px;position:relative;padding:0 0 20px}
+.ep4-timeline time{padding-top:25px;color:#0736FE;font-size:34px;font-weight:700;line-height:1;letter-spacing:-.05em}
+.ep4-timeline li:before{content:"";position:absolute;left:136px;top:0;bottom:0;width:2px;background:#0736FE}
+.ep4-timeline li:after{content:"";position:absolute;left:131px;top:36px;width:12px;height:12px;border-radius:50%;background:#0736FE}
+.ep4-timeline article{position:relative;padding:24px 28px;border-radius:22px;background:#E7E7E2}
+.ep4-timeline article:before{content:"";position:absolute;left:-20px;top:41px;width:20px;height:2px;background:#0736FE}
+.ep4-timeline article p{margin:0;color:#5E5F5B;font-size:16px}
+
+/* newspapers */
+.ep4-newspapers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px}
+.ep4-news-card{min-height:330px;padding:28px;border-radius:24px;background:#E7E7E2;display:flex;flex-direction:column}
+.ep4-news-card time{color:#0736FE;font-size:11px;font-weight:700;letter-spacing:.08em}
+.ep4-news-card h3{margin-top:34px;font-size:clamp(30px,3vw,45px)}
+.ep4-news-card p{margin-top:auto;color:#686965;font-size:14px}
+.ep4-news-note{max-width:850px;margin-top:24px;color:#686965;font-size:13px!important}
+
+/* beira-rio */
+.ep4-quote{max-width:1050px;margin:0 0 55px;font-size:clamp(48px,6.8vw,98px);font-weight:700;line-height:.94;letter-spacing:-.06em}
+.ep4-quote em{font-style:normal;color:#AAB9FF}
+.ep4-beira-intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.ep4-beira-copy p{margin:0 0 20px;color:rgba(255,255,255,.78)}
+.ep4-beira-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ep4-beira-stat{min-height:230px;padding:24px;border-radius:22px;background:#353233;display:flex;flex-direction:column}
+.ep4-beira-stat span{color:#BDBDB7;font-size:12px}
+.ep4-beira-stat strong{margin-top:auto;color:#fff;font-size:clamp(52px,6vw,82px);line-height:.9;letter-spacing:-.065em}
+.ep4-beira-stat small{margin-top:10px;color:#BDBDB7;font-size:12px}
+
+/* recovery */
+.ep4-recovery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px}
+.ep4-recovery-card{min-height:340px;padding:28px;border-radius:24px;background:#fff;display:flex;flex-direction:column}
+.ep4-recovery-card .ep4-scope{width:max-content;margin-bottom:28px;padding:7px 10px;border-radius:999px;background:#DEDED9;color:#4F504D;font-size:11px;font-weight:700}
+.ep4-recovery-card strong{font-size:clamp(48px,5.6vw,78px);line-height:.92;letter-spacing:-.065em}
+.ep4-recovery-card h3{margin:16px 0 12px;font-size:24px}
+.ep4-recovery-card p{margin:0;color:#686965;font-size:15px}
+.ep4-recovery-card small{margin-top:auto;padding-top:24px;color:#777873;font-size:12px}
+.ep4-current-plan{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;margin-top:60px;padding:38px;border-radius:28px;background:#E7E7E2}
+.ep4-current-plan strong{display:block;color:#0736FE;font-size:clamp(56px,7vw,94px);line-height:.9;letter-spacing:-.065em}
+.ep4-current-plan span{display:block;margin-top:10px;color:#686965;font-size:13px}
+.ep4-current-plan h3{font-size:34px}
+.ep4-current-plan p{color:#686965}
+.ep4-proposal-label{display:inline-block;margin-bottom:16px;padding:7px 10px;border-radius:999px;background:#0736FE;color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+
+/* culture */
+.ep4-culture-intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.ep4-culture-copy p{color:rgba(255,255,255,.78)}
+.ep4-culture-photo{margin:0}
+.ep4-culture-photo img{display:block;width:100%;height:420px;object-fit:cover;border-radius:26px}
+.ep4-culture-photo figcaption{margin-top:10px;color:rgba(255,255,255,.55);font-size:11px}
+.ep4-culture-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:56px}
+.ep4-culture-card{min-height:250px;padding:26px;border-radius:22px;background:#353233}
+.ep4-culture-card span{color:#9AADFF;font-size:11px;font-weight:700}
+.ep4-culture-card strong{display:block;margin-top:24px;font-size:clamp(32px,3vw,46px);line-height:1;letter-spacing:-.045em}
+.ep4-culture-card p{margin:16px 0 0;color:#C6C5C1;font-size:14px}
+.ep4-elias{margin-top:70px;padding-top:48px;border-top:1px solid rgba(255,255,255,.22)}
+.ep4-elias blockquote{max-width:950px;margin:0;font-size:clamp(50px,7vw,100px);font-weight:700;line-height:.94;letter-spacing:-.06em}
+.ep4-elias cite{display:block;margin-top:24px;color:#A7A7A2;font-size:13px;font-style:normal}
+.ep4-ending{padding:110px 0;background:#0736FE;color:#fff;text-align:center}
+.ep4-ending p{max-width:980px;margin:0 auto;font-size:clamp(45px,7vw,100px);font-weight:700;line-height:.95;letter-spacing:-.06em}
+.ep4-ending small{display:block;margin:30px auto 0;color:rgba(255,255,255,.72);font-size:13px}
+
+/* sources */
+.ep4-sources{text-align:center}
+.ep4-sources h2{max-width:none}
+.ep4-sources-copy{max-width:860px;margin:0 auto;color:#686965}
+.ep4-pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:38px}
+.ep4-pills button,.ep4-pills a{appearance:none;border:0;border-radius:999px;background:#DEDED9;color:#231F20;padding:11px 15px;font:inherit;font-size:13px;text-decoration:none;cursor:pointer}
+.ep4-dialog{border:0;border-radius:24px;width:min(860px,calc(100vw - 32px));max-height:86svh;padding:44px;background:#F3F3F1;color:#231F20;overscroll-behavior:contain}
+.ep4-dialog h2{margin:0 40px 30px 0;font-size:40px;line-height:1;letter-spacing:-.04em}
+.ep4-dialog article{padding:20px 0;border-top:1px solid #D1D1CB}
+.ep4-dialog h3{margin:0 0 8px;font-size:21px}
+.ep4-dialog p{margin:0 0 10px;color:#62635F;font-size:15px;line-height:1.55}
+.ep4-dialog a{font-size:13px;overflow-wrap:anywhere}
+.ep4-close{position:absolute;right:15px;top:12px;width:44px;height:44px;border:0;border-radius:50%;background:#E1E1DB;font-size:28px;cursor:pointer}
+body.ep4-modal-open{overflow:hidden}
+dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
+.ep4-top{position:fixed;right:20px;bottom:20px;z-index:20;width:44px;height:44px;border:0;border-radius:50%;background:#0736FE;color:#fff;font-size:22px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s}
+.ep4-top.is-visible{opacity:1;pointer-events:auto}
+.episode-4 .site-footer{position:relative;z-index:3;display:flex;justify-content:space-between;gap:20px;width:100%;margin:0;padding:25px max(20px,calc((100% - 1180px)/2)) 45px;border-top:1px solid #D8D8D3;background:#F3F3F1;color:#686565;font-size:12px}
+
+@media(max-width:900px){
+  .ep4-section{padding:78px 0}
+  .ep4-opening-grid,.ep4-beira-intro,.ep4-current-plan,.ep4-culture-intro{grid-template-columns:1fr;gap:34px}
+  .ep4-river-levels{grid-template-columns:repeat(2,1fr)}
+  .ep4-history-stats,.ep4-newspapers,.ep4-beira-stats,.ep4-recovery-grid,.ep4-culture-cards{grid-template-columns:1fr}
+  .ep4-stat-card,.ep4-news-card,.ep4-beira-stat,.ep4-recovery-card,.ep4-culture-card{min-height:0}
+  .ep4-timeline li{grid-template-columns:72px 1fr;gap:22px}
+  .ep4-timeline time{font-size:25px}
+  .ep4-timeline li:before{left:83px}
+  .ep4-timeline li:after{left:78px}
+  .ep4-timeline article:before{left:-11px;width:11px}
+  .ep4-culture-photo img{height:330px}
+}
+@media(max-width:560px){
+  .ep4-shell{width:calc(100% - 28px)}
+  .ep4-section h2{font-size:clamp(38px,11vw,56px)}
+  .ep4-river-levels{grid-template-columns:1fr 1fr}
+  .ep4-level{min-height:140px;padding:18px}
+  .ep4-current-plan{padding:26px}
+  .ep4-dialog{padding:34px 22px}
+  .ep4-dialog h2{font-size:32px}
+  .episode-4 .site-footer{flex-direction:column;gap:8px;padding-inline:14px}
+}
+@media(prefers-reduced-motion:reduce){.ep4-top{transition:none}}
