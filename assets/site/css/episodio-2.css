@@ -4520,3 +4520,19 @@ body.episode-2{
     border-radius:20px;
   }
 }
+
+
+/* 2026-10-01 — remove emenda entre vazão e diluição; card cinza */
+.ep2-data,
+.ep2-dilution{
+  border-top:0!important;
+  border-bottom:0!important;
+  box-shadow:0 0 0 100vmax #F3F3F1!important;
+  clip-path:inset(0 -100vmax)!important;
+}
+
+.dilution-card{
+  background:#E9E9E5!important;
+  border:0!important;
+  box-shadow:none!important;
+}
