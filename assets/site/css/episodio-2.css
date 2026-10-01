@@ -4113,3 +4113,51 @@ body.episode-2{
     font-size:11px;
   }
 }
+
+
+/* 2026-10-01 — ilustração SVG dos béqueres */
+.dilution-layout{
+  grid-template-columns:minmax(420px,.95fr) minmax(0,1.05fr)!important;
+  gap:64px!important;
+  align-items:center!important;
+}
+
+.dilution-illustration{
+  margin:0;
+}
+
+.dilution-illustration img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:640px;
+}
+
+.dilution-illustration figcaption{
+  max-width:590px;
+  margin:8px 0 0;
+  color:var(--ep2-muted);
+  font-size:11px;
+  line-height:1.45;
+}
+
+@media(max-width:900px){
+  .dilution-layout{
+    grid-template-columns:1fr!important;
+    gap:30px!important;
+  }
+
+  .dilution-illustration img{
+    max-width:680px;
+  }
+}
+
+@media(max-width:560px){
+  .dilution-illustration{
+    margin-inline:-8px;
+  }
+
+  .dilution-illustration figcaption{
+    margin-inline:8px;
+  }
+}
