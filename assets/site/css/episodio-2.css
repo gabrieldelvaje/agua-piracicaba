@@ -3794,3 +3794,48 @@ body.episode-2{
     margin:7px 0 0;
   }
 }
+
+
+/* 2026-10-01 — lightbox do Copan igual à timeline */
+.cantareira-photo-lightbox{
+  width:min(92vw,1100px)!important;
+  max-width:none!important;
+  max-height:90vh!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:18px!important;
+  background:#111!important;
+  overflow:hidden!important;
+  box-shadow:0 30px 90px rgba(0,0,0,.38)!important;
+}
+
+.cantareira-photo-lightbox::backdrop{
+  background:rgba(0,0,0,.78)!important;
+  backdrop-filter:blur(5px)!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+}
+
+.cantareira-photo-lightbox .ep2-timeline-lightbox-image{
+  width:100%!important;
+  height:auto!important;
+  max-height:90vh!important;
+  object-fit:contain!important;
+  background:#111!important;
+}
+
+.cantareira-photo-lightbox .ep2-timeline-lightbox-close{
+  position:absolute!important;
+  top:14px!important;
+  right:14px!important;
+  color:#fff!important;
+  background:transparent!important;
+  border-radius:0!important;
+  text-shadow:0 2px 12px rgba(0,0,0,.85)!important;
+}
+
+@media(max-width:700px){
+  .cantareira-photo-lightbox{
+    width:94vw!important;
+    border-radius:14px!important;
+  }
+}
