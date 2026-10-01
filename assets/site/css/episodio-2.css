@@ -3618,3 +3618,70 @@ body.episode-2{
     text-shadow:0 2px 12px rgba(0,0,0,.85);
   }
 }
+
+
+/* 2026-10-01 — composição do Cantareira alinhada à abertura do enterro */
+.ep2-cantareira{
+  padding:96px 0!important;
+}
+
+.cantareira-context-grid{
+  grid-template-columns:minmax(0,.95fr) minmax(420px,1.05fr)!important;
+  gap:52px!important;
+  align-items:center!important;
+}
+
+.cantareira-context-copy{
+  align-self:center!important;
+}
+
+.cantareira-context-copy .cantareira-question{
+  margin:0!important;
+  max-width:620px!important;
+  font-size:clamp(30px,4vw,56px)!important;
+  line-height:1.04!important;
+  letter-spacing:-.045em!important;
+  font-weight:700!important;
+}
+
+.cantareira-context-copy p{
+  margin:24px 0 0!important;
+  max-width:620px!important;
+  font-size:18px!important;
+  line-height:1.58!important;
+}
+
+.cantareira-context-copy p + p{
+  margin-top:18px!important;
+}
+
+.cantareira-photo{
+  align-self:center!important;
+}
+
+.cantareira-stats{
+  margin-top:48px!important;
+}
+
+@media(max-width:900px){
+  .ep2-cantareira{
+    padding:78px 0!important;
+  }
+
+  .cantareira-context-grid{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+
+  .cantareira-context-copy .cantareira-question{
+    font-size:clamp(34px,10vw,48px)!important;
+  }
+
+  .cantareira-context-copy p{
+    font-size:16px!important;
+  }
+
+  .cantareira-stats{
+    margin-top:38px!important;
+  }
+}
