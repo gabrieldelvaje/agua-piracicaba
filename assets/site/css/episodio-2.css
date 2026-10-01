@@ -4928,3 +4928,44 @@ body.info-dialog-open{
   object-fit:cover;
   object-position:center;
 }
+
+
+/* 2026-10-01 — foto da Praça acompanha a altura do texto */
+.ep2-legacy .legacy-grid{
+  align-items:stretch!important;
+}
+.ep2-legacy .legacy-visual{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  height:100%;
+}
+.ep2-legacy .legacy-photo{
+  flex:1 1 auto;
+  min-height:0;
+  margin:0;
+  overflow:hidden;
+}
+.ep2-legacy .legacy-photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  aspect-ratio:auto!important;
+  object-fit:cover;
+  object-position:center;
+}
+@media(max-width:900px){
+  .ep2-legacy .legacy-grid{
+    align-items:start!important;
+  }
+  .ep2-legacy .legacy-visual{
+    height:auto;
+  }
+  .ep2-legacy .legacy-photo{
+    flex:none;
+  }
+  .ep2-legacy .legacy-photo img{
+    height:auto;
+    aspect-ratio:4/3!important;
+  }
+}
