@@ -2508,3 +2508,97 @@ body.episode-2{
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M11.5 2.5 5 9l6.5 6.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat!important;
   mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M11.5 2.5 5 9l6.5 6.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat!important;
 }
+
+
+/* 2026-10-01 — timeline EP2: seis etapas, links inline e cards sem corte */
+.ep2-timeline{
+  height:680px!important;
+}
+
+.ep2-timeline-item{
+  flex-basis:clamp(315px,28vw,350px)!important;
+  height:680px!important;
+}
+
+.ep2-timeline-item + .ep2-timeline-item{
+  margin-left:-96px!important;
+}
+
+.ep2-timeline-item::after,
+.ep2-timeline-item::before,
+.ep2-timeline-nav,
+.ep2-timeline-carousel::before,
+.ep2-timeline-carousel::after{
+  top:340px!important;
+}
+
+.ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+  bottom:368px!important;
+}
+
+.ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+  top:368px!important;
+}
+
+.ep2-timeline-content{
+  max-width:300px!important;
+}
+
+.ep2-timeline-entry .timeline-source{
+  display:inline;
+  margin-left:.25em;
+  color:rgba(255,255,255,.82);
+  font-size:inherit;
+  font-weight:600;
+  line-height:inherit;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+  transition:color .16s ease;
+}
+
+.ep2-timeline-entry .timeline-source:hover,
+.ep2-timeline-entry .timeline-source:focus-visible{
+  color:#fff;
+}
+
+.ep2-timeline-item:nth-child(odd) .ep2-timeline-content::before,
+.ep2-timeline-item:nth-child(even) .ep2-timeline-content::before{
+  height:28px!important;
+}
+
+@media(max-width:900px){
+  .ep2-timeline{
+    height:700px!important;
+  }
+
+  .ep2-timeline-item{
+    flex-basis:min(82vw,330px)!important;
+    height:700px!important;
+  }
+
+  .ep2-timeline-item + .ep2-timeline-item{
+    margin-left:-72px!important;
+  }
+
+  .ep2-timeline-item::after,
+  .ep2-timeline-item::before,
+  .ep2-timeline-nav,
+  .ep2-timeline-carousel::before,
+  .ep2-timeline-carousel::after{
+    top:350px!important;
+  }
+
+  .ep2-timeline-item:nth-child(odd) .ep2-timeline-content{
+    bottom:378px!important;
+  }
+
+  .ep2-timeline-item:nth-child(even) .ep2-timeline-content{
+    top:378px!important;
+  }
+
+  .ep2-timeline-content{
+    width:calc(100% - 20px)!important;
+    max-width:286px!important;
+  }
+}
