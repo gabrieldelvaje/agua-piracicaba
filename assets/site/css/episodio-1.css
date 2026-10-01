@@ -4853,3 +4853,74 @@ main,
     line-height:1.4;
   }
 }
+
+
+/* 2026-10-01 — legenda compacta expansível no mobile */
+.timeline-lightbox-caption-copy{
+  display:block;
+}
+
+.timeline-lightbox-caption-toggle{
+  display:none;
+}
+
+@media(max-width:700px){
+  .timeline-lightbox-caption{
+    padding:54px 18px 16px;
+  }
+
+  .timeline-lightbox-caption-copy{
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+    min-width:0;
+  }
+
+  .timeline-lightbox-caption p{
+    flex:1 1 auto;
+    min-width:0;
+    margin:0;
+  }
+
+  .timeline-lightbox-caption:not(.is-expanded) p{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:clip;
+  }
+
+  .timeline-lightbox-caption-toggle{
+    flex:0 0 auto;
+    display:inline-grid;
+    place-items:center;
+    min-width:28px;
+    height:24px;
+    margin:0;
+    padding:0 3px 4px;
+    border:0;
+    background:transparent;
+    color:#fff;
+    font:700 22px/1 Helvetica,Arial,sans-serif;
+    letter-spacing:.04em;
+    cursor:pointer;
+    pointer-events:auto;
+    text-shadow:0 2px 12px rgba(0,0,0,.85);
+  }
+
+  .timeline-lightbox-caption.is-expanded .timeline-lightbox-caption-copy{
+    align-items:flex-start;
+  }
+
+  .timeline-lightbox-caption.is-expanded .timeline-lightbox-caption-toggle{
+    padding-bottom:0;
+    font-size:22px;
+    line-height:1;
+  }
+
+  .timeline-lightbox-caption:not(.is-expanded) > a{
+    display:none;
+  }
+
+  .timeline-lightbox-caption.is-expanded > a{
+    margin-top:10px;
+  }
+}
