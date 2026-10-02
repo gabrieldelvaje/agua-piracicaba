@@ -16,7 +16,7 @@
   color:#fff;
   background:
     linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.52) 52%,rgba(0,0,0,.30) 100%),
-    url("../episodes/episodio-1-museu-da-agua-antigo.jpg") center center/cover no-repeat;
+    url("../episodes/episodio-1/hero/museu-da-agua-historico.jpg") center center/cover no-repeat;
 }
 .hero .eyebrow{color:#9fb0ff}
 .hero-copy{color:rgba(255,255,255,.95)}
@@ -31,7 +31,7 @@
     padding-right:14px;
     background:
       linear-gradient(180deg,rgba(0,0,0,.48) 0%,rgba(0,0,0,.64) 58%,rgba(0,0,0,.78) 100%),
-      url("../episodes/episodio-1-museu-da-agua-antigo.jpg") center center/cover no-repeat;
+      url("../episodes/episodio-1/hero/museu-da-agua-historico.jpg") center center/cover no-repeat;
   }
 }
 
