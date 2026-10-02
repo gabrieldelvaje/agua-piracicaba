@@ -176,3 +176,17 @@ body.route-transition-lock{
     animation:route-loading-spin 900ms linear infinite!important;
   }
 }
+
+
+/* 2026-10-02 — retorno para a Home sem segundo carregamento.
+   A Home já renderizada no iframe vira a superfície ativa também no desktop. */
+.route-page-stage.is-promoted{
+  pointer-events:auto!important;
+  transform:translate3d(0,0,0)!important;
+  transition:none!important;
+  touch-action:auto;
+}
+
+.route-page-stage.is-promoted iframe{
+  pointer-events:auto!important;
+}

@@ -53,7 +53,7 @@
     }catch(_){}
   };
 
-  const promoteMobileHome = (stage,frame,destination) => {
+  const promoteHome = (stage,frame,destination) => {
     /* The animated Home is already fully rendered and positioned at Episódios.
        Keep that exact document onscreen instead of triggering a second navigation. */
     const clean=new URL(destination.href);
@@ -63,6 +63,7 @@
     history.replaceState(null,"",clean.pathname + (clean.search || ""));
     document.title=frame.contentDocument?.title || document.title;
 
+    body.classList.remove("route-transition-lock");
     stage.classList.add("is-promoted");
     stage.removeAttribute("aria-hidden");
     stage.style.pointerEvents="auto";
@@ -74,7 +75,8 @@
     running=false;
 
     /* page-transition.js intentionally does not run inside preload iframes.
-       Bridge only the episode-card clicks back to the top-level transition. */
+       Bridge episode-card clicks back to the top-level transition so the
+       promoted Home behaves exactly like the normal Home on every viewport. */
     try{
       frame.contentDocument.addEventListener("click",event => {
         const link=event.target.closest("a");
@@ -169,8 +171,8 @@
       navigated=true;
       if(loadFallback) clearTimeout(loadFallback);
 
-      if(direction==="back" && isMobile()){
-        promoteMobileHome(stage,frame,destination);
+      if(direction==="back"){
+        promoteHome(stage,frame,destination);
         return;
       }
 
