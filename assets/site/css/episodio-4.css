@@ -494,3 +494,33 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     right:-10px!important;
   }
 }
+
+
+/* 2026-10-01 — corrige a camada da máscara exatamente como no EP1 */
+.ep4-timeline-carousel::before,
+.ep4-timeline-carousel::after{
+  top:320px!important;
+  width:34px!important;
+  height:26px!important;
+  background:#F3F3F1!important;
+  z-index:7!important;
+}
+.ep4-timeline-carousel::before{left:0!important;right:auto!important}
+.ep4-timeline-carousel::after{right:0!important;left:auto!important}
+
+.ep4-timeline-nav{
+  top:320px!important;
+  z-index:8!important;
+}
+.ep4-timeline-nav-prev{left:-9px!important;right:auto!important}
+.ep4-timeline-nav-next{right:-9px!important;left:auto!important}
+
+@media(max-width:850px){
+  .ep4-timeline-carousel::before,
+  .ep4-timeline-carousel::after{
+    width:32px!important;
+    height:26px!important;
+  }
+  .ep4-timeline-nav-prev{left:-10px!important}
+  .ep4-timeline-nav-next{right:-10px!important}
+}
