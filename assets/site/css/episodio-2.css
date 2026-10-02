@@ -4969,3 +4969,33 @@ body.info-dialog-open{
     aspect-ratio:4/3!important;
   }
 }
+
+
+/* 2026-10-02 — Praça do Protesto: foto com a mesma altura do bloco de texto */
+.ep2-legacy .legacy-grid{
+  align-items:start!important;
+}
+.ep2-legacy .legacy-visual{
+  height:auto!important;
+}
+.ep2-legacy .legacy-photo{
+  flex:none!important;
+  width:100%;
+  overflow:hidden;
+}
+.ep2-legacy .legacy-photo img{
+  width:100%;
+  height:100%!important;
+  aspect-ratio:auto!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+@media(max-width:900px){
+  .ep2-legacy .legacy-photo{
+    height:auto!important;
+  }
+  .ep2-legacy .legacy-photo img{
+    height:auto!important;
+    aspect-ratio:4/3!important;
+  }
+}
