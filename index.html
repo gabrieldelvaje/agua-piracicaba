@@ -34,8 +34,12 @@
 
 
 <style>
+/* Evita o hero piscar antes de o retorno ser posicionado em Episódios. */
+html.home-episodes-return body.series-home{
+  visibility:hidden!important;
+}
 @media(max-width:850px){
-  html.mobile-home-return body.series-home{
+  html.mobile-home-reset body.series-home{
     visibility:hidden!important;
   }
 }
@@ -44,18 +48,18 @@
 (() => {
   try{
     if(window.self !== window.top) return;
-    if(!window.matchMedia("(max-width:850px)").matches) return;
 
     const params=new URLSearchParams(location.search);
     const returning=params.get("adrReturn")==="episodes";
+    const mobile=window.matchMedia("(max-width:850px)").matches;
 
     if("scrollRestoration" in history){
       history.scrollRestoration="manual";
     }
 
     if(returning){
-      document.documentElement.classList.add("mobile-home-return");
-    }else{
+      document.documentElement.classList.add("home-episodes-return");
+    }else if(mobile){
       document.documentElement.classList.add("mobile-home-reset");
       if(location.hash){
         history.replaceState(null,"",location.pathname+location.search);
@@ -125,6 +129,6 @@
     </section>
   </main>
   <script src="assets/site/js/home.js?v=20260929-0812" defer></script>
-  <script src="assets/site/js/page-transition.js?v=20260929-1008"></script>
+  <script src="assets/site/js/page-transition.js?v=20261002-no-home-flash"></script>
 </body>
 </html>
