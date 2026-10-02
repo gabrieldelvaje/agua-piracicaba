@@ -431,3 +431,66 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     height:26px!important;
   }
 }
+
+
+/* 2026-10-01 — respiro entre fio e setas igual ao EP1 */
+.ep4-timeline-carousel::before,
+.ep4-timeline-carousel::after{
+  content:""!important;
+  position:absolute!important;
+  top:320px!important;
+  z-index:9!important;
+  width:34px!important;
+  height:26px!important;
+  background:#F3F3F1!important;
+  transform:translateY(-50%)!important;
+  pointer-events:none!important;
+}
+.ep4-timeline-carousel::before{
+  left:0!important;
+}
+.ep4-timeline-carousel::after{
+  right:0!important;
+}
+
+/* a ponta fica fora da máscara, deixando o mesmo vão do EP1 */
+.ep4-timeline-nav{
+  top:320px!important;
+  width:46px!important;
+  height:46px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  border-radius:0!important;
+}
+.ep4-timeline-nav-prev{
+  left:-9px!important;
+  right:auto!important;
+}
+.ep4-timeline-nav-next{
+  right:-9px!important;
+  left:auto!important;
+}
+
+/* mantém a linha preta e a máscara só na altura visual do marcador */
+.ep4-timeline-item::after{
+  background:#231F20!important;
+  height:2px!important;
+}
+
+@media(max-width:850px){
+  .ep4-timeline-carousel::before,
+  .ep4-timeline-carousel::after{
+    width:32px!important;
+    height:26px!important;
+  }
+  .ep4-timeline-nav{
+    width:48px!important;
+    height:48px!important;
+  }
+  .ep4-timeline-nav-prev{
+    left:-10px!important;
+  }
+  .ep4-timeline-nav-next{
+    right:-10px!important;
+  }
+}
