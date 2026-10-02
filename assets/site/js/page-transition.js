@@ -214,8 +214,8 @@
     },5000);
   };
 
-  const settleMobileHome = () => {
-    if(!body.classList.contains("series-home") || !isMobile()) return;
+  const settleHome = () => {
+    if(!body.classList.contains("series-home")) return;
 
     const params=new URLSearchParams(location.search);
     const returning=params.get("adrReturn")==="episodes";
@@ -238,7 +238,7 @@
       cleanUrl.searchParams.delete("adrReturn");
       cleanUrl.hash="";
       history.replaceState(null,"",cleanUrl.pathname + (cleanUrl.search || ""));
-    }else{
+    }else if(isMobile()){
       if(location.hash){
         history.replaceState(null,"",location.pathname+location.search);
       }
@@ -253,12 +253,12 @@
       }
 
       requestAnimationFrame(() => {
-        root.classList.remove("mobile-home-return","mobile-home-reset");
+        root.classList.remove("home-episodes-return","mobile-home-reset");
       });
     });
   };
 
-  settleMobileHome();
+  settleHome();
 
   document.addEventListener("click",event => {
     const link=event.target.closest("a");
@@ -283,8 +283,10 @@
       href.startsWith("index.html")
     ){
       event.preventDefault();
-      const destination=href.includes("#") ? href : "index.html#episodios";
-      animateDestination(destination,"back");
+      const requested=href.includes("#") ? href : "index.html#episodios";
+      const returnUrl=new URL(requested,window.location.href);
+      returnUrl.searchParams.set("adrReturn","episodes");
+      animateDestination(returnUrl.href,"back");
     }
   },true);
 })();
