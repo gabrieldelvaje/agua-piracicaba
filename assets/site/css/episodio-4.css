@@ -361,3 +361,73 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     width:28px;
   }
 }
+
+
+/* 2026-10-01 — acabamento da timeline EP4 copiado do EP1 */
+.ep4-timeline-item::after{
+  background:#231F20!important;
+}
+
+/* Pontos e hastes permanecem azuis, como no EP1. */
+.ep4-timeline-item::before,
+.ep4-timeline-content::before{
+  background:#0736FE!important;
+}
+
+/* Ponta triangular arredondada usada na versão final da timeline do EP1. */
+.ep4-timeline-nav::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:24px!important;
+  height:24px!important;
+  inset:auto!important;
+  border:0!important;
+  background:#0736FE!important;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M9.2 5.2C7.5 4.3 6 5.4 6 7.3v17.4c0 2 1.8 3.1 3.5 2.2l16.4-8.7c2.8-1.5 2.8-3.1 0-4.6L9.2 5.2Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M9.2 5.2C7.5 4.3 6 5.4 6 7.3v17.4c0 2 1.8 3.1 3.5 2.2l16.4-8.7c2.8-1.5 2.8-3.1 0-4.6L9.2 5.2Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  transform:translate(-50%,-50%)!important;
+}
+.ep4-timeline-nav-next::before{
+  transform:translate(-50%,-50%)!important;
+}
+.ep4-timeline-nav-prev::before{
+  transform:translate(-50%,-50%) rotate(180deg)!important;
+}
+.ep4-timeline-nav:hover::before,
+.ep4-timeline-nav:focus-visible::before{
+  transform:translate(-50%,-50%) scale(1.08)!important;
+}
+.ep4-timeline-nav-prev:hover::before,
+.ep4-timeline-nav-prev:focus-visible::before{
+  transform:translate(-50%,-50%) rotate(180deg) scale(1.08)!important;
+}
+.ep4-timeline-nav:active::before{
+  transform:translate(-50%,-50%) scale(.92)!important;
+}
+.ep4-timeline-nav-prev:active::before{
+  transform:translate(-50%,-50%) rotate(180deg) scale(.92)!important;
+}
+
+/* Mesma interrupção visual do fio antes das setas. */
+.ep4-timeline-carousel::before,
+.ep4-timeline-carousel::after{
+  width:34px!important;
+  height:26px!important;
+  background:#F3F3F1!important;
+  z-index:7!important;
+}
+
+@media(max-width:850px){
+  .ep4-timeline-nav::before{
+    width:22px!important;
+    height:22px!important;
+  }
+  .ep4-timeline-carousel::before,
+  .ep4-timeline-carousel::after{
+    width:32px!important;
+    height:26px!important;
+  }
+}
