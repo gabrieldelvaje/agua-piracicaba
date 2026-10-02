@@ -5066,3 +5066,17 @@ body.info-dialog-open{
     line-height:1.1!important;
   }
 }
+
+
+/* 2026-10-02 — cards de vazão seguem o cinza do bloco abaixo */
+.ep2-data .data-card:not(.primary){
+  background:#E9E9E5!important;
+  color:#231F20!important;
+}
+.ep2-data .data-card:not(.primary) span,
+.ep2-data .data-card:not(.primary) small{
+  color:#686565!important;
+}
+.ep2-data .data-card:not(.primary) strong{
+  color:#231F20!important;
+}
