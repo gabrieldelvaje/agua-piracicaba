@@ -5029,3 +5029,23 @@ body.info-dialog-open{
     object-position:center 30%!important;
   }
 }
+
+
+/* 2026-10-02 — Praça do Protesto: corte mais baixo */
+.ep2-legacy .legacy-photo-button img{
+  object-position:center 62%!important;
+}
+@media(max-width:900px){
+  .ep2-legacy .legacy-photo-button img{
+    object-position:center 62%!important;
+  }
+}
+
+/* Lightbox da Praça: só legenda em texto, sem seta/controle extra */
+.ep2-timeline-lightbox-caption.is-text-only .ep2-timeline-lightbox-caption-toggle,
+.ep2-timeline-lightbox-caption.is-text-only [data-ep2-timeline-lightbox-credit]{
+  display:none!important;
+}
+.ep2-timeline-lightbox-caption.is-text-only .ep2-timeline-lightbox-caption-copy{
+  padding-right:0!important;
+}
