@@ -461,3 +461,27 @@
     dialog.addEventListener('close', unlock);
   });
 })();
+
+
+// episode-two-legacy-photo-height
+(() => {
+  const section = document.querySelector('.ep2-legacy');
+  const copy = section?.querySelector('.legacy-copy');
+  const photo = section?.querySelector('.legacy-photo');
+  if (!section || !copy || !photo) return;
+
+  const syncHeight = () => {
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      photo.style.height = '';
+      return;
+    }
+    const height = Math.round(copy.getBoundingClientRect().height);
+    if (height > 0) photo.style.height = height + 'px';
+  };
+
+  const observer = 'ResizeObserver' in window ? new ResizeObserver(syncHeight) : null;
+  observer?.observe(copy);
+  window.addEventListener('resize', syncHeight);
+  window.addEventListener('load', syncHeight);
+  requestAnimationFrame(syncHeight);
+})();
