@@ -1,171 +1,270 @@
-# Quanta água Piracicaba bebe?
+# Águas do Rio Piracicaba
 
-Projeto de **análise de dados e data storytelling** da série *Piracicaba Data Stories*, investigando consumo, produção, distribuição, perdas e infraestrutura do sistema de abastecimento de água do município.
+Série documental e projeto de **data storytelling sobre a relação de Piracicaba com a água e com os rios que abastecem, atravessam e ajudam a definir a cidade**.
 
-A pergunta que iniciou o projeto foi simples:
+O projeto combina **história local, dados públicos, documentos, jornais, fotografias, planejamento urbano e pesquisa acadêmica** em uma experiência web dividida em episódios.
 
-> **Piracicaba está consumindo água demais?**
+**Site:** https://gabrieldelvaje.github.io/agua-piracicaba/
 
-Os dados mostram uma história mais complexa. O consumo médio por economia residencial caiu, o número de unidades atendidas cresceu fortemente e os indicadores oficiais mostram perdas elevadas na distribuição. Ao mesmo tempo, o Plano Municipal de Saneamento registra ETAs operando próximas de suas capacidades.
+---
 
-![Capa](assets/carousel/01-quanta-agua-piracicaba-bebe.png)
+## Sobre o projeto
 
-## Principais achados
+A série começou com uma pergunta atual — por que Piracicaba enfrenta episódios de falta d’água? — e foi se ampliando para uma investigação histórica sobre abastecimento, poluição, Sistema Cantareira, Rio Corumbataí, enchentes, margens e cultura.
 
-- O consumo residencial médio caiu de aproximadamente **18,4 m³ por economia/mês em 1997 para 11,6 m³ em 2021**: **-36,9%**.
-- O número de economias residenciais passou de **87.183 para 177.429** no mesmo período: **+103,5%**.
-- O PMSB registra **70.719.256 m³ de água produzidos em 2022**, cerca de **70,7 bilhões de litros**.
-- O índice de perdas na distribuição foi de **53,93% em 2022**, segundo a série SNIS reproduzida no PMSB.
-- O próprio PMSB cita a média nacional de **37,78% em 2022**.
-- Em 2022, a ETA I operava em média a **467,2 L/s** frente a capacidade de 500 L/s; a ETA II a **306,1/350 L/s**; e a ETA III a **1.468,7/1.500 L/s**.
-- A rede de água passou de **1.053 km em 1990** para aproximadamente **1.727 km em 2022**.
+A proposta editorial não é apresentar os temas como blocos isolados. Cada episódio parte de uma pergunta e constrói um fio narrativo em que **uma evidência leva à seguinte**:
 
-## Carrossel
+**história → documento → dado → jornal → consequência atual**.
 
-### 1. Quanta água Piracicaba bebe?
-![Slide 1](assets/carousel/01-quanta-agua-piracicaba-bebe.png)
+Os episódios usam fontes públicas e acadêmicas sempre que possível e preservam diferenças de período, escala e metodologia entre os dados.
 
-### 2. Cada economia residencial consome menos água
-![Slide 2](assets/carousel/02-consumo-residencial-por-economia.png)
+---
 
-### 3. A cidade atende muito mais unidades
-![Slide 3](assets/carousel/03-mais-economias-residenciais.png)
+## Episódios
 
-### 4. Produzir água não é o mesmo que entregar
-![Slide 4](assets/carousel/04-produzir-nao-e-entregar.png)
+### EP01 — Por que está faltando água em Piracicaba?
 
-### 5. O maior problema está nas perdas
-![Slide 5](assets/carousel/05-perdas-na-distribuicao.png)
+Investiga o sistema atual de abastecimento e testa algumas explicações comuns para a falta d’água.
 
-### 6. A rede cresceu e as ETAs operavam próximas do limite
-![Slide 6](assets/carousel/06-rede-e-etas-no-limite.png)
+O episódio passa por consumo residencial, crescimento do número de economias atendidas, perdas na distribuição, capacidade das estações de tratamento, expansão da rede e a história da infraestrutura de água da cidade.
 
-### 7. Em resumo
-![Slide 7](assets/carousel/07-em-resumo.png)
+**Página:** [episodio-1.html](episodio-1.html)
 
-## Bases convertidas para CSV
+---
 
-Os PDFs enviados foram transformados em arquivos tabulares limpos dentro de `data/clean/`.
+### EP02 — O desvio que mudou o Rio Piracicaba
 
-| Arquivo | Período | Conteúdo |
-|---|---|---|
-| `consumo_agua_por_categoria_1990_2022.csv` | 1990-2022 | volume consumido por categoria |
-| `economias_agua_por_categoria_1997_2022.csv` | 1997-2022 | economias/unidades consumidoras por categoria |
-| `populacao_faixa_etaria_1980_2050.csv` | 1980-2050 | estimativa populacional por faixa etária |
-| `populacao_faixa_etaria_long_1980_2050.csv` | 1980-2050 | mesma base em formato longo |
-| `extensao_rede_agua_esgoto_1976_2022.csv` | 1976-2022 | expansão e extensão existente das redes |
-| `ligacoes_agua_esgoto_por_categoria_2000_2022.csv` | 2000-2022 | ligações médias mensais por categoria |
-| `precipitacao_mensal_1917_2022.csv` | 1917-2022 | precipitação mensal |
-| `precipitacao_anual_1917_2022.csv` | 1917-2022 | médias e totais anuais de chuva |
-| `producao_distribuicao_agua_1989_2022.csv` | 1989-2022 | produção e distribuição anual |
-| `vazao_rio_piracicaba_1989_2019.csv` | 1989-2019 | vazões média, mínima e máxima |
-| `pmsb_*.csv` | 2010-2023 | tabelas selecionadas do PMSB 2026 |
+Reconstrói a crise ambiental das décadas de 1960 e 1970, a industrialização, a poluição do rio, a implantação do Sistema Cantareira e o protesto que culminou no enterro simbólico do Rio Piracicaba em 1978.
 
-## Dados processados
+O episódio cruza séries hidrológicas, jornais da época, documentos históricos, depoimentos e dados sobre vazão e qualidade da água.
 
-`data/processed/` contém tabelas calculadas a partir das bases limpas:
+Também mostra como a mobilização ambiental passou a fazer parte da memória urbana de Piracicaba.
 
-- `consumo_residencial_por_economia_1997_2021.csv`;
-- `chuva_vazao_1989_2019.csv`;
-- `serie_sistema_agua_1990_2021.csv`;
-- `carousel_metrics.csv`.
+**Página:** [episodio-2.html](episodio-2.html)
 
-## Metodologia
+---
 
-### Consumo residencial por economia
+### EP03 — Por que Piracicaba foi buscar água no Corumbataí?
 
-O indicador do slide 2 é calculado por:
+Conta como um segundo rio deixou de ser alternativa e se tornou o principal manancial de abastecimento da cidade.
 
-```text
-consumo residencial anual (m³)
----------------------------------
- economias residenciais × 12
-```
+A narrativa acompanha o Projeto Corumbataí desde os levantamentos dos anos 1970, a entrada em operação da ETA Capim Fino em 1982, a tentativa de concentrar o abastecimento no Corumbataí em 2000, a produção das ETAs, a estiagem de 2024 e a nova ampliação da estação em 2026.
 
-Em 1997:
+O episódio também discute uma consequência da mudança: **quando a cidade passa a depender de outro rio, proteger a bacia desse manancial passa a ser parte da própria segurança hídrica**.
 
-```text
-19.268.164 / 87.183 / 12 = 18,4 m³/mês
-```
+**Página:** [episodio-3.html](episodio-3.html)
 
-Em 2021:
+Pesquisa e dados específicos do episódio:
 
-```text
-24.730.998 / 177.429 / 12 = 11,6 m³/mês
-```
+- [docs/episodio-3/](docs/episodio-3/)
+- [data/episodio-3/](data/episodio-3/)
+- [src/episodio-3/](src/episodio-3/)
 
-A variação é de aproximadamente **-36,9%**.
+---
 
-> **Economia** é o termo técnico usado pelo Semae para uma unidade consumidora atendida. Não significa “economizar água”. O carrossel usa “casa” em alguns trechos como simplificação editorial, mas o indicador correto é por **economia residencial**.
+### EP04 — O que acontece nas margens do Piracicaba?
 
-### Perdas
+Parte das enchentes para investigar a relação entre rio, várzea e cidade.
 
-A série de perdas de 2010 a 2022 foi transcrita da **Tabela 25 do PMSB 2026**, elaborada com dados da série histórica do SNIS.
+O episódio acompanha a transformação de áreas planejadas para urbanização em espaços públicos, o Projeto Beira-Rio, a recuperação de mata ciliar e iniciativas atuais de restauração.
 
-O projeto não calcula perda de distribuição usando simplesmente `produzido - consumido`, porque o indicador regulatório envolve conceitos e volumes específicos do sistema. Por isso, os percentuais publicados usam diretamente SNIS/SINISA reproduzidos no Plano.
+O fechamento amplia a discussão para a dimensão cultural: Festa do Divino, pesca artesanal, passeio de boia, memória, religião e a presença do rio na identidade de Piracicaba.
 
-### Clima e vazão
+**Página:** [episodio-4.html](episodio-4.html)
 
-As bases de precipitação (ESALQ/USP) e vazão do Rio Piracicaba (Semae) foram mantidas separadas e também combinadas em uma tabela processada apenas para facilitar análises temporais. Nenhuma correlação é tratada como causalidade.
+---
 
-## Cuidados com os dados
+## Como o site é construído
 
-Há inconsistências e períodos parciais nos documentos originais. Eles foram **preservados e sinalizados**, não corrigidos silenciosamente.
+Cada episódio combina diferentes formatos editoriais:
 
-- Nos PDFs históricos, **2022 contém apenas janeiro** em diversas tabelas.
-- A vazão do rio em **2019 cobre janeiro a outubro**.
-- A tabela histórica de produção/distribuição tem valores que merecem cautela, especialmente **2010** e **2019**; `quality_flag` registra as inconsistências detectadas.
-- A estimativa populacional SEADE antiga não deve ser misturada automaticamente com o Censo 2022. O PMSB usa **423.323 habitantes no Censo 2022**.
-- O próprio PMSB contém **dois valores diferentes para perdas em 2023**: 55,40% em um trecho e 54,50% em outro. Ambos foram preservados em `pmsb_perdas_2023_valores_conflitantes.csv`.
-- Em algumas linhas da base populacional, a soma das faixas etárias não coincide com o total publicado. O CSV inclui `diferenca_total_menos_soma` e `quality_flag`.
+- **hero documental**, com imagem histórica ou jornalística;
+- **linhas do tempo interativas**;
+- **cards de dados**;
+- **gráficos e comparações**;
+- **jornais e documentos históricos**;
+- **fotografias com lightbox e créditos**;
+- **fontes e metodologia dentro da própria página**;
+- **seções narrativas com diferentes ritmos visuais**.
 
-## Estrutura
+A identidade visual da série usa principalmente:
 
-```text
-assets/
-  carousel/
+- fundo claro: `#F3F3F1`;
+- texto: `#231F20`;
+- azul: `#0736FE`;
+- tipografia Helvetica / sans-serif.
 
-data/
-  clean/
-  processed/
+---
 
-docs/
-  carousel-story.md
-  data-dictionary.md
-  methodology.md
-  sources.md
-  validation.md
+## Estrutura do repositório
 
-src/
-  build_metrics.py
-  validate_data.py
+~~~text
+.
+├── index.html
+├── episodio-1.html
+├── episodio-2.html
+├── episodio-3.html
+├── episodio-4.html
+│
+├── assets/
+│   ├── site/
+│   │   ├── home/
+│   │   ├── cards/
+│   │   ├── episodes/
+│   │   │   ├── episodio-1/
+│   │   │   ├── episodio-2/
+│   │   │   ├── episodio-3/
+│   │   │   └── episodio-4/
+│   │   ├── shared/
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── icons/
+│   └── carousel/        # material legado da primeira versão
+│
+├── data/
+│   ├── clean/
+│   ├── processed/
+│   └── episodio-3/
+│
+├── docs/
+│   ├── episodio-3/
+│   ├── methodology.md
+│   ├── sources.md
+│   └── validation.md
+│
+└── src/
+    ├── episodio-3/
+    ├── build_metrics.py
+    └── validate_data.py
+~~~
 
-README.md
-```
+A convenção de organização das imagens e documentos está descrita em [assets/site/README.md](assets/site/README.md).
 
-## Reprodução dos indicadores
+---
 
-Os CSVs limpos são a camada de entrada do projeto. Para recalcular as principais métricas:
+## Organização da mídia
 
-```bash
+As imagens do site são organizadas por **episódio e função**:
+
+~~~text
+assets/site/episodes/episodio-2/
+├── hero/
+├── timeline/
+├── media/
+├── diagrams/
+└── documents/
+    └── jornais/
+~~~
+
+Os nomes seguem `kebab-case`, sem espaços e sem acentos. Quando a data faz parte do contexto documental, ela aparece no início do arquivo.
+
+Exemplos:
+
+~~~text
+1950-1960-jk-refinadora-paulista.jpg
+1974-sistema-cantareira.jpg
+1979-praca-protesto-ecologico.png
+2024-rio-corumbatai-estiagem.avif
+~~~
+
+---
+
+## Dados
+
+O repositório preserva as bases usadas na investigação sobre abastecimento e infraestrutura.
+
+### `data/clean/`
+
+Contém tabelas limpas extraídas ou consolidadas a partir de fontes como Semae, PMSB, SNIS/SINISA, ESALQ/USP e bases municipais.
+
+Entre elas:
+
+- consumo de água por categoria;
+- número de economias atendidas;
+- produção e distribuição de água;
+- perdas na distribuição;
+- capacidade e produção das ETAs;
+- extensão da rede;
+- precipitação;
+- vazão do Rio Piracicaba.
+
+### `data/processed/`
+
+Contém tabelas derivadas usadas nas análises, como consumo residencial por economia, séries consolidadas do sistema, chuva × vazão e indicadores calculados a partir das bases limpas.
+
+### `data/episodio-3/`
+
+Concentra os arquivos específicos usados no episódio do Corumbataí, incluindo produção por ETA, adução, indicadores, observações e manifesto de fontes.
+
+---
+
+## Metodologia e validação
+
+O projeto procura distinguir claramente:
+
+- **valor observado** de **capacidade anunciada**;
+- **produção por ETA** de **participação de um manancial no abastecimento**;
+- **dado municipal** de **dado regional**;
+- **documento histórico** de **interpretação posterior**;
+- **manchete de jornal** de **confirmação operacional**;
+- **correlação** de **causalidade**.
+
+Inconsistências encontradas nas fontes não são corrigidas silenciosamente. Quando necessário, elas são preservadas e documentadas.
+
+Detalhes adicionais:
+
+- [docs/methodology.md](docs/methodology.md)
+- [docs/validation.md](docs/validation.md)
+- [docs/sources.md](docs/sources.md)
+
+---
+
+## Reprodução das análises
+
+Os scripts principais permanecem no repositório para permitir a reprodução de parte dos indicadores:
+
+~~~bash
 python src/build_metrics.py
 python src/validate_data.py
-```
+~~~
 
-Os scripts usam apenas a biblioteca padrão do Python.
+O episódio 3 também possui uma rotina própria:
 
-## Fontes
+~~~bash
+python src/episodio-3/reproduzir.py
+~~~
 
-- Serviço Municipal de Água e Esgoto - **SEMAE Piracicaba**;
-- **Piracicaba em Dados / IPPLAP**;
-- Escola Superior de Agricultura Luiz de Queiroz - **ESALQ/USP**;
-- Fundação **SEADE**;
-- **SNIS / SINISA**;
-- **Revisão do Plano Municipal de Saneamento Básico de Piracicaba - Capítulo 4: Abastecimento de Água (fevereiro/2026)**.
+---
 
-Detalhes em [`docs/sources.md`](docs/sources.md).
+## Fontes principais
+
+A série utiliza, entre outras:
+
+- **Semae Piracicaba**;
+- **Prefeitura de Piracicaba**;
+- **IPPLAP / Piracicaba em Dados**;
+- **Plano Municipal de Saneamento Básico de Piracicaba**;
+- **Comitês e Consórcio PCJ**;
+- **ESALQ/USP e Universidade de São Paulo**;
+- **IHGP — Instituto Histórico e Geográfico de Piracicaba**;
+- **Biblioteca Nacional / Hemeroteca Digital**;
+- jornais locais e imprensa histórica;
+- artigos, dissertações e teses acadêmicas.
+
+As páginas do acervo pago do **O Estado de S. Paulo** não são reproduzidas no site; quando necessárias à narrativa, são usadas apenas referências factuais, datas e manchetes.
+
+---
+
+## Material legado
+
+A pasta [assets/carousel/](assets/carousel/) preserva o carrossel que deu origem à primeira investigação sobre abastecimento.
+
+Ele **não é mais o produto principal do projeto**. A versão atual é o site documental **Águas do Rio Piracicaba**, desenvolvido e ampliado em episódios.
+
+---
 
 ## Autor
 
-**Gabriel Delvaje**  
-*Piracicaba Data Stories*
+**Gabriel Delvaje**
+
+Projeto independente de jornalismo de dados, história local e visualização de informações sobre Piracicaba.
