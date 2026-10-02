@@ -4999,3 +4999,33 @@ body.info-dialog-open{
     aspect-ratio:4/3!important;
   }
 }
+
+
+/* 2026-10-02 — Praça do Protesto: enquadramento mais alto + lightbox */
+.ep2-legacy .legacy-photo-button{
+  display:block;
+  width:100%;
+  height:100%;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:zoom-in;
+}
+.ep2-legacy .legacy-photo-button img{
+  display:block;
+  width:100%;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 30%!important;
+}
+@media(max-width:900px){
+  .ep2-legacy .legacy-photo-button{
+    height:auto;
+  }
+  .ep2-legacy .legacy-photo-button img{
+    height:auto!important;
+    aspect-ratio:4/3!important;
+    object-fit:cover!important;
+    object-position:center 30%!important;
+  }
+}
