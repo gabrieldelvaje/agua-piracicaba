@@ -72,6 +72,7 @@
       const description = button.getAttribute('data-ep2-timeline-caption') || '';
       const creditLabel = button.getAttribute('data-ep2-timeline-credit') || '';
       const creditUrl = button.getAttribute('data-ep2-timeline-credit-url') || '';
+      const textOnly = button.getAttribute('data-ep2-timeline-caption-text-only') === 'true';
       if (!src) return;
 
       image.src = src;
@@ -92,6 +93,7 @@
         }
 
         caption.classList.remove('is-expanded');
+        caption.classList.toggle('is-text-only', textOnly);
         if (captionToggle) {
           captionToggle.setAttribute('aria-expanded', 'false');
           captionToggle.setAttribute('aria-label', 'Expandir legenda');
@@ -124,6 +126,7 @@
     if (caption) {
       caption.hidden = true;
       caption.classList.remove('is-expanded');
+      caption.classList.remove('is-text-only');
     }
     if (captionToggle) {
       captionToggle.setAttribute('aria-expanded', 'false');
