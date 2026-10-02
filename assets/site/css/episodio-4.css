@@ -524,3 +524,78 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
   .ep4-timeline-nav-prev{left:-10px!important}
   .ep4-timeline-nav-next{right:-10px!important}
 }
+
+
+/* 2026-10-01 — máscara presa à seta, como no EP1/EP2 */
+.ep4-timeline-carousel::before,
+.ep4-timeline-carousel::after{
+  display:none!important;
+}
+
+.ep4-timeline-nav{
+  position:absolute!important;
+  top:320px!important;
+  z-index:8!important;
+  width:46px!important;
+  height:46px!important;
+  overflow:visible!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+
+/* retângulo que apaga o fio atrás da seta:
+   26px = diâmetro visual da bolinha (14px + halo de 6px em cada lado) */
+.ep4-timeline-nav::after{
+  content:""!important;
+  position:absolute!important;
+  top:50%!important;
+  width:34px!important;
+  height:26px!important;
+  background:#F3F3F1!important;
+  transform:translateY(-50%)!important;
+  pointer-events:none!important;
+  z-index:0!important;
+}
+
+/* direita: começa na ponta da seta e avança para trás do corpo */
+.ep4-timeline-nav-next::after{
+  right:calc(50% - 12px)!important;
+  left:auto!important;
+}
+
+/* esquerda: espelho da mesma lógica */
+.ep4-timeline-nav-prev::after{
+  left:calc(50% - 12px)!important;
+  right:auto!important;
+}
+
+/* seta fica por cima da máscara */
+.ep4-timeline-nav::before{
+  z-index:1!important;
+}
+
+.ep4-timeline-nav-prev{
+  left:-9px!important;
+  right:auto!important;
+}
+.ep4-timeline-nav-next{
+  right:-9px!important;
+  left:auto!important;
+}
+
+@media(max-width:850px){
+  .ep4-timeline-nav{
+    width:48px!important;
+    height:48px!important;
+  }
+  .ep4-timeline-nav::after{
+    width:32px!important;
+    height:26px!important;
+  }
+  .ep4-timeline-nav-prev{
+    left:-10px!important;
+  }
+  .ep4-timeline-nav-next{
+    right:-10px!important;
+  }
+}
