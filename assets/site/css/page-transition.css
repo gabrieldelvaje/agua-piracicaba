@@ -190,3 +190,20 @@ body.route-transition-lock{
 .route-page-stage.is-promoted iframe{
   pointer-events:auto!important;
 }
+
+
+/* 2026-10-02 — evita qualquer frame vazio entre episódio e Home */
+.route-page-stage iframe{
+  opacity:0!important;
+}
+
+.route-page-stage.is-frame-ready iframe,
+.route-page-stage.is-promoted iframe{
+  opacity:1!important;
+}
+
+/* A superfície intermediária usa exatamente o fundo da seção Episódios. */
+.route-page-stage,
+.route-page-stage.from-top{
+  background:#F3F3F1!important;
+}

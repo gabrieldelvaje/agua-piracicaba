@@ -182,30 +182,46 @@
     const begin=() => {
       prepareFramePosition(frame,destination,direction);
 
-      dismissLoadingOverlay(loadingOverlay,() => {
-        /* Wait two paints so the loaded destination is fully composited before it moves onscreen. */
+      /* Force a known background inside the loaded document so the browser
+         never exposes its default white canvas between paints. */
+      try{
+        const doc=frame.contentDocument;
+        if(doc){
+          doc.documentElement.style.background="#F3F3F1";
+          if(doc.body) doc.body.style.backgroundColor="#F3F3F1";
+        }
+      }catch(_){}
+
+      let ended=false;
+      const finish=() => {
+        if(ended) return;
+        ended=true;
+        navigate();
+      };
+
+      const onEnd=event => {
+        if(event.target===stage && event.propertyName==="transform"){
+          stage.removeEventListener("transitionend",onEnd);
+          finish();
+        }
+      };
+      stage.addEventListener("transitionend",onEnd);
+
+      /* Keep the loading cover in place until the destination has been
+         positioned and composited. Then start the movement first and only
+         afterwards fade the cover, avoiding a blank frame in between. */
+      requestAnimationFrame(() => {
         requestAnimationFrame(() => {
+          stage.classList.add("is-frame-ready");
+          stage.classList.add("is-active");
+
           requestAnimationFrame(() => {
-            stage.classList.add("is-active");
+            dismissLoadingOverlay(loadingOverlay);
           });
         });
-
-        let ended=false;
-        const finish=() => {
-          if(ended) return;
-          ended=true;
-          navigate();
-        };
-
-        const onEnd=event => {
-          if(event.target===stage && event.propertyName==="transform"){
-            stage.removeEventListener("transitionend",onEnd);
-            finish();
-          }
-        };
-        stage.addEventListener("transitionend",onEnd);
-        setTimeout(finish,1100);
       });
+
+      setTimeout(finish,1100);
     };
 
     frame.addEventListener("load",begin,{once:true});
