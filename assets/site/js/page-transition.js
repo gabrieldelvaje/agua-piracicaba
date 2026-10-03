@@ -314,7 +314,9 @@
       (href.startsWith("index.html") || href.startsWith("index-en.html"))
     ){
       event.preventDefault();
-      const requested=href.includes("#") ? href : "index.html#episodios";
+      const requested=href.includes("#")
+        ? href
+        : (href.startsWith("index-en.html") ? "index-en.html#episodios" : "index.html#episodios");
       const returnUrl=new URL(requested,window.location.href);
       returnUrl.searchParams.set("adrReturn","episodes");
       animateDestination(returnUrl.href,"back");
@@ -328,6 +330,11 @@
   const body = document.body;
   if (!body.classList.contains('episode-3') && !body.classList.contains('episode-4')) return;
 
+  const navEnglish=String(document.documentElement.lang||'').toLowerCase().startsWith('en');
+  const navUi=navEnglish
+    ? {openMenu:'Open episode menu',closeMenu:'Close episode menu'}
+    : {openMenu:'Abrir menu do episódio',closeMenu:'Fechar menu do episódio'};
+
   const header = document.querySelector('.site-header');
   const toggle = header?.querySelector('.mobile-menu-toggle');
   const nav = header?.querySelector('nav');
@@ -336,14 +343,14 @@
   const closeMenu = () => {
     header.classList.remove('is-menu-open');
     toggle.setAttribute('aria-expanded','false');
-    toggle.setAttribute('aria-label',ui.openMenu);
+    toggle.setAttribute('aria-label',navUi.openMenu);
   };
 
   toggle.addEventListener('click', () => {
     const open = !header.classList.contains('is-menu-open');
     header.classList.toggle('is-menu-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? ui.closeMenu : ui.openMenu);
+    toggle.setAttribute('aria-label', open ? navUi.closeMenu : navUi.openMenu);
   });
 
   document.addEventListener('click', event => {
