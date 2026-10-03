@@ -119,3 +119,25 @@
     setup();
   }
 })();
+
+/* Fecha o dropdown ao clicar fora ou pressionar Escape. */
+(() => {
+  const closeAll = except => {
+    document.querySelectorAll('details.language-menu[open]').forEach(menu => {
+      if(menu!==except) menu.removeAttribute('open');
+    });
+  };
+
+  document.addEventListener('click', event => {
+    const menu=event.target.closest('details.language-menu');
+    if(!menu) closeAll(null);
+    else closeAll(menu);
+  });
+
+  document.addEventListener('keydown', event => {
+    if(event.key==='Escape'){
+      closeAll(null);
+      document.activeElement?.blur?.();
+    }
+  });
+})();
