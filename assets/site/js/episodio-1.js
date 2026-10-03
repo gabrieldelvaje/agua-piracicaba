@@ -1,5 +1,26 @@
-const fmt = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 1 });
-const fmtInt = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
+const ep1English = String(document.documentElement.lang||'').toLowerCase().startsWith('en');
+const ep1Locale = ep1English ? 'en-US' : 'pt-BR';
+const ep1Ui = ep1English ? {
+  unit:' m³ / customer unit / month',
+  residences:'Residential units',
+  network:'Network',
+  index:'Index ',
+  dataError:'Data could not be loaded',
+  tableError:'The table could not be loaded.',
+  openMenu:'Open episode menu',
+  closeMenu:'Close episode menu'
+} : {
+  unit:' m³ / economia / mês',
+  residences:'Residências',
+  network:'Rede',
+  index:'Índice ',
+  dataError:'Dados não carregados',
+  tableError:'Não foi possível carregar a tabela.',
+  openMenu:'Abrir menu do episódio',
+  closeMenu:'Fechar menu do episódio'
+};
+const fmt = new Intl.NumberFormat(ep1Locale, { maximumFractionDigits: 1 });
+const fmtInt = new Intl.NumberFormat(ep1Locale, { maximumFractionDigits: 0 });
 
 function parseCSV(text){
   const lines=text.trim().split(/\r?\n/); const headers=lines.shift().split(',');
@@ -205,7 +226,7 @@ async function initData(){
     ]);
     const c=cons.filter(d=>n(d.ano)<=2021).map(d=>({x:n(d.ano),y:n(d.consumo_medio_m3_por_economia_mes)}));
     document.querySelector('#consumption-start').textContent=fmt.format(c[0].y); document.querySelector('#consumption-end').textContent=fmt.format(c.at(-1).y); document.querySelector('#consumption-change').textContent=fmt.format(pct(c[0].y,c.at(-1).y))+'%';
-    drawLineChart(document.querySelector('#consumption-chart'),[{values:c,color:'#0736fe'}],{minY:10,maxY:20,interactive:true,tooltipFormat:v=>fmt.format(v)+' m³ / economia / mês'});
+    drawLineChart(document.querySelector('#consumption-chart'),[{values:c,color:'#0736fe'}],{minY:10,maxY:20,interactive:true,tooltipFormat:v=>fmt.format(v)+ep1Ui.unit});
 
     const e=econ.filter(d=>n(d.ano)>=1997&&n(d.ano)<=2021).map(d=>({x:n(d.ano),y:n(d.residencial)}));
     const r=network.filter(d=>n(d.ano)>=1997&&n(d.ano)<=2021).map(d=>({x:n(d.ano),y:n(d.agua_rede_existente_m)/1000}));
@@ -213,8 +234,8 @@ async function initData(){
     document.querySelector('#network-start').textContent=fmtInt.format(r[0].y)+' km'; document.querySelector('#network-end').textContent=fmtInt.format(r.at(-1).y)+' km'; document.querySelector('#network-growth').textContent='+'+fmt.format(pct(r[0].y,r.at(-1).y))+'%';
     const ei=e.map(d=>({x:d.x,y:d.y/e[0].y*100})); const ri=r.map(d=>({x:d.x,y:d.y/r[0].y*100}));
     drawLineChart(document.querySelector('#growth-chart'),[
-      {values:ei,color:'#0736fe',label:'Residências',tooltipFormat:v=>'Índice '+fmt.format(v)},
-      {values:ri,color:'#231f20',label:'Rede',tooltipFormat:v=>'Índice '+fmt.format(v),endpointStroke:'#fff',endpointStrokeWidth:1.5}
+      {values:ei,color:'#0736fe',label:ep1Ui.residences,tooltipFormat:v=>ep1Ui.index+fmt.format(v)},
+      {values:ri,color:'#231f20',label:ep1Ui.network,tooltipFormat:v=>ep1Ui.index+fmt.format(v),endpointStroke:'#fff',endpointStrokeWidth:1.5}
     ],{height:360,minY:90,maxY:215,yFormat:v=>fmtInt.format(v),interactive:true,tooltipGap:true});
 
     const lastLoss=loss.find(d=>d.ano==='2022');
@@ -228,7 +249,7 @@ async function initData(){
     updateWater();
 
     const validEtas=etas.filter(d=>d.unidade!=='Total'); const max=Math.max(...validEtas.map(d=>n(d.volume_m3))); const list=document.querySelector('#eta-list'); list.innerHTML=validEtas.map(d=>'<div class="eta-row"><div class="eta-head"><span>'+etaDisplayName(d.unidade)+'</span><strong>'+fmt.format(n(d.participacao_pct))+'%</strong></div><div class="eta-track"><i style="width:'+(n(d.volume_m3)/max*100)+'%"></i></div></div>').join('');
-  }catch(err){console.warn('Dados não carregados',err)}
+  }catch(err){console.warn(ep1Ui.dataError,err)}
 }
 
 const slider=document.querySelector('#tons-slider'); function updateWater(){const t=n(slider?.value||7),rate=(window.lossRate||53.93)/100, lost=t*rate, remain=t-lost;document.querySelector('#tons-value').textContent=fmtInt.format(t);document.querySelector('#water-loss').textContent=fmt.format(lost)+' t';document.querySelector('#water-remaining').textContent=fmt.format(remain)+' t'} slider?.addEventListener('input',updateWater);
@@ -254,7 +275,7 @@ async function fillConsumptionTable(){
     }).join('');
     consumptionTableLoaded=true;
   }catch(err){
-    consumptionTableBody.innerHTML='<tr><td colspan="4">Não foi possível carregar a tabela.</td></tr>';
+    consumptionTableBody.innerHTML='<tr><td colspan="4">'+ep1Ui.tableError+'</td></tr>';
   }
 }
 
@@ -351,7 +372,7 @@ async function fillGrowthTable(){
     }).join('');
     growthTableLoaded=true;
   }catch(err){
-    growthTableBody.innerHTML='<tr><td colspan="6">Não foi possível carregar a tabela.</td></tr>';
+    growthTableBody.innerHTML='<tr><td colspan="6">'+ep1Ui.tableError+'</td></tr>';
   }
 }
 
@@ -392,7 +413,7 @@ async function fillProductionTable(){
     }).join('');
     productionTableLoaded=true;
   }catch(err){
-    productionTableBody.innerHTML='<tr><td colspan="3">Não foi possível carregar a tabela.</td></tr>';
+    productionTableBody.innerHTML='<tr><td colspan="3">'+ep1Ui.tableError+'</td></tr>';
   }
 }
 
@@ -433,7 +454,7 @@ async function fillLossTable(){
     }).join('');
     lossTableLoaded=true;
   }catch(err){
-    lossTableBody.innerHTML='<tr><td colspan="5">Não foi possível carregar a tabela.</td></tr>';
+    lossTableBody.innerHTML='<tr><td colspan="5">'+ep1Ui.tableError+'</td></tr>';
   }
 }
 
@@ -877,14 +898,14 @@ initData();
   const closeMenu = () => {
     header.classList.remove('is-menu-open');
     toggle.setAttribute('aria-expanded','false');
-    toggle.setAttribute('aria-label','Abrir menu do episódio');
+    toggle.setAttribute('aria-label',ep1Ui.openMenu);
   };
 
   toggle.addEventListener('click', () => {
     const open = !header.classList.contains('is-menu-open');
     header.classList.toggle('is-menu-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Fechar menu do episódio' : 'Abrir menu do episódio');
+    toggle.setAttribute('aria-label', open ? ep1Ui.closeMenu : ep1Ui.openMenu);
   });
 
   nav.querySelectorAll('a[href^="#"]').forEach(link=>{

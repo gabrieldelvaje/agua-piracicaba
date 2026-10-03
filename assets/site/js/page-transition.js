@@ -4,6 +4,18 @@
 
   const body=document.body;
   const root=document.documentElement;
+  const english=String(root.lang||"").toLowerCase().startsWith("en");
+  const ui=english ? {
+    loading:"Loading page",
+    series:"Waters of the Piracicaba River",
+    openMenu:"Open episode menu",
+    closeMenu:"Close episode menu"
+  } : {
+    loading:"Carregando página",
+    series:"Águas do Rio Piracicaba",
+    openMenu:"Abrir menu do episódio",
+    closeMenu:"Fechar menu do episódio"
+  };
   const isMobile=() => window.matchMedia("(max-width:850px)").matches;
   let running=false;
 
@@ -70,7 +82,8 @@
 
     frame.removeAttribute("aria-hidden");
     frame.removeAttribute("tabindex");
-    frame.setAttribute("title","Águas do Rio Piracicaba");
+    const frameEnglish=String(frame.contentDocument?.documentElement?.lang||"").toLowerCase().startsWith("en");
+    frame.setAttribute("title",frameEnglish ? "Waters of the Piracicaba River" : "Águas do Rio Piracicaba");
 
     running=false;
 
@@ -96,7 +109,7 @@
     overlay.className="route-loading-overlay";
     overlay.setAttribute("role","status");
     overlay.setAttribute("aria-live","polite");
-    overlay.setAttribute("aria-label","Carregando página");
+    overlay.setAttribute("aria-label",ui.loading);
     overlay.innerHTML=
       '<div class="route-loading-indicator">' +
         '<span class="route-loading-spinner" aria-hidden="true"></span>' +
@@ -298,7 +311,7 @@
        already positioned at the episodes section. */
     if(
       !body.classList.contains("series-home") &&
-      href.startsWith("index.html")
+      (href.startsWith("index.html") || href.startsWith("index-en.html"))
     ){
       event.preventDefault();
       const requested=href.includes("#") ? href : "index.html#episodios";
@@ -323,14 +336,14 @@
   const closeMenu = () => {
     header.classList.remove('is-menu-open');
     toggle.setAttribute('aria-expanded','false');
-    toggle.setAttribute('aria-label','Abrir menu do episódio');
+    toggle.setAttribute('aria-label',ui.openMenu);
   };
 
   toggle.addEventListener('click', () => {
     const open = !header.classList.contains('is-menu-open');
     header.classList.toggle('is-menu-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Fechar menu do episódio' : 'Abrir menu do episódio');
+    toggle.setAttribute('aria-label', open ? ui.closeMenu : ui.openMenu);
   });
 
   document.addEventListener('click', event => {

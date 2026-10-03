@@ -1,3 +1,5 @@
+const ep2English = String(document.documentElement.lang||'').toLowerCase().startsWith('en');
+const ep2Ui = ep2English ? {openMenu:'Open episode menu',closeMenu:'Close episode menu'} : {openMenu:'Abrir menu do episódio',closeMenu:'Fechar menu do episódio'};
 // Episódio 2 — carregamento e lightbox da foto do protesto
 (() => {
   const media = document.querySelector('[data-protest-media]');
@@ -353,14 +355,14 @@
   const closeMenu = () => {
     header.classList.remove('is-menu-open');
     toggle.setAttribute('aria-expanded','false');
-    toggle.setAttribute('aria-label','Abrir menu do episódio');
+    toggle.setAttribute('aria-label',ep2Ui.openMenu);
   };
 
   toggle.addEventListener('click', () => {
     const open = !header.classList.contains('is-menu-open');
     header.classList.toggle('is-menu-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Fechar menu do episódio' : 'Abrir menu do episódio');
+    toggle.setAttribute('aria-label', open ? ep2Ui.closeMenu : ep2Ui.openMenu);
   });
 
   nav.querySelectorAll('a[href^="#"]').forEach(link => {
