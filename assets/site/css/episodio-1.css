@@ -4955,3 +4955,234 @@ main,
     display:inline-flex;
   }
 }
+
+
+/* 2026-10-02 — cabeçalho do EP1 igual ao EP2–EP4 */
+.episode-page.episode-1 .site-header{
+  position:sticky!important;
+  top:0!important;
+  z-index:40!important;
+  display:grid!important;
+  grid-template-columns:1fr auto 1fr!important;
+  align-items:center!important;
+  width:100%!important;
+  height:68px!important;
+  min-height:68px!important;
+  margin:0!important;
+  padding:0 max(20px,calc((100vw - 1220px)/2))!important;
+  border-bottom:1px solid rgba(35,31,32,.16)!important;
+  background:rgba(243,243,241,.92)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+.episode-page.episode-1 .site-header .back-episodes{
+  grid-column:1!important;
+  justify-self:start!important;
+}
+.episode-page.episode-1 .site-header nav{
+  grid-column:2!important;
+  justify-self:center!important;
+}
+.episode-page.episode-1 .site-header .series-title{
+  grid-column:3!important;
+  justify-self:end!important;
+  color:#231F20!important;
+  font-size:14px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  white-space:nowrap!important;
+}
+.episode-page.episode-1 .site-header .series-title strong{
+  font-weight:700!important;
+}
+.episode-page.episode-1 .mobile-menu-toggle{
+  display:none!important;
+}
+
+@media(min-width:851px){
+  .episode-page.episode-1 .site-header nav{
+    display:flex!important;
+    align-items:center!important;
+    gap:0!important;
+  }
+  .episode-page.episode-1 .site-header nav a{
+    position:relative!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    min-height:0!important;
+    padding:6px 12px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    color:rgba(35,31,32,.68)!important;
+    font-size:14px!important;
+    font-weight:500!important;
+    line-height:1!important;
+    text-decoration:none!important;
+    transform:none!important;
+  }
+  .episode-page.episode-1 .site-header nav a + a::before{
+    content:""!important;
+    position:absolute!important;
+    left:0!important;
+    top:50%!important;
+    width:1px!important;
+    height:16px!important;
+    background:rgba(35,31,32,.28)!important;
+    transform:translateY(-50%)!important;
+  }
+  .episode-page.episode-1 .site-header nav a > span{
+    display:inline-block!important;
+  }
+  .episode-page.episode-1 .site-header nav a:hover,
+  .episode-page.episode-1 .site-header nav a:focus-visible{
+    color:#0736FE!important;
+    background:transparent!important;
+  }
+  .episode-page.episode-1 .site-header nav a:hover > span,
+  .episode-page.episode-1 .site-header nav a:focus-visible > span{
+    transform:translateY(-1px)!important;
+  }
+  .episode-page.episode-1 .site-header nav a:active{
+    color:#062ED8!important;
+  }
+}
+
+@media(max-width:850px){
+  .episode-page.episode-1 .site-header{
+    --mobile-header-surface:rgba(243,243,241,.94);
+    grid-template-columns:44px minmax(0,1fr) 44px!important;
+    column-gap:10px!important;
+    min-height:64px!important;
+    height:64px!important;
+    padding:10px 14px!important;
+    overflow:visible!important;
+    background:var(--mobile-header-surface)!important;
+  }
+  .episode-page.episode-1 .site-header.is-menu-open{
+    border-bottom-color:transparent!important;
+  }
+  .episode-page.episode-1 .site-header .back-episodes{
+    grid-column:1!important;
+    width:42px!important;
+    height:42px!important;
+    min-width:42px!important;
+    min-height:42px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    font-size:0!important;
+    gap:0!important;
+  }
+  .episode-page.episode-1 .site-header .back-episodes::before{
+    content:""!important;
+    display:block!important;
+    width:20px!important;
+    height:20px!important;
+    background:#231F20!important;
+    border:0!important;
+    transform:none!important;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M11.5 2.5 5 9l6.5 6.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat!important;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M11.5 2.5 5 9l6.5 6.5' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat!important;
+  }
+  .episode-page.episode-1 .site-header .series-title{
+    grid-column:2!important;
+    justify-self:center!important;
+    max-width:none!important;
+    color:#231F20!important;
+    font-size:13px!important;
+    font-weight:500!important;
+    line-height:1.1!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+  }
+  .episode-page.episode-1 .mobile-menu-toggle{
+    grid-column:3!important;
+    justify-self:end!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:4px!important;
+    width:42px!important;
+    height:42px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:50%!important;
+    background:transparent!important;
+  }
+  .episode-page.episode-1 .mobile-menu-toggle span{
+    display:block!important;
+    width:20px!important;
+    height:2px!important;
+    border-radius:999px!important;
+    background:#231F20!important;
+  }
+  .episode-page.episode-1 .site-header.is-menu-open .mobile-menu-toggle span:nth-child(1){
+    transform:translateY(6px) rotate(45deg)!important;
+  }
+  .episode-page.episode-1 .site-header.is-menu-open .mobile-menu-toggle span:nth-child(2){
+    opacity:0!important;
+  }
+  .episode-page.episode-1 .site-header.is-menu-open .mobile-menu-toggle span:nth-child(3){
+    transform:translateY(-6px) rotate(-45deg)!important;
+  }
+  .episode-page.episode-1 .site-header nav{
+    position:absolute!important;
+    grid-column:1 / -1!important;
+    justify-self:stretch!important;
+    left:50%!important;
+    right:auto!important;
+    top:100%!important;
+    z-index:50!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:0!important;
+    width:100vw!important;
+    max-width:none!important;
+    margin:0 0 0 -50vw!important;
+    padding:8px 14px 14px!important;
+    background:var(--mobile-header-surface)!important;
+    border-top:0!important;
+    border-bottom:1px solid rgba(35,31,32,.10)!important;
+    box-shadow:none!important;
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    clip-path:inset(0 0 100% 0)!important;
+    transition:clip-path .24s ease,opacity .18s ease,visibility .24s ease!important;
+  }
+  .episode-page.episode-1 .site-header.is-menu-open nav{
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+    clip-path:inset(0 0 0 0)!important;
+  }
+  .episode-page.episode-1 .site-header nav a{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:100%!important;
+    min-height:52px!important;
+    padding:12px 8px!important;
+    border:0!important;
+    border-radius:0!important;
+    border-bottom:1px solid rgba(35,31,32,.12)!important;
+    background:transparent!important;
+    color:#231F20!important;
+    font-size:15px!important;
+    font-weight:600!important;
+    line-height:1!important;
+  }
+  .episode-page.episode-1 .site-header nav a:last-of-type{
+    border-bottom:0!important;
+  }
+}
+@media(max-width:390px){
+  .episode-page.episode-1 .site-header .series-title{
+    font-size:12px!important;
+  }
+}
