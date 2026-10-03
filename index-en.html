@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Waters of the Piracicaba River — a documentary and data series about water supply, rivers, infrastructure, and the city." />
+  <meta name="theme-color" content="#151515" />
+  <title>Waters of the Piracicaba River</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%A7%3C/text%3E%3C/svg%3E" />  <link rel="stylesheet" href="assets/site/css/series.css?v=20261002-organize" />
+<style>
+.explore-series{
+  display:inline-flex!important;
+  align-items:center;
+  gap:10px;
+  width:max-content;
+  margin-top:10px;
+  padding:12px 18px;
+  border:0;
+  border-radius:999px;
+  background:#0736FE!important;
+  color:#fff!important;
+  text-decoration:none!important;
+  font:600 12px/1 Helvetica,Arial,sans-serif;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  position:relative;
+  z-index:4;
+}
+.explore-series span{color:#fff!important;font-size:16px;line-height:1}
+.explore-series:hover{opacity:.9;transform:translateY(-1px)}
+</style>
+
+  <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20261002-return-composited" />
+
+
+<style>
+/* Evita o hero piscar antes de o retorno ser posicionado em Episódios. */
+html.home-episodes-return body.series-home{
+  visibility:hidden!important;
+}
+@media(max-width:850px){
+  html.mobile-home-reset body.series-home{
+    visibility:hidden!important;
+  }
+}
+</style>
+<script>
+(() => {
+  try{
+    if(window.self !== window.top) return;
+
+    const params=new URLSearchParams(location.search);
+    const returning=params.get("adrReturn")==="episodes";
+    const mobile=window.matchMedia("(max-width:850px)").matches;
+
+    if("scrollRestoration" in history){
+      history.scrollRestoration="manual";
+    }
+
+    if(returning){
+      document.documentElement.classList.add("home-episodes-return");
+    }else if(mobile){
+      document.documentElement.classList.add("mobile-home-reset");
+      if(location.hash){
+        history.replaceState(null,"",location.pathname+location.search);
+      }
+    }
+  }catch(_){}
+})();
+</script>
+</head>
+<body class="series-home">
+  <main>
+    <section class="home-hero" aria-labelledby="project-title">
+      <img class="home-hero-image" src="assets/site/home/hero-rio-piracicaba.jpg" alt="" />
+      <div class="home-hero-overlay" aria-hidden="true"></div>
+
+      <div class="home-hero-content">
+        <p class="home-kicker">Documentary series + data</p>
+
+        <h1 id="project-title">
+          <span>Waters of the</span>
+          <span class="title-line">Piracicaba River</span>
+        </h1>
+
+        <p class="home-lead">Four stories to understand where the water comes from, how the system changed, and why the Piracicaba River still runs through the life of the city.</p>
+
+        <p class="home-support">Public data, historical documents, and official sources organized to document the reality of each period.</p>
+
+        <a class="explore-series" href="#episodios">Explore the series </a>
+      </div>
+    </section>
+
+    <section class="episodes-section" id="episodios" aria-labelledby="episodes-title">
+      <div class="episodes-shell">
+        <div class="episodes-heading">          <h2 id="episodes-title">Episodes</h2>
+        </div>
+
+        <nav class="home-episodes" aria-label="Series episodes">
+          <a class="home-episode has-image" href="episodio-1-en.html">
+            <img class="home-episode-image" src="assets/site/cards/ep01-falta-de-agua.jpg" alt="" />
+            <div class="home-episode-meta"><span>Episode 1</span></div>
+            <h3>Why is Piracicaba running short of water?</h3>
+            <p>Consumption, losses, network growth, and the challenge of getting water all the way to the tap.</p>
+          </a>
+
+          <a class="home-episode has-image" href="episodio-2-en.html">
+            <img class="home-episode-image" src="assets/site/cards/ep02-enterro-rio-piracicaba.jpg" alt="" />
+            <div class="home-episode-meta"><span>Episode 2</span></div>
+            <h3>The diversion that changed the Piracicaba River</h3>
+            <p>The Cantareira System, river flow, pollution, and the river’s symbolic funeral.</p>
+          </a>
+
+          <a class="home-episode has-image" href="episodio-3-en.html">
+            <img class="home-episode-image" src="assets/site/cards/ep03-corumbatai-rio-seco.jpg" alt="" />
+            <div class="home-episode-meta"><span>Episode 3</span></div>
+            <h3>Why did Piracicaba turn to the Corumbataí River for water?</h3>
+            <p>How a second river became the city’s main water source.</p>
+          </a>
+
+          <a class="home-episode has-image" href="episodio-4-en.html">
+            <img class="home-episode-image" src="assets/site/cards/ep04-passeio-boia-rio-piracicaba.jpg" alt="" />
+            <div class="home-episode-meta"><span>Episode 4</span></div>
+            <h3>What happens along the banks of the Piracicaba?</h3>
+            <p>Riparian vegetation, floods, riverside occupation, revitalization, and the future of the riverfront.</p>
+          </a>
+        </nav>
+      </div>
+    </section>
+  </main>
+  <script src="assets/site/js/home.js?v=20260929-0812" defer></script>
+  <script src="assets/site/js/page-transition.js?v=20261002-return-composited"></script>
+  <nav class="language-switch" aria-label="Language"><a href="index.html">PT</a><span aria-hidden="true">/</span><strong>EN</strong></nav>
+</body>
+</html>
