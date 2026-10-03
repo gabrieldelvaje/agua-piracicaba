@@ -1673,3 +1673,131 @@ html.language-restoring body{
 .series-home > .language-switch{
   display:none!important;
 }
+
+
+/* 2026-10-02 — idioma no menu dos episódios e topo da home */
+.series-home .language-menu-home{
+  position:fixed!important;
+  top:18px!important;
+  right:18px!important;
+  bottom:auto!important;
+  left:auto!important;
+  z-index:9998!important;
+}
+@media(max-width:600px){
+  .series-home .language-menu-home{
+    top:12px!important;
+    right:12px!important;
+  }
+}
+
+/* O título da série volta a ocupar sozinho a coluna direita. */
+.episode-page .site-header > .series-title{
+  grid-column:3!important;
+  justify-self:end!important;
+  align-self:center!important;
+  margin:0!important;
+  white-space:nowrap!important;
+}
+
+/* Idioma imediatamente depois de Fonte/Sources no menu central. */
+@media(min-width:851px){
+  .episode-page .site-header nav{
+    display:flex!important;
+    align-items:center!important;
+    gap:0!important;
+  }
+
+  .episode-page .language-menu-nav{
+    position:relative!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    flex:0 0 auto!important;
+    margin-left:0!important;
+    padding-left:14px!important;
+  }
+
+  .episode-page .language-menu-nav::before{
+    content:""!important;
+    position:absolute!important;
+    left:0!important;
+    top:50%!important;
+    width:1px!important;
+    height:16px!important;
+    background:rgba(35,31,32,.28)!important;
+    transform:translateY(-50%)!important;
+  }
+
+  .episode-page .language-menu-nav summary{
+    min-width:50px!important;
+    height:30px!important;
+    padding:0 9px!important;
+    gap:6px!important;
+    border:1px solid rgba(7,54,254,.22)!important;
+    border-radius:999px!important;
+    background:rgba(7,54,254,.055)!important;
+    color:#0736FE!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    font-size:11px!important;
+  }
+
+  .episode-page .language-menu-nav summary::after{
+    border-color:#0736FE!important;
+  }
+
+  .episode-page .language-menu-nav .language-menu-popover{
+    right:0!important;
+    top:calc(100% + 8px)!important;
+  }
+}
+
+/* No menu mobile, o idioma aparece como a última linha, sem quebrar o título central. */
+@media(max-width:850px){
+  .episode-page .site-header > .series-title{
+    grid-column:2!important;
+    justify-self:center!important;
+    max-width:none!important;
+    font-size:13px!important;
+    text-align:center!important;
+  }
+
+  .episode-page .language-menu-nav{
+    position:relative!important;
+    display:flex!important;
+    justify-content:center!important;
+    width:100%!important;
+    margin:0!important;
+    padding:9px 8px 2px!important;
+    border-top:1px solid rgba(35,31,32,.12)!important;
+  }
+
+  .episode-page .language-menu-nav summary{
+    min-width:58px!important;
+    height:32px!important;
+    color:#0736FE!important;
+    border-color:rgba(7,54,254,.22)!important;
+    background:rgba(7,54,254,.055)!important;
+    box-shadow:none!important;
+  }
+
+  .episode-page .language-menu-nav summary::after{
+    border-color:#0736FE!important;
+  }
+
+  .episode-page .language-menu-nav .language-menu-popover{
+    left:50%!important;
+    right:auto!important;
+    top:calc(100% + 5px)!important;
+    transform:translateX(-50%)!important;
+  }
+}
+
+/* Neutraliza o layout intermediário antigo do header-meta. */
+.episode-page .site-header .header-meta{
+  display:contents!important;
+}
+.episode-page .language-menu-header{
+  display:none!important;
+}
