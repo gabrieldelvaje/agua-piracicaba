@@ -520,3 +520,57 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
 .ep3-turn-note-grid{
   grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr)!important;
 }
+
+
+/* 2026-10-04 — hierarquia de texto e coerência visual a partir de 2022 */
+#dados .ep3-kicker-compact{
+  margin-bottom:14px!important;
+}
+
+#dados .ep3-lead,
+#hoje .ep3-lead,
+#ampliacao .ep3-lead,
+.ep3-turn-note-grid > div:first-child > p{
+  max-width:760px!important;
+  margin:0!important;
+  font-size:18px!important;
+  font-weight:400!important;
+  line-height:1.58!important;
+  letter-spacing:0!important;
+}
+
+#dados .ep3-production-grid{
+  margin-top:44px!important;
+}
+
+#dados .ep3-production-big{
+  background:#DCDCD6!important;
+}
+
+#dados .ep3-production-big span,
+#dados .ep3-production-big small{
+  color:#686965!important;
+}
+
+#dados .ep3-bar-head{
+  font-size:14px!important;
+  font-weight:400!important;
+}
+#dados .ep3-bar-head strong{
+  font-size:14px!important;
+  font-weight:400!important;
+}
+#dados .ep3-bar-head span{
+  font-size:13px!important;
+  font-weight:400!important;
+}
+
+@media(max-width:900px){
+  #dados .ep3-lead,
+  #hoje .ep3-lead,
+  #ampliacao .ep3-lead,
+  .ep3-turn-note-grid > div:first-child > p{
+    font-size:17px!important;
+    line-height:1.55!important;
+  }
+}
