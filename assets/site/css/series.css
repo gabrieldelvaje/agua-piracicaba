@@ -1908,14 +1908,17 @@ html.language-restoring body{
   min-width:48px!important;
   height:30px!important;
   padding:0 9px!important;
-  border:1px solid rgba(7,54,254,.20)!important;
+  border:1px solid rgba(35,31,32,.42)!important;
   border-radius:999px!important;
-  background:rgba(7,54,254,.065)!important;
-  color:#0736FE!important;
+  background:transparent!important;
+  color:#231F20!important;
   box-shadow:none!important;
   backdrop-filter:none!important;
   -webkit-backdrop-filter:none!important;
   font-size:11px!important;
+}
+.site-header > .episode-header-meta .language-menu-header summary::after{
+  border-color:#231F20!important;
 }
 .site-header > .episode-header-meta .language-menu-header .language-menu-popover{
   right:0!important;
