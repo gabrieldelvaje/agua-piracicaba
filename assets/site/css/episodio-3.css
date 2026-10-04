@@ -911,3 +911,38 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     font-size:20px!important;
   }
 }
+
+
+/* 2026-10-04 — estiagem: seta e textos secundários no padrão das seções anteriores */
+.ep3-drought-comparison-arrow{
+  color:rgba(255,255,255,.62)!important;
+  font-size:42px!important;
+  font-weight:400!important;
+}
+.ep3-drought-comparison-card span,
+.ep3-drought-comparison-card small{
+  color:rgba(255,255,255,.62)!important;
+  font-weight:400!important;
+}
+.ep3-drought-result{
+  color:rgba(255,255,255,.72)!important;
+}
+.ep3-drought-result strong{
+  color:#fff!important;
+  font-weight:700!important;
+}
+.ep3-drought-compact .ep3-source,
+.ep3-drought-compact .ep3-source a{
+  color:rgba(255,255,255,.56)!important;
+  font-weight:400!important;
+}
+.ep3-drought-photo-wide figcaption,
+.ep3-drought-photo-wide figcaption a{
+  color:rgba(255,255,255,.50)!important;
+  font-weight:400!important;
+}
+@media(max-width:700px){
+  .ep3-drought-comparison-arrow{
+    font-size:30px!important;
+  }
+}
