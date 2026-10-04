@@ -486,3 +486,26 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     border-top:1px solid rgba(255,255,255,.34);
   }
 }
+
+
+/* 2026-10-04 — faixa de 2000 mantém a mesma hierarquia tipográfica do episódio */
+.ep3-turn-note h2{
+  max-width:1050px!important;
+  margin:0 0 22px!important;
+  font-size:clamp(42px,5.7vw,78px)!important;
+  font-weight:700!important;
+  line-height:.99!important;
+  letter-spacing:-.052em!important;
+}
+.ep3-turn-note-grid > div:first-child > p{
+  max-width:860px!important;
+  color:rgba(255,255,255,.78)!important;
+  font-size:clamp(21px,2.15vw,28px)!important;
+  line-height:1.4!important;
+  letter-spacing:-.02em!important;
+}
+@media(max-width:760px){
+  .ep3-turn-note h2{
+    font-size:clamp(39px,11vw,58px)!important;
+  }
+}
