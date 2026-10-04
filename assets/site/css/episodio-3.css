@@ -633,3 +633,138 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     min-height:160px!important;
   }
 }
+
+
+/* 2026-10-04 — estiagem 2024: foto 16:9 + dois cards de vazão + percentual */
+.ep3-drought-compact{
+  padding-top:96px!important;
+  padding-bottom:96px!important;
+}
+.ep3-drought-intro{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(420px,1.1fr);
+  gap:58px;
+  align-items:center;
+}
+.ep3-drought-intro-copy .ep3-title{
+  margin-bottom:24px!important;
+}
+.ep3-drought-intro-copy .ep3-lead{
+  max-width:620px!important;
+  margin:0!important;
+  font-size:18px!important;
+  font-weight:400!important;
+  line-height:1.58!important;
+  letter-spacing:0!important;
+}
+.ep3-drought-photo-wide{
+  margin:0;
+  width:100%;
+}
+.ep3-drought-photo-wide img{
+  display:block;
+  width:100%;
+  aspect-ratio:16 / 9;
+  object-fit:cover;
+  object-position:center;
+  border-radius:24px;
+  background:#292929;
+}
+.ep3-drought-photo-wide figcaption{
+  margin-top:9px;
+  color:rgba(255,255,255,.52);
+  font-size:10px;
+  line-height:1.35;
+  text-align:right;
+}
+.ep3-drought-flow-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:48px;
+}
+.ep3-drought-flow-card{
+  min-height:260px;
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  border-radius:24px;
+  background:#292929;
+}
+.ep3-drought-flow-card.is-low{
+  background:#303030;
+}
+.ep3-drought-flow-card span{
+  color:#A9A9A4;
+  font-size:12px;
+  line-height:1.4;
+}
+.ep3-drought-flow-card strong{
+  margin-top:auto;
+  color:#fff;
+  font-size:clamp(78px,9vw,124px);
+  line-height:.82;
+  letter-spacing:-.075em;
+}
+.ep3-drought-flow-card small{
+  margin-top:14px;
+  color:#A9A9A4;
+  font-size:14px;
+  line-height:1;
+}
+.ep3-drought-percent{
+  display:grid;
+  grid-template-columns:auto minmax(0,700px);
+  gap:30px;
+  align-items:end;
+  margin-top:34px;
+  padding-top:30px;
+  border-top:1px solid rgba(255,255,255,.18);
+}
+.ep3-drought-percent strong{
+  color:#9AADFF;
+  font-size:clamp(68px,9vw,122px);
+  line-height:.78;
+  letter-spacing:-.075em;
+}
+.ep3-drought-percent p{
+  margin:0 0 2px!important;
+  color:rgba(255,255,255,.78)!important;
+  font-size:18px!important;
+  font-weight:400!important;
+  line-height:1.5!important;
+  letter-spacing:0!important;
+}
+
+@media(max-width:900px){
+  .ep3-drought-compact{
+    padding-top:78px!important;
+    padding-bottom:78px!important;
+  }
+  .ep3-drought-intro{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .ep3-drought-photo-wide{
+    max-width:none;
+  }
+  .ep3-drought-flow-card{
+    min-height:220px;
+  }
+  .ep3-drought-percent{
+    grid-template-columns:1fr;
+    gap:18px;
+    align-items:start;
+  }
+}
+@media(max-width:560px){
+  .ep3-drought-flow-grid{
+    grid-template-columns:1fr;
+  }
+  .ep3-drought-flow-card{
+    min-height:190px;
+  }
+  .ep3-drought-photo-wide img{
+    border-radius:20px;
+  }
+}
