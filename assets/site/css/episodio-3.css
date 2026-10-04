@@ -768,3 +768,146 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     border-radius:20px;
   }
 }
+
+
+/* 2026-10-04 — estiagem 2024 segue o padrão comparativo histórico do EP1 */
+.ep3-drought-intro{
+  grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr)!important;
+  gap:52px!important;
+  align-items:center!important;
+}
+.ep3-drought-intro-copy .ep3-lead{
+  max-width:700px!important;
+}
+.ep3-drought-photo-wide{
+  width:100%!important;
+  max-width:430px!important;
+  justify-self:end!important;
+}
+.ep3-drought-photo-button{
+  display:block!important;
+  width:100%!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  cursor:zoom-in!important;
+}
+.ep3-drought-photo-button img{
+  display:block!important;
+  width:100%!important;
+  aspect-ratio:16 / 9!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:22px!important;
+}
+.ep3-drought-photo-wide figcaption{
+  margin-top:8px!important;
+  color:rgba(255,255,255,.52)!important;
+  font-size:10px!important;
+  line-height:1.35!important;
+  text-align:right!important;
+}
+.ep3-drought-photo-wide figcaption a{
+  color:inherit!important;
+  text-decoration:underline!important;
+  text-underline-offset:3px!important;
+}
+
+.ep3-drought-comparison{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;
+  align-items:stretch!important;
+  gap:18px!important;
+  margin:52px 0 0!important;
+}
+.ep3-drought-comparison-card{
+  min-height:190px!important;
+  padding:22px 24px!important;
+  border-radius:24px!important;
+  background:rgba(255,255,255,.12)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+}
+.ep3-drought-comparison-card span{
+  margin-bottom:auto!important;
+  color:rgba(255,255,255,.72)!important;
+  font-size:12px!important;
+  font-weight:700!important;
+  line-height:1.35!important;
+}
+.ep3-drought-comparison-card strong{
+  color:#fff!important;
+  font-size:clamp(72px,10vw,132px)!important;
+  line-height:.9!important;
+  letter-spacing:-.07em!important;
+}
+.ep3-drought-comparison-card small{
+  margin-top:8px!important;
+  color:rgba(255,255,255,.68)!important;
+  font-size:13px!important;
+  line-height:1.2!important;
+}
+.ep3-drought-comparison-arrow{
+  align-self:stretch!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  color:#fff!important;
+  font-size:48px!important;
+  line-height:1!important;
+  padding:0 4px!important;
+}
+.ep3-drought-result{
+  margin:26px 0 0!important;
+  color:rgba(255,255,255,.82)!important;
+  font-size:24px!important;
+  line-height:1.35!important;
+}
+.ep3-drought-result strong{
+  color:#fff!important;
+  font-size:1.8em!important;
+  line-height:1!important;
+  letter-spacing:-.04em!important;
+}
+
+@media(max-width:900px){
+  .ep3-drought-intro{
+    grid-template-columns:minmax(0,1fr) minmax(240px,.62fr)!important;
+    gap:28px!important;
+  }
+  .ep3-drought-photo-wide{
+    max-width:340px!important;
+  }
+}
+@media(max-width:700px){
+  .ep3-drought-intro{
+    grid-template-columns:1fr!important;
+  }
+  .ep3-drought-photo-wide{
+    max-width:100%!important;
+    justify-self:stretch!important;
+  }
+  .ep3-drought-comparison{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    margin-top:36px!important;
+  }
+  .ep3-drought-comparison-arrow{
+    width:100%!important;
+    height:34px!important;
+    font-size:32px!important;
+    transform:rotate(90deg)!important;
+  }
+  .ep3-drought-comparison-card{
+    min-height:160px!important;
+    align-items:center!important;
+    text-align:center!important;
+  }
+  .ep3-drought-comparison-card span{
+    margin:0 0 8px!important;
+  }
+  .ep3-drought-result{
+    font-size:20px!important;
+  }
+}
