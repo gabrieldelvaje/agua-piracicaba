@@ -5186,3 +5186,24 @@ main,
     font-size:12px!important;
   }
 }
+
+
+/* 2026-10-04 — centralização vertical do cabeçalho do episódio 1 */
+@media(min-width:851px){
+  body > .site-header{
+    height:68px!important;
+    min-height:68px!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+    align-items:center!important;
+  }
+  body > .site-header > .episode-header-meta{
+    height:68px!important;
+    align-items:center!important;
+    align-self:center!important;
+  }
+  body > .site-header > .episode-header-meta .series-title,
+  body > .site-header > .episode-header-meta .language-menu-header{
+    align-self:center!important;
+  }
+}
