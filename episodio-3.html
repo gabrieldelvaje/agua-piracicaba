@@ -10,7 +10,7 @@
   <link rel="preload" as="image" href="assets/site/episodes/episodio-3/hero/museu-da-agua-historico.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="assets/site/css/series.css?v=20261004-language-margin" />
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20261002-return-composited" />
-  <link rel="stylesheet" href="assets/site/css/episodio-3.css?v=20261004-drought-photo-cards" />
+  <link rel="stylesheet" href="assets/site/css/episodio-3.css?v=20261004-drought-ep1-pattern" />
   <link rel="alternate" hreflang="pt-BR" href="episodio-3.html" />
   <link rel="alternate" hreflang="en" href="episodio-3-en.html" />
   <script src="assets/site/js/language-switch.js?v=20261002-language-nav-final"></script>
@@ -216,33 +216,36 @@
         <div class="ep3-drought-intro">
           <div class="ep3-drought-intro-copy">
             <h2 class="ep3-title">Em 2024, o Corumbataí também baixou.</h2>
-            <p class="ep3-lead">A estiagem mostrou o outro lado da dependência desse manancial. No fim de setembro, o rio corria com menos da metade da vazão de referência para o período.</p>
+            <p class="ep3-lead">A estiagem mostrou o outro lado da dependência desse manancial. De janeiro a agosto, choveu 56% menos que no mesmo período de 2023 e, no fim de setembro, o rio corria muito abaixo da referência usual.</p>
           </div>
           <figure class="ep3-drought-photo-wide">
-            <img src="corumbatai seco.jpg" alt="Rio Corumbataí durante a estiagem de 2024" loading="lazy" decoding="async">
-            <figcaption>Rio Corumbataí durante a estiagem de 2024 · Jornal de Piracicaba / Sampi</figcaption>
+            <button class="ep3-drought-photo-button" type="button"
+              data-ep3-image="corumbatai seco.jpg"
+              data-ep3-alt="Rio Corumbataí durante a estiagem de 2024"
+              data-ep3-caption="Rio Corumbataí durante a estiagem de 2024. Foto: Jornal de Piracicaba / Sampi.">
+              <img src="corumbatai seco.jpg" alt="Rio Corumbataí durante a estiagem de 2024" loading="lazy" decoding="async">
+            </button>
+            <figcaption>Rio Corumbataí durante a estiagem de 2024 · <a href="https://sampi.net.br/piracicaba/noticias/2862119/cidade/2024/10/piracicaba-tem-abastecimento-afetado-e-situacao-se-agrava" target="_blank" rel="noreferrer">Jornal de Piracicaba / Sampi ↗</a></figcaption>
           </figure>
         </div>
 
-        <div class="ep3-drought-flow-grid" aria-label="Comparação da vazão do Rio Corumbataí em setembro de 2024">
-          <article class="ep3-drought-flow-card is-low">
-            <span>Vazão · 27/09/2024</span>
-            <strong>1,63</strong>
-            <small>m³/s</small>
-          </article>
-          <article class="ep3-drought-flow-card">
+        <div class="ep3-drought-comparison" aria-label="Comparação da vazão do Rio Corumbataí em setembro de 2024">
+          <div class="ep3-drought-comparison-card">
             <span>Referência usual para setembro</span>
             <strong>3,67</strong>
             <small>m³/s</small>
-          </article>
+          </div>
+          <div class="ep3-drought-comparison-arrow" aria-hidden="true">→</div>
+          <div class="ep3-drought-comparison-card">
+            <span>27/09/2024</span>
+            <strong>1,63</strong>
+            <small>m³/s</small>
+          </div>
         </div>
 
-        <div class="ep3-drought-percent">
-          <strong>−56%</strong>
-          <p>de chuva entre janeiro e agosto de 2024 em relação ao mesmo período de 2023: 516,9 mm contra 1.177,2 mm.</p>
-        </div>
+        <p class="ep3-drought-result"><strong>−55,6%</strong> na vazão do Corumbataí em relação à referência usual para setembro.</p>
 
-        <p class="ep3-source"><a href="https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/" target="_blank" rel="noreferrer">Prefeitura · chuva, vazão e captação, 27/09/2024 ↗</a> · <a href="https://sampi.net.br/piracicaba/noticias/2862119/cidade/2024/10/piracicaba-tem-abastecimento-afetado-e-situacao-se-agrava" target="_blank" rel="noreferrer">Jornal de Piracicaba / Sampi · foto e cobertura da estiagem ↗</a>. A chuva é medida pelo pluviômetro da Defesa Civil no bairro Paulista e não representa a média espacial da bacia.</p>
+        <p class="ep3-source"><a href="https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/" target="_blank" rel="noreferrer">Prefeitura · chuva, vazão e captação, 27/09/2024 ↗</a>. A chuva é medida pelo pluviômetro da Defesa Civil no bairro Paulista e não representa a média espacial da bacia.</p>
       </div>
     </section>
 
