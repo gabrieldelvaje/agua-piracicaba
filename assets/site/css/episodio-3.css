@@ -417,3 +417,72 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     min-height:0;
   }
 }
+
+
+/* 2026-10-04 — nota curta sobre a tentativa de 2000 */
+.ep3-turn-note{
+  padding:54px 0 50px;
+  background:var(--ep3-blue);
+  color:#fff;
+}
+.ep3-turn-note-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);
+  gap:58px;
+  align-items:end;
+}
+.ep3-turn-note h2{
+  max-width:760px;
+  margin:0 0 14px;
+  font-size:clamp(30px,3.5vw,48px);
+  line-height:1.03;
+  letter-spacing:-.045em;
+}
+.ep3-turn-note p{
+  max-width:700px;
+  margin:0;
+  color:rgba(255,255,255,.78);
+  font-size:16px;
+  line-height:1.52;
+}
+.ep3-turn-note-stat{
+  padding-left:22px;
+  border-left:1px solid rgba(255,255,255,.34);
+}
+.ep3-turn-note-stat strong{
+  display:block;
+  margin:0 0 8px;
+  font-size:24px;
+  line-height:1;
+  letter-spacing:-.025em;
+}
+.ep3-turn-note-stat span{
+  display:block;
+  color:rgba(255,255,255,.68);
+  font-size:12px;
+  line-height:1.45;
+}
+.ep3-turn-note .ep3-turn-note-source{
+  margin-top:20px!important;
+  color:rgba(255,255,255,.60)!important;
+  font-size:11px!important;
+}
+.ep3-turn-note .ep3-turn-note-source a{
+  color:inherit!important;
+}
+
+@media(max-width:760px){
+  .ep3-turn-note{
+    padding:42px 0;
+  }
+  .ep3-turn-note-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .ep3-turn-note-stat{
+    padding-left:0;
+    padding-top:18px;
+    border-left:0;
+    border-top:1px solid rgba(255,255,255,.34);
+  }
+}
