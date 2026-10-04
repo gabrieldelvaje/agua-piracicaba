@@ -509,3 +509,14 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     font-size:clamp(39px,11vw,58px)!important;
   }
 }
+
+
+/* 2026-10-04 — título da nota de 2000 ocupa toda a largura */
+.ep3-turn-note > .ep3-shell > h2{
+  max-width:none!important;
+  width:100%!important;
+  margin:0 0 30px!important;
+}
+.ep3-turn-note-grid{
+  grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr)!important;
+}
