@@ -946,3 +946,98 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     font-size:30px!important;
   }
 }
+
+
+/* 2026-10-05 — ampliação 2026 no mesmo padrão comparativo da estiagem */
+.ep3-expansion-compact .ep3-lead{
+  max-width:820px!important;
+  font-size:18px!important;
+  font-weight:400!important;
+  line-height:1.58!important;
+  letter-spacing:0!important;
+}
+.ep3-expansion-comparison{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:stretch;
+  gap:18px;
+  margin:52px 0 0;
+}
+.ep3-expansion-comparison-card{
+  min-height:190px;
+  padding:22px 24px;
+  border-radius:24px;
+  background:#E7E7E2;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.ep3-expansion-comparison-card.is-current{
+  background:#DCDCD6;
+}
+.ep3-expansion-comparison-card span{
+  margin-bottom:auto;
+  color:#686965;
+  font-size:12px;
+  font-weight:400;
+  line-height:1.35;
+}
+.ep3-expansion-comparison-card strong{
+  color:#231F20;
+  font-size:clamp(72px,10vw,132px);
+  line-height:.9;
+  letter-spacing:-.07em;
+}
+.ep3-expansion-comparison-card small{
+  margin-top:8px;
+  color:#686965;
+  font-size:13px;
+  line-height:1.2;
+}
+.ep3-expansion-comparison-arrow{
+  align-self:stretch;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#686965;
+  font-size:42px;
+  font-weight:400;
+  line-height:1;
+  padding:0 4px;
+}
+.ep3-expansion-result{
+  margin:26px 0 0!important;
+  color:#686965!important;
+  font-size:24px!important;
+  line-height:1.35!important;
+}
+.ep3-expansion-result strong{
+  color:#0736FE!important;
+  font-size:1.8em!important;
+  line-height:1!important;
+  letter-spacing:-.04em!important;
+}
+@media(max-width:700px){
+  .ep3-expansion-comparison{
+    grid-template-columns:1fr;
+    gap:12px;
+    margin-top:36px;
+  }
+  .ep3-expansion-comparison-arrow{
+    width:100%;
+    height:34px;
+    font-size:30px;
+    transform:rotate(90deg);
+  }
+  .ep3-expansion-comparison-card{
+    min-height:160px;
+    align-items:center;
+    text-align:center;
+  }
+  .ep3-expansion-comparison-card span{
+    margin:0 0 8px;
+  }
+  .ep3-expansion-result{
+    font-size:20px!important;
+  }
+}
