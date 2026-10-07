@@ -10,7 +10,7 @@
   <link rel="preload" as="image" href="assets/site/episodes/episodio-3/hero/museu-da-agua-historico.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="assets/site/css/series.css?v=20261004-language-margin" />
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20261002-return-composited" />
-  <link rel="stylesheet" href="assets/site/css/episodio-3.css?v=20261005-expansion-comparison" />
+  <link rel="stylesheet" href="assets/site/css/episodio-3.css?v=20261007-ending-dialog" />
   <link rel="alternate" hreflang="pt-BR" href="episodio-3.html" />
   <link rel="alternate" hreflang="en" href="episodio-3-en.html" />
   <script src="assets/site/js/language-switch.js?v=20261002-language-nav-final"></script>
@@ -272,18 +272,16 @@
       </div>
     </section>
 
-    <section class="ep3-section ep3-blue" id="protecao">
+    <section class="ep3-turn-note ep3-protection-note" id="protecao">
       <div class="ep3-shell">
-        <p class="ep3-kicker">08 · The cost of dependence</p>
-        <div class="ep3-protection-grid">
-          <div class="ep3-protection-year">1999</div>
-          <div class="ep3-protection-copy">
-            <h2 class="ep3-title">Turning to another river also created a duty to protect it.</h2>
-            <p>In October 1999, Semae began contributing financially to restoration actions in the Corumbataí basin. The logic is simple: once the source sustains the city, protecting its basin is no longer only environmental policy — it becomes part of supply security.</p>
-            <p>That does not eliminate the need to restore the Piracicaba. The current system still relies on two sources — precisely because water security also depends on redundancy.</p>
-            <p class="ep3-source"><a href="https://piracicaba.sp.gov.br/noticias/consorcio-e-semae-apresentam-balanco-sobre-cobranca-da-agua-no-corumbatai/" target="_blank" rel="noreferrer">City Hall · history of Corumbataí protection, May 16, 2006 ↗</a>.</p>
+        <h2>Turning to another river also created a duty to protect it.</h2>
+        <div class="ep3-turn-note-grid">
+          <div>
+            <p>In October 1999, Semae began contributing financially to restoration actions in the Corumbataí basin. Once the source sustains the city, protecting its basin is no longer only environmental policy; it becomes part of supply security.</p>
+            <p>That does not eliminate the need to restore the Piracicaba. The current system still relies on two sources, precisely because water security also depends on redundancy.</p>
           </div>
         </div>
+        <p class="ep3-source ep3-turn-note-source"><a href="https://piracicaba.sp.gov.br/noticias/consorcio-e-semae-apresentam-balanco-sobre-cobranca-da-agua-no-corumbatai/" target="_blank" rel="noreferrer">City Hall · history of Corumbataí protection, May 16, 2006 ↗</a>.</p>
       </div>
     </section>
 
@@ -291,7 +289,6 @@
 
     <section class="ep3-section ep3-sources" id="fontes">
       <div class="ep3-shell">
-        <p class="ep3-kicker">09 · Research</p>
         <h2 class="ep3-title">Sources and methodology.</h2>
         <div class="ep3-sources-copy">
           <p>The page separates documentary chronology, production by treatment plant, water-source shares, and drought snapshots. Percentages with different meanings are not treated as a single time series, and press announcements are checked against the operational history in the Municipal Sanitation Plan.</p>
@@ -308,9 +305,14 @@
 
   <footer class="site-footer"><span>Gabriel Delvaje · Waters of the Piracicaba River</span><span>Public data · reproducible analysis</span></footer>
 
-  <dialog id="ep3-fontes" class="ep3-dialog" aria-labelledby="ep3-fontes-title">
+  <dialog id="ep3-fontes" class="ep3-dialog ep3-info-dialog" aria-labelledby="ep3-fontes-title">
     <button class="ep3-close" data-close aria-label="Close">×</button>
-    <h2 id="ep3-fontes-title">Episode sources</h2>
+    <div class="ep3-dialog-head">
+      <h2 id="ep3-fontes-title">Episode sources</h2>
+      <p>Documents, studies and records used to build this episode.</p>
+    </div>
+    <div class="ep3-dialog-scroll">
+      <div class="ep3-dialog-content">
     <article><h3>Municipal Sanitation Plan · water-supply characterization</h3><p>Treatment Plant III’s 1982 startup, initial share, the 2000 attempt, 2022 production, and transmission limits.</p><a href="https://piracicaba.sp.gov.br/wp-content/uploads/2026/03/suplementar1-cap4.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a></article>
     <article><h3>City Council · origins of the Corumbataí Project</h3><p>Retrospective covering the 1973 surveys, start of construction in 1979, and completion in May 1982.</p><a href="https://www.camarapiracicaba.sp.gov.br/projeto-corumbatai-surgiu-no-primeiro-mandato-de-adilson-maluf-23268" target="_blank" rel="noreferrer">Open source ↗</a></article>
     <article><h3>Laura Alves Martirani · documentary research</h3><p>References to newspapers from 1978, 1979, and 2000, including A Tribuna Piracicabana of Mar. 3, 2000.</p><a href="https://teses.usp.br/teses/disponiveis/livredocencia/11/tde-15072014-152922/publico/TESE_LIVRE-DOCENCIA_Laura_A_Martirani.pdf" target="_blank" rel="noreferrer">Open thesis ↗</a></article>
@@ -318,24 +320,40 @@
     <article><h3>City Hall · 2024 drought</h3><p>Jan–Aug rainfall, Corumbataí flow, and operating conditions in September 2024.</p><a href="https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/" target="_blank" rel="noreferrer">Open source ↗</a></article>
     <article><h3>PCJ Consortium · 2026 expansion</h3><p>Capim Fino capacity expanded from 1,500 to as much as 2,000 L/s.</p><a href="https://agua.org.br/noticias/piracicaba-reforca-sistema-de-abastecimento-com-ampliacao-da-eta-capim-fino-e-novas-adutoras/" target="_blank" rel="noreferrer">Open source ↗</a></article>
     <article><h3>City Hall · Corumbataí protection</h3><p>History of Semae’s contribution to basin restoration, begun in October 1999.</p><a href="https://piracicaba.sp.gov.br/noticias/consorcio-e-semae-apresentam-balanco-sobre-cobranca-da-agua-no-corumbatai/" target="_blank" rel="noreferrer">Open source ↗</a></article>
+      </div>
+    </div>
   </dialog>
 
-  <dialog id="ep3-metodo" class="ep3-dialog" aria-labelledby="ep3-metodo-title">
+  <dialog id="ep3-metodo" class="ep3-dialog ep3-info-dialog" aria-labelledby="ep3-metodo-title">
     <button class="ep3-close" data-close aria-label="Close">×</button>
-    <h2 id="ep3-metodo-title">Methodology</h2>
+    <div class="ep3-dialog-head">
+      <h2 id="ep3-metodo-title">Methodology</h2>
+      <p>How data, historical documents and evidence were combined.</p>
+    </div>
+    <div class="ep3-dialog-scroll">
+      <div class="ep3-dialog-content">
     <article><h3>Chronology</h3><p>The 1973, 1979, and 1982 milestones come from the project retrospective and are cross-checked with the Municipal Sanitation Plan to confirm the startup of Treatment Plant III.</p></article>
     <article><h3>Production by treatment plant</h3><p>The 2022 percentages were recalculated from Table 14. The rows sum to 70,719,256 m³; the document’s running text differs by 1 m³, so the page uses the table.</p></article>
     <article><h3>River shares</h3><p>The 80% figure refers to the Sep. 17, 2024 notice. It is not converted into a time series or directly compared with Treatment Plant III’s 2022 production share.</p></article>
     <article><h3>Press</h3><p>O Estado de S. Paulo appears only by headline, date, and page. The 2000 Tribuna item was located through Martirani’s thesis and is treated as an announcement, not operational confirmation.</p></article>
+      </div>
+    </div>
   </dialog>
 
-  <dialog id="ep3-limites" class="ep3-dialog" aria-labelledby="ep3-limites-title">
+  <dialog id="ep3-limites" class="ep3-dialog ep3-info-dialog" aria-labelledby="ep3-limites-title">
     <button class="ep3-close" data-close aria-label="Close">×</button>
-    <h2 id="ep3-limites-title">Validation and limitations</h2>
+    <div class="ep3-dialog-head">
+      <h2 id="ep3-limites-title">Validation and limitations</h2>
+      <p>What the data supports and the cautions that guide interpretation.</p>
+    </div>
+    <div class="ep3-dialog-scroll">
+      <div class="ep3-dialog-content">
     <article><h3>Data from different periods</h3><p>The Municipal Sanitation Plan published in 2026 brings together diagnoses and tables from different years. Each figure is presented with its own reference date.</p></article>
     <article><h3>Rainfall</h3><p>516.9 mm and 1,177.2 mm are readings from a Civil Defense rain gauge in the Paulista neighborhood, not basin-wide precipitation averages.</p></article>
     <article><h3>Flow and abstraction</h3><p>The September 2024 values are operational snapshots. The page does not divide flow by abstraction to infer what fraction of the river was being withdrawn.</p></article>
     <article><h3>2026 capacity</h3><p>2,000 L/s is the announced post-expansion capacity, not production continuously measured at that level.</p></article>
+      </div>
+    </div>
   </dialog>
 
   <dialog id="ep3-lightbox" class="ep3-lightbox">
@@ -347,7 +365,7 @@
   </dialog>
 
   <button class="ep3-top" aria-label="Back to top">↑</button>
-  <script src="assets/site/js/episodio-3.js?v=20261001-rebuild"></script>
+  <script src="assets/site/js/episodio-3.js?v=20261007-dialog-lock"></script>
   <script src="assets/site/js/page-transition.js?v=20261002-bilingual2"></script>
 </body>
 </html>
