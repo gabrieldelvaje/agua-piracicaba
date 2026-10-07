@@ -141,3 +141,50 @@
     }
   });
 })();
+
+
+// episode-reading-progress
+(() => {
+  const setupReadingProgress = () => {
+    const header = document.querySelector('.site-header');
+    const main = document.querySelector('main');
+    if (!header || !main) return;
+
+    let progress = header.querySelector('.episode-reading-progress');
+    if (!progress) {
+      progress = document.createElement('div');
+      progress.className = 'episode-reading-progress';
+      progress.setAttribute('aria-hidden', 'true');
+      progress.innerHTML = '<span></span>';
+      header.appendChild(progress);
+    }
+
+    const fill = progress.querySelector('span');
+    if (!fill) return;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      const ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 1;
+      fill.style.transform = 'scaleX(' + ratio.toFixed(5) + ')';
+    };
+
+    const requestUpdate = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(update);
+    };
+
+    window.addEventListener('scroll', requestUpdate, { passive:true });
+    window.addEventListener('resize', requestUpdate);
+    window.addEventListener('load', requestUpdate, { once:true });
+    document.fonts?.ready?.then(requestUpdate).catch?.(() => {});
+    requestUpdate();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupReadingProgress, { once:true });
+  } else {
+    setupReadingProgress();
+  }
+})();
