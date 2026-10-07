@@ -1041,3 +1041,131 @@ dialog::backdrop{background:#0009;backdrop-filter:blur(5px)}
     font-size:20px!important;
   }
 }
+
+
+/* 2026-10-07 — fechamento clean + diálogos no padrão do EP2 */
+.ep3-protection-note .ep3-turn-note-grid{
+  grid-template-columns:minmax(0,860px)!important;
+  gap:0!important;
+}
+.ep3-protection-note .ep3-turn-note-grid > div:first-child{
+  max-width:860px;
+}
+.ep3-protection-note .ep3-turn-note-grid > div:first-child > p + p{
+  margin-top:14px!important;
+}
+.ep3-protection-note .ep3-turn-note-source{
+  max-width:860px;
+}
+
+/* Modal de fontes/metodologia: mesma arquitetura visual do EP2.
+   O dialog não rola; somente o conteúdo interno. */
+.ep3-dialog{
+  width:min(820px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  max-height:min(86vh,820px)!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:24px!important;
+  background:var(--ep3-bg)!important;
+  color:var(--ep3-ink)!important;
+  box-shadow:0 30px 90px rgba(0,0,0,.28)!important;
+  overflow:hidden!important;
+}
+.ep3-dialog::backdrop{
+  background:rgba(0,0,0,.52)!important;
+  backdrop-filter:blur(4px)!important;
+  -webkit-backdrop-filter:blur(4px)!important;
+}
+.ep3-dialog .ep3-close{
+  position:absolute!important;
+  right:20px!important;
+  top:18px!important;
+  z-index:2!important;
+  width:auto!important;
+  height:auto!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:var(--ep3-ink)!important;
+  font-size:30px!important;
+  line-height:1!important;
+  cursor:pointer!important;
+}
+.ep3-dialog-head{
+  padding:32px 64px 22px 28px;
+  border-bottom:1px solid var(--ep3-line);
+}
+.ep3-dialog .ep3-dialog-head h2{
+  margin:0 0 9px!important;
+  font-size:clamp(30px,4vw,52px)!important;
+  line-height:1!important;
+  letter-spacing:-.045em!important;
+}
+.ep3-dialog-head p{
+  margin:0!important;
+  color:var(--ep3-muted)!important;
+  font-size:13px!important;
+  line-height:1.45!important;
+}
+.ep3-dialog-scroll{
+  max-height:calc(min(86vh,820px) - 145px);
+  padding:0 28px 24px;
+  overflow:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
+.ep3-dialog-content{
+  padding:20px 0 0;
+  text-align:left;
+}
+.ep3-dialog .ep3-dialog-content article{
+  padding:20px 0!important;
+  border-top:0!important;
+  border-bottom:1px solid var(--ep3-line)!important;
+}
+.ep3-dialog .ep3-dialog-content article:first-child{
+  padding-top:4px!important;
+}
+.ep3-dialog .ep3-dialog-content article:last-child{
+  border-bottom:0!important;
+}
+.ep3-dialog .ep3-dialog-content h3{
+  margin:0 0 8px!important;
+  font-size:20px!important;
+  line-height:1.2!important;
+  letter-spacing:-.025em!important;
+}
+.ep3-dialog .ep3-dialog-content p{
+  margin:0 0 10px!important;
+  color:var(--ep3-muted)!important;
+  font-size:15px!important;
+  line-height:1.55!important;
+}
+.ep3-dialog .ep3-dialog-content a{
+  color:var(--ep3-ink)!important;
+  font-size:13px!important;
+  overflow-wrap:anywhere;
+}
+html.ep3-modal-open,
+body.ep3-modal-open{
+  overflow:hidden!important;
+}
+@media(max-width:520px){
+  .ep3-dialog{
+    width:calc(100vw - 20px)!important;
+    max-height:88vh!important;
+    border-radius:20px!important;
+  }
+  .ep3-dialog-head{
+    padding:24px 52px 18px 18px;
+  }
+  .ep3-dialog .ep3-dialog-head h2{
+    font-size:30px!important;
+  }
+  .ep3-dialog-scroll{
+    max-height:calc(88vh - 132px);
+    padding:0 18px 18px;
+  }
+}
