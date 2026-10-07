@@ -10,7 +10,7 @@
   <link rel="preload" as="image" href="assets/site/episodes/episodio-3/hero/museu-da-agua-historico.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="assets/site/css/series.css?v=20261004-language-margin" />
   <link rel="stylesheet" href="assets/site/css/page-transition.css?v=20261002-return-composited" />
-  <link rel="stylesheet" href="assets/site/css/episodio-3.css?v=20261005-expansion-comparison" />
+  <link rel="stylesheet" href="assets/site/css/episodio-3.css?v=20261007-ending-dialog" />
   <link rel="alternate" hreflang="pt-BR" href="episodio-3.html" />
   <link rel="alternate" hreflang="en" href="episodio-3-en.html" />
   <script src="assets/site/js/language-switch.js?v=20261002-language-nav-final"></script>
@@ -272,18 +272,16 @@
       </div>
     </section>
 
-    <section class="ep3-section ep3-blue" id="protecao">
+    <section class="ep3-turn-note ep3-protection-note" id="protecao">
       <div class="ep3-shell">
-        <p class="ep3-kicker">08 · O preço de depender</p>
-        <div class="ep3-protection-grid">
-          <div class="ep3-protection-year">1999</div>
-          <div class="ep3-protection-copy">
-            <h2 class="ep3-title">Buscar outro rio também criou o dever de protegê-lo.</h2>
-            <p>Em outubro de 1999, o Semae começou a contribuir financeiramente para ações de recuperação da bacia do Corumbataí. A lógica é simples: depois que o manancial passa a sustentar a cidade, preservar sua bacia deixa de ser apenas política ambiental e passa a ser parte da segurança do abastecimento.</p>
-            <p>Isso não elimina a necessidade de recuperar o Piracicaba. O sistema atual continua baseado em dois mananciais — justamente porque segurança hídrica também depende de redundância.</p>
-            <p class="ep3-source"><a href="https://piracicaba.sp.gov.br/noticias/consorcio-e-semae-apresentam-balanco-sobre-cobranca-da-agua-no-corumbatai/" target="_blank" rel="noreferrer">Prefeitura · histórico da proteção do Corumbataí, 16/05/2006 ↗</a>.</p>
+        <h2>Buscar outro rio também criou o dever de protegê-lo.</h2>
+        <div class="ep3-turn-note-grid">
+          <div>
+            <p>Em outubro de 1999, o Semae começou a contribuir financeiramente para ações de recuperação da bacia do Corumbataí. Depois que o manancial passa a sustentar a cidade, preservar sua bacia deixa de ser apenas política ambiental e passa a ser parte da segurança do abastecimento.</p>
+            <p>Isso não elimina a necessidade de recuperar o Piracicaba. O sistema atual continua baseado em dois mananciais, justamente porque segurança hídrica também depende de redundância.</p>
           </div>
         </div>
+        <p class="ep3-source ep3-turn-note-source"><a href="https://piracicaba.sp.gov.br/noticias/consorcio-e-semae-apresentam-balanco-sobre-cobranca-da-agua-no-corumbatai/" target="_blank" rel="noreferrer">Prefeitura · histórico da proteção do Corumbataí, 16/05/2006 ↗</a>.</p>
       </div>
     </section>
 
@@ -291,7 +289,6 @@
 
     <section class="ep3-section ep3-sources" id="fontes">
       <div class="ep3-shell">
-        <p class="ep3-kicker">09 · Pesquisa</p>
         <h2 class="ep3-title">Fontes e metodologia.</h2>
         <div class="ep3-sources-copy">
           <p>A página separa cronologia documental, produção por ETA, participação dos mananciais e retratos de estiagem. Percentuais de natureza diferente não são tratados como uma única série temporal, e anúncios de imprensa são confrontados com o histórico operacional do PMSB.</p>
@@ -308,9 +305,14 @@
 
   <footer class="site-footer"><span>Gabriel Delvaje · Águas do Rio Piracicaba</span><span>Dados públicos · análise reproduzível</span></footer>
 
-  <dialog id="ep3-fontes" class="ep3-dialog" aria-labelledby="ep3-fontes-title">
+  <dialog id="ep3-fontes" class="ep3-dialog ep3-info-dialog" aria-labelledby="ep3-fontes-title">
     <button class="ep3-close" data-close aria-label="Fechar">×</button>
-    <h2 id="ep3-fontes-title">Fontes do episódio</h2>
+    <div class="ep3-dialog-head">
+      <h2 id="ep3-fontes-title">Fontes do episódio</h2>
+      <p>Documentos, estudos e registros usados na construção deste episódio.</p>
+    </div>
+    <div class="ep3-dialog-scroll">
+      <div class="ep3-dialog-content">
     <article><h3>PMSB · caracterização do abastecimento</h3><p>Entrada da ETA III em 1982, participação inicial, tentativa de 2000, produção de 2022 e limites de adução.</p><a href="https://piracicaba.sp.gov.br/wp-content/uploads/2026/03/suplementar1-cap4.pdf" target="_blank" rel="noreferrer">Consultar PDF ↗</a></article>
     <article><h3>Câmara · origem do Projeto Corumbataí</h3><p>Retrospectiva com levantamentos de 1973, início das obras em 1979 e conclusão em maio de 1982.</p><a href="https://www.camarapiracicaba.sp.gov.br/projeto-corumbatai-surgiu-no-primeiro-mandato-de-adilson-maluf-23268" target="_blank" rel="noreferrer">Consultar fonte ↗</a></article>
     <article><h3>Laura Alves Martirani · pesquisa documental</h3><p>Referências aos jornais de 1978, 1979 e 2000, incluindo A Tribuna Piracicabana de 03/03/2000.</p><a href="https://teses.usp.br/teses/disponiveis/livredocencia/11/tde-15072014-152922/publico/TESE_LIVRE-DOCENCIA_Laura_A_Martirani.pdf" target="_blank" rel="noreferrer">Consultar tese ↗</a></article>
@@ -318,24 +320,40 @@
     <article><h3>Prefeitura · estiagem de 2024</h3><p>Chuva jan–ago, vazão do Corumbataí e situação operacional em setembro de 2024.</p><a href="https://piracicaba.sp.gov.br/noticias/de-janeiro-a-agosto-deste-ano-piracicaba-registrou-so-44-da-chuva-do-mesmo-periodo-de-2023/" target="_blank" rel="noreferrer">Consultar fonte ↗</a></article>
     <article><h3>Consórcio PCJ · ampliação de 2026</h3><p>Capacidade de Capim Fino ampliada de 1.500 para até 2.000 L/s.</p><a href="https://agua.org.br/noticias/piracicaba-reforca-sistema-de-abastecimento-com-ampliacao-da-eta-capim-fino-e-novas-adutoras/" target="_blank" rel="noreferrer">Consultar fonte ↗</a></article>
     <article><h3>Prefeitura · proteção do Corumbataí</h3><p>Histórico da contribuição do Semae para recuperação da bacia, iniciada em outubro de 1999.</p><a href="https://piracicaba.sp.gov.br/noticias/consorcio-e-semae-apresentam-balanco-sobre-cobranca-da-agua-no-corumbatai/" target="_blank" rel="noreferrer">Consultar fonte ↗</a></article>
+      </div>
+    </div>
   </dialog>
 
-  <dialog id="ep3-metodo" class="ep3-dialog" aria-labelledby="ep3-metodo-title">
+  <dialog id="ep3-metodo" class="ep3-dialog ep3-info-dialog" aria-labelledby="ep3-metodo-title">
     <button class="ep3-close" data-close aria-label="Fechar">×</button>
-    <h2 id="ep3-metodo-title">Metodologia</h2>
+    <div class="ep3-dialog-head">
+      <h2 id="ep3-metodo-title">Metodologia</h2>
+      <p>Como os dados, documentos históricos e evidências foram combinados.</p>
+    </div>
+    <div class="ep3-dialog-scroll">
+      <div class="ep3-dialog-content">
     <article><h3>Cronologia</h3><p>Os marcos de 1973, 1979 e 1982 vêm da retrospectiva do projeto e são cruzados com o PMSB para confirmar a entrada em operação da ETA III.</p></article>
     <article><h3>Produção por ETA</h3><p>Os percentuais de 2022 foram recalculados a partir da Tabela 14. A soma das linhas é 70.719.256 m³; o texto corrido do documento diverge em 1 m³, por isso a página adota a tabela.</p></article>
     <article><h3>Participação dos rios</h3><p>O valor de 80% refere-se ao comunicado de 17/09/2024. Não é convertido em série histórica nem comparado diretamente com a participação da ETA III em 2022.</p></article>
     <article><h3>Imprensa</h3><p>O Estadão aparece apenas por manchete, data e página. A notícia da Tribuna em 2000 foi localizada por meio da tese de Martirani e é tratada como anúncio, não como confirmação operacional.</p></article>
+      </div>
+    </div>
   </dialog>
 
-  <dialog id="ep3-limites" class="ep3-dialog" aria-labelledby="ep3-limites-title">
+  <dialog id="ep3-limites" class="ep3-dialog ep3-info-dialog" aria-labelledby="ep3-limites-title">
     <button class="ep3-close" data-close aria-label="Fechar">×</button>
-    <h2 id="ep3-limites-title">Validação e limitações</h2>
+    <div class="ep3-dialog-head">
+      <h2 id="ep3-limites-title">Validação e limitações</h2>
+      <p>O que os dados permitem afirmar e quais cuidados orientam a leitura.</p>
+    </div>
+    <div class="ep3-dialog-scroll">
+      <div class="ep3-dialog-content">
     <article><h3>Dados de épocas diferentes</h3><p>O PMSB publicado em 2026 reúne diagnósticos e tabelas de anos diferentes. Cada número é apresentado com sua própria data de referência.</p></article>
     <article><h3>Chuva</h3><p>516,9 mm e 1.177,2 mm são valores de um pluviômetro da Defesa Civil no bairro Paulista, não médias de precipitação de toda a bacia do Corumbataí.</p></article>
     <article><h3>Vazão e captação</h3><p>Os valores de setembro de 2024 são retratos operacionais. A página não divide vazão por captação para inferir qual fração do rio estava sendo retirada.</p></article>
     <article><h3>Capacidade de 2026</h3><p>2.000 L/s é capacidade anunciada após a ampliação, não produção continuamente medida nesse nível.</p></article>
+      </div>
+    </div>
   </dialog>
 
   <dialog id="ep3-lightbox" class="ep3-lightbox">
@@ -347,7 +365,7 @@
   </dialog>
 
   <button class="ep3-top" aria-label="Voltar ao topo">↑</button>
-  <script src="assets/site/js/episodio-3.js?v=20261001-rebuild"></script>
+  <script src="assets/site/js/episodio-3.js?v=20261007-dialog-lock"></script>
   <script src="assets/site/js/page-transition.js?v=20261002-bilingual2"></script>
 </body>
 </html>
