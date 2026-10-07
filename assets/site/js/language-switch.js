@@ -102,11 +102,10 @@
 
         event.preventDefault();
 
-        if(window.self!==window.top){
-          window.top.location.href=destination.href;
-        }else{
-          window.location.href=destination.href;
-        }
+        // Keep language navigation inside the current browsing context.
+        // When the series is embedded in the portfolio, this prevents the
+        // language switch from escaping the iframe and replacing the portfolio.
+        window.location.href=destination.href;
       });
     });
 
