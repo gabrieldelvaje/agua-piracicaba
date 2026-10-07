@@ -5,6 +5,7 @@
     if (!dialog) return;
     opener = button;
     dialog.showModal();
+    document.documentElement.classList.add('ep3-modal-open');
     document.body.classList.add('ep3-modal-open');
   };
 
@@ -15,6 +16,7 @@
   document.querySelectorAll('.ep3-dialog').forEach(dialog => {
     dialog.querySelector('[data-close]')?.addEventListener('click', () => dialog.close());
     dialog.addEventListener('close', () => {
+      document.documentElement.classList.remove('ep3-modal-open');
       document.body.classList.remove('ep3-modal-open');
       opener?.focus({preventScroll:true});
     });
